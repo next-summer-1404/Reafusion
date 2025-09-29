@@ -3,10 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import MainReafusionLogo from '../../assets/images/ReafusionLogo/MainReafusionLogo.jpg'
-import FillButton from "../ReusableButtons/FillButton";
-import EmptyButton from "../ReusableButtons/EmptyButton";
+import MainReafusionLogo from '../../../assets/images/ReafusionLogo/MainReafusionLogo.jpg'
+
 import Container from "../Container/Container";
+import FillButton from "../Buttons/FillButton";
+import EmptyButton from "../Buttons/EmptyButton";
 
 const links = [
   { name: "خانه", href: "/" },
