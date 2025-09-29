@@ -1,17 +1,21 @@
-import Footer from '@/components/Ui/Footer/Footer'
-import Header from '@/components/Ui/Header/Header'
-import React, { Fragment } from 'react'
+import Footer from "@/components/Ui/Footer/Footer";
+import Header from "@/components/Ui/Header/Header";
+import React, { FC, Fragment, ReactNode } from "react";
 
-const MainLayout = () => {
-    return (
-        <Fragment>
-            <Header />
-
-
-
-            <Footer />
-        </Fragment>
-    )
+interface IProps {
+  children: ReactNode;
 }
 
-export default MainLayout
+const MainLayout: FC<IProps> = ({ children }) => {
+  return (
+    <Fragment>
+      <Header />
+
+          {children}
+          
+      <Footer />
+    </Fragment>
+  );
+};
+
+export default MainLayout;

@@ -47,7 +47,7 @@ const Header = () => {
         ))}
       </div>
       <div className="flex gap-5">
-        <FillButton ButtonText={'ورود'} className={'px-6 h-[43px]'} />
+        <FillButton ButtonText={'ورود'} className={'px-6 h-[43px] text-[20px]'} />
         <EmptyButton ButtonText={'ثبت نام'} className={'px-[33px] h-[43px]'} />
       </div>
     </Container>
