@@ -8,7 +8,7 @@ import { Instagram, Linkedin, Send } from 'lucide-react'
 import Container from '../Container/Container'
 const Footer = () => {
    return (
-      <Container className='h-[435px] rounded-[24px] bg-[#0D3B66] mx-12 mt-20 mb-6'>
+      <Container className='h-[435px] rounded-[24px] bg-[#0D3B66] mx-12 mb-6 mt-20'>
          <div className='h-[275px] border-b border-white pt-9 flex justify-between'>
             <div className='space-y-7'>
                <div className='flex gap-5 text-[40px] text-[#FF7F11] font-bold '>

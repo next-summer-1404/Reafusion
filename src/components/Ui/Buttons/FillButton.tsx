@@ -3,11 +3,12 @@ import React, { FC } from "react";
 interface IProps {
   ButtonText: string;
   className?: string;
+  type?: "button" | "submit" | "reset";
 }
 
-const FillButton: FC<IProps> = ({ ButtonText, className = "" }) => {
+const FillButton: FC<IProps> = ({ ButtonText, className = "", type }) => {
   return (
-    <button className={`${className} bg-[#0D3B66] text-white text-[20px] 
+    <button type={type} className={`${className} bg-[#0D3B66] text-white 
                        text-center rounded-[40px] cursor-pointer`}>
       {ButtonText}
     </button>
