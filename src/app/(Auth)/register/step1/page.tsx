@@ -41,7 +41,7 @@ const RegisterPageStep1 = () => {
       {/* submit btn end */}
 
       {/* have acount or not */}
-      <AccountLink linkTitle='وارد شوید' linkHref='registerStep1' desc='حساب کاربری دارید ؟' />
+      <AccountLink linkTitle='وارد شوید' linkHref='/login' desc='حساب کاربری دارید ؟' />
       {/* have acount or not end*/}
 
     </AuthForm>

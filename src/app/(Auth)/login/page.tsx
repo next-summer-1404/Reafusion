@@ -52,7 +52,7 @@ const LoginPage = () => {
       {/* submit btn end */}
 
       {/* have acount or not */}
-      <AccountLink linkTitle='ثبت نام کنید' linkHref='registerStep1' desc='حساب کاربری ندارید ؟'/>
+      <AccountLink linkTitle='ثبت نام کنید' linkHref='register/step1' desc='حساب کاربری ندارید ؟'/>
       {/* have acount or not end*/}
     </AuthForm>
   )
