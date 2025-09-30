@@ -14,7 +14,7 @@ const SelectOption: FC<IProps> = ({ lable }) => {
             className="w-full p-3 bg-[#F5F5F5] indent-1 rounded-[40px] cursor-pointer text-[#777777] appearance-none"
             defaultValue=""
           >
-            <option selected>
+            <option value="" disabled>
               یک گزینه انتخاب کنید
             </option>
             <option value="rent">رهن و اجاره</option>
