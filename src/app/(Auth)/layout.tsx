@@ -13,7 +13,7 @@ const AuthLayout: FC<IChildren> = ({ children }) => {
         <div className='w-full h-screen bg-[#F3F4F6] p-12'>
             <div className='flex justify-between h-full gap-12'>
                 {/* form */}
-                <div className='flex justify-center items-center gap-40 bg-white w-[50%] rounded-[40px]'
+                <div className='bg-white w-[50%] rounded-[40px]'
                     style={{ boxShadow: '2px 4px 8px 0px rgba(0, 0, 0, 0.15)' }}>
                     {children}
                 </div>
