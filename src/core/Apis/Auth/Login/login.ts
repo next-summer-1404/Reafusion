@@ -1,4 +1,4 @@
-import { IUserLogin } from "@/core/Types/Auth/IUserLogin";
+import { IUserLogin } from "@/core/types/Auth/IUserLogin";
 import api from "@/lib/Interceptor";
 
 export const postLogin = async (loginData: IUserLogin): Promise<IUserLogin> => {
