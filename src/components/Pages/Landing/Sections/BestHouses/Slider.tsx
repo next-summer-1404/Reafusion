@@ -5,8 +5,8 @@ import React, { FC, useRef } from "react";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import LeftButton from "@/components/Ui/SliderButtons/LeftButton";
 import RightButton from "@/components/Ui/SliderButtons/RightButton";
+import LeftButton from "@/components/Ui/SliderButtons/LeftButton";
 
 interface IProps {
   filterData: IHouse[];
@@ -16,22 +16,22 @@ const Slider: FC<IProps> = ({ filterData }) => {
   const swiperRef = useRef<{ swiper: SwiperClass }>(null);
   
   // for went to next slide
-  const SlideNext = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
-    }
-  };
-
+  const handleNextSlide = () => {
+      if (swiperRef.current && swiperRef.current.swiper) {
+         swiperRef.current.swiper.slideNext();
+      }
+  }
+  
   // for went to prev slide
-  const SlidePrev = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev();
-    }
-  };
+  const handlePrevSlide = () => {
+     if (swiperRef.current && swiperRef.current.swiper) {
+       swiperRef.current.swiper.slidePrev();
+     }
+  }
 
   return (
     <div className="relative">
-      <RightButton onClick={SlidePrev} />
+      <RightButton onClick={handlePrevSlide}/>
       <Swiper 
         ref={swiperRef}
         spaceBetween={65} 
@@ -55,7 +55,7 @@ const Slider: FC<IProps> = ({ filterData }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <LeftButton onClick={SlideNext} />
+      <LeftButton onClick={handleNextSlide}/>
     </div>
   );
 };

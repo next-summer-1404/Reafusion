@@ -3,6 +3,10 @@ import Categorys from "@/components/Pages/Landing/Sections/Categorys";
 import HeroSection from "@/components/Pages/Landing/Sections/HeroSection";
 import SpecialVilas from "@/components/Pages/Landing/Sections/SpecialVilas";
 import WhyChoseUs from "@/components/Pages/Landing/Sections/WhyChoseUs";
+import BestHouses from "@/components/Pages/Landing/Sections/BestHouses";
+import OurFeatures from "@/components/Pages/Landing/Sections/OurFeatures";
+import FreeConsultation from "@/components/Pages/Landing/Sections/FreeConsultation";
+import UserOpenian from "@/components/Pages/Landing/Sections/UserOpenian";
 
 const Home = () => {
   return (
@@ -13,6 +17,13 @@ const Home = () => {
             <SpecialVilas />
       </Container>
       <WhyChoseUs />
+       <Container>
+            <BestHouses />
+            {/* اجاره ویلا در محبوب ترین مقاصد ایران */}
+            <OurFeatures />
+            <FreeConsultation />
+            <UserOpenian />
+      </Container>
     </>
   );
 };

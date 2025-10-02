@@ -15,15 +15,15 @@ const HouseCard: FC<IHouseCard> = ({ HomeName, HomeAddress, HomePrice, HomeOffer
     : 0;
 
   return (
-    <div className="border border-[#DDDDDD] w-[421px] h-[458px] rounded-[24px] overflow-hidden cursor-pointer">
+    <div className="border border-[#DDDDDD] w-[431px] h-[458px] rounded-[24px] overflow-hidden cursor-pointer">
       {/* house cover */}
       <div className="relative">
         <Image
-          src={HomeImage ? HomeImage[0] : home}
+          src={HomeImage && HomeImage[0] && HomeImage[0] !== '' ? HomeImage[0] : home}
           alt={HomeName}
           width={421}
           height={408}
-          style={{ width: "421px", height: "240px", objectFit: "cover" }}
+          style={{ width: "431px", height: "240px", objectFit: "cover" }}
         />
         {HomeOffer && (
           <div className="size-12 bg-[#FF5555] absolute top-4 left-4 text-[16px] rounded-full flex justify-center items-center text-white">

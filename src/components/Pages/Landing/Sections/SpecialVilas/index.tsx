@@ -2,13 +2,8 @@ import EmptyButton from "@/components/Ui/Buttons/EmptyButton";
 import React from "react";
 import Slider from "./Slider";
 import { GetSpecialVilas } from "@/core/Apis/GetSpecialVilas";
-import { IHouse } from "@/core/types/IHouse";
 import { AxiosResponse } from "axios";
-
-interface IApiResponse {
-  houses: IHouse[];
-  totalCount?: number;
-}
+import { IApiResponse } from "@/core/types/IApiResForGetHouses";
 
 const SpecialVilas = async () => {
   // get houses Data 
@@ -17,7 +12,6 @@ const SpecialVilas = async () => {
   
   // filter all spacials house 
   const filterData = houses.filter((items) => items.discounted_price !== null);
-  console.log('Data: ', filterData)
 
   return (
     <div className="pb-30 space-y-8">
