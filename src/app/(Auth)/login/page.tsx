@@ -8,11 +8,13 @@ import BackBtn from '@/components/Pages/AuthPages/BackBtn';
 import FormInput from './../../../components/Pages/AuthPages/Input/index';
 import AccountLink from '@/components/Pages/AuthPages/AccountLink';
 import { postLogin } from '@/core/Apis/Auth/Login/login';
+import { useRouter } from 'next/navigation';
 
 const LoginPage = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const onSubmitLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,6 +22,7 @@ const LoginPage = () => {
       const loginData = { email, password };
       const result = await postLogin(loginData);
       console.log('login Successfull :', result);
+      router.push('/');
     }
     catch (error) {
       console.error('login failed :', error)
