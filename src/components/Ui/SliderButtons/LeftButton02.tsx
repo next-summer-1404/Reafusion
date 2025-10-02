@@ -1,12 +1,8 @@
+import { IButtons } from "@/core/types/IButtons";
 import { MoveLeft } from "lucide-react";
-import React, { FC, MouseEventHandler } from "react";
+import React, { FC } from "react";
 
-interface IProps {
-  onClick: MouseEventHandler<HTMLButtonElement>;
-  disabled: boolean;
-}
-
-const LeftButton02: FC<IProps> = ({ onClick, disabled }) => {
+const LeftButton02: FC<IButtons> = ({ onClick, disabled }) => {
   return (
     <button
       disabled={disabled}
