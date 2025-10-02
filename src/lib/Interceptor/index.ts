@@ -10,10 +10,10 @@ const Api = axios.create({
 Api.interceptors.request.use(
   (config) => {
     // in the future this place fill by save token and use that
-    const token = localStorage.getItem("accessToken");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+    // const token = localStorage.getItem("accessToken");
+    // if (token) {
+    //   config.headers.Authorization = `Bearer ${token}`;
+    // }
 
     return config;
   },
