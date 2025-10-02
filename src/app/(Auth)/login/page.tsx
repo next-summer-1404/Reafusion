@@ -1,19 +1,29 @@
 'use client';
 
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import AuthForm from './../../../components/Pages/AuthPages/AuthForm/index';
 import FormTitle from './../../../components/Pages/AuthPages/FormTitle/index';
 import SubmitBtn from './../../../components/Pages/AuthPages/SubmitBtn/index';
 import BackBtn from '@/components/Pages/AuthPages/BackBtn';
 import FormInput from './../../../components/Pages/AuthPages/Input/index';
-import Link from 'next/link';
 import AccountLink from '@/components/Pages/AuthPages/AccountLink';
+import { postLogin } from '@/core/Apis/Auth/Login/login';
 
 const LoginPage = () => {
 
-  const onSubmitLogin = (e: React.FormEvent) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onSubmitLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("hi")
+    try {
+      const loginData = { email, password };
+      const result = await postLogin(loginData);
+      console.log('login Successfull :', result);
+    }
+    catch (error) {
+      console.error('login failed :', error)
+    }
   }
 
   return (
@@ -34,6 +44,8 @@ const LoginPage = () => {
         type='email'
         placeholder='ایمیل خود را وارد کنید'
         iconName='Mail'
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       {/* email input end */}
 
@@ -44,6 +56,8 @@ const LoginPage = () => {
         linkHref='/forgetPassword/step1'
         linkTitle='رمز عبور خود را فراموش کرده اید ؟'
         iconName='Eye'
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
       {/* password input end */}
 
@@ -52,7 +66,7 @@ const LoginPage = () => {
       {/* submit btn end */}
 
       {/* have acount or not */}
-      <AccountLink linkTitle='ثبت نام کنید' linkHref='register/step1' desc='حساب کاربری ندارید ؟'/>
+      <AccountLink linkTitle='ثبت نام کنید' linkHref='register/step1' desc='حساب کاربری ندارید ؟' />
       {/* have acount or not end*/}
     </AuthForm>
   )
