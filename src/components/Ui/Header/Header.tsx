@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import MainReafusionLogo from '../../../assets/images/ReafusionLogo/MainReafusionLogo.jpg'
+import MainReafusionLogo from "../../../assets/images/ReafusionLogo/MainReafusionLogo.jpg";
 
 import Container from "../Container/Container";
 import FillButton from "../Buttons/FillButton";
@@ -47,8 +47,18 @@ const Header = () => {
         ))}
       </div>
       <div className="flex gap-5">
-        <FillButton ButtonText={'ورود'} className={'px-6 h-[43px] text-[20px]'} />
-        <EmptyButton ButtonText={'ثبت نام'} className={'px-[33px] h-[43px]'} />
+        <Link href={"/login"}>
+          <FillButton
+            ButtonText={"ورود"}
+            className={"px-6 h-[43px] text-[20px]"}
+          />
+        </Link>
+        <Link href={"/register/step1"}>
+          <EmptyButton
+            ButtonText={"ثبت نام"}
+            className={"px-[33px] h-[43px]"}
+          />
+        </Link>
       </div>
     </Container>
   );
