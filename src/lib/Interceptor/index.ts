@@ -10,6 +10,10 @@ const Api = axios.create({
 Api.interceptors.request.use(
   (config) => {
     // in the future this place fill by save token and use that
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
 
     return config;
   },
@@ -18,7 +22,7 @@ Api.interceptors.request.use(
   }
 );
 // for manage all Request finish
-// for manage all Response 
+// for manage all Response
 Api.interceptors.response.use(
   (response) => {
     return response;
@@ -28,9 +32,9 @@ Api.interceptors.response.use(
       console.log("Unauthorize !, you must login egain");
     }
     // more thing in future pouya add here for beter managing
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
 );
-// for manage all Response finish  
+// for manage all Response finish
 
-export default Api
+export default Api;
