@@ -1,9 +1,20 @@
 import EmptyButton from "@/components/Ui/Buttons/EmptyButton";
 import React from "react";
+import Slider from "./Slider";
+import { GetSpecialVilas } from "@/core/Apis/GetSpecialVilas";
+import { AxiosResponse } from "axios";
+import { IApiResponse } from "@/core/types/IApiResForGetHouses";
 
-const SpecialVilas = () => {
+const SpecialVilas = async () => {
+  // get houses Data 
+  const response = await GetSpecialVilas() as AxiosResponse<IApiResponse>
+  const { houses } = response.data;
+  
+  // filter all spacials house 
+  const filterData = houses.filter((items) => items.discounted_price !== null);
+
   return (
-    <div className="pb-30">
+    <div className="pb-30 space-y-8">
       {/* section topBar */}
       <div className="flex justify-between">
         <h3 className="text-[#1E2022] text-[24px] font-bold">
@@ -13,9 +24,7 @@ const SpecialVilas = () => {
       </div>
       {/* section topBar */}
       {/* the slider of specialVilas for rent */}
-      <div className="text-center text-red-600">
-         اسلایدر ویلا ها ...
-      </div>
+      <Slider filterData={filterData}/>
       {/* the slider of specialVilas for rent end */}
     </div>
   );

@@ -1,12 +1,11 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: process.env.BASE_API_URL,
+  baseURL: process.env.NEXT_PUBLIC_BASE_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
-
 // for manage all Request
 Api.interceptors.request.use(
   (config) => {
