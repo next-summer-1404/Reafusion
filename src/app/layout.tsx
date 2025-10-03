@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 const Shabnam = localFont({
-  src: '../assets/fonts/Shabnam.ttf'
+  src: '../assets/fonts/Shabnam-FD.ttf'
 })
 
 export const metadata: Metadata = {
