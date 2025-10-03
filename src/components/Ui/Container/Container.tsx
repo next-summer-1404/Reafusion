@@ -7,7 +7,7 @@ interface IProps {
 
 const Container: FC<IProps> = ({ children, className = "" }) => {
   return (
-    <div className={`px-12 py-6 ${className}`}>
+    <div className={`px-12 py-6 max-xl:px-4 ${className}`}>
         {children}
     </div>
   )

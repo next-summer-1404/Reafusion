@@ -15,7 +15,7 @@ const HouseCard: FC<IHouseCard> = ({ HomeName, HomeAddress, HomePrice, HomeOffer
     : 0;
 
   return (
-    <div className="border border-[#DDDDDD] w-[431px] h-[458px] rounded-[24px] overflow-hidden cursor-pointer">
+    <div className="border border-[#DDDDDD] w-[431px] max-sm:w-[411px] h-[458px] rounded-[24px] overflow-hidden cursor-pointer">
       {/* house cover */}
       <div className="relative">
         <Image
