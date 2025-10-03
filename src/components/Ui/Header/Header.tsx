@@ -47,19 +47,16 @@ const Header = () => {
         ))}
       </div>
       <div className="flex gap-5 max-lg: justify-center items-center">
-        <FillButton ButtonText={'ورود'} className={'px-7 max-lg:w-[200px] h-[43px] text-[20px]'} />
-        <EmptyButton ButtonText={'ثبت نام'} className={'px-[33px] max-lg:w-[200px] h-[43px]'} />
-      <div className="flex gap-5">
         <Link href={"/login"}>
           <FillButton
             ButtonText={"ورود"}
-            className={"px-6 h-[43px] text-[20px]"}
+             className={'px-7 max-lg:w-[200px] h-[43px] text-[20px]'}
           />
         </Link>
         <Link href={"/register/step1"}>
           <EmptyButton
             ButtonText={"ثبت نام"}
-            className={"px-[33px] h-[43px]"}
+           className={'px-[33px] max-lg:w-[200px] h-[43px]'}
           />
         </Link>
       </div>
