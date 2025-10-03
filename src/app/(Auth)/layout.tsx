@@ -20,7 +20,7 @@ const AuthLayout: FC<IChildren> = ({ children }) => {
                 {/* form end */}
 
                 {/* left side */}
-                <div className='flex p-6 justify-center items-end bg-blue-600 w-[50%] rounded-[40px] bg-cover bg-center'
+                <div className='flex p-6 justify-center items-end w-[50%] rounded-[40px] bg-cover bg-center'
                     style={{ backgroundImage: `url(${backgroundImg.src})`, boxShadow: '2px 4px 8px 0px rgba(0, 0, 0, 0.15)' }}>
                     <div className='flex gap-6 w-full items-center bg-black/60 rounded-[40px] p-8'>
                         {/* users image list */}
