@@ -6,25 +6,25 @@ import { AxiosResponse } from "axios";
 import { IApiResponse } from "@/core/types/IApiResForGetHouses";
 
 const SpecialVilas = async () => {
-  // get houses Data 
-  const response = await GetSpecialVilas() as AxiosResponse<IApiResponse>
+  // get houses Data
+  const response = (await GetSpecialVilas()) as AxiosResponse<IApiResponse>;
   const { houses } = response.data;
-  
-  // filter all spacials house 
+
+  // filter all spacials house
   const filterData = houses.filter((items) => items.discounted_price !== null);
 
   return (
     <div className="pb-30 space-y-8">
       {/* section topBar */}
-      <div className="flex justify-between">
-        <h3 className="text-[#1E2022] text-[24px] font-bold">
+      <div className="flex justify-between items-center">
+        <h3 className="text-[#1E2022] text-[24px] max-md:text-[20px] font-bold">
           <span className="text-[#FF5555]">پیشنهادهای خاص</span> اجاره ویلا
         </h3>
-        <EmptyButton ButtonText="مشاهده همه" className="px-4 py-1.5"/>
+        <EmptyButton ButtonText="مشاهده همه" className="px-4 py-1.5" />
       </div>
       {/* section topBar */}
       {/* the slider of specialVilas for rent */}
-      <Slider filterData={filterData}/>
+        <Slider filterData={filterData} />
       {/* the slider of specialVilas for rent end */}
     </div>
   );

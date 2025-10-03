@@ -1,7 +1,7 @@
 "use client";
 import HouseCard from "@/components/Ui/HouseCard";
 import { IHouse } from "@/core/types/IHouse";
-import React, { FC, useRef } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,7 +14,25 @@ interface IProps {
 
 const Slider: FC<IProps> = ({ filterData }) => {
   const swiperRef = useRef<{ swiper: SwiperClass }>(null);
-  
+  const [slidesPerView, setSlidePerView] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 930) {
+        setSlidePerView(1);
+      } else if (width < 1350) {
+        setSlidePerView(2); 
+      } else {
+        setSlidePerView(3); 
+      }
+    };
+    handleResize()
+    window.addEventListener("resize", handleResize);
+    
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // for went to next slide
   const SlideNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -30,18 +48,18 @@ const Slider: FC<IProps> = ({ filterData }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative flex justify-center items-center">
       <RightButton onClick={SlidePrev} />
-      <Swiper 
+      <Swiper
         ref={swiperRef}
-        spaceBetween={65} 
-        slidesPerView={3} 
-        className="flex relative right-1"
+        spaceBetween={65}
+        slidesPerView={slidesPerView}
+        className="w-full flex relative right-1 bottom-2"
         // loop
       >
         {filterData.map((house) => (
           <SwiperSlide key={house.id}>
-            <HouseCard 
+            <HouseCard
               HomeName={house.title}
               HomeAddress={house.address}
               HomePrice={house.price}

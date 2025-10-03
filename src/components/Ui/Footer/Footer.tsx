@@ -8,21 +8,21 @@ import { Instagram, Linkedin, Send } from 'lucide-react'
 import Container from '../Container/Container'
 const Footer = () => {
    return (
-      <Container className='h-[435px] rounded-[24px] bg-[#0D3B66] mx-12 mb-6 mt-20'>
-         <div className='h-[275px] border-b border-white pt-9 flex justify-between'>
+      <Container className='mx-10 max-xl:mx-7 mb-8 mt-8 min-h-[435px] rounded-[24px] bg-[#0D3B66]'>
+         <div className='min-h-[275px] border-b border-white pt-9 flex justify-between max-xl:block'>
             <div className='space-y-7'>
-               <div className='flex gap-5 text-[40px] text-[#FF7F11] font-bold '>
+               <div className='flex gap-5 text-[40px] text-[#FF7F11] font-bold max-xl:justify-center'>
                   <Image src={MainReafusionLogo} alt='logo' width={65} height={55} className='rounded-full' />
                   ریفیوژن
                </div>
-               <p className='w-[500px] text-white text-[16px]'>ما همراه شما هستیم در مسیر اجاره، خرید و فروش ویلا؛ تا با اطمینان و آرامش، تجربه‌ای دلنشین از انتخاب اقامتگاه یا سرمایه‌گذاری به‌یادماندنی داشته باشید.</p>
-               <div className='flex gap-5'>
+               <p className='w-[500px] max-xl:w-full text-white text-[16px]'>ما همراه شما هستیم در مسیر اجاره، خرید و فروش ویلا؛ تا با اطمینان و آرامش، تجربه‌ای دلنشین از انتخاب اقامتگاه یا سرمایه‌گذاری به‌یادماندنی داشته باشید.</p>
+               <div className='flex gap-5 max-xl:justify-between max-xl:px-12'>
                   <Send className='text-white cursor-pointer' />
                   <Instagram className='text-white cursor-pointer' />
                   <Linkedin className='text-white cursor-pointer' />
                </div>
             </div>
-            <div className='flex justify-between gap-11'>
+            <div className='flex justify-around max-xl:flex-wrap gap-11 max-xl:px-10 py-10'>
                <ul className='space-y-3'>
                   <li className='text-[20px] font-bold text-[#FF7F11] indent-[-25px]'>نحوه رزرو اقامتگاه</li>
                   <li className='text-[16px] text-white indent-2 list-disc'>راهنمای رزرو اقامتگاه</li>
@@ -44,9 +44,9 @@ const Footer = () => {
                </ul>
             </div>
          </div>
-         <div className='flex justify-between items-center py-9'>
-            <p className='text-white text-[16px] '>تمام حقوق مادی و معنوی این اثر برای برند شما محفوظ است .</p>
-            <div className='flex gap-4'>
+         <div className='flex justify-between max-sm:block max-sm:space-y-8 items-center py-9'>
+            <p className='text-white text-[16px] max-sm:text-[14px]'>تمام حقوق مادی و معنوی این اثر برای برند شما محفوظ است .</p>
+            <div className='flex gap-4 max-sm:justify-center'>
                <div className='size-12 rounded-[16px] bg-white flex justify-center items-center'>
                   <Image src={Img01} alt='01' width={29} height={32} />
                </div>

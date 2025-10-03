@@ -32,18 +32,18 @@ const features = [
 
 const OurFeatures = () => {
   return (
-    <div className="flex justify-center gap-20 px-10">
+    <div className="flex justify-center max-xl:block gap-20 px-10">
       {/* section image */}
-      <div className="w-[40%] flex justify-center items-center">
+      <div className="w-[40%] max-xl:w-full flex justify-center items-center">
         <Image src={OurFeatureImage} alt="OurFeatureImage" />
       </div>
       {/* section image end */}
       {/* section contents  */}
-      <div className="w-[45%] space-y-3">
-        <h1 className="text-[32px] text-[#1E2022] font-bold">
+      <div className="w-[45%] max-xl:w-full max-xl:mt-5 space-y-3">
+        <h1 className="text-[32px] max-sm:text-[29px] text-[#1E2022] font-bold">
           ویژگی‌هایی که ما را متفاوت می‌سازد
         </h1>
-        <div className="flex flex-wrap justify-between">
+        <div className="flex flex-wrap justify-between max-xl:justify-around">
           {features.map((items) => (
             <div key={items.featureTitle} className="space-y-4 pt-8">
               <h2 className="text-[#0D3B66] text-[24px] font-bold flex gap-2 justify-center items-center">

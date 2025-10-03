@@ -4,9 +4,9 @@ import WhyChoseUsImg from '../../../../../assets/images/WhyChoseUsImg/WhyChoseUs
 
 const WhyChoseUs = () => {
   return (
-    <div className="bg-[#F5F5F5] h-[500px] px-11.5 py-11 flex justify-between items-center">
-      <div className="w-[51%] space-y-6">
-        <h2 className="text-[#0D3B66] text-[32px] font-bold">
+    <div className="bg-[#F5F5F5] min-h-[500px] px-11.5 py-11 flex justify-between items-center max-lg:block">
+      <div className="w-[51%] max-lg:w-full space-y-6">
+        <h2 className="text-[#0D3B66] text-[32px] font-bold max-sm:text-[26px]">
           چرا باید ما رو انتخاب کنید؟
         </h2>
         <p className="text-[#1E2022] text-[20px] text-justify leading-9">
@@ -19,7 +19,7 @@ const WhyChoseUs = () => {
           تنها نباشید و با خیال راحت ویلای رویایی خودتون رو پیدا کنید.
         </p>
       </div>
-      <div className="w-[35%]">
+      <div className="w-[35%] max-xl:w-[40%] max-lg:w-full max-lg:flex justify-center items-center mt-3">
          <Image src={WhyChoseUsImg} alt="whychoseusimg"/>
       </div>
     </div>

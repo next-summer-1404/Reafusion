@@ -7,6 +7,7 @@ import BestHouses from "@/components/Pages/Landing/Sections/BestHouses";
 import OurFeatures from "@/components/Pages/Landing/Sections/OurFeatures";
 import FreeConsultation from "@/components/Pages/Landing/Sections/FreeConsultation";
 import UserOpenian from "@/components/Pages/Landing/Sections/UserOpenian";
+import RentVilaInBestLocation from "@/components/Pages/Landing/Sections/RentVilaInBestLocation";
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
       <WhyChoseUs />
        <Container>
             <BestHouses />
-            {/* اجاره ویلا در محبوب ترین مقاصد ایران */}
+            <RentVilaInBestLocation />
             <OurFeatures />
             <FreeConsultation />
             <UserOpenian />
