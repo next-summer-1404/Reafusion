@@ -28,34 +28,32 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="mx-auto p-4">
-      <AuthForm action={handleSubmit}>
-        <BackBtn href="/" title="صفحه اصلی" iconName="home" />
-        <FormTitle
-          title="ورود به حساب کاربری"
-          desc="برای دسترسی به خدمات و تجربه بهتر در سایت، وارد حساب خود شوید."
-        />
+    <AuthForm action={handleSubmit}>
+      <BackBtn href="/" title="صفحه اصلی" iconName="home" />
+      <FormTitle
+        title="ورود به حساب کاربری"
+        desc="برای دسترسی به خدمات و تجربه بهتر در سایت، وارد حساب خود شوید."
+      />
 
-        <FormInput
-          type="email"
-          placeholder="ایمیل خود را وارد کنید"
-          iconName="Mail"
-          name="email"
-          helperText={error || ''} // خطای عمومی توی هر دو فیلد
-        />
-        <FormInput
-          type="password"
-          placeholder="رمز عبور خود را وارد کنید"
-          linkHref="/forgetPassword/step1"
-          linkTitle="رمز عبور خود را فراموش کرده اید؟"
-          iconName="Eye"
-          name="password"
-          helperText={error || ''} // خطای عمومی توی هر دو فیلد
-        />
-        <SubmitBtn title="ورود به حساب کاربری" disabled={isPending} />
-        <AccountLink linkTitle="ثبت نام کنید" linkHref="/register/step1" desc="حساب کاربری ندارید؟" />
-      </AuthForm>
-    </div>
+      <FormInput
+        type="email"
+        placeholder="ایمیل خود را وارد کنید"
+        iconName="Mail"
+        name="email"
+        helperText={error || ''} // خطای عمومی توی هر دو فیلد
+      />
+      <FormInput
+        type="password"
+        placeholder="رمز عبور خود را وارد کنید"
+        linkHref="/forgetPassword/step1"
+        linkTitle="رمز عبور خود را فراموش کرده اید؟"
+        iconName="Eye"
+        name="password"
+        helperText={error || ''} // خطای عمومی توی هر دو فیلد
+      />
+      <SubmitBtn title="ورود به حساب کاربری" disabled={isPending} />
+      <AccountLink linkTitle="ثبت نام کنید" linkHref="/register/step1" desc="حساب کاربری ندارید؟" />
+    </AuthForm>
   );
 };
 

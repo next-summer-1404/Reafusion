@@ -9,7 +9,7 @@ interface IProps {
 
 const AccountLink: FC<IProps> = ({ desc, linkTitle, linkHref }) => {
   return (
-    <div className='text-center'>
+    <div className='text-center max-sm:text-xs'>
       <span>{desc + " "}</span>
       <Link className='text-[#0D3B66]' href={linkHref}>{linkTitle}</Link>
     </div>
