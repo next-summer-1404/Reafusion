@@ -1,18 +1,20 @@
-import React, { FC, ReactNode } from 'react'
+import React from "react";
 
 interface IChildren {
-    children: ReactNode;
-    submit: (e: React.FormEvent) => void;
+    children: React.ReactNode;
+    action?: (formData: FormData) => Promise<void>;
 }
 
-const AuthForm: FC<IChildren> = ({ children, submit }) => {
+function AuthForm({ children, action }: IChildren) {
     return (
         <form
-            onSubmit={submit}
-            className='box-border h-full w-full flex flex-col justify-center items-center gap-10 px-12 py-6 text-[#1E2022]'>
+            action={action}
+            className="box-border h-full w-full flex flex-col justify-center items-center px-12 py-6 gap-8 max-sm:p-3 text-[#1E2022]
+            "
+        >
             {children}
         </form>
-    )
+    );
 }
 
-export default AuthForm
+export default AuthForm;

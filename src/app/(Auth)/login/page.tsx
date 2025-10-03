@@ -1,78 +1,60 @@
 'use client';
 
-import React, { Fragment, useState } from 'react'
-import AuthForm from './../../../components/Pages/AuthPages/AuthForm/index';
-import FormTitle from './../../../components/Pages/AuthPages/FormTitle/index';
-import SubmitBtn from './../../../components/Pages/AuthPages/SubmitBtn/index';
+import AuthForm from '@/components/Pages/AuthPages/AuthForm';
+import FormTitle from '@/components/Pages/AuthPages/FormTitle';
+import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import BackBtn from '@/components/Pages/AuthPages/BackBtn';
-import FormInput from './../../../components/Pages/AuthPages/Input/index';
+import FormInput from '@/components/Pages/AuthPages/Input';
 import AccountLink from '@/components/Pages/AuthPages/AccountLink';
-import { postLogin } from '@/core/Apis/Auth/Login/login';
-import { useRouter } from 'next/navigation';
+import { onSubmitLogin } from './actions';
+import { useState, useTransition } from 'react';
 
 const LoginPage = () => {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
-  const onSubmitLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const loginData = { email, password };
-      const result = await postLogin(loginData);
-      console.log('login Successfull :', result);
-      router.push('/');
-    }
-    catch (error) {
-      console.error('login failed :', error)
-    }
-  }
+  const handleSubmit = async (formData: FormData) => {
+    setError(null); // پاک کردن خطای قبلی
+    startTransition(async () => {
+      const result = await onSubmitLogin(formData);
+      if (result?.error) {
+        setError(result.error);
+      } else if (result?.success) {
+        // موفقیت لاگین (مثلاً به صفحه داشبورد برو)
+        window.location.href = '/'; // یا redirect با useRouter
+      }
+    });
+  };
 
   return (
-    <AuthForm submit={onSubmitLogin}>
-      {/* back btn */}
-      <BackBtn href='/' title='صفحه اصلی' iconName='home' />
-      {/* back btn end */}
-
-      {/* form title */}
+    <AuthForm action={handleSubmit}>
+      <BackBtn href="/" title="صفحه اصلی" iconName="home" />
       <FormTitle
-        title='ورود به حساب کاربری'
-        desc='برای دسترسی به خدمات و تجربه بهتر در سایت، وارد حساب خود شوید.'
+        title="ورود به حساب کاربری"
+        desc="برای دسترسی به خدمات و تجربه بهتر در سایت، وارد حساب خود شوید."
       />
-      {/* form title end */}
 
-      {/* email input */}
       <FormInput
-        type='email'
-        placeholder='ایمیل خود را وارد کنید'
-        iconName='Mail'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        type="email"
+        placeholder="ایمیل خود را وارد کنید"
+        iconName="Mail"
+        name="email"
+        helperText={error || ''} // خطای عمومی توی هر دو فیلد
       />
-      {/* email input end */}
-
-      {/* password input */}
       <FormInput
-        type='password'
-        placeholder='رمز عبور خود را وارد کنید'
-        linkHref='/forgetPassword/step1'
-        linkTitle='رمز عبور خود را فراموش کرده اید ؟'
-        iconName='Eye'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        type="password"
+        placeholder="رمز عبور خود را وارد کنید"
+        linkHref="/forgetPassword/step1"
+        linkTitle="رمز عبور خود را فراموش کرده اید؟"
+        iconName="Eye"
+        name="password"
+        helperText={error || ''} // خطای عمومی توی هر دو فیلد
       />
-      {/* password input end */}
-
-      {/* submit btn */}
-      <SubmitBtn title='ورود به حساب کاربری' />
-      {/* submit btn end */}
-
-      {/* have acount or not */}
-      <AccountLink linkTitle='ثبت نام کنید' linkHref='register/step1' desc='حساب کاربری ندارید ؟' />
-      {/* have acount or not end*/}
+      <SubmitBtn title="ورود به حساب کاربری" disabled={isPending} />
+      <AccountLink linkTitle="ثبت نام کنید" linkHref="/register/step1" desc="حساب کاربری ندارید؟" />
     </AuthForm>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
