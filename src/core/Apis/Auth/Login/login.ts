@@ -1,10 +1,7 @@
-import { ILoginResponse } from "@/core/Types/Auth/ILoginResponse";
-import api from "@/lib/Interceptor";
+import { ILoginResponse } from "@/core/types/Auth/ILoginResponse";
+import Api from "@/lib/Interceptor";
 
-export const postLogin = async (data: {
-  email: string;
-  password: string;
-}): Promise<ILoginResponse> => {
-  const res = await api.post("/api/auth/login", data);
+export const postLogin = async (loginData: { email: string, password: string }): Promise<ILoginResponse> => {
+  const res = await Api.post("/api/auth/login", loginData);
   return res.data;
 };
