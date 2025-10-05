@@ -18,14 +18,14 @@ const loginAction = async (state: { message: string }, formdata: FormData) => {
   "use server";
   const email = formdata.get("email") as string;
   const password = formdata.get("password") as string;
-  
+
   // conect zod to the form 
   const parseData = loginSchema.safeParse({ email, password });
 
   if (!parseData.success) {
     const errors = parseData.error.flatten().fieldErrors;
-    const message = [ errors.email?.join(", ") , 
-                      errors.password?.join(", ")].join(" | ") || "خطا در اعتبارسنجی";
+    const message = [errors.email?.join(", "),
+    errors.password?.join(", ")].join(" | ") || "خطا در اعتبارسنجی";
     return { message };
   }
   // conect zod to the form end 
@@ -35,7 +35,7 @@ const loginAction = async (state: { message: string }, formdata: FormData) => {
     const loginData = { email, password };
     const response = await postLogin(loginData);
     if (response) {
-      console.log(response); 
+      console.log(response);
       return { message: "ورود موفقیت‌آمیز بود" };
     } else {
       return { message: "پاسخ نامعتبر است" };

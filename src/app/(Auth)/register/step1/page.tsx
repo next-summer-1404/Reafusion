@@ -4,13 +4,34 @@ import BackBtn from '@/components/Pages/AuthPages/BackBtn';
 import FormTitle from '@/components/Pages/AuthPages/FormTitle';
 import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
+import { postRegisterStep1 } from '@/core/Apis/Auth/Register';
 import React from 'react'
 
+const registerStep1Action = async (state: { message: string }, formData: FormData) => {
+  'use server';
+  const email = formData.get('email') as string;
+
+  try {
+    const registerData = { email };
+    const response = await postRegisterStep1(registerData);
+
+    if (response) {
+      console.log(response);
+      return { message: "کد با موفقیت ارسال شد !" };
+    } else {
+      return { message: "پاسخ نامعتبر است" };
+    }
+  }
+  catch {
+    return { message: 'خطا در سرور' }
+  }
+
+}
 
 const RegisterPageStep1 = () => {
 
   return (
-    <AuthForm action={''}>
+    <AuthForm action={registerStep1Action}>
       {/* back btn */}
       <BackBtn href='/' title='صفحه اصلی' iconName='home' />
       {/* back btn end */}
@@ -25,6 +46,7 @@ const RegisterPageStep1 = () => {
       {/* email input */}
       <FormInput
         type='email'
+        name='email'
         placeholder='ایمیل خود را وارد کنید'
         iconName='Mail'
       />
