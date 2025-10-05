@@ -18,7 +18,6 @@ const loginAction = async (state: { message: string }, formdata: FormData) => {
   "use server";
   const email = formdata.get("email") as string;
   const password = formdata.get("password") as string;
-  
   // conect zod to the form 
   const parseData = loginSchema.safeParse({ email, password });
 
@@ -29,7 +28,6 @@ const loginAction = async (state: { message: string }, formdata: FormData) => {
     return { message };
   }
   // conect zod to the form end 
-
   // send data to APi & manage that response
   try {
     const loginData = { email, password };
@@ -48,7 +46,7 @@ const loginAction = async (state: { message: string }, formdata: FormData) => {
 
 const LoginPage = () => {
   return (
-    <AuthForm action={loginAction}>
+    <AuthForm action={loginAction} href={'/'}>
       <BackBtn href="/" title="صفحه اصلی" iconName="home" />
       <FormTitle
         title="ورود به حساب کاربری"
