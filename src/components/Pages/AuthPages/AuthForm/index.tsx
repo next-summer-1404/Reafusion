@@ -4,21 +4,22 @@ import React, { FC, useActionState, useEffect } from "react";
 interface IChildren {
   children: React.ReactNode;
   action?: string | ((state: FormState, formData: FormData) => Promise<{ message: string }>);
+  href?: string;
 }
 interface FormState {
   message: string;
 }
 
-const AuthForm: FC<IChildren> = ({ children, action }) => {
+const AuthForm: FC<IChildren> = ({ children, action, href }) => {
   const initialState: FormState = { message: "" };
   const [state, formAction] = useActionState(action as (state: FormState, formData: FormData) => Promise<{ message: string }>, initialState);
   console.log(state)
   
   useEffect(() => {
-    if (state.message === "ورود موفقیت‌آمیز بود") {
-      window.location.href = "/";
+    if (state.message === "ورود موفقیت‌آمیز بود" && href) {
+      window.location.href = href;
     }
-  }, [state]);
+  }, [state, href]);
 
   return (
     <form

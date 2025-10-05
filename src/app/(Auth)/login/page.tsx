@@ -29,7 +29,6 @@ const loginAction = async (state: { message: string }, formdata: FormData) => {
     return { message };
   }
   // conect zod to the form end 
-
   // send data to APi & manage that response
   try {
     const loginData = { email, password };
@@ -48,7 +47,7 @@ const loginAction = async (state: { message: string }, formdata: FormData) => {
 
 const LoginPage = () => {
   return (
-    <AuthForm action={loginAction}>
+    <AuthForm action={loginAction} href={'/'}>
       <BackBtn href="/" title="صفحه اصلی" iconName="home" />
       <FormTitle
         title="ورود به حساب کاربری"
