@@ -9,13 +9,8 @@ import React from 'react'
 
 const ForgetPassPageStep2 = () => {
 
-    const onSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log("Forget Password Step 2")
-    }
-
     return (
-        <AuthForm submit={onSubmit}>
+        <AuthForm action={''}>
             {/* back btn */}
             <BackBtn href='/forgetPassword/step1' title='بازگشت' iconName='back' />
             {/* back btn end */}

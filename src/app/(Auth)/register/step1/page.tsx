@@ -1,4 +1,3 @@
-'use client';
 import AccountLink from '@/components/Pages/AuthPages/AccountLink';
 import AuthForm from '@/components/Pages/AuthPages/AuthForm';
 import BackBtn from '@/components/Pages/AuthPages/BackBtn';
@@ -10,13 +9,8 @@ import React from 'react'
 
 const RegisterPageStep1 = () => {
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Register Page Step 1")
-  }
-
   return (
-    <AuthForm submit={onSubmit}>
+    <AuthForm action={''}>
       {/* back btn */}
       <BackBtn href='/' title='صفحه اصلی' iconName='home' />
       {/* back btn end */}
