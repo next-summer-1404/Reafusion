@@ -1,25 +1,31 @@
 'use client'
+import { useRouter } from "next/navigation";
 import React, { FC, useActionState, useEffect } from "react";
 
 interface IChildren {
   children: React.ReactNode;
-  action?: string | ((state: FormState, formData: FormData) => Promise<{ message: string }>);
-  href?: string;
+  action?: (state: FormState, formData: FormData) => Promise<{ message: string | void }>;
 }
 interface FormState {
   message: string;
+  redirect?: string
+  email?: string
+  resetCode?: string;
 }
 
-const AuthForm: FC<IChildren> = ({ children, action, href }) => {
+const AuthForm: FC<IChildren> = ({ children, action }) => {
   const initialState: FormState = { message: "" };
-  const [state, formAction] = useActionState(action as (state: FormState, formData: FormData) => Promise<{ message: string }>, initialState);
+  const [state, formAction] = useActionState(action as (state: FormState, formData: FormData) => Promise<{ message: string, redirect?: string, email?: string, resetCode?: string;}>, initialState);
   console.log(state)
-  
+  const router = useRouter(); 
+   
   useEffect(() => {
-    if (state.message === "ورود موفقیت‌آمیز بود" && href) {
-      window.location.href = href;
+    if (state.message === 'عملیات با موفقیت انجام شد' && state.redirect) {
+      router.push(state.redirect);
+      sessionStorage.setItem('userEmail', state.email as string)
+      sessionStorage.setItem('resetCode', state.resetCode as string)
     }
-  }, [state, href]);
+  }, [state, router]);
 
   return (
     <form

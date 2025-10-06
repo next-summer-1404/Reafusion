@@ -4,13 +4,23 @@ import BackBtn from '@/components/Pages/AuthPages/BackBtn';
 import FormTitle from '@/components/Pages/AuthPages/FormTitle';
 import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
-import React from 'react'
-
+import React, { useEffect, useState } from 'react';
+import { ForgotPass03Action } from '../../../../app/(Auth)/forgetPassword/step3/index';
 
 const ForgetPassPageStep3 = () => {
+  const [userEmail, setUserEmail] = useState(''); 
+  const [resetCode, setResetCode] = useState('');
+  console.log(userEmail, resetCode)
+
+  useEffect(() => {
+    const storedEmail = sessionStorage.getItem('userEmail') as string | null; 
+    const storedResetCode = sessionStorage.getItem('resetCode') as string | null; 
+    if (storedEmail) setUserEmail(storedEmail);
+    if (storedResetCode) setResetCode(storedResetCode);
+  }, []);
 
   return (
-    <AuthForm action={''}>
+    <AuthForm action={ForgotPass03Action}>
       {/* back btn */}
       <BackBtn href='/forgetPassword/step2' title='بازگشت' iconName='back' />
       {/* back btn end */}
@@ -22,28 +32,21 @@ const ForgetPassPageStep3 = () => {
       />
       {/* form title end */}
 
-      {/* password input */}
+      {/* new password input */}
       <FormInput
-        type='password'
-        placeholder='رمز عبور خود را وارد کنید'
+        name='newPassword'
+        type="password"
+        placeholder='رمز عبور جدید را وارد کنید'
         iconName='Eye'
       />
-      {/* password input end */}
-
-      {/* repeat password input */}
-      <FormInput
-        type='password'
-        placeholder='تکرار رمز عبور'
-        iconName='Eye'
-      />
-      {/* repeat password input end */}
-
+      {/* new password input end */}
+      <input type="hidden" name="email" value={userEmail || ''} />
+      <input type="hidden" name="resetCode" value={resetCode || ''} />
       {/* submit btn */}
       <SubmitBtn title='تغییر رمز عبور' />
       {/* submit btn end */}
-
     </AuthForm>
-  )
-}
+  );
+};
 
-export default ForgetPassPageStep3
+export default ForgetPassPageStep3;

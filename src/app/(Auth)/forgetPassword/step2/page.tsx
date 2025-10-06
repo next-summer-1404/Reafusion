@@ -5,12 +5,21 @@ import CodeInput from '@/components/Pages/AuthPages/CodeInput';
 import FormTitle from '@/components/Pages/AuthPages/FormTitle';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import TimerCounter from '@/components/Pages/AuthPages/TimerCounter';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { ForgotPass02Action } from '../../../../app/(Auth)/forgetPassword/step2/index';
 
 const ForgetPassPageStep2 = () => {
+    const [userEmail, serUserEmail] = useState('');
+    console.log(userEmail)
+
+    useEffect(() => {
+      const UserEmail = sessionStorage.getItem('userEmail') as string;
+      serUserEmail(UserEmail)
+    }, [])
+
 
     return (
-        <AuthForm action={''}>
+        <AuthForm action={ForgotPass02Action}>
             {/* back btn */}
             <BackBtn href='/forgetPassword/step1' title='بازگشت' iconName='back' />
             {/* back btn end */}
@@ -18,14 +27,15 @@ const ForgetPassPageStep2 = () => {
             {/* form title */}
             <FormTitle
                 title='فراموشی رمز عبور (مرحله دوم)'
-                desc='کد تایید به ایمیل شما youremail@gmail.com ارسال می شود.'
+                desc={`کد تایید به ایمیل شما ${userEmail} ارسال می شود.`}
             />
             {/* form title end */}
 
             {/* digit code input */}
             <CodeInput />
             {/* digit code input end */}
-
+            
+            <input type="hidden" name="email" value={userEmail || ''} />
             {/* timer count down */}
             <TimerCounter />
             {/* timer count down end */}

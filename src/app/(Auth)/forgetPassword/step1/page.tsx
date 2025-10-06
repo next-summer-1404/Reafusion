@@ -5,11 +5,11 @@ import FormTitle from '@/components/Pages/AuthPages/FormTitle';
 import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import React from 'react'
+import { forgetPassAction } from '../../../../app/(Auth)/forgetPassword/step1/index';
 
 const ForgetPassPageStep1 = () => {
-
     return (
-        <AuthForm action={''}>
+        <AuthForm action={forgetPassAction}>
             {/* back btn */}
             <BackBtn href='/' title='صفحه اصلی' iconName='home' />
             {/* back btn end */}
@@ -23,6 +23,7 @@ const ForgetPassPageStep1 = () => {
 
             {/* email input */}
             <FormInput
+                name='email'
                 type='email'
                 placeholder='ایمیل خود را وارد کنید'
                 iconName='Mail'

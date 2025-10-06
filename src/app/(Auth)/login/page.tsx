@@ -14,7 +14,7 @@ const loginSchema = z.object({
 });
 
 // server action for manage login data and send that to the Api
-const loginAction = async (state: { message: string }, formdata: FormData) => {
+const loginAction = async (state: { message: string, redirect?: string }, formdata: FormData) => {
   "use server";
   const email = formdata.get("email") as string;
   const password = formdata.get("password") as string;
@@ -35,7 +35,7 @@ const loginAction = async (state: { message: string }, formdata: FormData) => {
     const response = await postLogin(loginData);
     if (response) {
       console.log(response);
-      return { message: "ورود موفقیت‌آمیز بود" };
+      return { message: 'عملیات با موفقیت انجام شد', redirect: '/' };
     } else {
       return { message: "پاسخ نامعتبر است" };
     }
@@ -47,7 +47,7 @@ const loginAction = async (state: { message: string }, formdata: FormData) => {
 
 const LoginPage = () => {
   return (
-    <AuthForm action={loginAction} href={'/'}>
+    <AuthForm action={loginAction}>
       <BackBtn href="/" title="صفحه اصلی" iconName="home" />
       <FormTitle
         title="ورود به حساب کاربری"
