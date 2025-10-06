@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react'
 import { ForgotPass02Action } from '../../../../app/(Auth)/forgetPassword/step2/index';
 
 const ForgetPassPageStep2 = () => {
+    // get user Data from sesionStorage 
     const [userEmail, serUserEmail] = useState('');
     console.log(userEmail)
 
@@ -16,7 +17,7 @@ const ForgetPassPageStep2 = () => {
       const UserEmail = sessionStorage.getItem('userEmail') as string;
       serUserEmail(UserEmail)
     }, [])
-
+    // get user Data from sesionStorage end
 
     return (
         <AuthForm action={ForgotPass02Action}>

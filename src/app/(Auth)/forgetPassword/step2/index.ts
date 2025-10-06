@@ -6,6 +6,7 @@ export const ForgotPass02Action = async (
   state: { message: string; redirect?: string },
   formdata: FormData
 ) => {
+  // get data of form 
   const code0 = formdata.get("code0") as string;
   const code1 = formdata.get("code1") as string;
   const code2 = formdata.get("code2") as string;
@@ -15,7 +16,8 @@ export const ForgotPass02Action = async (
   const email = formdata.get("email") as string;
 
   const resetCode = [ code0, code1, code2, code3, code4, code5 ].join('')
-
+  // get data of form end 
+  // send data to the Api
   try {
     const ForgotPass02Data = { email, resetCode };
     const response = await forgetPassStep02(ForgotPass02Data);
@@ -28,4 +30,5 @@ export const ForgotPass02Action = async (
   } catch {
     return { message: "خطا در سرور" };
   }
+  // send data to the Api end
 };

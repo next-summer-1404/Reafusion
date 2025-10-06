@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { ForgotPass03Action } from '../../../../app/(Auth)/forgetPassword/step3/index';
 
 const ForgetPassPageStep3 = () => {
+  // get data of user witch save in sesionStorage
   const [userEmail, setUserEmail] = useState(''); 
   const [resetCode, setResetCode] = useState('');
   console.log(userEmail, resetCode)
@@ -18,7 +19,8 @@ const ForgetPassPageStep3 = () => {
     if (storedEmail) setUserEmail(storedEmail);
     if (storedResetCode) setResetCode(storedResetCode);
   }, []);
-
+  // get data of user witch save in sesionStorage end
+  
   return (
     <AuthForm action={ForgotPass03Action}>
       {/* back btn */}

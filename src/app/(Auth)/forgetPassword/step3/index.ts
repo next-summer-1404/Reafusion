@@ -6,6 +6,7 @@ export const ForgotPass03Action = async (
   state: { message: string; redirect?: string },
   formdata: FormData
 ) => {
+  // get data from form inputs
   const email = formdata.get('email') as string;
   const resetCode = formdata.get('resetCode') as string;
   const newPassword = formdata.get('newPassword') as string;
@@ -13,7 +14,8 @@ export const ForgotPass03Action = async (
   if (!email || !resetCode || !newPassword) {
     return { message: 'همه فیلدها باید پر شوند' };
   }
-
+  // get data from form inputs end
+  // send data to the Api
   try {
     const ForgotPass03Data = { email, resetCode, newPassword };
     const response = await ForgetPassStep03(ForgotPass03Data);
@@ -26,4 +28,5 @@ export const ForgotPass03Action = async (
   } catch {
     return { message: 'خطا در سرور' }
   }
+  // send data to the Api end
 };
