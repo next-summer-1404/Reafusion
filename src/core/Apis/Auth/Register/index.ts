@@ -1,7 +1,27 @@
-import { IRegisterStep1 } from "@/core/Types/Auth/IRegisterStep1";
+import {
+  IRegisterStep1,
+  IRegisterStep1Response,
+  IRegisterStep2,
+} from "@/core/Types/Auth/IRegister";
 import Api from "@/lib/Interceptor/index";
 
-export const postRegisterStep1 = async (registerData: { email: string }) => {
-  const res = await Api.post("/api/auth/register", registerData);
+export const postRegisterStep1 = async (
+  registerData: IRegisterStep1
+): Promise<IRegisterStep1Response> => {
+  try {
+    const res = await Api.post("/api/auth/register", registerData);
+    if (!res.data) {
+      throw new Error("پاسخ API خالی است");
+    }
+    return res.data;
+  } catch (error:any) {
+    throw new Error(
+      error.response?.data?.message || "خطا در ارسال درخواست به API"
+    );
+  }
+};
+
+export const postRegisterStep2 = async (registerData: IRegisterStep2) => {
+  const res = await Api.post("/api/auth/verify-email", registerData);
   return res;
 };
