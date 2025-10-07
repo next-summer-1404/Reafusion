@@ -1,3 +1,4 @@
+"use client"
 import AccountLink from '@/components/Pages/AuthPages/AccountLink';
 import AuthForm from '@/components/Pages/AuthPages/AuthForm';
 import BackBtn from '@/components/Pages/AuthPages/BackBtn';
@@ -5,12 +6,13 @@ import FormTitle from '@/components/Pages/AuthPages/FormTitle';
 import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import React from 'react'
+import { register01Action } from './index';
 
 
 const RegisterPageStep1 = () => {
 
   return (
-    <AuthForm action={''}>
+    <AuthForm action={register01Action}>
       {/* back btn */}
       <BackBtn href='/' title='صفحه اصلی' iconName='home' />
       {/* back btn end */}
@@ -25,6 +27,7 @@ const RegisterPageStep1 = () => {
       {/* email input */}
       <FormInput
         type='email'
+        name='email'
         placeholder='ایمیل خود را وارد کنید'
         iconName='Mail'
       />

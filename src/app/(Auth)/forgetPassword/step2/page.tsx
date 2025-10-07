@@ -6,7 +6,7 @@ import FormTitle from '@/components/Pages/AuthPages/FormTitle';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import TimerCounter from '@/components/Pages/AuthPages/TimerCounter';
 import React, { useEffect, useState } from 'react'
-import { ForgotPass02Action } from '../../../../app/(Auth)/forgetPassword/step2/index';
+import { ForgotPass02Action } from './index';
 
 const ForgetPassPageStep2 = () => {
     // get user Data from sesionStorage 

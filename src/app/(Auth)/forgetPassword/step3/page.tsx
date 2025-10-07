@@ -5,7 +5,7 @@ import FormTitle from '@/components/Pages/AuthPages/FormTitle';
 import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import React, { useEffect, useState } from 'react';
-import { ForgotPass03Action } from '../../../../app/(Auth)/forgetPassword/step3/index';
+import { ForgotPass03Action } from './index';
 
 const ForgetPassPageStep3 = () => {
   // get data of user witch save in sesionStorage

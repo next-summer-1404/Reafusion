@@ -5,7 +5,7 @@ import FormTitle from '@/components/Pages/AuthPages/FormTitle';
 import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import React from 'react'
-import { forgetPassAction } from '../../../../app/(Auth)/forgetPassword/step1/index';
+import { forgetPassAction } from './index';
 
 const ForgetPassPageStep1 = () => {
     return (

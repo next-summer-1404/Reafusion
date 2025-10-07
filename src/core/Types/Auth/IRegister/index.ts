@@ -8,6 +8,6 @@ export interface IRegisterStep1Response {
 }
 
 export interface IRegisterStep2 {
-  tempUserId: number;
+  tempUserId: string;
   verificationCode: string;
 }
