@@ -6,10 +6,7 @@ const registerStep1Schema = z.object({
   email: z.string().email("ایمیل را وارد کنید"),
 });
 
-export const register01Action = async (
-  state: { message: string; redirect?: string },
-  formdata: FormData
-) => {
+export const register01Action = async (state: { message: string; redirect?: string }, formdata: FormData) => {
   // get value from Form Input
   const email = formdata.get("email") as string;
   // get value from Form Input end
@@ -32,7 +29,7 @@ export const register01Action = async (
       console.log(response);
       return {
         message: "عملیات با موفقیت انجام شد",
-        email,
+        tempUserId: response.tempUserId,
         redirect: "/register/step2",
       };
     } else {

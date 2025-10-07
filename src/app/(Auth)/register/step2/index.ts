@@ -13,7 +13,6 @@ export const register02Action = async (
   const code3 = formdata.get("code3") as string;
   const code4 = formdata.get("code4") as string;
   const code5 = formdata.get("code5") as string;
-  const email = formdata.get("email") as string;
   const tempUserId = formdata.get("tempUserId") as string;
 
   const verificationCode = [code0, code1, code2, code3, code4, code5].join("");
@@ -21,13 +20,13 @@ export const register02Action = async (
   
   // send data to the Api
   try {
-    const register02Data = { email, tempUserId, verificationCode };
+    const register02Data = { tempUserId, verificationCode };
     const response = await postRegisterStep2(register02Data);
     if (response) {
       console.log(response);
       return {
         message: "عملیات با موفقیت انجام شد",
-        verificationCode,
+        userId: response.userId,
         tempUserId,
         redirect: "/register/step3",
       };

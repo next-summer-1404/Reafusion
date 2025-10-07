@@ -6,7 +6,7 @@ import FormTitle from '@/components/Pages/AuthPages/FormTitle';
 import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import React from 'react'
-import { register01Action } from './index';
+import { register01Action } from '../../../../app/(Auth)/register/step1/index';
 
 
 const RegisterPageStep1 = () => {

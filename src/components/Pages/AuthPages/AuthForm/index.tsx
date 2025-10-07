@@ -11,11 +11,13 @@ interface FormState {
   redirect?: string
   email?: string
   resetCode?: string;
+  tempUserId?: string;
+  userId?: string;
 }
 
 const AuthForm: FC<IChildren> = ({ children, action }) => {
   const initialState: FormState = { message: "" };
-  const [state, formAction] = useActionState(action as (state: FormState, formData: FormData) => Promise<{ message: string, redirect?: string, email?: string, resetCode?: string;}>, initialState);
+  const [state, formAction] = useActionState(action as (state: FormState, formData: FormData) => Promise<{ message: string, redirect?: string, email?: string, resetCode?: string, tempUserId?: string, userId?: string}>, initialState);
   console.log(state)
   const router = useRouter(); 
    
@@ -24,6 +26,8 @@ const AuthForm: FC<IChildren> = ({ children, action }) => {
       router.push(state.redirect);
       sessionStorage.setItem('userEmail', state.email as string)
       sessionStorage.setItem('resetCode', state.resetCode as string)
+      sessionStorage.setItem('tempUserId', state.tempUserId as string)
+      sessionStorage.setItem('userId', state.userId as string)
     }
   }, [state, router]);
 
