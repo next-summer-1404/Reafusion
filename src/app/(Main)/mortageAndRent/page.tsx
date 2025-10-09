@@ -5,21 +5,11 @@ import React from 'react';
 import HouseListGrid from '@/components/Pages/MortageAndRent/HouseListGrid/index';
 import CustomSelectOption from '@/components/Ui/ReusableInputs/SelectOption';
 import CustomInputSearch from '../../../components/Ui/ReusableInputs/InputSearch/index';
+import FilterBox from './../../../components/Pages/MortageAndRent/FilterBox/index';
 
 const MortageAndRentPage = () => {
   return (
     <Container className='flex flex-col gap-10'>
-
-      <div className='flex gap-5'>
-        <CustomInputSearch
-          labelText='جستجو'
-          placeholder='جستجو کنید ...'
-        />
-
-        <CustomSelectOption
-          labelText='مرتب سازی بر اساس'
-        />
-      </div>
 
       {/* breadcrumb */}
       <Breadcrumb
@@ -30,6 +20,10 @@ const MortageAndRentPage = () => {
         capitalizeLinks
       />
       {/* breadcrumb end */}
+
+      {/* filter box */}
+      <FilterBox />
+      {/* filter box end */}
 
       {/* house list grid */}
       <HouseListGrid />

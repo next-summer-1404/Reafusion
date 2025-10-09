@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { FC } from "react";
 import { Bath, BedSingle, Car, MapPin, Users } from "lucide-react";
 import home from "../../../assets/images/HomeImgs/05.jpg";
-import { IHouseCard } from "@/core/types/IHouseCard";
+import { IHouseCard } from "@/core/Types/IHouseCard";
 
 const HouseCard: FC<IHouseCard> = ({ HomeName, HomeAddress, HomePrice, HomeOffer, HomeImage, 
      HomeBathroomCount, HomeCapacityCount, HomeParkingCount, HomeRoomCount 

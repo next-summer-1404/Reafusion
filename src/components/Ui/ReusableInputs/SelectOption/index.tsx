@@ -1,24 +1,58 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react';
 
-interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    labelText: string;
-    customClass?: string;
+interface Option {
+    value: string;
+    label: string;
 }
 
-const CustomSelectOption: FC<IProps> = ({ customClass, labelText }) => {
+interface IProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+    labelText: string;
+    customClass?: string;
+    name?: string;
+    fetchOptions: () => Promise<Option[]>;
+}
+
+const CustomSelectOption: FC<IProps> = ({
+    customClass,
+    labelText,
+    name,
+    fetchOptions,
+    ...rest
+}) => {
+    const [options, setOptions] = useState<Option[]>([]);
+
+    useEffect(() => {
+        const loadOptions = async () => {
+            try {
+                const data = await fetchOptions();
+                setOptions(data);
+            } catch (error) {
+                console.error('Error fetching options:', error);
+                setOptions([{ value: '', label: 'خطا در بارگذاری' }]);
+            }
+        };
+        loadOptions();
+    }, [fetchOptions]);
+
     return (
         <div className={`${customClass} flex flex-col gap-4 w-[250px]`}>
-            <label htmlFor="" className='text-[#1E2022] font-bold'>{labelText}</label>
-
+            <label className='text-[#1E2022] font-bold'>{labelText}</label>
             <div className='bg-[#F5F5F5] h-[46px] rounded-[40px] px-5'>
-                <select name="" id="" className='w-full h-full py-3 outline-0'>
+                <select
+                    name={name}
+                    className='w-full h-full py-3 outline-0'
+                    {...rest}
+                >
                     <option value="">انتخاب کنید</option>
-                    <option value="">تست 1</option>
-                    <option value="">تست 2</option>
+                    {options.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                        </option>
+                    ))}
                 </select>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default CustomSelectOption
+export default CustomSelectOption;

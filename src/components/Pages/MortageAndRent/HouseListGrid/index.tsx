@@ -1,34 +1,38 @@
-import CustomPagination from '@/components/Ui/CustomPagination'
+import HouseCard from '@/components/Ui/HouseCard';
+import { getHousesByFilter } from '@/core/Apis/GetHousesByFilter'
+import { IApiResponse } from '@/core/Types/IApiResForGetHouses';
+import { AxiosResponse } from 'axios';
 import React, { useState } from 'react'
 
-const HouseListGrid = () => {
+const HouseListGrid = async () => {
 
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const response = await getHousesByFilter() as AxiosResponse<IApiResponse>;
 
-  // dynamic from api
-  const totalPages: number = 1;
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    // send api requset
-    console.log(`تغییر به صفحه: ${page}`);
-  };
+  const { houses } = response.data;
 
   return (
     <div className='flex flex-col gap-10'>
+
       {/* house list */}
       <div className='bg-red-700'>
-        list ha ha ha
+        {
+          houses.map((item) => (
+            <HouseCard
+              HomeName={item.title}
+              HomeAddress={item.address}
+              HomePrice={item.price}
+              HomeOffer={item.discounted_price}
+              HomeImage={item.photos}
+              HomeBathroomCount={item.bathrooms}
+              HomeParkingCount={item.parking}
+              HomeCapacityCount={item.capacity}
+              HomeRoomCount={item.rooms}
+            />
+          ))
+        }
       </div>
       {/* house list end */}
 
-      {/* pagination */}
-      <CustomPagination
-        totalPages={totalPages}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
-      {/* pagination end */}
     </div>
   )
 }

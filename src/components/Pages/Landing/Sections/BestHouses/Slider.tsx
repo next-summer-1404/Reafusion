@@ -1,12 +1,12 @@
 "use client";
 import HouseCard from "@/components/Ui/HouseCard";
-import { IHouse } from "@/core/types/IHouse";
 import React, { FC, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import RightButton from "@/components/Ui/SliderButtons/RightButton";
 import LeftButton from "@/components/Ui/SliderButtons/LeftButton";
+import { IHouse } from "@/core/Types/IHouse";
 
 interface IProps {
   filterData: IHouse[];

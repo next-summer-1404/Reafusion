@@ -1,6 +1,6 @@
-import Api from "@/lib/Interceptor"
+import Api from "@/lib/Interceptor";
 
 export const GetSpecialVilas = async () => {
-    const Response = await Api.get(`/api/houses`);
-    return Response
-}
+  const Response = await Api.get(`/api/houses`);
+  return Response;
+};

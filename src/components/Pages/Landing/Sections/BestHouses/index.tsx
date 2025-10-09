@@ -3,7 +3,7 @@ import React from "react";
 import Slider from "./Slider";
 import { GetSpecialVilas } from "@/core/Apis/GetSpecialVilas";
 import { AxiosResponse } from "axios";
-import { IApiResponse } from "@/core/types/IApiResForGetHouses";
+import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
 
 
 const BestHouses = async () => {
