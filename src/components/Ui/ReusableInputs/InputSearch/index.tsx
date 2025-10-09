@@ -10,7 +10,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const CustomInputSearch: FC<IProps> = ({ name, customClass, labelText, placeholder }) => {
     return (
-        <div className={`${customClass} flex flex-col gap-4 w-[250px]`}>
+        <div className={`${customClass} flex flex-col gap-4 w-[250px] max-md:w-full`}>
             <label htmlFor="" className='text-[#1E2022] font-bold'>{labelText}</label>
             <div className='flex justify-between items-center bg-[#F5F5F5] h-[46px] rounded-[40px] px-5 gap-1'>
                 <input
