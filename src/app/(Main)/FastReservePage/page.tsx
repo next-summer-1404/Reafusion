@@ -9,19 +9,38 @@ import { AxiosResponse } from "axios";
 import { FC } from "react";
 
 interface IFastReservePage {
-  searchParams: { page?: string };
+  searchParams: {
+    page?: string;
+    search?: string;
+    transactionType?: "rental" | "mortgage";
+    minPrice?: number;
+    maxPrice?: number;
+  };
 }
 
 const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
-  // call api and send the currentPage and limit data to the api
+  // the data for filtering or pagination
   const limit = 9;
-  const currentPage = parseInt(searchParams.page || '1', 10);
-  const response = await GetAllHouses(currentPage, limit) as AxiosResponse<IApiResponse>;
+  const currentPage = parseInt(searchParams.page || "1", 10);
+  const Search = searchParams.search;
+  const transactionType = searchParams.transactionType;
+  const minPrice = searchParams.minPrice;
+  const maxPrice = searchParams.maxPrice;
+  // the data for filtering or pagination end
+  // call api and send the data to that
+  const response = (await GetAllHouses(
+    currentPage,
+    limit,
+    Search,
+    transactionType,
+    minPrice,
+    maxPrice
+  )) as AxiosResponse<IApiResponse>;
   const { houses, totalCount } = response.data;
-  // call api and send the currentPage and limit data to the api end
-  
-  // calculated total pages 
-  const totalPages = Math.ceil(totalCount as number / limit);
+  // call api and send the data to that end
+
+  // calculated total pages
+  const totalPages = Math.ceil((totalCount as number) / limit);
   // calculated total pages end
 
   return (
@@ -33,7 +52,7 @@ const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
         listClasses="hover:text-[#1E2022] text-[#777777]"
         capitalizeLinks
       />
-      <FilteringList ItemLength={totalCount}/>
+      <FilteringList ItemLength={totalCount} />
       <div className="pt-2 flex justify-between flex-wrap space-y-10 max-lg:justify-around">
         {houses.map((house) => (
           <HouseCard

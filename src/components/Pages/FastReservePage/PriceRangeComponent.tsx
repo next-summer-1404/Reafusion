@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { FC, useState } from "react";
 import Slider from "@mui/material/Slider";
 
-export default function PriceRangeComponent() {
-  const [value, setValue] = useState([1000000, 20000000]);
+interface IProps {
+  setPriceRange: (minPrice: number, maxPrice: number) => void;
+}
+
+const PriceRangeComponent: FC<IProps> = ({ setPriceRange }) => {
+  const [value, setValue] = useState([1000000, 200000000]);
 
   const handleChange = (event: Event , newValue: number[]) => {
     setValue(newValue);
+    if (setPriceRange) {
+      setPriceRange(newValue[0], newValue[1]);
+    }
   };
 
   return (
@@ -19,8 +26,8 @@ export default function PriceRangeComponent() {
         onChange={handleChange}
         valueLabelDisplay="auto"
         min={1000000}
-        max={20000000}
-        step={100000}
+        max={200000000}
+        step={1000000}
         sx={{
           '& .MuiSlider-track': {
             backgroundColor: '#0D3B66', // رنگ بخش پرشده
@@ -51,3 +58,4 @@ export default function PriceRangeComponent() {
     </div>
   );
 }
+export default PriceRangeComponent

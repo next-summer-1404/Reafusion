@@ -6,9 +6,11 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
     labelText: string;
     customClass?: string;
     placeholder?: string;
+    value?: string;
+    setState?: (value: string) => void ;
 }
 
-const CustomInputSearch: FC<IProps> = ({ name, customClass, labelText, placeholder }) => {
+const CustomInputSearch: FC<IProps> = ({ name, customClass, labelText, placeholder, value, setState }) => {
     return (
         <div className={`${customClass} flex flex-col gap-4 w-[250px] max-md:w-full`}>
             <label htmlFor="" className='text-[#1E2022] font-bold'>{labelText}</label>
@@ -17,6 +19,8 @@ const CustomInputSearch: FC<IProps> = ({ name, customClass, labelText, placehold
                     type="search"
                     name={name}
                     placeholder={placeholder}
+                    value={value}
+                    onChange={(event) => setState && setState(event.target.value)}
                     className='w-full h-full py-3 outline-0 text-[#1E2022]'
                 />
 

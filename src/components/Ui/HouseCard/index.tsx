@@ -1,25 +1,48 @@
+"use client";
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Bath, BedSingle, Car, MapPin, Users } from "lucide-react";
 import home from "../../../assets/images/HomeImgs/05.jpg";
 import { IHouseCard } from "@/core/types/IHouseCard";
+import FillButton from "../Buttons/FillButton";
 
-const HouseCard: FC<IHouseCard> = ({ HomeName, HomeAddress, HomePrice, HomeOffer, HomeImage, 
-     HomeBathroomCount, HomeCapacityCount, HomeParkingCount, HomeRoomCount 
+const HouseCard: FC<IHouseCard> = ({
+  HomeName,
+  HomeAddress,
+  HomePrice,
+  HomeOffer,
+  HomeImage,
+  HomeBathroomCount,
+  HomeCapacityCount,
+  HomeParkingCount,
+  HomeRoomCount,
 }) => {
+  const [isClick, setIsClick] = useState(false);
+
   // get percentage of discount houses
   const discountPercentage = HomeOffer
     ? Math.round(
         (Number(HomeOffer) - Number(HomePrice) / Number(HomeOffer)) * 100
-      ).toFixed(0).slice(0, 2)
+      )
+        .toFixed(0)
+        .slice(0, 2)
     : 0;
 
   return (
-    <div className="border border-[#DDDDDD] w-[431px] max-sm:w-[411px] h-[458px] rounded-[24px] overflow-hidden cursor-pointer">
+    <div
+      onClick={() => setIsClick(!isClick)}
+      className={`border ${
+        isClick ? "border-4 border-[#0d3b66]" : "border-[#DDDDDD]"
+      } w-[431px] max-sm:w-[411px] min-h-[458px] rounded-[24px] overflow-hidden cursor-pointer transition-all`}
+    >
       {/* house cover */}
       <div className="relative">
         <Image
-          src={HomeImage && HomeImage[0] && HomeImage[0] !== '' ? HomeImage[0] : home}
+          src={
+            HomeImage && HomeImage[0] && HomeImage[0] !== ""
+              ? HomeImage[0]
+              : home
+          }
           alt={HomeName}
           width={421}
           height={408}
@@ -77,6 +100,11 @@ const HouseCard: FC<IHouseCard> = ({ HomeName, HomeAddress, HomePrice, HomeOffer
         </div>
         {/* the abilitys of house */}
       </div>
+      {isClick && (
+        <div className="flex justify-center items-center mb-6">
+          <FillButton className="p-2 px-10" ButtonText="بررسی و رزرو هتل" />
+        </div>
+      )}
       {/* house contents end */}
     </div>
   );
