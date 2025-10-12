@@ -8,4 +8,5 @@ export interface IHouseCard {
   HomeParkingCount: number;
   HomeCapacityCount: number;
   HomeRoomCount: number;
+  customClass?: string;
 }

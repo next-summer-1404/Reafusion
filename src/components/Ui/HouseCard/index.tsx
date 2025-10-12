@@ -4,26 +4,26 @@ import { Bath, BedSingle, Car, MapPin, Users } from "lucide-react";
 import home from "../../../assets/images/HomeImgs/05.jpg";
 import { IHouseCard } from "@/core/Types/IHouseCard";
 
-const HouseCard: FC<IHouseCard> = ({ HomeName, HomeAddress, HomePrice, HomeOffer, HomeImage, 
-     HomeBathroomCount, HomeCapacityCount, HomeParkingCount, HomeRoomCount 
+const HouseCard: FC<IHouseCard> = ({ HomeName, HomeAddress, HomePrice, HomeOffer, HomeImage,
+  HomeBathroomCount, HomeCapacityCount, HomeParkingCount, HomeRoomCount, customClass
 }) => {
   // get percentage of discount houses
   const discountPercentage = HomeOffer
     ? Math.round(
-        (Number(HomeOffer) - Number(HomePrice) / Number(HomeOffer)) * 100
-      ).toFixed(0).slice(0, 2)
+      (Number(HomeOffer) - Number(HomePrice) / Number(HomeOffer)) * 100
+    ).toFixed(0).slice(0, 2)
     : 0;
 
   return (
-    <div className="border border-[#DDDDDD] w-[431px] max-sm:w-[411px] h-[458px] rounded-[24px] overflow-hidden cursor-pointer">
+    <div className={`${customClass} border border-[#DDDDDD] w-[431px] max-sm:w-[411px] h-[458px] rounded-[24px] overflow-hidden cursor-pointer`}>
       {/* house cover */}
-      <div className="relative">
+      <div className="relative w-full">
         <Image
           src={HomeImage && HomeImage[0] && HomeImage[0] !== '' ? HomeImage[0] : home}
           alt={HomeName}
           width={421}
           height={408}
-          style={{ width: "431px", height: "240px", objectFit: "cover" }}
+          style={{ width: "100%", height: "240px", objectFit: "cover" }}
         />
         {HomeOffer && (
           <div className="size-12 bg-[#FF5555] absolute top-4 left-4 text-[16px] rounded-full flex justify-center items-center text-white">
