@@ -11,7 +11,7 @@ import EmptyButton from "../Buttons/EmptyButton";
 
 const links = [
   { name: "خانه", href: "/" },
-  { name: "رزرو سریع", href: "/sss" },
+  { name: "رزرو سریع", href: "/FastReservePage" },
   { name: "رهن و اجاره", href: "/mortageAndRent" },
   { name: "مقالات", href: "/bbb" },
   { name: "درباره ما", href: "/ccc" },

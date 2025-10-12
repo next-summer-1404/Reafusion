@@ -15,6 +15,7 @@ interface IProps {
 const pathTranslations: { [key: string]: string } = {
     home: 'خانه',
     mortageandrent: 'رهن و اجاره',
+    fastreservepage: 'رزرو سریع',
     about: 'درباره ما',
     contact: 'تماس با ما',
 };
