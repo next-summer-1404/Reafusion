@@ -22,7 +22,6 @@ const CustomInputSearch: FC<IProps> = ({ name, customClass, labelText, placehold
                     value={value}
                     onChange={(event) => setState && setState(event.target.value)}
                     className='w-full h-full py-3 outline-0 text-[#1E2022]'
-                    {...rest}
                 />
 
                 <Search color='#1E2022' />

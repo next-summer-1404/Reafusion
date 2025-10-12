@@ -28,7 +28,7 @@ const FilteringList: FC<IProps> = ({ ItemLength }) => {
     setMaxPrice(max);
   }
   // func for set min/max price to the searchParams end
-  
+
   // connect values to the searchParams and put to work that
   useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
@@ -69,7 +69,7 @@ const FilteringList: FC<IProps> = ({ ItemLength }) => {
             labelText="امکانات خانه"
             customClass="w-[378px]"
           />
-          <PriceRangeSlider setPriceRange={handlePriceRangeChanged}/>
+          <PriceRangeSlider setPriceRange={handlePriceRangeChanged} />
         </div>
         <div className="border border-[#DDDDDD] w-[575px] max-xl:w-full max-xl:mt-6 rounded-[24px] flex justify-center items-center py-10">
           MAP
