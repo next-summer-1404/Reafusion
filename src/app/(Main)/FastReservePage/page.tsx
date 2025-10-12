@@ -4,7 +4,7 @@ import Container from "@/components/Ui/Container/Container";
 import CustomPagination from "@/components/Ui/CustomPagination";
 import HouseCard from "@/components/Ui/HouseCard";
 import { GetAllHouses } from "@/core/Apis/GetAllHouses";
-import { IApiResponse } from "@/core/types/IApiResForGetHouses";
+import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
 import { AxiosResponse } from "axios";
 import { FC } from "react";
 
