@@ -7,7 +7,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
     customClass?: string;
     placeholder?: string;
     value?: string;
-    setState?: (value: string) => void ;
+    setState?: (value: string) => void;
 }
 
 const CustomInputSearch: FC<IProps> = ({ name, customClass, labelText, placeholder, value, setState }) => {

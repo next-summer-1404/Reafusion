@@ -52,7 +52,9 @@ const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
         listClasses="hover:text-[#1E2022] text-[#777777]"
         capitalizeLinks
       />
+      
       <FilteringList ItemLength={totalCount} />
+
       <div className="pt-2 flex justify-between flex-wrap space-y-10 max-lg:justify-around">
         {houses.map((house) => (
           <HouseCard
@@ -69,6 +71,7 @@ const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
           />
         ))}
       </div>
+
       <CustomPagination totalPages={totalPages} currentPage={currentPage} />
     </Container>
   );

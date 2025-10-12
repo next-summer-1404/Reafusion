@@ -12,7 +12,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const CustomSelectOption: FC<IProps> = ({ customClass, labelText, selectName01, selectValue01,
-                                        selectValue02, selectName02, value, setState,}) => {
+  selectValue02, selectName02, value, setState, }) => {
   return (
     <div
       className={`${customClass} flex flex-col gap-4 w-[250px] max-md:w-full`}
