@@ -8,4 +8,6 @@ export interface IHouseCard {
   HomeParkingCount: number;
   HomeCapacityCount: number;
   HomeRoomCount: number;
+  isQuickReservation?: boolean;
+  onReserveClick?: () => void;
 }

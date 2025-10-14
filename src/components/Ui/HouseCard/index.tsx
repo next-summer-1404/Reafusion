@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Bath, BedSingle, Car, MapPin, Users } from "lucide-react";
 import home from "../../../assets/images/HomeImgs/05.jpg";
 import { IHouseCard } from "@/core/types/IHouseCard";
@@ -16,9 +16,9 @@ const HouseCard: FC<IHouseCard> = ({
   HomeCapacityCount,
   HomeParkingCount,
   HomeRoomCount,
+  isQuickReservation,
+  onReserveClick
 }) => {
-  const [isClick, setIsClick] = useState(false);
-
   // get percentage of discount houses
   const discountPercentage = HomeOffer
     ? Math.round(
@@ -30,13 +30,10 @@ const HouseCard: FC<IHouseCard> = ({
 
   return (
     <div
-      onClick={() => setIsClick(!isClick)}
-      className={`border ${
-        isClick ? "border-4 border-[#0d3b66]" : "border-[#DDDDDD]"
-      } w-[431px] max-sm:w-[411px] min-h-[458px] rounded-[24px] overflow-hidden cursor-pointer transition-all`}
+      className={`border border-[#DDDDDD] hover:border-4 hover:border-[#0D3B66] w-[431px] max-sm:w-[411px] min-h-[458px] rounded-[24px] overflow-hidden transition-all`}
     >
       {/* house cover */}
-      <div className="relative">
+      <div className="relative cursor-pointer">
         <Image
           src={
             HomeImage && HomeImage[0] && HomeImage[0] !== ""
@@ -100,9 +97,9 @@ const HouseCard: FC<IHouseCard> = ({
         </div>
         {/* the abilitys of house */}
       </div>
-      {isClick && (
+      {isQuickReservation && (
         <div className="flex justify-center items-center mb-6">
-          <FillButton className="p-2 px-10" ButtonText="بررسی و رزرو هتل" />
+          <FillButton className="p-2 px-10" ButtonText="بررسی و رزرو هتل" onClick={onReserveClick}/>
         </div>
       )}
       {/* house contents end */}
