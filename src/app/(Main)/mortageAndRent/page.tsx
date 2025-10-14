@@ -1,12 +1,12 @@
 import Breadcrumb from '@/components/Ui/Breadcrumb';
 import Container from '@/components/Ui/Container/Container';
-// import FilterBox from '@/components/Pages/MortageAndRent/FilterBox';
 import { GetAllHouses } from '@/core/Apis/GetAllHouses';
 import { AxiosResponse } from 'axios';
 import { IApiResponse } from '@/core/types/IApiResForGetHouses';
 import HouseCard from '@/components/Ui/HouseCard';
 import { FC } from 'react';
 import CustomPagination from '@/components/Ui/CustomPagination';
+import FilterBox from '@/components/Pages/MortageAndRent/FilterBox';
 
 interface IMortageAndRent {
   searchParams: {
@@ -33,7 +33,7 @@ const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
         listClasses='hover:text-[#1E2022] text-[#777777]'
         capitalizeLinks
       />
-      {/* <FilterBox /> */}
+      <FilterBox />
       <div className="pt-2 flex justify-between flex-wrap space-y-10 max-lg:justify-around">
         {houses.map((house) => (
           <HouseCard
