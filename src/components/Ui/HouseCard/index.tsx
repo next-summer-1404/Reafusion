@@ -5,19 +5,11 @@ import { Bath, BedSingle, Car, MapPin, Users } from "lucide-react";
 import home from "../../../assets/images/HomeImgs/05.jpg";
 import { IHouseCard } from "@/core/types/IHouseCard";
 import FillButton from "../Buttons/FillButton";
+import Link from "next/link";
 
-const HouseCard: FC<IHouseCard> = ({
-  HomeName,
-  HomeAddress,
-  HomePrice,
-  HomeOffer,
-  HomeImage,
-  HomeBathroomCount,
-  HomeCapacityCount,
-  HomeParkingCount,
-  HomeRoomCount,
-  isQuickReservation,
-  onReserveClick
+const HouseCard: FC<IHouseCard> = ({ id, HomeName, HomeAddress, HomePrice, 
+  HomeOffer, HomeImage, HomeBathroomCount, HomeCapacityCount,
+  HomeParkingCount, HomeRoomCount, isQuickReservation, onReserveClick 
 }) => {
   // get percentage of discount houses
   const discountPercentage = HomeOffer
@@ -33,7 +25,7 @@ const HouseCard: FC<IHouseCard> = ({
       className={`border border-[#DDDDDD] hover:border-4 hover:border-[#0D3B66] w-[431px] max-sm:w-[411px] min-h-[458px] rounded-[24px] overflow-hidden transition-all`}
     >
       {/* house cover */}
-      <div className="relative cursor-pointer">
+      <Link href={`/FastReservePage/${id}`} className="relative cursor-pointer">
         <Image
           src={
             HomeImage && HomeImage[0] && HomeImage[0] !== ""
@@ -50,7 +42,7 @@ const HouseCard: FC<IHouseCard> = ({
             {discountPercentage}%-
           </div>
         )}
-      </div>
+      </Link>
       {/* house cover end */}
       {/* house contents */}
       <div className="px-7 py-3">

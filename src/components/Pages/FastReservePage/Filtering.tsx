@@ -109,7 +109,7 @@ const FilteringList: FC<IProps> = ({ ItemLength, locations, houses }) => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {markers.map((loc, i) => (
-              <Marker key={i} position={[loc.lat, loc.lng] as LatLngTuple}>
+              <Marker key={i} position={[loc.lat, loc.lng]}>
                 <Popup>خانه شماره {i + 1}</Popup>
               </Marker>
             ))}
@@ -121,6 +121,7 @@ const FilteringList: FC<IProps> = ({ ItemLength, locations, houses }) => {
         {houses.map((house) => (
           <HouseCard
             key={house.id}
+            id={house.id}
             HomeName={house.title}
             HomeAddress={house.address}
             HomePrice={house.price}
