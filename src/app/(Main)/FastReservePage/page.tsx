@@ -2,7 +2,6 @@ import FilteringList from "@/components/Pages/FastReservePage/Filtering";
 import Breadcrumb from "@/components/Ui/Breadcrumb";
 import Container from "@/components/Ui/Container/Container";
 import CustomPagination from "@/components/Ui/CustomPagination";
-import HouseCard from "@/components/Ui/HouseCard";
 import { GetAllHouses } from "@/core/Apis/GetAllHouses";
 import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
 import { AxiosResponse } from "axios";
@@ -38,7 +37,9 @@ const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
   )) as AxiosResponse<IApiResponse>;
   const { houses, totalCount } = response.data;
   // call api and send the data to that end
-
+  // get all location list for showing in the map
+  const locations = houses.map((house) => house.location);
+  // get all location list for showing in the map end
   // calculated total pages
   const totalPages = Math.ceil((totalCount as number) / limit);
   // calculated total pages end
@@ -52,26 +53,7 @@ const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
         listClasses="hover:text-[#1E2022] text-[#777777]"
         capitalizeLinks
       />
-      
-      <FilteringList ItemLength={totalCount} />
-
-      <div className="pt-2 flex justify-between flex-wrap space-y-10 max-lg:justify-around">
-        {houses.map((house) => (
-          <HouseCard
-            key={house.id}
-            HomeName={house.title}
-            HomeAddress={house.address}
-            HomePrice={house.price}
-            HomeOffer={house.discounted_price}
-            HomeImage={house.photos}
-            HomeBathroomCount={house.bathrooms}
-            HomeParkingCount={house.parking}
-            HomeCapacityCount={house.capacity}
-            HomeRoomCount={house.rooms}
-          />
-        ))}
-      </div>
-
+      <FilteringList ItemLength={totalCount} locations={locations} houses={houses} />
       <CustomPagination totalPages={totalPages} currentPage={currentPage} />
     </Container>
   );

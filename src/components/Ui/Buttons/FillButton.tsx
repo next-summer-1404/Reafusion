@@ -4,11 +4,12 @@ interface IProps {
   ButtonText: string;
   className?: string;
   type?: "button" | "submit" | "reset";
+  onClick?: () => void;
 }
 
-const FillButton: FC<IProps> = ({ ButtonText, className = "", type }) => {
+const FillButton: FC<IProps> = ({ ButtonText, className = "", type, onClick }) => {
   return (
-    <button type={type} className={`${className} bg-[#0D3B66] text-white 
+    <button onClick={onClick} type={type} className={`${className} bg-[#0D3B66] text-white 
                        text-center rounded-[40px] cursor-pointer`}>
       {ButtonText}
     </button>
