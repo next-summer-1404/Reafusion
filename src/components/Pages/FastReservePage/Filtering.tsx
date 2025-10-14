@@ -86,14 +86,18 @@ const FilteringList: FC<IProps> = ({ ItemLength, locations, houses }) => {
             customClass="w-[378px]"
             value={transactionType}
             setState={setTransactionType}
-            selectValue01={"rental"}
-            selectValue02={"mortgage"}
-            selectName01={"خانه های اجاره ای"}
-            selectName02={"خانه های رهن"}
+            options={[
+                { value: 'rental', label: 'خانه های اجاره ای ' },
+                { value: 'mortgage', label: 'خانه های رهن' },
+            ]}
           />
           <CustomSelectOption
             labelText="امکانات خانه"
             customClass="w-[378px]"
+            options={[
+                { value: 'rental', label: 'اجاره' },
+                { value: 'mortgage', label: 'رهن' },
+            ]}
           />
           <PriceRangeSlider setPriceRange={handlePriceRangeChanged} />
         </div>

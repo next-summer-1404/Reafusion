@@ -20,41 +20,41 @@ const FilterBox = () => {
                     labelText='مرتب‌سازی بر اساس'
                     name="sort"
                     customClass='!w-[20%]'
-                    // options={[
-                    //     { value: 'last_updated', label: 'آخرین بروزرسانی' },
-                    //     { value: 'price', label: 'قیمت' },
-                    //     { value: 'area', label: 'متراژ' },
-                    // ]}
+                    options={[
+                        { value: 'last_updated', label: 'آخرین بروزرسانی' },
+                        { value: 'price', label: 'قیمت' },
+                        { value: 'area', label: 'متراژ' },
+                    ]}
                 />
                 <CustomSelectOption
                     labelText='نوع ملک'
                     name="propertyType"
                     customClass='!w-[20%]'
-                    // options={[
-                    //     { value: 'villa', label: 'ویلا' },
-                    //     { value: 'apartment', label: 'آپارتمان' },
-                    //     { value: 'house', label: 'خانه' },
-                    // ]}
+                    options={[
+                        { value: 'villa', label: 'ویلا' },
+                        { value: 'apartment', label: 'آپارتمان' },
+                        { value: 'house', label: 'خانه' },
+                    ]}
                 />
                 <CustomSelectOption
                     labelText='نوع معامله'
                     name="transactionType"
                     customClass='!w-[20%]'
-                    // options={[
-                    //     { value: 'rental', label: 'اجاره' },
-                    //     { value: 'mortgage', label: 'رهن' },
-                    //     { value: 'sale', label: 'فروش' },
-                    // ]}
+                    options={[
+                        { value: 'rental', label: 'اجاره' },
+                        { value: 'mortgage', label: 'رهن' },
+                        { value: 'sale', label: 'فروش' },
+                    ]}
                 />
                 <CustomSelectOption
                     labelText='محل مورد نظر'
                     name="location"
                     customClass='!w-[20%]'
-                    // options={[
-                    //     { value: 'tehran', label: 'تهران' },
-                    //     { value: 'mashhad', label: 'مشهد' },
-                    //     { value: 'shiraz', label: 'شیراز' },
-                    // ]}
+                    options={[
+                        { value: 'tehran', label: 'تهران' },
+                        { value: 'mashhad', label: 'مشهد' },
+                        { value: 'shiraz', label: 'شیراز' },
+                    ]}
                 />
                 
             </div>
