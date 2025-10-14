@@ -4,7 +4,7 @@ export const GetAllHouses = async (
   currentPage: number,
   limit: number,
   Search?: string,
-  transactionType?: "rental" | "mortgage",
+  transactionType?: "rental" | "mortgage" | '',
   minPrice?: number,
   maxPrice?: number,
 ) => {

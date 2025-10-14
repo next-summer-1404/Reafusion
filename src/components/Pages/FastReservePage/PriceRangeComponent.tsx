@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import Slider from "@mui/material/Slider";
 
 interface IProps {
-  setPriceRange: (minPrice: number, maxPrice: number) => void;
+  setPriceRange?: (minPrice: number, maxPrice: number) => void;
 }
 
 const PriceRangeComponent: FC<IProps> = ({ setPriceRange }) => {

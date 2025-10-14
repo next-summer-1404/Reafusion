@@ -1,34 +1,28 @@
-"use client";
-
 import Breadcrumb from '@/components/Ui/Breadcrumb';
 import Container from '@/components/Ui/Container/Container';
-import React, { useState, useEffect } from 'react';
-import HouseListGrid from '@/components/Pages/MortageAndRent/HouseListGrid';
 import FilterBox from '@/components/Pages/MortageAndRent/FilterBox';
-import { getHousesByFilter } from '@/core/Apis/GetHousesByFilter';
+import { GetAllHouses } from '@/core/Apis/GetAllHouses';
+import { AxiosResponse } from 'axios';
+import { IApiResponse } from '@/core/types/IApiResForGetHouses';
+import HouseCard from '@/components/Ui/HouseCard';
+import { FC } from 'react';
+import CustomPagination from '@/components/Ui/CustomPagination';
 
-const MortageAndRentPage = () => {
-  const [filters, setFilters] = useState<Record<string, any>>({});
-  const [houses, setHouses] = useState<any[]>([]);
-  const [totalCount, setTotalCount] = useState<number>(0);
-  const [loading, setLoading] = useState(false);
+interface IMortageAndRent {
+  searchParams: {
+    page?: string;
+  }
+}
 
-  useEffect(() => {
-    const fetchHouses = async () => {
-      try {
-        setLoading(true);
-        const res = await getHousesByFilter(filters);
-        setHouses(res.houses);
-        setTotalCount(res.totalCount ?? 0);
-      } catch (error) {
-        console.error("Error fetching houses:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchHouses();
-  }, [filters]);
+const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
+  const limit = 9;
+  const currentPage = parseInt(searchParams.page || "1", 10);  
+  const Search = '';
+  const transactionType = '';
+  const response = (await GetAllHouses(currentPage, limit, Search, transactionType)) as AxiosResponse<IApiResponse>;
+  const { houses, totalCount } = response.data;
+  
+  const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (
     <Container className='flex flex-col gap-10'>
@@ -39,18 +33,24 @@ const MortageAndRentPage = () => {
         listClasses='hover:text-[#1E2022] text-[#777777]'
         capitalizeLinks
       />
-
-      {/* تعداد و محدوده قیمت رو به FilterBox بدیم */}
-      <FilterBox
-        onFilterChange={setFilters}
-        totalCount={totalCount}
-      />
-
-      {loading ? (
-        <div className='text-center text-gray-500'>در حال بارگذاری...</div>
-      ) : (
-        <HouseListGrid houses={houses} />
-      )}
+      <FilterBox />
+      <div className="pt-2 flex justify-between flex-wrap space-y-10 max-lg:justify-around">
+        {houses.map((house) => (
+          <HouseCard
+            key={house.id}
+            HomeName={house.title}
+            HomeAddress={house.address}
+            HomePrice={house.price}
+            HomeOffer={house.discounted_price}
+            HomeImage={house.photos}
+            HomeBathroomCount={house.bathrooms}
+            HomeParkingCount={house.parking}
+            HomeCapacityCount={house.capacity}
+            HomeRoomCount={house.rooms}
+          />
+        ))}
+      </div>
+      <CustomPagination totalPages={totalPages} currentPage={currentPage} />
     </Container>
   );
 };
