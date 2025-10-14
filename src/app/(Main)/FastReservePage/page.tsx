@@ -3,7 +3,7 @@ import Breadcrumb from "@/components/Ui/Breadcrumb";
 import Container from "@/components/Ui/Container/Container";
 import CustomPagination from "@/components/Ui/CustomPagination";
 import { GetAllHouses } from "@/core/Apis/GetAllHouses";
-import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
+import { IApiResponse } from "@/core/types/IApiResForGetHouses";
 import { AxiosResponse } from "axios";
 import { FC } from "react";
 
