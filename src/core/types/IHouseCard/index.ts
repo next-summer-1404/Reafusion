@@ -10,5 +10,6 @@ export interface IHouseCard {
   HomeCapacityCount: number;
   HomeRoomCount: number;
   isQuickReservation?: boolean;
+  DetailAdress?: string;
   onReserveClick?: () => void;
 }

@@ -8,7 +8,7 @@ import FillButton from "../Buttons/FillButton";
 import Link from "next/link";
 
 const HouseCard: FC<IHouseCard> = ({ id, HomeName, HomeAddress, HomePrice, 
-  HomeOffer, HomeImage, HomeBathroomCount, HomeCapacityCount,
+  HomeOffer, HomeImage, HomeBathroomCount, HomeCapacityCount, DetailAdress,
   HomeParkingCount, HomeRoomCount, isQuickReservation, onReserveClick 
 }) => {
   // get percentage of discount houses
@@ -25,7 +25,7 @@ const HouseCard: FC<IHouseCard> = ({ id, HomeName, HomeAddress, HomePrice,
       className={`border border-[#DDDDDD] hover:border-4 hover:border-[#0D3B66] w-[431px] max-sm:w-[411px] min-h-[458px] rounded-[24px] overflow-hidden transition-all`}
     >
       {/* house cover */}
-      <Link href={`/FastReservePage/${id}`} className="relative cursor-pointer">
+      <Link href={`/${DetailAdress}/${id}`} className="relative cursor-pointer">
         <Image
           src={
             HomeImage && HomeImage[0] && HomeImage[0] !== ""

@@ -4,11 +4,15 @@ import { FC, useState } from "react";
 import Slider from "@mui/material/Slider";
 
 interface IProps {
-  setPriceRange: (minPrice: number, maxPrice: number) => void;
+  setPriceRange?: (minPrice: number, maxPrice: number) => void;
+  value01?: number;
+  value02?: number;
+  priceRangeName? : string
+  className?: string;
 }
 
-const PriceRangeComponent: FC<IProps> = ({ setPriceRange }) => {
-  const [value, setValue] = useState([1000000, 200000000]);
+const PriceRangeComponent: FC<IProps> = ({ setPriceRange, value01, value02, priceRangeName, className}) => {
+  const [value, setValue] = useState([value01 as number, value02 as number]);
 
   const handleChange = (event: Event , newValue: number[]) => {
     setValue(newValue);
@@ -18,16 +22,16 @@ const PriceRangeComponent: FC<IProps> = ({ setPriceRange }) => {
   };
 
   return (
-    <div className="w-[378px] pt-1 px-6 max-md:w-full">
-      <h3 className="text-[#1E2022] text-[16px] font-bold">رنج قیمت</h3>
+    <div className={`w-[378px] ${className} pt-1 px-6 max-md:w-full`}>
+      <h3 className="text-[#1E2022] text-[16px] font-bold">{priceRangeName}</h3>
       <Slider
         value={value}
         className="mt-1"
         onChange={handleChange}
         valueLabelDisplay="auto"
-        min={1000000}
-        max={200000000}
-        step={1000000}
+        min={value01}
+        max={value02}
+        step={value01}
         sx={{
           '& .MuiSlider-track': {
             backgroundColor: '#0D3B66', // رنگ بخش پرشده

@@ -34,7 +34,7 @@ const CustomSelectOption: FC<IProps> = ({
           className='w-full h-full py-3 outline-0'
           {...rest}
         >
-          <option value="">انتخاب کنید</option>
+          <option value="">همه</option>
           {options.map(opt => (
             <option key={opt.value} value={opt.value}>{opt.label}</option>
           ))}

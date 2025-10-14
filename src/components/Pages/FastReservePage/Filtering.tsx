@@ -99,7 +99,12 @@ const FilteringList: FC<IProps> = ({ ItemLength, locations, houses }) => {
                 { value: 'mortgage', label: 'رهن' },
             ]}
           />
-          <PriceRangeSlider setPriceRange={handlePriceRangeChanged} />
+          <PriceRangeSlider 
+             setPriceRange={handlePriceRangeChanged} 
+             value01={1000000} 
+             value02={200000000}
+             priceRangeName={'رنج قیمت'}
+          />
         </div>
         {/* the location map */}
         <div className="border border-[#DDDDDD] w-[575px] h-[280px] overflow-hidden max-xl:w-full max-xl:mt-6 rounded-[24px] flex justify-center items-center py-10">
@@ -135,6 +140,7 @@ const FilteringList: FC<IProps> = ({ ItemLength, locations, houses }) => {
             HomeParkingCount={house.parking}
             HomeCapacityCount={house.capacity}
             HomeRoomCount={house.rooms}
+            DetailAdress={'FastReservePage'}
             isQuickReservation={true}
             onReserveClick={() => handleReserveClick(house.location)}
           />
