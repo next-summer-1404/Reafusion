@@ -7,48 +7,36 @@ import HouseCard from "@/components/Ui/HouseCard";
 import { FC } from "react";
 import CustomPagination from "@/components/Ui/CustomPagination";
 import FilterBox from "@/components/Pages/MortageAndRent/FilterBox";
-
-interface IMortageAndRent {
-  searchParams: {
-    page?: string;
-    search?: string;
-    transactionType?: 'rental' | 'mortgage';
-    minMortgage?: number;
-    maxMortgage?: number;
-    minRent?: number;
-    maxRent?: number;
-    location?: string | undefined;
-    sort?: 'price';
-  };
-}
+import { IMortageAndRent } from "@/core/types/IMortageAndRent";
 
 const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
+  // the data of searchParams witch send that to Api
   const limit = 9;
   const currentPage = parseInt(searchParams.page || "1", 10);
   const Search = searchParams.search;
-  const transactionType = searchParams.transactionType ;
+  const transactionType = searchParams.transactionType;
+  const minPrice = searchParams.minPrice;
+  const maxPrice = searchParams.maxPrice;
   const minMortgage = searchParams.minMortgage;
   const maxMortgage = searchParams.maxMortgage;
   const minRent = searchParams.minRent;
   const maxRent = searchParams.maxRent;
+  // const minArea = searchParams.minArea;
+  // const maxArea = searchParams.maxArea;
   const location = searchParams.location || "";
-  // const sort = searchParams.sort
-  const response = await GetAllHouses(
-    currentPage,
-    limit,
-    Search,
-    // location,
-    transactionType,
-    // sort,
-    minMortgage,
-    maxMortgage,
-    minRent,
-    maxRent,
-  ) as AxiosResponse<IApiResponse>;
+  const sort = searchParams.sort;
+  // the data of searchParams witch send that to Api
+  // call Api and send Params to that
+  const response = (await GetAllHouses(
+    currentPage, limit, Search, transactionType, minPrice,
+    maxPrice, minMortgage, maxMortgage, minRent, maxRent, // minArea, // maxArea,
+    location, sort
+  )) as AxiosResponse<IApiResponse>;
   const { houses, totalCount } = response.data;
-  console.log(houses)
-
+  // call Api and send Params to that end
+  // calculate count of the totalPage
   const totalPages = Math.ceil((totalCount as number) / limit);
+  // calculate count of the totalPage
 
   return (
     <Container className="flex flex-col gap-10">
@@ -78,7 +66,9 @@ const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
           />
         ))}
       </div>
-      <CustomPagination totalPages={totalPages} currentPage={currentPage} />
+      {totalPages > 1 && (
+        <CustomPagination totalPages={totalPages} currentPage={currentPage} />
+      )}
     </Container>
   );
 };

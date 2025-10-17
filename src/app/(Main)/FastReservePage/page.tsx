@@ -4,18 +4,9 @@ import Container from "@/components/Ui/Container/Container";
 import CustomPagination from "@/components/Ui/CustomPagination";
 import { GetAllHouses } from "@/core/Apis/GetAllHouses";
 import { IApiResponse } from "@/core/types/IApiResForGetHouses";
+import { IFastReservePage } from "@/core/types/IFastReservePage";
 import { AxiosResponse } from "axios";
 import { FC } from "react";
-
-interface IFastReservePage {
-  searchParams: {
-    page?: string;
-    search?: string;
-    transactionType?: "rental" | "mortgage";
-    minPrice?: number;
-    maxPrice?: number;
-  };
-}
 
 const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
   // the data for filtering or pagination

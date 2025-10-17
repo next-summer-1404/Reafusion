@@ -12,11 +12,13 @@ export const GetAllHouses = async (
   maxMortgage?: number,
   minRent?: number,
   maxRent?: number,
+  // maxArea?: number,
+  // minArea?: number,
   location?: string,
   sort?: 'price'
 ) => {
   const Response = await Api.get(
-    `/api/houses?page=${currentPage}&limit=${limit}&search=${Search}&transactionType=${transactionType}&minPrice=${minPrice}&maxPrice=${maxPrice}&minMortgage=${minMortgage}&maxMortgage=${maxMortgage}&minRent=${minRent}&maxRent=${maxRent}$location=${location}$sort=${sort}`
+    `/api/houses?page=${currentPage}&limit=${limit}&search=${Search}&transactionType=${transactionType}&minPrice=${minPrice}&maxPrice=${maxPrice}&minMortgage=${minMortgage}&maxMortgage=${maxMortgage}&minRent=${minRent}&maxRent=${maxRent}$sort=${sort}$location=${location}`
   );
   return Response;
 };
