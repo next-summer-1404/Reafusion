@@ -1,14 +1,47 @@
 "use client";
 import CustomInputSearch from "@/components/Ui/ReusableInputs/InputSearch/index";
 import CustomSelectOption from "@/components/Ui/ReusableInputs/SelectOption";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import PriceRangeComponent from "../../FastReservePage/PriceRangeComponent";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface IProps {
   itemsLenght: number | undefined;
 }
 
 const FilterBox: FC<IProps> = ({ itemsLenght }) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get('search') || '');
+  const [transactionType, setTransactionType] = useState(searchParams.get('transactionType') || '');
+  const [minMortgage, setMinMortgage] = useState(Number(searchParams.get('minMortgage')) || 10000);
+  const [maxMortgage, setMaxMortgage] = useState(Number(searchParams.get('maxMortgage')) || 200000000);
+  const [minRent, setMinRent] = useState(Number(searchParams.get('minRent')) || 10000);
+  const [maxRent, setMaxRent] = useState(Number(searchParams.get('maxRent')) || 200000000);
+  const [location, setLocation] = useState(searchParams.get('location') || '');
+
+  const handlePriceRangeChanged = (min: number, max: number) => {
+    setMinMortgage(min);
+    setMaxMortgage(max);
+  };
+
+  const handlePriceRangeChanged02 = (min: number, max: number) => {
+    setMinRent(min);
+    setMaxRent(max);
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('search', search);
+    params.set('transactionType', transactionType)
+    params.set('minMortgage', minMortgage.toString())
+    params.set('maxMortgage', maxMortgage.toString())
+    params.set('minRent', minRent.toString())
+    params.set('maxRent', maxRent.toString())
+    params.set('location', location)
+    router.push(`?${params.toString()}`);
+  }, [searchParams, router, search, transactionType, minMortgage, maxMortgage, minRent, maxRent, location])
+ 
   return (
     <div className="flex flex-col gap-8">
       <div className="flex justify-between items-center">
@@ -19,6 +52,8 @@ const FilterBox: FC<IProps> = ({ itemsLenght }) => {
         <CustomInputSearch
           labelText="جستجو"
           placeholder="جستجو کنید ..."
+          value={search}
+          setState={setSearch}
           name="search"
           customClass="!w-[480px]"
         />
@@ -43,6 +78,8 @@ const FilterBox: FC<IProps> = ({ itemsLenght }) => {
         <CustomSelectOption
           labelText="نوع معامله"
           name="transactionType"
+          value={transactionType}
+          setState={setTransactionType}
           customClass="!w-[247px]"
           options={[
             { value: "rental", label: "خانه های اجاره ای" },
@@ -52,6 +89,8 @@ const FilterBox: FC<IProps> = ({ itemsLenght }) => {
         <CustomSelectOption
           labelText="محل مورد نظر"
           name="location"
+          value={location}
+          setState={setLocation}
           customClass="!w-[247px]"
           options={[
             { value: "تهران", label: "تهران" },
@@ -65,15 +104,17 @@ const FilterBox: FC<IProps> = ({ itemsLenght }) => {
           ]}
         />
         <PriceRangeComponent
-          value01={1000000}
-          value02={20000000}
+          setPriceRange={handlePriceRangeChanged}
+          value01={10000}
+          value02={200000000}
           priceRangeName={"رنج مبلغ رهن"}
           className="!w-[335px]"
         />
         <span className="border border-[#DDDDDD] max-lg:border-none"></span>
         <PriceRangeComponent
-          value01={1000000}
-          value02={20000000}
+          setPriceRange={handlePriceRangeChanged02}
+          value01={10000}
+          value02={200000000}
           priceRangeName={"رنج مبلغ اجاره"}
           className="!w-[335px]"
         />

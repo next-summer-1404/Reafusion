@@ -11,21 +11,42 @@ import FilterBox from "@/components/Pages/MortageAndRent/FilterBox";
 interface IMortageAndRent {
   searchParams: {
     page?: string;
+    search?: string;
+    transactionType?: 'rental' | 'mortgage';
+    minMortgage?: number;
+    maxMortgage?: number;
+    minRent?: number;
+    maxRent?: number;
+    location?: string | undefined;
+    sort?: 'price';
   };
 }
 
 const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
   const limit = 9;
   const currentPage = parseInt(searchParams.page || "1", 10);
-  const Search = "";
-  const transactionType = "";
+  const Search = searchParams.search;
+  const transactionType = searchParams.transactionType ;
+  const minMortgage = searchParams.minMortgage;
+  const maxMortgage = searchParams.maxMortgage;
+  const minRent = searchParams.minRent;
+  const maxRent = searchParams.maxRent;
+  const location = searchParams.location || "";
+  // const sort = searchParams.sort
   const response = await GetAllHouses(
     currentPage,
     limit,
     Search,
-    transactionType
+    // location,
+    transactionType,
+    // sort,
+    minMortgage,
+    maxMortgage,
+    minRent,
+    maxRent,
   ) as AxiosResponse<IApiResponse>;
   const { houses, totalCount } = response.data;
+  console.log(houses)
 
   const totalPages = Math.ceil((totalCount as number) / limit);
 
