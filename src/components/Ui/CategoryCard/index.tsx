@@ -8,10 +8,11 @@ import melkKolbeImg from "../../../assets/images/HomeImgs/02.jpg";
 // import boomgardyImg from "../../../assets/images/HomeImgs/01.png";
 
 interface IProps {
-  CategoryName: string;
+  CategoryName: string,
 }
 
 const CategoryCard: FC<IProps> = ({ CategoryName }) => {
+  console.log(CategoryName)
   return (
     <div className="w-[325px] h-[250px] mt-8 max-xl:w-[550px] max-lg:w-full">
       <div
