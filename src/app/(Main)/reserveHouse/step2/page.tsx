@@ -1,8 +1,13 @@
+import Container from '@/components/Ui/Container/Container'
+import Steper from '@/components/Ui/Steper/Steper'
 import React from 'react'
 
 const ReserveHouseStep2 = () => {
   return (
-    <div>ReserveHouseStep2</div>
+    <Container>
+      <div>ReserveHouseStep1</div>
+      <Steper currentStep={3} />
+    </Container>
   )
 }
 

@@ -6,7 +6,9 @@ const ReserveHouseStep1 = () => {
     return (
         <Container>
             <div>ReserveHouseStep1</div>
-            <Steper/>
+            <Steper currentStep={2} />
+
+
         </Container>
     )
 }
