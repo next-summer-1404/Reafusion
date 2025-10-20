@@ -2,11 +2,11 @@ import { Banknote, Building, FileText, ListChecks, UsersRound } from 'lucide-rea
 import React, { FC } from 'react'
 
 const steps = [
-    { id: 1, label: 'انتخاب هتل', icon: <Building size={40} strokeWidth={1} /> },
-    { id: 2, label: 'مشخصات مسافران', icon: <UsersRound size={40} strokeWidth={1} /> },
-    { id: 3, label: 'تایید اطلاعات', icon: <ListChecks size={40} strokeWidth={1} /> },
-    { id: 4, label: 'پرداخت آنلاین', icon: <Banknote size={40} strokeWidth={1} /> },
-    { id: 5, label: 'صدور بلیط', icon: <FileText size={40} strokeWidth={1} /> },
+    { id: 1, label: 'انتخاب هتل', icon: <Building size={40} strokeWidth={1.5} /> },
+    { id: 2, label: 'مشخصات مسافران', icon: <UsersRound size={40} strokeWidth={1.5} /> },
+    { id: 3, label: 'تایید اطلاعات', icon: <ListChecks size={40} strokeWidth={1.5} /> },
+    { id: 4, label: 'پرداخت آنلاین', icon: <Banknote size={40} strokeWidth={1.5} /> },
+    { id: 5, label: 'صدور بلیط', icon: <FileText size={40} strokeWidth={1.5} /> },
 ]
 
 interface IProps {
@@ -54,7 +54,7 @@ const Steper: FC<IProps> = ({ currentStep = 1 }) => {
                             >
                                 {step.icon}
                             </div>
-                            <span className={`text-xl transition-all duration-300 ${labelClass}`}>{step.label}</span>
+                            <span className={`transition-all duration-300 ${labelClass}`}>{step.label}</span>
                         </li>
                     )
                 })}

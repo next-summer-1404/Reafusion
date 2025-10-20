@@ -10,6 +10,7 @@
   --lightGray: #f5f5f5;
   --gray: #777777;
   --dark: #1e2022;
+  --red: #ff5555;
 }
 
 .dark {
@@ -22,6 +23,7 @@
   --lightGray: #f5f5f5;
   --gray: #777777;
   --dark: #1e2022;
+  --red: #ff5555;
 }
 
 @theme inline {
@@ -37,6 +39,7 @@
   --color-lightGray: var(--lightGray);
   --color-gray: var(--gray);
   --color-dark: var(--dark);
+  --color-red: var(--red);
 }
 
 @media (prefers-color-scheme: dark) {

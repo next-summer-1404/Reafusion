@@ -25,7 +25,7 @@ const Categorys = async () => {
       <div className="flex justify-around gap-2 flex-wrap">
         {/* category list */}
         {data.map((items, index) => (
-            <CategoryCard key={index} CategoryName={items.dataValues.name} />
+          <CategoryCard key={index} CategoryName={items.dataValues.name} />
         ))}
         {/* category list end */}
       </div>
