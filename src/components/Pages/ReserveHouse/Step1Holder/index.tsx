@@ -1,5 +1,5 @@
 import React from 'react'
-import HouseCard from '../HouseCard'
+import HouseCard from '../ReservedHouseCard'
 import CustomerInfoCard from '../CustomerInfoCard'
 import SendOthersTicket from '../SendOthersTicket'
 import FillButton from '@/components/Ui/Buttons/FillButton';

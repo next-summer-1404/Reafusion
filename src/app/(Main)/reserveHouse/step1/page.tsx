@@ -1,4 +1,4 @@
-import Step1Holder from '@/components/Pages/ReserveHouse/Step1Holder/Step1Holder'
+import Step1Holder from '@/components/Pages/ReserveHouse/Step1Holder'
 import Container from '@/components/Ui/Container/Container'
 import Steper from '@/components/Ui/Steper/Steper'
 import React from 'react'

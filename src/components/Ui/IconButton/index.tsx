@@ -1,9 +1,9 @@
-import { Building2, ClockFading, UserPlus, UserRoundCheck } from 'lucide-react';
+import { Building2, CircleCheck, ClockFading, UserPlus, UserRoundCheck } from 'lucide-react';
 import React, { FC } from 'react'
 
 interface IProps {
     title: string;
-    iconName: 'building' | 'clock' | 'addUser' | 'checkedUser';
+    iconName: 'building' | 'clock' | 'addUser' | 'checkedUser' | 'checked';
 }
 
 const icons = [
@@ -11,6 +11,7 @@ const icons = [
     { name: 'clock', icon: <ClockFading size={24} strokeWidth={1.5} /> },
     { name: 'addUser', icon: <UserPlus size={24} strokeWidth={1.5} /> },
     { name: 'checkedUser', icon: <UserRoundCheck size={24} strokeWidth={1.5} /> },
+    { name: 'checked', icon: <CircleCheck size={24} strokeWidth={1.5} /> },
 ];
 
 const IconButton: FC<IProps> = ({ title, iconName }) => {
