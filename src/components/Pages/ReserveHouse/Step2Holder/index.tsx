@@ -4,10 +4,13 @@ import InformTravel from '../InformTravel'
 import DiscountCodeSection from '../DiscountCodeSection'
 import FillButton from '@/components/Ui/Buttons/FillButton'
 import EmptyButton from '@/components/Ui/Buttons/EmptyButton';
+import PassengersDetailList from '../PassengersDetailList'
 
 const Step2Holder = () => {
     return (
         <div className='flex flex-col gap-8 mt-10 py-8 px-4 bg-lightGray rounded-3xl'>
+            <PassengersDetailList />
+
             <SideCost />
 
             <InformTravel />
