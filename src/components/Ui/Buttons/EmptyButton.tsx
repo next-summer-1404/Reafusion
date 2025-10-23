@@ -9,7 +9,7 @@ const EmptyButton: FC<IProps> = ({ ButtonText, className = "" }) => {
   return (
     <button
       className={`${className} border border-[#0D3B66] text-[#0D3B66] 
-                       text-[20px] max-md:text-[18px] text-center rounded-[40px] cursor-pointer`}
+                        font-bold max-md:text-[18px] text-center rounded-[40px] cursor-pointer`}
     >
       {ButtonText}
     </button>
