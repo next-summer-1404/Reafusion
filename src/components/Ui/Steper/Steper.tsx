@@ -17,7 +17,7 @@ const Steper: FC<IProps> = ({ currentStep = 1 }) => {
     return (
         <div className='relative w-full'>
             {/* lines */}
-            <ul className='flex w-full absolute xl:bottom-[40%] bottom-[78px] right-0 justify-between ps-2.5 pe-3'>
+            <ul className='flex w-full absolute md:bottom-[40%] max-md:bottom-[30%] right-0 justify-between ps-2.5 pe-3'>
                 {steps.slice(0, -1).map((step, index) => (
                     <li key={step.id} className='w-[25%] relative bottom-[30px]'>
                         <div
@@ -50,11 +50,11 @@ const Steper: FC<IProps> = ({ currentStep = 1 }) => {
                     return (
                         <li key={step.id} className='w-fit flex flex-col gap-4 justify-center items-center'>
                             <div
-                                className={`flex justify-center items-center w-[80px] h-[80px] rounded-full transition-all duration-300 ${circleClass}`}
+                                className={`flex justify-center items-center w-[80px] h-[80px] max-md:w-[60px] max-md:h-[60px] rounded-full transition-all duration-300 ${circleClass}`}
                             >
                                 {step.icon}
                             </div>
-                            <span className={`transition-all duration-300 ${labelClass}`}>{step.label}</span>
+                            <span className={`transition-all duration-300 max-md:text-xs ${labelClass}`}>{step.label}</span>
                         </li>
                     )
                 })}
