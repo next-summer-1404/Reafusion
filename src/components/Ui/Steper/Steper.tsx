@@ -2,11 +2,11 @@ import { Banknote, Building, FileText, ListChecks, UsersRound } from 'lucide-rea
 import React, { FC } from 'react'
 
 const steps = [
-    { id: 1, label: 'انتخاب هتل', icon: <Building size={40} strokeWidth={1.5} /> },
-    { id: 2, label: 'مشخصات مسافران', icon: <UsersRound size={40} strokeWidth={1.5} /> },
-    { id: 3, label: 'تایید اطلاعات', icon: <ListChecks size={40} strokeWidth={1.5} /> },
-    { id: 4, label: 'پرداخت آنلاین', icon: <Banknote size={40} strokeWidth={1.5} /> },
-    { id: 5, label: 'صدور بلیط', icon: <FileText size={40} strokeWidth={1.5} /> },
+    { id: 1, label: 'انتخاب هتل', icon: <Building className='size-10 max-md:size-8 max-sm:size-6' size={40} strokeWidth={1.5} /> },
+    { id: 2, label: 'مشخصات مسافران', icon: <UsersRound className='size-10 max-md:size-8 max-sm:size-6' size={40} strokeWidth={1.5} /> },
+    { id: 3, label: 'تایید اطلاعات', icon: <ListChecks className='size-10 max-md:size-8 max-sm:size-6' size={40} strokeWidth={1.5} /> },
+    { id: 4, label: 'پرداخت آنلاین', icon: <Banknote className='size-10 max-md:size-8 max-sm:size-6' size={40} strokeWidth={1.5} /> },
+    { id: 5, label: 'صدور بلیط', icon: <FileText className='size-10 max-md:size-8 max-sm:size-6' size={40} strokeWidth={1.5} /> },
 ]
 
 interface IProps {
@@ -17,7 +17,7 @@ const Steper: FC<IProps> = ({ currentStep = 1 }) => {
     return (
         <div className='relative w-full'>
             {/* lines */}
-            <ul className='flex w-full absolute md:bottom-[40%] max-md:bottom-[30%] right-0 justify-between ps-2.5 pe-3'>
+            <ul className='flex w-full absolute bottom-[45px] max-lx:bottom-[37px] max-lg:bottom-[37px] max-md:bottom-[37px] max-sm:bottom-[20px] right-0 justify-between ps-2.5 pe-3'>
                 {steps.slice(0, -1).map((step, index) => (
                     <li key={step.id} className='w-[25%] relative bottom-[30px]'>
                         <div
@@ -50,11 +50,11 @@ const Steper: FC<IProps> = ({ currentStep = 1 }) => {
                     return (
                         <li key={step.id} className='w-fit flex flex-col gap-4 justify-center items-center'>
                             <div
-                                className={`flex justify-center items-center w-[80px] h-[80px] max-md:w-[60px] max-md:h-[60px] rounded-full transition-all duration-300 ${circleClass}`}
+                                className={`flex justify-center items-center size-20 max-md:size-16 max-sm:size-12 rounded-full transition-all duration-300 ${circleClass}`}
                             >
                                 {step.icon}
                             </div>
-                            <span className={`transition-all duration-300 max-md:text-xs ${labelClass}`}>{step.label}</span>
+                            <span className={`transition-all duration-300 max-md:text-sm max-sm:text-xs text-center ${labelClass}`}>{step.label}</span>
                         </li>
                     )
                 })}
