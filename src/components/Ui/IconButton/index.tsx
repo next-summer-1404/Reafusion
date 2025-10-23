@@ -21,7 +21,10 @@ const IconButton: FC<IProps> = ({ title, iconName, customClass }) => {
     const selectedIcon = icons.find(i => i.name === iconName)?.icon;
 
     return (
-        <div className={`${customClass} flex gap-2 px-3 py-2 cursor-pointer border border-primary text-primary rounded-2xl w-fit hover:bg-primary hover:text-whiteColor transition-all`}>
+        <div className={`${customClass} flex gap-2 px-3 py-2 cursor-pointer border
+         border-primary text-primary rounded-2xl w-fit
+          hover:bg-primary hover:text-whiteColor transition-all
+          max-sm:w-full max-sm:justify-center`}>
             {selectedIcon}
             {title}
 

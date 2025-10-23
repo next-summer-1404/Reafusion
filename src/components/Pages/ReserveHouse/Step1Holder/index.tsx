@@ -13,8 +13,8 @@ const Step1Holder = () => {
 
       {/* final price */}
       <div className='flex gap-2 items-center'>
-        <h5 className='text-dark text-2xl font-bold'>قیمت کل :</h5>
-        <span className='text-primary text-[32px] font-bold'>2,500,000</span>
+        <h5 className='text-dark md:text-2xl font-bold max-md:text-xl'>قیمت کل :</h5>
+        <span className='text-primary text-[32px] max-sm:text-[28px] font-bold'>2,500,000</span>
         <span className='text-primary text-xl'>تومان</span>
       </div>
 
