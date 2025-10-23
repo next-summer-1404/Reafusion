@@ -53,8 +53,8 @@ const rows: IUserInfo[] = [
 const PassengersDetailList = () => (
     <div className="flex flex-col gap-8 p-4 rounded-3xl border border-borderColor bg-whiteColor">
         {/* title */}
-        <div className="flex justify-between items-center">
-            <h3 className="text-2xl text-dark font-bold">مشخصات مسافران</h3>
+        <div className="flex max-sm:flex-col justify-between items-center max-sm:items-start max-sm:gap-4">
+            <h3 className="text-2xl max-sm:text-xl text-dark font-bold">مشخصات مسافران</h3>
             <IconButton customClass="!border-0" title="ویرایش مسافران" iconName="editUser" />
         </div>
         {/* title end */}

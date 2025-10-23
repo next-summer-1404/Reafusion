@@ -17,7 +17,6 @@ const Step1Holder = () => {
         <span className='text-primary text-[32px] max-sm:text-[28px] font-bold'>2,500,000</span>
         <span className='text-primary text-xl'>تومان</span>
       </div>
-
       {/* final price end */}
 
       {/* submit button */}
