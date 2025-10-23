@@ -27,12 +27,12 @@ const Breadcrumb: FC<IProps> = ({
   listClasses,
   activeClasses,
   capitalizeLinks,
-  currentItem, 
+  currentItem,
 }) => {
   const paths = usePathname();
   const pathNames = paths.split('/').filter((path) => path);
 
-  const separator = <ChevronLeft color="#777777" />;
+  const separator = <ChevronLeft className='text-gray' />;
 
   return (
     <div>

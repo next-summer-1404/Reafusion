@@ -7,14 +7,14 @@ interface IProps {
   setPriceRange?: (minPrice: number, maxPrice: number) => void;
   value01?: number;
   value02?: number;
-  priceRangeName? : string
+  priceRangeName?: string
   className?: string;
 }
 
-const PriceRangeComponent: FC<IProps> = ({ setPriceRange, value01, value02, priceRangeName, className}) => {
+const PriceRangeComponent: FC<IProps> = ({ setPriceRange, value01, value02, priceRangeName, className }) => {
   const [value, setValue] = useState([value01 as number, value02 as number]);
 
-  const handleChange = (event: Event , newValue: number[]) => {
+  const handleChange = (event: Event, newValue: number[]) => {
     setValue(newValue);
     if (setPriceRange) {
       setPriceRange(newValue[0], newValue[1]);
@@ -23,7 +23,7 @@ const PriceRangeComponent: FC<IProps> = ({ setPriceRange, value01, value02, pric
 
   return (
     <div className={`w-[378px] ${className} pt-1 px-6 max-md:w-full`}>
-      <h3 className="text-[#1E2022] text-[16px] font-bold">{priceRangeName}</h3>
+      <h3 className="text-dark text-[16px] font-bold">{priceRangeName}</h3>
       <Slider
         value={value}
         className="mt-1"
@@ -56,8 +56,8 @@ const PriceRangeComponent: FC<IProps> = ({ setPriceRange, value01, value02, pric
         }}
       />
       <div className="flex justify-between text-sm">
-        <span><span className="text-[#777777]">حداقل</span> {value[0].toLocaleString()}</span>
-        <span><span className="text-[#777777]">حداکثر</span> {value[1].toLocaleString()}</span>
+        <span><span className="text-gray">حداقل</span> {value[0].toLocaleString()}</span>
+        <span><span className="text-gray">حداکثر</span> {value[1].toLocaleString()}</span>
       </div>
     </div>
   );

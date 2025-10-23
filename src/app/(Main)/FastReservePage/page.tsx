@@ -3,8 +3,8 @@ import Breadcrumb from "@/components/Ui/Breadcrumb";
 import Container from "@/components/Ui/Container/Container";
 import CustomPagination from "@/components/Ui/CustomPagination";
 import { GetAllHouses } from "@/core/Apis/GetAllHouses";
-import { IApiResponse } from "@/core/types/IApiResForGetHouses";
-import { IFastReservePage } from "@/core/types/IFastReservePage";
+import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
+import { IFastReservePage } from "@/core/Types/IFastReservePage";
 import { AxiosResponse } from "axios";
 import { FC } from "react";
 
@@ -39,9 +39,9 @@ const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
     <Container>
       <Breadcrumb
         homeElement={"خانه"}
-        activeClasses="!text-[#1E2022] !font-bold"
+        activeClasses="!text-dark !font-bold"
         containerClasses="flex gap-4"
-        listClasses="hover:text-[#1E2022] text-[#777777]"
+        listClasses="hover:text-dark text-gray"
         capitalizeLinks
       />
       <FilteringList ItemLength={totalCount} locations={locations} houses={houses} />

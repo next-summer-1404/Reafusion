@@ -62,7 +62,7 @@ const CodeInput = ({ initialCode = ["", "", "", "", "", ""] }) => {
           value={value}
           onChange={(e) => handleChange(i, e.target.value)}
           onKeyDown={(e) => handleKeyDown(i, e)}
-          className="outline-0 bg-[#F5F5F5] w-[50px] h-[50px] text-center rounded-[40px] text-xl border border-[#DDDDDD] focus:border-blue-500 focus:outline-none"
+          className="outline-0 bg-lightGray w-[50px] h-[50px] text-center rounded-[40px] text-xl border border-borderColor focus:border-primary focus:outline-none"
         />
       ))}
     </div>

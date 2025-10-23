@@ -11,7 +11,7 @@ const SubmitBtn: FC<IProps> = ({ title, customStyle, disabled }) => {
         <button
             type='submit'
             disabled={disabled}
-            className={`${customStyle} w-full bg-[#0D3B66] text-white text-center p-5 max-sm:p-3 max-sm:text-sm rounded-[40px] cursor-pointer`}
+            className={`${customStyle} w-full bg-primary text-whiteColor text-center p-5 max-sm:p-3 max-sm:text-sm rounded-[40px] cursor-pointer`}
         >
             {title}
         </button>

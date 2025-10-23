@@ -10,7 +10,7 @@ interface IChildren {
 
 const AuthLayout: FC<IChildren> = ({ children }) => {
     return (
-        <div className='w-full h-screen bg-[#F3F4F6] xl:p-12 lg:p-5 max-lg:p-5 max-sm:px-3'>
+        <div className='w-full h-screen bg-pageBg xl:p-12 lg:p-5 max-lg:p-5 max-sm:px-3'>
             <div className='flex justify-between h-full xl:gap-12 max-xl:gap-12 lg:gap-5 max-lg:gap-5'>
                 {/* form */}
                 <div className='h-full bg-white md:w-[50%] max-md:w-full rounded-[40px]'
@@ -28,15 +28,15 @@ const AuthLayout: FC<IChildren> = ({ children }) => {
                      '>
                         {/* users image list */}
                         <div className='flex w-36'>
-                            <Image className='relative rounded-full !w-12 !h-12 border border-[#F5F5F5] box-border' src={user1} alt='' width={48} height={48} />
-                            <Image className='relative left-4 rounded-full !w-12 !h-12 border border-[#F5F5F5] box-border' src={user2} alt='' width={48} height={48} />
-                            <Image className='relative left-8  rounded-full !w-12 !h-12 border border-[#F5F5F5] box-border' src={user1} alt='' width={48} height={48} />
-                            <Image className='relative left-12 rounded-full !w-12 !h-12 border border-[#F5F5F5] box-border' src={user2} alt='' width={48} height={48} />
+                            <Image className='relative rounded-full !w-12 !h-12 border border-lightGray box-border' src={user1} alt='' width={48} height={48} />
+                            <Image className='relative left-4 rounded-full !w-12 !h-12 border border-lightGray box-border' src={user2} alt='' width={48} height={48} />
+                            <Image className='relative left-8  rounded-full !w-12 !h-12 border border-lightGray box-border' src={user1} alt='' width={48} height={48} />
+                            <Image className='relative left-12 rounded-full !w-12 !h-12 border border-lightGray box-border' src={user2} alt='' width={48} height={48} />
                         </div>
                         {/* users image list end */}
 
                         {/* join us */}
-                        <div className='text-white flex flex-col gap-2'>
+                        <div className='text-whiteColor flex flex-col gap-2'>
                             <h2>همین حالا به ما بپیوند!</h2>
                             <p className='text-sm'> همراه هزاران کاربر دیگر از خدمات ما استفاده کنید.</p>
                         </div>

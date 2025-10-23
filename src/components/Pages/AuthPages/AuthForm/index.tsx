@@ -35,7 +35,7 @@ const AuthForm: FC<IChildren> = ({ children, action }) => {
   return (
     <form
       action={formAction}
-      className="box-border h-full w-full flex flex-col justify-center items-center px-12 py-6 gap-8 max-sm:p-3 text-[#1E2022]"
+      className="box-border h-full w-full flex flex-col justify-center items-center px-12 py-6 gap-8 max-sm:p-3 text-dark"
     >
       {children}
     </form>
