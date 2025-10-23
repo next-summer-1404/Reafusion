@@ -34,7 +34,7 @@ const DetailCoverAndPhotos: FC<IProps> = ({ houseImages, houseName }) => {
             alt={houseName}
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <button className="border border-white text-[16px] text-white p-2.5 rounded-[40px] px-4 cursor-pointer">
+            <button className="border border-whiteColor text-[16px] text-whiteColor p-2.5 rounded-[40px] px-4 cursor-pointer">
               2+ مشاهده بیشتر
             </button>
           </div>
