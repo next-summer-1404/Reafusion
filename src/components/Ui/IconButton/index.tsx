@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 
 interface IProps {
     title: string;
-    customClass: string;
+    customClass?: string;
     iconName: 'building' | 'clock' | 'addUser' | 'checkedUser' | 'checked' | 'editUser';
 }
 
