@@ -20,7 +20,7 @@ const HouseCard = () => {
                     height={158}
                 />
 
-                <ul className='flex flex-col gap-4 max-xl:w-[60%] max-lg:w-[60%]'>
+                <ul className='flex flex-col gap-4 max-xl:w-[60%] max-lg:w-[60%] max-md:w-full'>
                     {/* house name */}
                     <li className='text-xl text-dark font-bold'>هتل همایون فر کیش ایران</li>
                     {/* house name end */}
@@ -30,7 +30,7 @@ const HouseCard = () => {
                             <CalendarClock size={16} />
                             تاریخ ورود :
                         </span>
-                        <span className='text-dark'>12 شهریور 1404 - ساعت 12:30</span>
+                        <span className='text-dark max-sm:w-full'>12 شهریور 1404 - ساعت 12:30</span>
                     </li>
                     {/* start date end */}
                     {/* end date */}
@@ -39,7 +39,7 @@ const HouseCard = () => {
                             <CalendarClock size={16} />
                             تاریخ خروج :
                         </span>
-                        <span className='text-dark'>1 مهر 1404 - ساعت 06:30</span>
+                        <span className='text-dark max-sm:w-full'>1 مهر 1404 - ساعت 06:30</span>
                     </li>
                     {/* end date end */}
                     {/* address */}
@@ -57,7 +57,7 @@ const HouseCard = () => {
 
             {/* price */}
             <div className='flex flex-col max-lg:w-full max-lg:gap-4 justify-between'>
-                <div className='flex flex-col max-lg:flex-row max-lg:justify-between gap-2'>
+                <div className='flex flex-col max-lg:flex-row max-lg:justify-between gap-2 max-sm:flex-col'>
                     <div className='flex gap-2 items-center justify-end'>
                         <span className='text-gray text-xl font-bold line-through'>200,000</span>
                         <span className='text-sm text-gray'>تومان</span>
