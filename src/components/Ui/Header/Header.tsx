@@ -2,12 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { FC } from "react";
 import MainReafusionLogo from "../../../assets/images/ReafusionLogo/MainReafusionLogo.jpg";
-
 import Container from "../Container/Container";
 import FillButton from "../Buttons/FillButton";
 import EmptyButton from "../Buttons/EmptyButton";
+import UnKnownPersonImage from '../../../assets/images/UnKnownUserImg/UnKnownUser.jpg' 
 
 const links = [
   { name: "خانه", href: "/" },
@@ -17,7 +17,11 @@ const links = [
   { name: "درباره ما", href: "/ccc" },
 ];
 
-const Header = () => {
+interface IProps {
+  userToken?: string | undefined;
+}
+
+const Header: FC<IProps> = ({ userToken }) => {
   const pathname = usePathname();
 
   return (
@@ -46,20 +50,34 @@ const Header = () => {
           </Link>
         ))}
       </div>
-      <div className="flex gap-5 max-lg: justify-center items-center">
-        <Link href={"/login"}>
-          <FillButton
-            ButtonText={"ورود"}
-             className={'px-7 max-lg:w-[200px] h-[43px] text-[20px]'}
-          />
-        </Link>
-        <Link href={"/register/step1"}>
-          <EmptyButton
-            ButtonText={"ثبت نام"}
-           className={'px-[33px] max-lg:w-[200px] h-[43px]'}
-          />
-        </Link>
-      </div>
+      {userToken ? (
+        <div className="min-w-[110px] flex items-center gap-3 cursor-pointer">
+            <h3>کاربر بدون نام</h3>
+            <Image  
+              src={UnKnownPersonImage}
+              alt="userImage"
+              width={40}
+              height={35}
+              className="rounded-full overflow-hidden"
+            />
+        </div>
+      ) : (
+        <div className="flex gap-5 max-lg: justify-center items-center">
+          <Link href={"/login"}>
+            <FillButton
+              ButtonText={"ورود"}
+              className={'px-7 max-lg:w-[200px] h-[43px] text-[20px]'}
+            />
+          </Link>
+          <Link href={"/register/step1"}>
+            <EmptyButton
+              ButtonText={"ثبت نام"}
+            className={'px-[33px] max-lg:w-[200px] h-[43px]'}
+            />
+          </Link>
+        </div>
+      )}
+      
     </Container>
   );
 };

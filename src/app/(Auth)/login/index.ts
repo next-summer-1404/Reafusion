@@ -1,4 +1,5 @@
 import { postLogin } from "@/core/Apis/Auth/Login/login";
+import { cookies } from "next/headers";
 import { z } from "zod";
 
 // the zod for validation
@@ -23,13 +24,22 @@ export const loginAction = async (state: { message: string, redirect?: string },
     return { message };
   }
   // conect zod to the form end 
+
   // send data to APi & manage that response
   try {
     const loginData = { email, password };
     const response = await postLogin(loginData);
+    const cookieStore = await cookies()
+    const token = cookieStore.set('token', response.accessToken, {
+      maxAge: 100,
+    }) 
+    console.log(token)
     if (response) {
-      console.log(response);
-      return { message: 'عملیات با موفقیت انجام شد', redirect: '/' };
+      return { 
+        message: 'عملیات با موفقیت انجام شد',
+        token: response.accessToken,
+        redirect: '/' 
+      };
     } else {
       return { message: "پاسخ نامعتبر است" };
     }
