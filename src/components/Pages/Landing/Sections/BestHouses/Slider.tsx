@@ -61,6 +61,7 @@ const Slider: FC<IProps> = ({ filterData }) => {
         {filterData.map((house) => (
           <SwiperSlide key={house.id}>
             <HouseCard
+              id={house.id}
               HomeName={house.title}
               HomeAddress={house.address}
               HomePrice={house.price}
@@ -70,6 +71,7 @@ const Slider: FC<IProps> = ({ filterData }) => {
               HomeParkingCount={house.parking}
               HomeCapacityCount={house.capacity}
               HomeRoomCount={house.rooms}
+              DetailAdress={'FastReservePage'}
             />
           </SwiperSlide>
         ))}

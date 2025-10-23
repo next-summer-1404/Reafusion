@@ -22,13 +22,13 @@ const HouseCard: FC<IHouseCard> = ({ id, HomeName, HomeAddress, HomePrice,
 
   return (
     <div
-      className={`border border-[#DDDDDD] hover:border-4 hover:border-[#0D3B66] w-[431px] max-sm:w-[411px] min-h-[458px] rounded-[24px] overflow-hidden transition-all`}
+      className={`border border-[#DDDDDD] w-[431px] max-sm:w-[411px] min-h-[458px] rounded-[24px] overflow-hidden transition-all`}
     >
       {/* house cover */}
       <Link href={`/${DetailAdress}/${id}`} className="relative cursor-pointer">
         <Image
           src={
-            HomeImage && HomeImage[0] && HomeImage[0] !== ""
+            HomeImage && HomeImage[0] && HomeImage[0] !== "" 
               ? HomeImage[0]
               : home
           }
@@ -38,11 +38,11 @@ const HouseCard: FC<IHouseCard> = ({ id, HomeName, HomeAddress, HomePrice,
           style={{ width: "431px", height: "240px", objectFit: "cover" }}
         />
         {HomeOffer && (
-          <div className="size-12 bg-[#FF5555] absolute top-4 left-4 text-[16px] rounded-full flex justify-center items-center text-white">
+          <div className="size-12 bg-[#FF5555] absolute text-[16px] top-3 right-[365px]  rounded-full flex justify-center items-center text-white">
             {discountPercentage}%-
           </div>
         )}
-      </Link>
+      </Link>     
       {/* house cover end */}
       {/* house contents */}
       <div className="px-7 py-3">
