@@ -9,6 +9,7 @@ import PassengersDetailList from "../PassengersDetailList";
 import { ReservationAction } from "@/app/(Main)/reserveHouse/step2";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Step2Holder = () => {
   const houseId = sessionStorage.getItem('houseId');
@@ -74,10 +75,12 @@ const Step2Holder = () => {
         <input type="hidden" name="arrivalDate" value={arrivalDate as string}/>
         <input type="hidden" name="departureDate" value={departureDate as string}/>
         <input type="hidden" name="sharedEmail" value={sharedEmail as string}/>
-        <EmptyButton
-          className="py-4 px-5 !rounded-2xl !border-gray !text-gray"
-          ButtonText="مرحله قبل"
-        />
+        <Link href={'/reserveHouse/step1'}>
+          <EmptyButton
+            className="py-4 px-5 !rounded-2xl !border-gray !text-gray"
+            ButtonText="مرحله قبل"
+          />
+        </Link>      
         <FillButton
           className="py-4 px-5 !rounded-2xl"
           ButtonText="پرداخت آنلاین"

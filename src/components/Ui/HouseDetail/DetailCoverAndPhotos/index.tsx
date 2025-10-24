@@ -17,7 +17,7 @@ const DetailCoverAndPhotos: FC<IProps> = ({ houseImages, houseName }) => {
         src={houseImages === null ? HouseImage : (houseImages[0] || HouseImage)}
         alt={houseName}
       />
-      <div className="space-y-8 flex max-md:flex-col">
+      <div className="space-y-8  max-md:flex-col">
         <Image
           className="rounded-[24px] h-[203px]"
           width={388}
