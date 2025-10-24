@@ -43,10 +43,12 @@ const Step3Holder = () => {
                 <input type="hidden" name='departureDate' value={departureDate as string}/>
                 <input type="hidden" name='sharedEmail' value={sharedEmail as string}/>
                 <input type="hidden" name='phoneNumber' value={phoneNumber as string}/>
-                <Link href={'/'}>
-                  <EmptyButton className='py-4 px-5 !rounded-2xl !border-gray !text-gray' ButtonText='بازگشت به صفحه اصلی' />
-                </Link>
-                <FillButton className='py-4 px-5 !rounded-2xl' ButtonText='صدور بلیط های من' type='submit' />
+                <div className='flex max-md:flex-col justify-between w-full max-md:gap-4'>
+                    <Link href={'/'}>
+                    <EmptyButton className='py-4 px-5 !rounded-2xl !border-gray !text-gray max-sm:py-2 max-sm:px-2 max-md:w-full' ButtonText='بازگشت به صفحه اصلی' />
+                    </Link>
+                    <FillButton className='py-4 px-5 !rounded-2xl max-sm:py-2 max-sm:px-2.5' ButtonText='صدور بلیط های من' type='submit' />
+                </div>
             </form>
             {/* submit button end */}
         </div>
