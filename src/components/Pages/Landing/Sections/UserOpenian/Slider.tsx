@@ -68,7 +68,7 @@ const Slider = () => {
         ref={swiperRef}
         spaceBetween={65}
         slidesPerView={slidesPerView}
-        className="relative right-3"
+        className="max-sm:w-[90%] relative right-3"
         onSwiper={(swiper) => {
           if (swiperRef.current) {
             swiperRef.current.swiper = swiper;

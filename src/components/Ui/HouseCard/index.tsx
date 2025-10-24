@@ -22,7 +22,7 @@ const HouseCard: FC<IHouseCard> = ({ id, HomeName, HomeAddress, HomePrice,
 
   return (
     <div
-      className={`border border-borderColor dark:border-thidary dark:bg-white w-[431px] max-sm:w-[411px] min-h-[458px] rounded-[24px] overflow-hidden transition-all`}
+      className={`border border-borderColor dark:border-thidary dark:bg-white w-[431px] min-h-[458px] rounded-[24px] overflow-hidden transition-all`}
     >
       {/* house cover */}
       <Link href={`/${DetailAdress}/${id}`} className="relative cursor-pointer">

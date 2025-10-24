@@ -54,7 +54,7 @@ const Slider: FC<IProps> = ({ filterData }) => {
         ref={swiperRef}
         spaceBetween={65}
         slidesPerView={slidesPerView}
-        className="w-full h-[460px] flex relative right-1 bottom-2"
+        className="w-full h-[460px] max-sm:w-[90%] flex relative right-1 bottom-2"
         // loop
       >
         {filterData.map((house) => (
