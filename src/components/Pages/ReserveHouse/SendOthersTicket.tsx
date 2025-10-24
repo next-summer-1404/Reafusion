@@ -20,8 +20,8 @@ const SendOthersTicket = () => {
                 <span className='text-gray max-sm:text-xs'>( ارسال بلیط به ایمیل و شماره همراه دیگر )</span>
             </div>
 
-            <form onSubmit={handleSubmit} className='flex justify-between items-center'>
-                <div className='flex gap-6'>
+            <form onSubmit={handleSubmit} className='flex max-md:flex-col justify-between items-end max-md:gap-8'>
+                <div className='flex flex-wrap gap-6 max-md:w-full'>
                     <CustomInputText
                         labelText='شماره تلفن'
                         value={phoneNumber}
