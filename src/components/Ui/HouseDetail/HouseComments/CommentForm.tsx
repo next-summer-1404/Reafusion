@@ -1,7 +1,8 @@
 'use clinet'
 import { CommentAction } from "@/app/(Main)/FastReservePage";
-import React, { FC, useActionState } from "react";
+import React, { FC, useActionState, useEffect } from "react";
 import FillButton from "../../Buttons/FillButton";
+import { toast } from "react-toastify";
 
 interface IProps {
   userId: string;
@@ -11,6 +12,14 @@ interface IProps {
 const CommentForm: FC<IProps> = ({ userId, houseId }) => {
   const [state, formAction] = useActionState(CommentAction, { message: "" });
   console.log(state)
+
+  useEffect(() => {
+    if (state.message === "نظر شما با موفقیت ثبت شد") {
+      toast.success('نظر شما با موفقیت ثبت شد');
+    } else if (state.message && state.message !== "نظر شما با موفقیت ثبت شد") {
+      toast.error(state.error || 'خطا در انجام عملیات الطا دوباره امتحان کنید')
+    }
+  }, [state])
 
   return (
     <form action={formAction} className="space-y-5 pt-7">

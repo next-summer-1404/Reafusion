@@ -3,6 +3,7 @@ import React, { FormEvent, useState } from 'react'
 import CustomSelectOption from '@/components/Ui/ReusableInputs/SelectOption';
 import CustomInputText from './../../Ui/ReusableInputs/InputText/index';
 import CustomInputDate from './../../Ui/ReusableInputs/InputDate/index';
+import { toast } from 'react-toastify';
 
 const CustomerInfoCard = () => {
     const [userName, setUserName] = useState('');
@@ -18,7 +19,7 @@ const CustomerInfoCard = () => {
         sessionStorage.setItem('gender', gender);
         sessionStorage.setItem('nationalId', nationalId);
         sessionStorage.setItem('birthDate', birthDate);
-        alert('مشخصات شما با موفیقت ثبت شد')
+        toast.success('مشخصات شما با موفیقت ثبت شد')
     }
 
     return (

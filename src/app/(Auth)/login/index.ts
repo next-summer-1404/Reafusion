@@ -43,8 +43,9 @@ export const loginAction = async (state: { message: string, redirect?: string },
     } else {
       return { message: "پاسخ نامعتبر است" };
     }
-  } catch {
-    return { message: 'خطا در سرور' };
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'خطا در سرور';
+    return { message: 'خطا در ثبت نظر', error: errorMessage };
   }
   // send data to APi & manage that response end
 };

@@ -1,6 +1,7 @@
 import IconButton from '@/components/Ui/IconButton'
 import CustomInputText from '@/components/Ui/ReusableInputs/InputText'
 import React, { FormEvent, useState } from 'react'
+import { toast } from 'react-toastify';
 
 const SendOthersTicket = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -10,7 +11,7 @@ const SendOthersTicket = () => {
         event.preventDefault();
         sessionStorage.setItem('phoneNumber', phoneNumber);
         sessionStorage.setItem('sharedEmail', sharedEmail);
-        alert('اطلاعات با موفقیت زخیره شد')  
+        toast.success('اطلاعات با موفقیت زخیره شد')  
     }
 
     return (
