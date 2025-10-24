@@ -38,7 +38,7 @@ const SendOthersTicket = () => {
                         customClass='max-md:w-[47%]'
                     />
                 </div>
-                    <IconButton title='ثبت اطلاعات' iconName='checkedUser' type='submit' />
+                    <IconButton title='ثبت اطلاعات' iconName='checkedUser' type='submit' customClass='max-md:w-full max-md:justify-center' />
             </form>
         </div>
     )

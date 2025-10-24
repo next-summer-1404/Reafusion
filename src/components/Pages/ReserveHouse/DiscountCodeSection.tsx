@@ -17,7 +17,7 @@ const DiscountCodeSection = () => {
                     placeholder='کد تخفیف را وارد کنید'
                 />
 
-                <IconButton title='اعمال کد تخفیف' iconName='checked' />
+                <IconButton title='اعمال کد تخفیف' iconName='checked' customClass='max-md:w-full max-md:justify-center'/>
             </div>
         </div>
     )

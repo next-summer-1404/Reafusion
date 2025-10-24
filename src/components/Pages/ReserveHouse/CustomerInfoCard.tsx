@@ -63,9 +63,9 @@ const CustomerInfoCard = () => {
                     setState={setBirthDate}
                 />
             </div>
-            <div className='flex justify-between w-full'>
-                <IconButton title='انتخاب مسافران سابق' iconName='clock' />
-                <IconButton title='افزودن مسافر' iconName='addUser' type='submit' />
+            <div className='flex max-md:flex-col max-md:gap-5 justify-between w-full'>
+                <IconButton title='انتخاب مسافران سابق' iconName='clock' customClass='max-md:w-full max-md:justify-center'/>
+                <IconButton title='افزودن مسافر' iconName='addUser' type='submit' customClass='max-md:w-full max-md:justify-center'/>
             </div>
         </form>
     )
