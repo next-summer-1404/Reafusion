@@ -134,6 +134,7 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
           discountPercentage={discountPercentage} 
           discounted_price={discounted_price} 
           price={price}
+          houseId={id}
         />
       )}    
       {/* reservetions form end */}

@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
 import "./globals.css";
-import { Toaster } from "react-hot-toast";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,28 +35,16 @@ export default function RootLayout({
         className={`${Shabnam.className} antialiased`}
       >
         {children}
-
-        <Toaster
-          position="top-left" 
-          toastOptions={{
-            duration: 2000, 
-            style: {
-              background: '#363636', 
-              color: '#fff',
-              padding: '10px 20px', 
-              borderRadius: '8px', 
-            },
-            error: {
-              style: {
-                background: '#ff4d4f', 
-              },
-            },
-            success: {
-              style: {
-                background: '#4caf50', 
-              },
-            },
-          }}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={true}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
         />
       </body>
     </html>

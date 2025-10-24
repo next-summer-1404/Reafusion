@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const InformTravel = () => {
+interface IProps {
+   sharedEmail: string;
+   phoneNumber: string;
+}
+
+const InformTravel: FC<IProps> = ({ sharedEmail, phoneNumber }) => {
     return (
         <div className='flex flex-col gap-8 justify-between p-4 rounded-3xl border border-borderColor bg-whiteColor box-border'>
             {/* title */}
@@ -15,14 +20,14 @@ const InformTravel = () => {
                 {/* phone number */}
                 <div className='flex flex-col gap-4 w-[250px] max-sm:w-full'>
                     <label className='text-[#1E2022] font-bold'>شماره تلفن</label>
-                    <p className='text-gray'>09391234567</p>
+                    <p className='text-gray'>{phoneNumber}</p>
                 </div>
                 {/* phone number end */}
 
                 {/* email */}
                 <div className='flex flex-col gap-4 w-[250px] max-sm:w-full'>
                     <label className='text-[#1E2022] font-bold'>ایمیل</label>
-                    <p className='text-gray'>example@gmail.com</p>
+                    <p className='text-gray'>{sharedEmail}</p>
                 </div>
                 {/* email end */}
             </div>
