@@ -2,12 +2,12 @@ import Breadcrumb from "@/components/Ui/Breadcrumb";
 import Container from "@/components/Ui/Container/Container";
 import { GetAllHouses } from "@/core/Apis/GetAllHouses";
 import { AxiosResponse } from "axios";
-import { IApiResponse } from "@/core/types/IApiResForGetHouses";
 import HouseCard from "@/components/Ui/HouseCard";
 import { FC } from "react";
 import CustomPagination from "@/components/Ui/CustomPagination";
 import FilterBox from "@/components/Pages/MortageAndRent/FilterBox";
-import { IMortageAndRent } from "@/core/types/IMortageAndRent";
+import { IMortageAndRent } from "@/core/Types/IMortageAndRent";
+import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
 
 const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
   // the data of searchParams witch send that to Api
@@ -42,9 +42,9 @@ const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
     <Container className="flex flex-col gap-10">
       <Breadcrumb
         homeElement={"خانه"}
-        activeClasses="!text-[#1E2022] !font-bold"
+        activeClasses="!text-dark !font-bold"
         containerClasses="flex gap-4"
-        listClasses="hover:text-[#1E2022] text-[#777777]"
+        listClasses="hover:text-dark text-gray"
         capitalizeLinks
       />
       <FilterBox itemsLenght={totalCount} />

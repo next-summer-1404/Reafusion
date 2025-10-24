@@ -25,78 +25,78 @@ export interface ICommentResponse {
 }
 
 const MortageAndRentDetail: FC<IProps> = async ({ params }) => {
-   // call Api and send data and get the value from that
-    const id = params.id;
-    const response = (await GetHouseDetail(id)) as AxiosResponse<IHouseDetailData>;
-    const Housedata = await GetSpecialVilas() as AxiosResponse<IApiResponse>;
-    const { houses } = Housedata.data;
-    const CommentResponse = await GetHousesComments(id) as AxiosResponse<ICommentResponse>;
-    const { data, totalCount } = CommentResponse.data;
-    const houseName = response.data.title;
-    const houseImages = response.data.photos;
-    const houseAddress = response.data.address;
-    const houseCaption = response.data.caption;
-    const houseType = response.data.categories.name;
-    const houseCapacity = response.data.capacity;
-    const BathroomsLength = response.data.bathrooms;
-    const parkingLength = response.data.parking;
-    const roomLength = response.data.rooms;
-    const yardType = response.data.yard_type;
-    const sellerName = response.data.sellerName;
-    const price = response.data.price;
-    const discounted_price = response.data.discounted_price;
-    const lat = response.data.location.lat;
-    const lng = response.data.location.lng;
-    const similarHouses = houses.slice(0, 4);
-    // call Api and send data and get the value from that end
-    // get the token value and decode that
-    const cookieStore = await cookies()
-    const token = cookieStore.get('token');
-    const tokenValue = token?.value as string
-    const decodToken = JSON.parse(atob(tokenValue.split('.')[1]));
-    // get the token value and decode that end
-     
-    return (
-      <Container className="space-y-10">
-        <Breadcrumb
-          homeElement={"خانه"}
-          activeClasses="!text-[#1E2022] !font-bold"
-          containerClasses="flex gap-4"
-          listClasses="hover:text-[#1E2022] text-[#777777]"
-          capitalizeLinks
-          currentItem={houseName}
-        />
-        <DetailCoverAndPhotos houseImages={houseImages} houseName={houseName} />
-        <DetailContent
-          id={id}
-          houseName={houseName}
-          houseAddress={houseAddress}
-          houseCaption={houseCaption}
-          houseType={houseType}
-          houseCapacity={houseCapacity}
-          BathroomsLength={BathroomsLength}
-          parkingLength={parkingLength}
-          roomLength={roomLength}
-          yardType={yardType}
-          sellerName={sellerName}
-          price={price}
-          discounted_price={discounted_price}
-          CommnetList={data}
-          CommentCount={totalCount}
-          userId={decodToken.id}
-          userProfile={decodToken.profilePicture}
-          userName={decodToken.name}
-          lat={lat}
-          lng={lng}
-          isMortageDetail={true}
-        />
-        <div className="flex justify-between">
-            <h2 className="text-[#1E2022] text-[24px] font-bold">آگهی های مشابه</h2>
-            <EmptyButton ButtonText="مشاهده همه" className="p-2 px-5"/>
-        </div>
-            <Slider filterData={similarHouses}/>
-      </Container>
-    );
+  // call Api and send data and get the value from that
+  const id = params.id;
+  const response = (await GetHouseDetail(id)) as AxiosResponse<IHouseDetailData>;
+  const Housedata = await GetSpecialVilas() as AxiosResponse<IApiResponse>;
+  const { houses } = Housedata.data;
+  const CommentResponse = await GetHousesComments(id) as AxiosResponse<ICommentResponse>;
+  const { data, totalCount } = CommentResponse.data;
+  const houseName = response.data.title;
+  const houseImages = response.data.photos;
+  const houseAddress = response.data.address;
+  const houseCaption = response.data.caption;
+  const houseType = response.data.categories.name;
+  const houseCapacity = response.data.capacity;
+  const BathroomsLength = response.data.bathrooms;
+  const parkingLength = response.data.parking;
+  const roomLength = response.data.rooms;
+  const yardType = response.data.yard_type;
+  const sellerName = response.data.sellerName;
+  const price = response.data.price;
+  const discounted_price = response.data.discounted_price;
+  const lat = response.data.location.lat;
+  const lng = response.data.location.lng;
+  const similarHouses = houses.slice(0, 4);
+  // call Api and send data and get the value from that end
+  // get the token value and decode that
+  const cookieStore = await cookies()
+  const token = cookieStore.get('token');
+  const tokenValue = token?.value as string
+  const decodToken = JSON.parse(atob(tokenValue.split('.')[1]));
+  // get the token value and decode that end
+
+  return (
+    <Container className="space-y-10">
+      <Breadcrumb
+        homeElement={"خانه"}
+        activeClasses="!text-[#1E2022] !font-bold"
+        containerClasses="flex gap-4"
+        listClasses="hover:text-[#1E2022] text-[#777777]"
+        capitalizeLinks
+        currentItem={houseName}
+      />
+      <DetailCoverAndPhotos houseImages={houseImages} houseName={houseName} />
+      <DetailContent
+        id={id}
+        houseName={houseName}
+        houseAddress={houseAddress}
+        houseCaption={houseCaption}
+        houseType={houseType}
+        houseCapacity={houseCapacity}
+        BathroomsLength={BathroomsLength}
+        parkingLength={parkingLength}
+        roomLength={roomLength}
+        yardType={yardType}
+        sellerName={sellerName}
+        price={price}
+        discounted_price={discounted_price}
+        CommnetList={data}
+        CommentCount={totalCount}
+        userId={decodToken.id}
+        userProfile={decodToken.profilePicture}
+        userName={decodToken.name}
+        lat={lat}
+        lng={lng}
+        isMortageDetail={true}
+      />
+      <div className="flex justify-between">
+        <h2 className="text-dark text-[24px] font-bold">آگهی های مشابه</h2>
+        <EmptyButton ButtonText="مشاهده همه" className="p-2 px-5" />
+      </div>
+      <Slider filterData={similarHouses} />
+    </Container>
+  );
 }
 
 export default MortageAndRentDetail

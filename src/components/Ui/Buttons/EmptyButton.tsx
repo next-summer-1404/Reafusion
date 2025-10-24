@@ -8,7 +8,7 @@ interface IProps {
 const EmptyButton: FC<IProps> = ({ ButtonText, className = "" }) => {
   return (
     <button
-      className={`${className} border border-[#0D3B66] text-[#0D3B66] 
+      className={`${className} border border-primary text-primary 
                         font-bold max-md:text-[18px] text-center rounded-[40px] cursor-pointer`}
     >
       {ButtonText}

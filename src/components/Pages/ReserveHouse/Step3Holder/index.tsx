@@ -32,7 +32,7 @@ const Step3Holder = () => {
 
     return (
         <div className='w-fit mx-auto flex flex-col justify-center items-center gap-8 mt-10 py-4 px-4'>
-            <div className='w-[500px] h-[500px]'>
+            <div className='size-[500px] max-md:size-[350px] max-sm:size-[250px]'>
                 <Image className='w-full h-full' src={okPaymentImg} alt='' width={500} height={500} />
             </div>
             {/* submit button */}

@@ -30,12 +30,14 @@ const CustomerInfoCard = () => {
                     value={userName}
                     setState={setUserName}
                     placeholder='نام خود را وارد کنید'
+                    customClass='max-md:!w-[47%] max-lg:!w-[48%] max-xl:!w-[31%]'
                 />
                 <CustomInputText
                     labelText='نام خانوادگی'
                     value={userFamily}
                     setState={setUserFamily}
                     placeholder='نام خانوادگی خود را وارد کنید'
+                    customClass='max-md:!w-[47%] max-lg:!w-[48%] max-xl:!w-[31%]'
                 />
                 {/* enable this select option when you right fuction */}
                 <CustomSelectOption
@@ -53,6 +55,7 @@ const CustomerInfoCard = () => {
                     value={nationalId}
                     setState={setNationalId}
                     placeholder='کد ملی خود را وارد کنید'
+                    customClass='max-md:!w-[47%] max-lg:!w-[48%] max-xl:!w-[31%]'
                 />
                 <CustomInputDate
                     labelText='تاریخ تولد'

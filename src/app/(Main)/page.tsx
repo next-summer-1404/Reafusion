@@ -13,17 +13,17 @@ const Home = () => {
   return (
     <>
       <Container>
-            <HeroSection />
-            <Categorys />
-            <SpecialVilas />
+        <HeroSection />
+        <Categorys />
+        <SpecialVilas />
       </Container>
       <WhyChoseUs />
-       <Container>
-            <BestHouses />
-            <RentVilaInBestLocation />
-            <OurFeatures />
-            <FreeConsultation />
-            <UserOpenian />
+      <Container>
+        <BestHouses />
+        <RentVilaInBestLocation />
+        <OurFeatures />
+        <FreeConsultation />
+        <UserOpenian />
       </Container>
     </>
   );

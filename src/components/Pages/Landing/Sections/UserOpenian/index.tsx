@@ -5,7 +5,7 @@ const UserOpenian = () => {
   return (
     <div className="pt-30 space-y-8">
       {/* section tapbar */}
-      <h3 className="text-[#1E2022] text-[24px] font-bold">
+      <h3 className="text-dark text-[24px] font-bold">
         مشتریان در باره ما چه می گویند ؟
       </h3>
       {/* section tapbar end */}

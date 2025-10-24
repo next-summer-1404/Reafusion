@@ -8,8 +8,8 @@ interface IProps {
 const FormTitle: FC<IProps> = ({ title, desc }) => {
     return (
         <div className='w-full flex flex-col gap-4'>
-            <h2 className='text-2xl max-sm:text-lg font-bold'>{title}</h2>
-            <p className='max-sm:hidden'>{desc}</p>
+            <h2 className='text-2xl max-sm:text-lg font-bold text-dark'>{title}</h2>
+            <p className='max-sm:hidden text-dark'>{desc}</p>
         </div>
     )
 }

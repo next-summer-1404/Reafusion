@@ -1,18 +1,18 @@
 import Breadcrumb from "@/components/Ui/Breadcrumb";
 import Container from "@/components/Ui/Container/Container";
 import { GetHouseDetail } from "@/core/Apis/GetHouseDetail";
-import { IHouseDetailData } from "@/core/types/IHouseDetailData";
 import { AxiosResponse } from "axios";
 import React, { FC } from "react";
 import DetailCoverAndPhotos from "@/components/Ui/HouseDetail/DetailCoverAndPhotos";
 import DetailContent from "@/components/Ui/HouseDetail/DetailContent";
 import EmptyButton from "@/components/Ui/Buttons/EmptyButton";
-import { IApiResponse } from "@/core/types/IApiResForGetHouses";
 import { GetSpecialVilas } from "@/core/Apis/GetSpecialVilas";
 import Slider from "@/components/Pages/Landing/Sections/BestHouses/Slider";
 import { GetHousesComments } from "@/core/Apis/GetHousesComment";
-import { IComment } from "@/core/types/ICommentResponse";
 import { cookies } from "next/headers";
+import { IHouseDetailData } from "@/core/Types/IHouseDetailData";
+import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
+import { IComment } from "@/core/Types/ICommentResponse";
 
 interface IProps {
   params: { id: string };
@@ -51,7 +51,7 @@ const FastReserveDetailPage: FC<IProps> = async ({ params }) => {
   const tokenValue = token?.value as string
   const decodToken = JSON.parse(atob(tokenValue.split('.')[1]));
   // get the token value and decode that end
-   
+
   return (
     <Container className="space-y-10">
       <Breadcrumb
@@ -85,10 +85,10 @@ const FastReserveDetailPage: FC<IProps> = async ({ params }) => {
         isMortageDetail={false}
       />
       <div className="flex justify-between">
-          <h2 className="text-[#1E2022] text-[24px] font-bold">آگهی های مشابه</h2>
-          <EmptyButton ButtonText="مشاهده همه" className="p-2 px-5"/>
+        <h2 className="text-dark text-[24px] font-bold">آگهی های مشابه</h2>
+        <EmptyButton ButtonText="مشاهده همه" className="p-2 px-5" />
       </div>
-          <Slider filterData={similarHouses}/>
+      <Slider filterData={similarHouses} />
     </Container>
   );
 };

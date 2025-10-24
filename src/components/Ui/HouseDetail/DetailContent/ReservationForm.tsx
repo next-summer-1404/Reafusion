@@ -47,13 +47,13 @@ const ReservationForm: FC<IProps> = ({ discountPercentage, price, discounted_pri
         placeholder="تاریخ خروج را انتخاب کنید"
       />
       <Input lable="تعداد نفرات" type="text" name="userCount" placeholder="0" />
-      <div className="border border-[#DDDDDD]"></div>
+      <div className="border border-borderColor"></div>
       {discounted_price && (
         <div className="flex justify-between">
-          <div className="bg-[#FF5555] p-2 px-4 rounded-[24px] text-white text-[14px] flex justify-center items-center">
+          <div className="bg-red p-2 px-4 rounded-[24px] text-whiteColor text-[14px] flex justify-center items-center">
             {discountPercentage}%- تحفیف
           </div>
-          <h3 className="text-[16px] text-[#777777]">
+          <h3 className="text-[16px] text-gray">
             <strong className="text-[24px] font-bold line-through">
               {discounted_price}
             </strong>{" "}
@@ -61,7 +61,7 @@ const ReservationForm: FC<IProps> = ({ discountPercentage, price, discounted_pri
           </h3>
         </div>
       )}
-      <h3 className="text-[16px] text-[#1E2022] text-left">
+      <h3 className="text-[16px] text-dark text-left">
         <strong className="text-[24px] font-bold">{price}</strong> تومان
       </h3>
         <FillButton

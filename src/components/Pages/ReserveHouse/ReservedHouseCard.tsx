@@ -26,9 +26,11 @@ const HouseCard: FC<IProps> = ({ houseImage, houseName, arrivalDate, departureDa
    : 0; 
 
     return (
-        <div className='flex justify-between p-4 rounded-3xl border border-borderColor bg-whiteColor box-border h-[190px]'>
+        <div className='flex max-md:flex-col h-[190px] max-md:h-fit
+         justify-between p-4 rounded-3xl border border-borderColor
+          bg-whiteColor box-border max-lg:gap-4 max-lg:flex-wrap max-lg:h-fit'>
             {/* detail */}
-            <div className='flex gap-6'>
+            <div className='flex max-md:w-full max-md:flex-col max-lg:gap-4 gap-6'>
                 <Image
                     className='rounded-lg'
                     src={houseImage ? houseImage : EmptyhouseImage}
@@ -41,7 +43,7 @@ const HouseCard: FC<IProps> = ({ houseImage, houseName, arrivalDate, departureDa
                     <li className='text-xl text-dark font-bold'>{houseName}</li>
                     {/* house name end */}
                     {/* start date */}
-                    <li className='flex gap-2'>
+                    <li className='flex max-sm:flex-col gap-2'>
                         <span className='flex gap-1 items-center text-gray'>
                             <CalendarClock size={16} />
                             تاریخ ورود :
@@ -50,7 +52,7 @@ const HouseCard: FC<IProps> = ({ houseImage, houseName, arrivalDate, departureDa
                     </li>
                     {/* start date end */}
                     {/* end date */}
-                    <li className='flex gap-2'>
+                    <li className='flex max-sm:flex-col gap-2'>
                         <span className='flex gap-1 items-center text-gray'>
                             <CalendarClock size={16} />
                             تاریخ خروج :
@@ -59,7 +61,7 @@ const HouseCard: FC<IProps> = ({ houseImage, houseName, arrivalDate, departureDa
                     </li>
                     {/* end date end */}
                     {/* address */}
-                    <li className='flex gap-2'>
+                    <li className='flex max-sm:flex-col gap-2'>
                         <span className='flex gap-1 items-center text-gray'>
                             <MapPin size={16} />
                             آدرس :

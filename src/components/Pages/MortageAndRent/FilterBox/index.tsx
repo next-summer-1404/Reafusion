@@ -54,17 +54,17 @@ const FilterBox: FC<IProps> = ({ itemsLenght }) => {
     params.set('sort', sort)
     params.set('location', location)
     router.push(`?${params.toString()}`);
-  }, [ searchParams, router, search, transactionType, minMortgage, maxMortgage, 
-     minRent, maxRent, minArea, maxArea ,location, sort])
+  }, [searchParams, router, search, transactionType, minMortgage, maxMortgage,
+    minRent, maxRent, minArea, maxArea, location, sort])
   // set data in Url and can make change that end
- 
+
   return (
     <div className="flex flex-col gap-8">
       <div className="flex justify-between items-center">
-        <span className="text-2xl font-bold text-[#1E2022]">فیلتر ها</span>
-        <span className="text-xl text-[#0d3b66]">{itemsLenght} نتیجه</span>
+        <span className="text-2xl font-bold text-dark">فیلتر ها</span>
+        <span className="text-xl text-primary">{itemsLenght} نتیجه</span>
       </div>
-      <div className="flex flex-wrap justify-around px-4 pt-7 max-lg:pb-7 space-y-10 rounded-3xl border border-[#DDDDDD]">
+      <div className="flex flex-wrap justify-around px-4 pt-7 max-lg:pb-7 space-y-10 rounded-3xl border border-borderColor">
         <CustomInputSearch
           labelText="جستجو"
           placeholder="جستجو کنید ..."
@@ -128,7 +128,7 @@ const FilterBox: FC<IProps> = ({ itemsLenght }) => {
           priceRangeName={"رنج مبلغ رهن"}
           className="!w-[335px]"
         />
-        <span className="border border-[#DDDDDD] max-lg:border-none"></span>
+        <span className="border border-borderColor max-lg:border-none"></span>
         <PriceRangeComponent
           setPriceRange={handlePriceRangeChanged02}
           value01={10000}
@@ -136,7 +136,7 @@ const FilterBox: FC<IProps> = ({ itemsLenght }) => {
           priceRangeName={"رنج مبلغ اجاره"}
           className="!w-[335px]"
         />
-        <span className="border border-[#DDDDDD] max-md:border-none"></span>
+        <span className="border border-borderColor max-md:border-none"></span>
         <PriceRangeComponent
           setPriceRange={handlePriceRangeChanged03}
           value01={10000}

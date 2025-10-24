@@ -22,26 +22,26 @@ const customIcon = L.icon({
   shadowSize: [41, 41],
 });
 
-const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, houseType, houseCapacity, 
-    yardType, sellerName, BathroomsLength, parkingLength, roomLength, id, CommnetList, CommentCount,
-    userId, userName, userProfile, price, discounted_price, isMortageDetail, lat, lng
+const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, houseType, houseCapacity,
+  yardType, sellerName, BathroomsLength, parkingLength, roomLength, id, CommnetList, CommentCount,
+  userId, userName, userProfile, price, discounted_price, isMortageDetail, lat, lng
 }) => {
   const [activeTab, setActiveTab] = useState<'about' | 'facilities' | 'comments' | 'houseLocation'>('about');
 
   const discountPercentage = discounted_price
     ? Math.round(
-        (Number(discounted_price) - Number(price) / Number(discounted_price)) * 100
-      )
-        .toFixed(0)
-        .slice(0, 2)
-  : 0;
+      (Number(discounted_price) - Number(price) / Number(discounted_price)) * 100
+    )
+      .toFixed(0)
+      .slice(0, 2)
+    : 0;
 
   return (
     <div className="flex justify-between">
       <div className="w-[1000px]">
         {/* house Name & Address */}
-        <h1 className="text-[32px] text-[#1E2022] font-bold ">{houseName}</h1>
-        <p className="text-[16px] text-[#777777] flex gap-2 py-4"><MapPinHouse size={20} /> {houseAddress}</p>
+        <h1 className="text-[32px] text-dark font-bold ">{houseName}</h1>
+        <p className="text-[16px] text-gray flex gap-2 py-4"><MapPinHouse size={20} /> {houseAddress}</p>
         {/* house Name & Address end */}
         {/* tab of house content */}
         <div className="flex gap-6 mt-4">
@@ -55,7 +55,7 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
           ) : (
             <NormalButton ButtonText="امکانات اقامتگاه" onClick={() => setActiveTab('facilities')} />
           )}
-          {isMortageDetail && ( 
+          {isMortageDetail && (
             activeTab === "houseLocation" ? (
               <ActiveButton ButtonText="موقعیت ملک" />
             ) : (
@@ -72,28 +72,28 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
         {/* content of the About Tab */}
         {activeTab === 'about' && (
           <div className="pt-8">
-            <h2 className="text-[#1E2022] text-[24px] font-bold "> چرا {houseName} رو انتخاب کنیم ؟</h2>
-            <p className="text-black text-[16px] text-justify leading-9 pt-3">{houseCaption || 'توضیحاتی ندارد'}</p>
+            <h2 className="text-dark text-[24px] font-bold "> چرا {houseName} رو انتخاب کنیم ؟</h2>
+            <p className="text-dark text-[16px] text-justify leading-9 pt-3">{houseCaption || 'توضیحاتی ندارد'}</p>
           </div>
         )}
         {/* content of the About Tab */}
         {/* content of the facilities Tab */}
         {activeTab === 'facilities' && (
           <div className="pt-8 flex justify-start gap-6 flex-wrap ">
-             <FacilitiesCard lable={'نوع بنا'} title={houseType}/>
-             <FacilitiesCard lable={'ظرفیت بنا'} title={houseCapacity + ' نفر'}/>
-             <FacilitiesCard lable={'حمام'} title={BathroomsLength + ' حمام'}/>
-             <FacilitiesCard lable={'تعداد پارکینک'} title={parkingLength > 0 ? parkingLength + ' پارکینگ' : ' ندارد'}/>
-             <FacilitiesCard lable={'اتاق خواب'} title={roomLength + ' خوابه'}/>
-             <FacilitiesCard lable={'نوع حیاط'} title={yardType}/>
-             <FacilitiesCard lable={'نام فروشنده'} title={sellerName}/>
+            <FacilitiesCard lable={'نوع بنا'} title={houseType} />
+            <FacilitiesCard lable={'ظرفیت بنا'} title={houseCapacity + ' نفر'} />
+            <FacilitiesCard lable={'حمام'} title={BathroomsLength + ' حمام'} />
+            <FacilitiesCard lable={'تعداد پارکینک'} title={parkingLength > 0 ? parkingLength + ' پارکینگ' : ' ندارد'} />
+            <FacilitiesCard lable={'اتاق خواب'} title={roomLength + ' خوابه'} />
+            <FacilitiesCard lable={'نوع حیاط'} title={yardType} />
+            <FacilitiesCard lable={'نام فروشنده'} title={sellerName} />
           </div>
         )}
         {/* content of the facilities Tab end */}
         {/* content of the houseLocation Tab */}
         {isMortageDetail && activeTab === "houseLocation" && (
           <div className="pt-8 space-y-7">
-            <h2 className="text-[#1E2022] text-[24px] font-bold">موقعیت {houseName}</h2>
+            <h2 className="text-dark text-[24px] font-bold">موقعیت {houseName}</h2>
             <div className="h-[230px] w-full rounded-[24px]">
               <MapContainer
                 center={[lat, lng]}
@@ -115,9 +115,9 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
         {/* content of the houseLocation Tab end */}
         {/* content of the comment Tab */}
         {activeTab === 'comments' && (
-          <HouseComments 
-            id={id} 
-            CommnetList={CommnetList} 
+          <HouseComments
+            id={id}
+            CommnetList={CommnetList}
             CommentCount={CommentCount}
             userId={userId}
             userName={userName}
@@ -130,13 +130,13 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
       {isMortageDetail ? (
         <Mortagehouse />
       ) : (
-        <ReservationForm 
-          discountPercentage={discountPercentage} 
-          discounted_price={discounted_price} 
+        <ReservationForm
+          discountPercentage={discountPercentage}
+          discounted_price={discounted_price}
           price={price}
           houseId={id}
         />
-      )}    
+      )}
       {/* reservetions form end */}
     </div>
   );
