@@ -39,9 +39,9 @@ const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
     <Container>
       <Breadcrumb
         homeElement={"خانه"}
-        activeClasses="!text-dark !font-bold"
+        activeClasses="!text-dark dark:!text-thidary !font-bold"
         containerClasses="flex gap-4"
-        listClasses="hover:text-dark text-gray"
+        listClasses="hover:text-dark dark:hover:text-borderColor text-gray dark:text-white"
         capitalizeLinks
       />
       <FilteringList ItemLength={totalCount} locations={locations} houses={houses} />

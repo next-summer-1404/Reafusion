@@ -16,7 +16,7 @@ const BackBtn: FC<IProps> = ({ href, title, iconName }) => {
 
     return (
         <div className="w-full">
-            <Link href={href} className="flex gap-2 text-primary items-center w-fit">
+            <Link href={href} className="flex gap-2 text-primary dark:text-white items-center w-fit">
                 {iconName && iconComponents[iconName]}
                 <span>{title}</span>
             </Link>

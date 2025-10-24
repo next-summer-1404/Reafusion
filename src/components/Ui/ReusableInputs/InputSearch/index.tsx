@@ -13,7 +13,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const CustomInputSearch: FC<IProps> = ({ name, customClass, labelText, placeholder, value, setState }) => {
     return (
         <div className={`${customClass} flex flex-col gap-4 w-[250px] max-sm:!w-full`}>
-            <label htmlFor="" className='text-dark font-bold max-sm:text-xs'>{labelText}</label>
+            <label htmlFor="" className='text-dark font-bold max-sm:text-xs dark:text-white'>{labelText}</label>
             <div className='flex justify-between items-center bg-lightGray h-[46px] rounded-[40px] px-5 gap-1'>
                 <input
                     type="search"
@@ -21,7 +21,7 @@ const CustomInputSearch: FC<IProps> = ({ name, customClass, labelText, placehold
                     placeholder={placeholder}
                     value={value}
                     onChange={(event) => setState && setState(event.target.value)}
-                    className='w-full h-full py-3 outline-0 text-dark max-sm:text-xs'
+                    className='w-full h-full py-3 outline-0 text-dark dark:text-primary max-sm:text-xs'
                 />
 
                 <Search color='#1E2022' />

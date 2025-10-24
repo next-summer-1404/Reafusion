@@ -25,7 +25,7 @@ const Step1Holder = () => {
 
 
   return (
-    <div className='flex flex-col gap-8 mt-10 py-8 px-4 bg-lightGray rounded-3xl'>
+    <div className='flex flex-col gap-8 mt-10 py-8 px-4 bg-lightGray dark:bg-dark rounded-3xl'>
       <HouseCard 
         houseImage={houseData?.photos[0] as string}
         houseName={houseData?.title as string}
@@ -40,9 +40,9 @@ const Step1Holder = () => {
 
       {/* final price */}
       <div className='flex gap-2 items-center'>
-        <h5 className='text-dark md:text-2xl font-bold max-md:text-xl'>قیمت کل :</h5>
-        <span className='text-primary text-[32px] max-sm:text-[28px] font-bold'>{houseData?.price}</span>
-        <span className='text-primary text-xl'>تومان</span>
+        <h5 className='text-dark dark:text-white md:text-2xl font-bold max-md:text-xl'>قیمت کل :</h5>
+        <span className='text-primary dark:text-thidary text-[32px] max-sm:text-[28px] font-bold'>{houseData?.price}</span>
+        <span className='text-primary text-xl dark:text-thidary'>تومان</span>
       </div>
       {/* final price end */}
 

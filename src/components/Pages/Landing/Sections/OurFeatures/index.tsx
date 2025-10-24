@@ -40,7 +40,7 @@ const OurFeatures = () => {
       {/* section image end */}
       {/* section contents  */}
       <div className="w-[45%] max-xl:w-full max-xl:mt-5 space-y-3">
-        <h1 className="text-[32px] max-sm:text-[29px] text-dark font-bold">
+        <h1 className="text-[32px] max-sm:text-[29px] text-dark font-bold dark:text-white">
           ویژگی‌هایی که ما را متفاوت می‌سازد
         </h1>
         <div className="flex flex-wrap justify-between max-xl:justify-around">
@@ -50,9 +50,9 @@ const OurFeatures = () => {
                 <CircleCheckBig size={24} color="#FF7F11" />
                 {items.featureTitle}
               </h2>
-              <h3 className="text-[16px] text-gray">{items.features_01}</h3>
-              <h3 className="text-[16px] text-gray">{items.features_02}</h3>
-              <h3 className="text-[16px] text-gray">{items.features_03}</h3>
+              <h3 className="text-[16px] text-gray dark:text-white">{items.features_01}</h3>
+              <h3 className="text-[16px] text-gray dark:text-white">{items.features_02}</h3>
+              <h3 className="text-[16px] text-gray dark:text-white">{items.features_03}</h3>
             </div>
           ))}
         </div>

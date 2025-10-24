@@ -42,9 +42,9 @@ const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
     <Container className="flex flex-col gap-10">
       <Breadcrumb
         homeElement={"خانه"}
-        activeClasses="!text-dark !font-bold"
+        activeClasses="!text-dark !font-bold dark:!text-thidary"
         containerClasses="flex gap-4"
-        listClasses="hover:text-dark text-gray"
+        listClasses="hover:text-dark text-gray dark:text-white dark:hover:text-borderColor"
         capitalizeLinks
       />
       <FilterBox itemsLenght={totalCount} />

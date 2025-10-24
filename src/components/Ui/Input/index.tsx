@@ -14,7 +14,7 @@ interface IProps {
 const Input: FC<IProps> = ({ lable, type, name, placeholder, value, setState }) => {
   return (
     <div>
-      <h3 className="w-full text-[#1E2022] text-[16px] font-bold text-right pb-3">
+      <h3 className="w-full text-[#1E2022] dark:text-borderColor text-[16px] font-bold text-right pb-3">
         {lable}
       </h3>
        <input
@@ -23,7 +23,7 @@ const Input: FC<IProps> = ({ lable, type, name, placeholder, value, setState }) 
           value={value}
           onChange={(event) => setState?.(event.target.value)}
           placeholder={placeholder}
-          className="w-full p-3 indent-2 bg-[#F5F5F5] rounded-[40px] cursor-pointer text-[#0D3B66] placeholder:text-[#777777] outline-0"
+          className="w-full p-3 indent-2 bg-[#F5F5F5] dark:bg-lightPrimary rounded-[40px] cursor-pointer text-[#0D3B66] placeholder:text-[#777777] dark:placeholder:text-primary outline-0"
         />
     </div>
   );

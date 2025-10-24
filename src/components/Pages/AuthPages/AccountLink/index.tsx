@@ -10,8 +10,8 @@ interface IProps {
 const AccountLink: FC<IProps> = ({ desc, linkTitle, linkHref }) => {
   return (
     <div className='text-center max-sm:text-xs'>
-      <span>{desc + " "}</span>
-      <Link className='text-primary' href={linkHref}>{linkTitle}</Link>
+      <span className='dark:text-white'>{desc + " "}</span>
+      <Link className='text-primary dark:text-thidary' href={linkHref}>{linkTitle}</Link>
     </div>
   )
 }

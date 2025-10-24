@@ -9,8 +9,8 @@ const RightButton02: FC<IButtons> = ({ onClick, disabled }) => {
       onClick={onClick}
       className={`${
         disabled
-          ? "text-gray-500 cursor-not-allowed"
-          : "text-[#0D3B66] cursor-pointer"
+          ? "text-gray-500 dark:text-borderColor cursor-not-allowed"
+          : "text-[#0D3B66] dark:text-thidary cursor-pointer"
       }`}
     >
       <MoveRight size={100} />

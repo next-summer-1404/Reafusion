@@ -11,7 +11,7 @@ const SelectOption: FC<IProps> = ({ lable }) => {
       <h3 className="text-[#1E2022] text-[16px] font-bold text-right pb-3">{lable}</h3>
       <div className="relative">
           <select
-            className="w-full p-3 bg-[#F5F5F5] indent-1 rounded-[40px] cursor-pointer text-[#777777] appearance-none"
+            className="w-full p-3 bg-[#F5F5F5] dark:bg-lightPrimary indent-1 rounded-[40px] cursor-pointer text-[#777777] dark:text-primary appearance-none"
             defaultValue=""
           >
             <option value="" disabled>

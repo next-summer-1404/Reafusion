@@ -17,10 +17,10 @@ const HouseComments: FC<IProps> = ({ CommnetList, CommentCount, userName, userPr
   console.log(CommnetList, CommentCount);
 
   return (
-    <div className="mt-10 px-10 py-10 bg-lightGray rounded-[25px]">
-      <h3 className="text-dark text-[18px] flex gap-2 font-bold">
+    <div className="dark:bg-dark mt-10 px-10 py-10 bg-lightGray rounded-[25px]">
+      <h3 className="text-dark dark:text-white text-[18px] flex gap-2 font-bold">
         همه ی نظرات
-        <div className="bg-primary size-[22px] rounded-[50%] text-whiteColor text-center  text-[16px] font-normal">
+        <div className="bg-primary dark:bg-thidary size-[22px] rounded-[50%] text-whiteColor text-center  text-[16px] font-normal">
           {CommentCount}
         </div>
       </h3>

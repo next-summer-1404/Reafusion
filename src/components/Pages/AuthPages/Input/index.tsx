@@ -18,7 +18,7 @@ const FormInput: FC<IProps> = ({ type, placeholder, helperText, linkHref, linkTi
 
     return (
         <div className="w-full flex flex-col gap-2">
-            <div className="flex w-full gap-2 p-5 max-sm:p-3 items-center rounded-[40px] bg-lightGray">
+            <div className="flex w-full gap-2 p-5 max-sm:p-3 items-center rounded-[40px] bg-lightGray dark:bg-borderColor">
                 <input
                     type={type}
                     placeholder={placeholder}
@@ -33,7 +33,7 @@ const FormInput: FC<IProps> = ({ type, placeholder, helperText, linkHref, linkTi
             {helperText && <p className="text-sm max-sm:text-xs text-red">{helperText}</p>}
 
             {linkHref && (
-                <Link href={linkHref} className="text-sm max-sm:text-xs text-primary">
+                <Link href={linkHref} className="text-sm max-sm:text-xs text-primary dark:text-thidary">
                     {linkTitle || 'Link'}
                 </Link>
             )}

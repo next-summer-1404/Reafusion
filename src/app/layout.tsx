@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import { ThemeProvider } from "@/components/Ui/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +31,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${Shabnam.className} antialiased`}
+      >
+      <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
       >
         {children}
         <ToastContainer
@@ -46,6 +53,7 @@ export default function RootLayout({
           draggable
           pauseOnHover
         />
+        </ThemeProvider>
       </body>
     </html>
   );

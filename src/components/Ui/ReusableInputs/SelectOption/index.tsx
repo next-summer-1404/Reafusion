@@ -25,13 +25,13 @@ const CustomSelectOption: FC<IProps> = ({
 }) => {
   return (
     <div className={`${customClass} flex flex-col gap-4 w-[250px] max-sm:!w-full`}>
-      <label className='text-dark font-bold'>{labelText}</label>
+      <label className='text-dark font-bold dark:text-white'>{labelText}</label>
       <div className='bg-lightGray h-[46px] rounded-[40px] px-5'>
         <select
           value={value}
           onChange={(event) => setState && setState(event.target.value)}
           name={name}
-          className='w-full h-full py-3 outline-0'
+          className='w-full h-full py-3 dark:text-primary outline-0'
           {...rest}
         >
           <option value="">همه</option>

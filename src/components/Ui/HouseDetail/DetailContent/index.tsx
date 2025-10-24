@@ -40,8 +40,8 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
     <div className="flex justify-between">
       <div className="w-[1000px]">
         {/* house Name & Address */}
-        <h1 className="text-[32px] text-dark font-bold ">{houseName}</h1>
-        <p className="text-[16px] text-gray flex gap-2 py-4"><MapPinHouse size={20} /> {houseAddress}</p>
+        <h1 className="text-[32px] text-dark font-bold dark:text-white">{houseName}</h1>
+        <p className="text-[16px] text-gray flex gap-2 py-4 dark:text-borderColor"><MapPinHouse size={20} /> {houseAddress}</p>
         {/* house Name & Address end */}
         {/* tab of house content */}
         <div className="flex gap-6 mt-4">
@@ -72,8 +72,8 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
         {/* content of the About Tab */}
         {activeTab === 'about' && (
           <div className="pt-8">
-            <h2 className="text-dark text-[24px] font-bold "> چرا {houseName} رو انتخاب کنیم ؟</h2>
-            <p className="text-dark text-[16px] text-justify leading-9 pt-3">{houseCaption || 'توضیحاتی ندارد'}</p>
+            <h2 className="text-dark text-[24px] font-bold dark:text-white"> چرا {houseName} رو انتخاب کنیم ؟</h2>
+            <p className="text-dark text-[16px] text-justify leading-9 pt-3 dark:text-borderColor">{houseCaption || 'توضیحاتی ندارد'}</p>
           </div>
         )}
         {/* content of the About Tab */}
@@ -93,7 +93,7 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
         {/* content of the houseLocation Tab */}
         {isMortageDetail && activeTab === "houseLocation" && (
           <div className="pt-8 space-y-7">
-            <h2 className="text-dark text-[24px] font-bold">موقعیت {houseName}</h2>
+            <h2 className="text-dark text-[24px] dark:text-white font-bold">موقعیت {houseName}</h2>
             <div className="h-[230px] w-full rounded-[24px]">
               <MapContainer
                 center={[lat, lng]}

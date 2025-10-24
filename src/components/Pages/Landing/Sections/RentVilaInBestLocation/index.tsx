@@ -6,7 +6,7 @@ const RentVilaInBestLocation = () => {
     <div className="pb-30">
       {/* tap bar */}
       <div className="flex justify-between">
-        <h3 className="text-dark text-[24px] max-sm:text-[20px] font-bold">
+        <h3 className="text-dark text-[24px] dark:text-white max-sm:text-[20px] font-bold">
           اجاره ویلا در محبوب ترین مقاصد ایران
         </h3>
       </div>

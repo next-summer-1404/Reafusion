@@ -10,7 +10,7 @@ interface IProps {
 const FillButton: FC<IProps> = ({ ButtonText, className = "", type, onClick }) => {
   return (
     <button onClick={onClick} type={type} className={`${className} bg-[#0D3B66] text-white 
-                       font-bold text-center rounded-[40px] cursor-pointer`}>
+                       font-bold text-center rounded-[40px] cursor-pointer dark:bg-thidary dark:text-white`}>
       {ButtonText}
     </button>
   );

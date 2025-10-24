@@ -4,12 +4,12 @@ import WhyChoseUsImg from '../../../../../assets/images/WhyChoseUsImg/WhyChoseUs
 
 const WhyChoseUs = () => {
   return (
-    <div className="bg-lightGray min-h-[500px] px-11.5 py-11 flex justify-between items-center max-lg:block">
+    <div className="bg-lightGray dark:bg-thidary min-h-[500px] px-11.5 py-11 flex justify-between items-center max-lg:block">
       <div className="w-[51%] max-lg:w-full space-y-6">
         <h2 className="text-primary text-[32px] font-bold max-sm:text-[26px]">
           چرا باید ما رو انتخاب کنید؟
         </h2>
-        <p className="text-dark text-[20px] text-justify leading-9">
+        <p className="text-dark text-[20px] dark:text-lightGray text-justify leading-9">
           پیدا کردن ویلای مناسب همیشه کار راحتی نیست. ما اینجاییم تا همه چیز رو
           برای شما ساده کنیم. از بین صدها فایل، فقط بهترین و معتبرترین گزینه‌ها
           رو گلچین می‌کنیم تا وقت ارزشمندتون صرف جستجوی بی‌پایان نشه. چه به

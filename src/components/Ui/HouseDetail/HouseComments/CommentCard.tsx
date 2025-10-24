@@ -25,24 +25,24 @@ const CommentCard: FC<IProps> = ({ commentTitle, commentCaption, userName, userP
             height={55}
           />
         </div>
-        <div className="text-[#1E1E1E] text-[16px] font-bold space-y-2">
+        <div className="text-[#1E1E1E] dark:text-thidary text-[16px] font-bold space-y-2">
             <h3>{userName}</h3>
-            <h4 className="text-[#777777] text-[14px] font-normal">14 خرداد 1404</h4>
+            <h4 className="text-[#777777] text-[14px] dark:text-borderColor font-normal">14 خرداد 1404</h4>
         </div>
       </div>
       {/* use Information end */}
       {/* the comment */}
       <div className="pt-6">
-           <h4 className="text-[#1E2022] text-[14px] font-normal">{commentTitle}</h4>
-          <p className="text-[#777777] text-[14px] font-normal text-justify leading-6.5 pt-1">{commentCaption}</p>
+           <h4 className="text-[#1E2022] dark:text-white text-[14px] font-normal">{commentTitle}</h4>
+          <p className="text-[#777777] dark:text-borderColor text-[14px] font-normal text-justify leading-6.5 pt-1">{commentCaption}</p>
       </div>
       {/* the comment end */}
       {/* comment Actions */}
-      <div className="flex gap-5 text-[#1E2022] text-[12px] pt-5">
-          <button className="flex gap-1 cursor-pointer"><MessageCircle size={16}/> X پاسخ</button>
-          <button className="flex gap-1 cursor-pointer"><ThumbsDown size={16}/>X</button>
-          <button className="flex gap-1 cursor-pointer"><ThumbsUp size={16}/>X</button>
-          <button className="underline text-[#0D3B66] cursor-pointer">پاسخ دادن</button>
+      <div className="flex gap-5 text-[#1E2022] dark:text-white text-[12px] pt-5">
+          <button className="flex gap-1 cursor-pointer"><MessageCircle size={16}/> 1 پاسخ</button>
+          <button className="flex gap-1 cursor-pointer"><ThumbsDown size={16}/>21</button>
+          <button className="flex gap-1 cursor-pointer"><ThumbsUp size={16}/>43</button>
+          <button className="underline text-[#0D3B66] dark:text-thidary cursor-pointer">پاسخ دادن</button>
       </div>
       {/* comment Actions end */}
     </div>

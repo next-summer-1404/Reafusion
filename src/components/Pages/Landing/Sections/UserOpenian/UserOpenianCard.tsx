@@ -5,7 +5,7 @@ import personImg from "../../../../../assets/images/UserOpenianImgs/person.svg";
 
 const UserOpenianCard = () => {
   return (
-    <div className="border border-[#DDDDDD] w-[427px] max-sm:w-[400px] min-h-[281px] rounded-[24px] px-6 py-6 space-y-5">
+    <div className="border border-[#DDDDDD] dark:border-thidary dark:bg-white w-[427px] max-sm:w-[400px] min-h-[281px] rounded-[24px] px-6 py-6 space-y-5">
       <div className="flex justify-between items-center">
         <Image
           src={personImg}

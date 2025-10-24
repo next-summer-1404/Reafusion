@@ -60,9 +60,9 @@ const MortageAndRentDetail: FC<IProps> = async ({ params }) => {
     <Container className="space-y-10">
       <Breadcrumb
         homeElement={"خانه"}
-        activeClasses="!text-[#1E2022] !font-bold"
+        activeClasses="!text-[#1E2022] !font-bold dark:!text-thidary"
         containerClasses="flex gap-4"
-        listClasses="hover:text-[#1E2022] text-[#777777]"
+        listClasses="hover:text-[#1E2022] text-[#777777] dark:text-white dark:hover:text-borderColor"
         capitalizeLinks
         currentItem={houseName}
       />
@@ -91,7 +91,7 @@ const MortageAndRentDetail: FC<IProps> = async ({ params }) => {
         isMortageDetail={true}
       />
       <div className="flex justify-between">
-        <h2 className="text-dark text-[24px] font-bold">آگهی های مشابه</h2>
+        <h2 className="text-dark text-[24px] font-bold dark:text-white">آگهی های مشابه</h2>
         <EmptyButton ButtonText="مشاهده همه" className="p-2 px-5" />
       </div>
       <Slider filterData={similarHouses} />

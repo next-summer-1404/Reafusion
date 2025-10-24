@@ -14,7 +14,6 @@ const LoginPage = () => {
         title="ورود به حساب کاربری"
         desc="برای دسترسی به خدمات و تجربه بهتر در سایت، وارد حساب خود شوید."
       />
-
       <FormInput
         type="email"
         placeholder="ایمیل خود را وارد کنید"

@@ -67,13 +67,13 @@ const FilteringList: FC<IProps> = ({ ItemLength, locations, houses }) => {
   return (
     <div className="pt-10">
       {/* the title and item count */}
-      <div className="w-[810px] max-xl:w-full flex justify-between text-primary text-[20px]">
-        <h2 className="text-[24px] text-dark font-bold">فیلتر ها</h2>
+      <div className="w-[810px] max-xl:w-full flex justify-between text-primary dark:text-thidary text-[20px]">
+        <h2 className="text-[24px] text-dark font-bold dark:text-white">فیلتر ها</h2>
         <span>{ItemLength} نتیجه</span>
       </div>
       {/* filtering form */}
       <div className="flex justify-between py-10 max-xl:block">
-        <div className="border border-borderColor space-y-7 w-[810px] max-xl:w-full max-xl:justify-around px-4 pt-6 max-md:pb-6 rounded-[24px] flex justify-between flex-wrap">
+        <div className="border border-borderColor dark:bg-dark space-y-7 w-[810px] max-xl:w-full max-xl:justify-around px-4 pt-6 max-md:pb-6 rounded-[24px] flex justify-between flex-wrap">
           <CustomInputSearch
             labelText="جستجو"
             placeholder="نام خانه مورد نظر ..."

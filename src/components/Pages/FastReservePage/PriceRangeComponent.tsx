@@ -34,12 +34,12 @@ const PriceRangeComponent: FC<IProps> = ({ setPriceRange, value01, value02, pric
         step={value01}
         sx={{
           '& .MuiSlider-track': {
-            backgroundColor: '#0D3B66', // رنگ بخش پرشده
+            backgroundColor: '#0D3B66',
             height: '6px',
             borderRadius: '4px',
           },
           '& .MuiSlider-rail': {
-            backgroundColor: '#D1D5DB', // رنگ بخش پرنشده (خاکستری روشن)
+            backgroundColor: '#D1D5DB',
             height: '6px',
             borderRadius: '4px',
           },

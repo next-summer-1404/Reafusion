@@ -32,7 +32,7 @@ const Breadcrumb: FC<IProps> = ({
   const paths = usePathname();
   const pathNames = paths.split('/').filter((path) => path);
 
-  const separator = <ChevronLeft className='text-gray' />;
+  const separator = <ChevronLeft className='text-gray dark:text-white' />;
 
   return (
     <div>

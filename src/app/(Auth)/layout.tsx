@@ -10,10 +10,10 @@ interface IChildren {
 
 const AuthLayout: FC<IChildren> = ({ children }) => {
     return (
-        <div className='w-full h-screen bg-pageBg xl:p-12 lg:p-5 max-lg:p-5 max-sm:px-3'>
+        <div className='w-full h-screen bg-pageBg dark:bg-primary xl:p-12 lg:p-5 max-lg:p-5 max-sm:px-3'>
             <div className='flex justify-between h-full xl:gap-12 max-xl:gap-12 lg:gap-5 max-lg:gap-5'>
                 {/* form */}
-                <div className='h-full bg-white md:w-[50%] max-md:w-full rounded-[40px]'
+                <div className='h-full bg-white dark:bg-dark md:w-[50%] max-md:w-full rounded-[40px]'
                     style={{ boxShadow: '2px 4px 8px 0px rgba(0, 0, 0, 0.15)' }}>
                     {children}
                 </div>

@@ -14,7 +14,7 @@ const CommentForm: FC<IProps> = ({ userId, houseId }) => {
 
   return (
     <form action={formAction} className="space-y-5 pt-7">
-      <h3 className="text-[#1E2022] text-[16px] font-bold">عنوان دیدگاه</h3>
+      <h3 className="text-[#1E2022] dark:text-thidary text-[16px] font-bold">عنوان دیدگاه</h3>
       <input
         name="title"
         type="text"
@@ -22,7 +22,7 @@ const CommentForm: FC<IProps> = ({ userId, houseId }) => {
         className="w-full text-[#0D3B66] placeholder:text-[#777777] indent-2 bg-white 
             rounded-[25px] p-4 outline-0"
       />
-      <h3 className="text-[#1E2022] text-[16px] font-bold">متن دیدگاه</h3>
+      <h3 className="text-[#1E2022] text-[16px] dark:text-thidary font-bold">متن دیدگاه</h3>
       <textarea
         name="caption"
         placeholder="متن دیدگاه خود را بنویسید"

@@ -11,22 +11,22 @@ const HeroSection = () => {
       }}
     >
       {/* landing Search */}
-      <div className="w-[503px] rounded-[24px] bg-whiteColor py-6 px-7 text-center space-y-5 max-xl:w-full">
-        <h2 className="text-[20px] text-primary font-bold">همین حالا رزرو کنید !</h2>
+      <div className="w-[503px] rounded-[24px] dark:bg-dark bg-whiteColor py-6 px-7 text-center space-y-5 max-xl:w-full">
+        <h2 className="text-[20px] text-primary dark:text-whiteColor font-bold">همین حالا رزرو کنید !</h2>
         <div className="flex justify-between px-13 max-sm:px-0 max-xl:px-20">
           <button
-            className={`border border-primary text-primary px-4 py-2
+            className={`border border-primary text-primary dark:text-thidary dark:border-thidary px-4 py-2
                         text-[14px] max-sm:text-[12px] text-center rounded-[40px] cursor-pointer`}
           >
             رزرو ملک
           </button>
           <button
-            className={`border border-lightGray text-gray px-4 py-2
+            className={`border border-lightGray text-gray dark:text-white px-4 py-2
                         text-[14px] max-sm:text-[12px] text-center rounded-[40px] cursor-pointer`}
           >
             رهن و اجاره
           </button><button
-            className={`border border-lightGray text-gray px-4 py-2
+            className={`border border-lightGray text-gray dark:text-white px-4 py-2
                         text-[14px] max-sm:text-[12px] text-center rounded-[40px] cursor-pointer`}
           >
             خرید و فروش

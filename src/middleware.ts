@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const middleware = async (request: NextRequest) => {
   const token = request.cookies.get("token");
-  const protectedPaths = ["/dashboard", "/FastReservePage"];
+  const protectedPaths = ["/dashboard", "/FastReservePage", '/mortageAndRent'];
   if ( protectedPaths.some((path) => request.nextUrl.pathname.startsWith(path)) && !token) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
@@ -14,5 +14,5 @@ export const middleware = async (request: NextRequest) => {
 };
 
 export const config = {
-    matcher:["/dashboard/:path","/dashboard", '/FastReservePage/:path']
+    matcher:["/dashboard/:path","/dashboard", '/FastReservePage/:path', '/mortageAndRent/:path']
 }

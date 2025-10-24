@@ -21,30 +21,28 @@ const Steper: FC<IProps> = ({ currentStep = 1 }) => {
                 {steps.slice(0, -1).map((step, index) => (
                     <li key={step.id} className='w-[25%] relative bottom-[30px]'>
                         <div
-                            className={`h-[8px] w-full transition-all duration-300 ${index + 1 < currentStep ? 'bg-primary' : 'bg-borderColor'
+                            className={`h-[8px] w-full transition-all duration-300 ${index + 1 < currentStep ? 'bg-primary dark:bg-thidary' : 'bg-borderColor'
                                 }`}
                         ></div>
                     </li>
                 ))}
             </ul>
             {/* lines end */}
-
             {/* icons and labels */}
             <ul className='relative z-10 w-full flex justify-between items-center'>
                 {steps.map((step) => {
                     const isActive = step.id === currentStep
                     const isCompleted = step.id < currentStep
-
                     const circleClass = isActive
                         ? 'bg-lightPrimary text-primary'
                         : isCompleted
-                            ? 'bg-primary text-whiteColor'
+                            ? 'bg-primary text-whiteColor dark:bg-thidary'
                             : 'bg-lightGray text-gray'
 
                     const labelClass = isActive
-                        ? 'text-dark font-bold'
+                        ? 'text-dark dark:text-white font-bold'
                         : isCompleted
-                            ? 'text-primary font-bold'
+                            ? 'text-primary dark:text-thidary font-bold'
                             : 'text-gray'
 
                     return (

@@ -15,7 +15,7 @@ const CustomPagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
       {/* دکمه قبلی */}
       <li
         className={`flex text-2xl text-primary bg-lightGray size-14 rounded-full justify-center items-center ${
-          currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-pritext-primary hover:text-whiteColor'
+          currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-pritext-primary dark:hover:bg-thidary hover:text-whiteColor'
         }`}
         aria-disabled={currentPage === 1}
         aria-label="صفحه قبلی"
@@ -34,7 +34,7 @@ const CustomPagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
         <li
           key={page}
           className={`flex text-2xl ${
-            currentPage === page ? 'text-whiteColor bg-primary' : 'text-primary bg-lightGray cursor-pointer hover:bg-primary hover:text-whiteColor'
+            currentPage === page ? 'text-whiteColor bg-primary dark:bg-thidary' : 'text-primary bg-lightGray cursor-pointer hover:bg-primary dark:hover:bg-thidary hover:text-whiteColor'
           } size-14 rounded-full justify-center items-center`}
           aria-current={currentPage === page ? 'page' : undefined}
           aria-label={`صفحه ${page}`}
@@ -46,7 +46,7 @@ const CustomPagination: FC<PaginationProps> = ({ totalPages, currentPage }) => {
       {/* دکمه بعدی */}
       <li
         className={`flex text-2xl text-primary bg-lightGray size-14 rounded-full justify-center items-center ${
-          currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-primary hover:text-whiteColor'
+          currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-primary  dark:hover:bg-thidary hover:text-whiteColor'
         }`}
         aria-disabled={currentPage === totalPages}
         aria-label="صفحه بعدی"

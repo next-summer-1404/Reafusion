@@ -20,8 +20,8 @@ const FacilitiesCard: FC<IProps> = ({ lable, title }) => {
         }
       </div>
       <div className="mt-[-4px] space-y-0.5">
-        <p className="text-primary text-[20px] font-bold">{lable}</p>
-        <p className="text-dark text-[20px]">{title}</p>
+        <p className="text-primary dark:text-thidary text-[20px] font-bold">{lable}</p>
+        <p className="text-dark text-[20px] dark:text-borderColor">{title}</p>
       </div>
     </div>
   );

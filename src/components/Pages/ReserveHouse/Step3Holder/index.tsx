@@ -45,7 +45,7 @@ const Step3Holder = () => {
                 <input type="hidden" name='phoneNumber' value={phoneNumber as string}/>
                 <div className='flex max-md:flex-col justify-between w-full max-md:gap-4'>
                     <Link href={'/'}>
-                    <EmptyButton className='py-4 px-5 !rounded-2xl !border-gray !text-gray max-sm:py-2 max-sm:px-2 max-md:w-full' ButtonText='بازگشت به صفحه اصلی' />
+                    <EmptyButton className='py-4 px-5 !rounded-2xl !border-gray dark:!border-whiteColor dark:!text-white !text-gray max-sm:py-2 max-sm:px-2 max-md:w-full' ButtonText='بازگشت به صفحه اصلی' />
                     </Link>
                     <FillButton className='py-4 px-5 !rounded-2xl max-sm:py-2 max-sm:px-2.5' ButtonText='صدور بلیط های من' type='submit' />
                 </div>

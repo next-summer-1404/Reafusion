@@ -56,9 +56,9 @@ const FastReserveDetailPage: FC<IProps> = async ({ params }) => {
     <Container className="space-y-10">
       <Breadcrumb
         homeElement={"خانه"}
-        activeClasses="!text-[#1E2022] !font-bold"
-        containerClasses="flex gap-4"
-        listClasses="hover:text-[#1E2022] text-[#777777]"
+        activeClasses="!text-[#1E2022] !font-bold dark:!text-thidary"
+        containerClasses="flex gap-4 dark:text-thidary"
+        listClasses="hover:text-[#1E2022] text-[#777777] dark:text-white"
         capitalizeLinks
         currentItem={houseName}
       />
@@ -84,8 +84,8 @@ const FastReserveDetailPage: FC<IProps> = async ({ params }) => {
         userName={decodToken.name}
         isMortageDetail={false}
       />
-      <div className="flex justify-between">
-        <h2 className="text-dark text-[24px] font-bold">آگهی های مشابه</h2>
+      <div className="flex justify-between dark:text-white">
+        <h2 className="text-dark text-[24px] font-bold dark:text-white">آگهی های مشابه</h2>
         <EmptyButton ButtonText="مشاهده همه" className="p-2 px-5" />
       </div>
       <Slider filterData={similarHouses} />

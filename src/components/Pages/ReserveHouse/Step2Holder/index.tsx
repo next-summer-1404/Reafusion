@@ -40,7 +40,7 @@ const Step2Holder = () => {
 
 
   return (
-    <div className="flex flex-col gap-8 mt-10 py-8 px-4 bg-lightGray rounded-3xl">
+    <div className="flex flex-col dark:bg-dark gap-8 mt-10 py-8 px-4 bg-lightGray rounded-3xl">
       <PassengersDetailList
         userName={userName as string}
         userFamily={userFamily as string}
@@ -58,9 +58,9 @@ const Step2Holder = () => {
       <DiscountCodeSection />
       {/* final price */}
       <div className="flex gap-2 items-center">
-        <h5 className="text-dark text-2xl font-bold">قیمت کل :</h5>
-        <span className="text-primary text-[32px] font-bold">{price}</span>
-        <span className="text-primary text-xl">تومان</span>
+        <h5 className="text-dark text-2xl font-bold dark:!text-white">قیمت کل :</h5>
+        <span className="text-primary dark:text-thidary text-[32px] font-bold">{price}</span>
+        <span className="text-primary text-xl dark:text-thidary">تومان</span>
       </div>
       {/* final price end */}
       {/* submit button */}
@@ -77,7 +77,7 @@ const Step2Holder = () => {
         <input type="hidden" name="sharedEmail" value={sharedEmail as string}/>
         <Link href={'/reserveHouse/step1'}>
           <EmptyButton
-            className="py-4 px-5 !rounded-2xl !border-gray !text-gray"
+            className="py-4 px-5 !rounded-2xl !border-gray dark:!border-white !text-gray dark:!text-white"
             ButtonText="مرحله قبل"
           />
         </Link>      
