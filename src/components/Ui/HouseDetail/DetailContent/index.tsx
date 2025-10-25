@@ -5,12 +5,12 @@ import NormalButton from "../StepButtons/NormalButton";
 import { MapPinHouse } from "lucide-react";
 import FacilitiesCard from "../FacilitiesCard";
 import HouseComments from "../HouseComments";
-import { IProps } from "@/core/types/IDetailContent";
 import ReservationForm from "./ReservationForm";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css"; // استایل‌های leaflet
 import L from "leaflet";
 import Mortagehouse from "./Mortagehouse";
+import { IProps } from "@/core/Types/IDetailContent";
 
 const customIcon = L.icon({
   iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
@@ -37,14 +37,15 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
     : 0;
 
   return (
-    <div className="flex justify-between">
-      <div className="w-[1000px]">
+    <div className="flex gap-8 max-lg:flex-col justify-between">
+      {/* house detail */}
+      <div className="w-[65%] max-lg:w-full">
         {/* house Name & Address */}
         <h1 className="text-[32px] text-dark font-bold dark:text-white">{houseName}</h1>
         <p className="text-[16px] text-gray flex gap-2 py-4 dark:text-borderColor"><MapPinHouse size={20} /> {houseAddress}</p>
         {/* house Name & Address end */}
         {/* tab of house content */}
-        <div className="flex gap-6 mt-4">
+        <div className="flex max-sm:flex-col gap-6 mt-4">
           {activeTab === 'about' ? (
             <ActiveButton ButtonText="درباره ملک" />
           ) : (
@@ -126,6 +127,7 @@ const DetailContent: FC<IProps> = ({ houseName, houseAddress, houseCaption, hous
         )}
         {/* content of the comment Tab end */}
       </div>
+      {/* house detail end */}
       {/* reservetions form */}
       {isMortageDetail ? (
         <Mortagehouse />

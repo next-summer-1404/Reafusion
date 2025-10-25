@@ -29,7 +29,7 @@ const Mortagehouse = () => {
   });
 
   return (
-    <div className='border border-borderColor dark:border-thidary dark:bg-dark rounded-[24px] w-[388px] h-[500] py-4 px-5 space-y-5'>
+    <div className='border border-borderColor dark:border-thidary dark:bg-dark rounded-[24px] w-[35%] max-lg:w-full h-[500] py-4 px-5 space-y-5'>
       <div className='flex justify-center items-center'>
         <Image src={EmptyuserImg} alt='selerImg' width={120} height={120} className='rounded-full overflow-hidden' />
       </div>

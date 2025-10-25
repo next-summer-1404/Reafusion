@@ -22,14 +22,16 @@ const ReservationForm: FC<IProps> = ({ discountPercentage, price, discounted_pri
       sessionStorage.setItem('arrivalDate', arrivalDate);
       sessionStorage.setItem('departureDate', departureDate);
       sessionStorage.setItem('houseId', houseId);
-      
+
       router.push('/reserveHouse/step1');
     }
   }
 
 
   return (
-    <form onSubmit={handleSubmit} className={`border border-[#DDDDDD] dark:border-thidary dark:bg-dark w-[388px] ${discounted_price ? 'max-h-[556px]' : "!max-h-[506px]"} max-h-[556px] rounded-[24px] px-5 py-5 space-y-5`}>
+    <form
+      onSubmit={handleSubmit}
+      className={`flex w-[35%] flex-col max-lg:w-full gap-6 border border-[#DDDDDD] dark:border-thidary dark:bg-dark ${discounted_price ? 'max-h-[556px]' : "!max-h-[506px]"} max-h-[556px] rounded-[24px] px-5 py-5`}>
       <Input
         lable="تاریخ ورود"
         type="date"
@@ -64,11 +66,11 @@ const ReservationForm: FC<IProps> = ({ discountPercentage, price, discounted_pri
       <h3 className="text-[16px] text-dark dark:text-white text-left">
         <strong className="text-[24px] font-bold">{price}</strong> تومان
       </h3>
-        <FillButton
-          ButtonText="ثبت درخواست رزرو"
-          className="p-2.5 w-full"
-          type="submit"
-        />
+      <FillButton
+        ButtonText="ثبت درخواست رزرو"
+        className="p-2.5 w-full"
+        type="submit"
+      />
     </form>
   );
 };
