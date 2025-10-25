@@ -31,7 +31,7 @@ export const loginAction = async (state: { message: string, redirect?: string },
     const response = await postLogin(loginData);
     const cookieStore = await cookies()
     const token = cookieStore.set('token', response.accessToken, {
-      maxAge: 100,
+      // maxAge: 100,
     }) 
     console.log(token)
     if (response) {
