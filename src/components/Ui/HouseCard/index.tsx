@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { FC } from "react";
 import { Bath, BedSingle, Car, MapPin, Users } from "lucide-react";
-import home from "../../../assets/images/HomeImgs/05.jpg";
+import home from "../../../assets/images/EmptyImages/House Card.png";
 import FillButton from "../Buttons/FillButton";
 import Link from "next/link";
 import { IHouseCard } from "@/core/Types/IHouseCard";

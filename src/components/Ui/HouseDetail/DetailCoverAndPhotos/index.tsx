@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { FC } from "react";
-import HouseImage from "../../../../assets/images/HomeImgs/05.jpg";
+import HouseImage from "../../../../assets/images/EmptyImages/House Card.png";
 
 interface IProps {
   houseImages: string[];

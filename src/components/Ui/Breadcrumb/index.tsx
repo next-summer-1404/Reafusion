@@ -19,6 +19,7 @@ const pathTranslations: { [key: string]: string } = {
   fastreservepage: 'رزرو سریع',
   about: 'درباره ما',
   contact: 'تماس با ما',
+  blogpage: 'اخبار و مقالات'
 };
 
 const Breadcrumb: FC<IProps> = ({

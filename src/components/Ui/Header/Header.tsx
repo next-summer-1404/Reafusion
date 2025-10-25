@@ -15,7 +15,7 @@ const links = [
   { name: "خانه", href: "/" },
   { name: "رزرو سریع", href: "/FastReservePage" },
   { name: "رهن و اجاره", href: "/mortageAndRent" },
-  { name: "مقالات", href: "/bbb" },
+  { name: "مقالات", href: "/BlogPage" },
   { name: "درباره ما", href: "/ccc" },
 ];
 
