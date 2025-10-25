@@ -64,7 +64,7 @@ const FilterBox: FC<IProps> = ({ itemsLenght }) => {
         <span className="text-2xl font-bold text-dark dark:text-white">فیلتر ها</span>
         <span className="text-xl text-primary dark:text-thidary">{itemsLenght} نتیجه</span>
       </div>
-      <div className="flex flex-wrap dark:bg-dark dark:border-thidary justify-around px-4 pt-7 max-lg:pb-7 space-y-10 rounded-3xl border border-borderColor">
+      <div className="flex flex-wrap dark:border-thidary justify-around px-4 pt-7 max-lg:pb-7 space-y-10 rounded-3xl border border-borderColor">
         <CustomInputSearch
           labelText="جستجو"
           placeholder="جستجو کنید ..."

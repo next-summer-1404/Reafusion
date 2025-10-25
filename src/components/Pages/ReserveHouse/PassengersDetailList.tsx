@@ -20,10 +20,10 @@ interface IUserInfo {
 }
 
 const PassengersDetailList: FC<IUserInfo> = ({ userName, userFamily, gender, nationalId, phoneNumber, birthDate, price }) => (
-    <div className="flex flex-col gap-8 p-4 rounded-3xl border border-borderColor bg-whiteColor">
+    <div className="flex flex-col gap-8 p-4 rounded-3xl border border-borderColor bg-whiteColor dark:bg-dark">
         {/* title */}
         <Link href={'/reserveHouse/step1'} className="flex justify-between items-center">
-            <h3 className="text-2xl text-dark font-bold">مشخصات مسافران</h3>
+            <h3 className="text-2xl text-dark font-bold dark:text-White">مشخصات مسافران</h3>
             <IconButton customClass="!border-0" title="ویرایش مسافران" iconName="editUser" />
         </Link>
         {/* title end */}

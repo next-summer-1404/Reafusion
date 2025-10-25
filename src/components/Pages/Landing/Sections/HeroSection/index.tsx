@@ -21,12 +21,12 @@ const HeroSection = () => {
             رزرو ملک
           </button>
           <button
-            className={`border border-lightGray text-gray dark:text-white px-4 py-2
+            className={`border border-lightGray text-gray dark:text-White px-4 py-2
                         text-[14px] max-sm:text-[12px] text-center rounded-[40px] cursor-pointer`}
           >
             رهن و اجاره
           </button><button
-            className={`border border-lightGray text-gray dark:text-white px-4 py-2
+            className={`border border-lightGray text-gray dark:text-White px-4 py-2
                         text-[14px] max-sm:text-[12px] text-center rounded-[40px] cursor-pointer`}
           >
             خرید و فروش

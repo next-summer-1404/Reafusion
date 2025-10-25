@@ -23,7 +23,7 @@ const PriceRangeComponent: FC<IProps> = ({ setPriceRange, value01, value02, pric
 
   return (
     <div className={`w-[378px] ${className} pt-1 px-6 max-md:w-full`}>
-      <h3 className="text-dark text-[16px] font-bold">{priceRangeName}</h3>
+      <h3 className="text-dark dark:text-White text-[16px] font-bold">{priceRangeName}</h3>
       <Slider
         value={value}
         className="mt-1"

@@ -23,7 +23,7 @@ const Input: FC<IProps> = ({ lable, type, name, placeholder, value, setState }) 
           value={value}
           onChange={(event) => setState?.(event.target.value)}
           placeholder={placeholder}
-          className="w-full p-3 indent-2 bg-[#F5F5F5] dark:bg-lightPrimary rounded-[40px] cursor-pointer text-[#0D3B66] placeholder:text-[#777777] dark:placeholder:text-primary outline-0"
+          className="w-full p-3 indent-2 bg-[#F5F5F5] dark:bg-gray rounded-[40px] cursor-pointer text-primary dark:text-White placeholder:text-[#777777] dark:placeholder:text-White outline-0"
         />
     </div>
   );

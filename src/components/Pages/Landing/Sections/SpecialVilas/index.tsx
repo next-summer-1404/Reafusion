@@ -17,7 +17,7 @@ const SpecialVilas = async () => {
     <div className="pb-30 space-y-8">
       {/* section topBar */}
       <div className="flex justify-between items-center">
-        <h3 className="text-dark dark:text-white text-[24px] max-md:text-[20px] font-bold">
+        <h3 className="text-dark dark:text-White text-[24px] max-md:text-[20px] font-bold">
           <span className="text-red">پیشنهادهای خاص</span> اجاره ویلا
         </h3>
         <EmptyButton ButtonText="مشاهده همه" className="px-4 py-1.5" />

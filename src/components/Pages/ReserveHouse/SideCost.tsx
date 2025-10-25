@@ -2,11 +2,11 @@ import React from "react";
 
 const SideCost = () => {
   return (
-    <div className="space-y-6 justify-between p-4 rounded-3xl border border-borderColor bg-whiteColor box-border">
-      <h3 className="text-2xl max-sm:text-xl text-dark font-bold">
+    <div className="space-y-6 justify-between p-4 rounded-3xl border border-borderColor bg-whiteColor dark:bg-dark box-border">
+      <h3 className="text-2xl max-sm:text-xl text-dark dark:text-White font-bold">
         هزینه جانبی
       </h3>
-      <p className="text-dark text-justify leading-9 max-sm:text-xs">
+      <p className="text-dark text-justify leading-9 dark:text-lightGray max-sm:text-xs">
         هزینه‌های جانبی رزرو خانه شامل مواردی است که ممکن است به هزینه اصلی
         اقامت اضافه شود. این هزینه‌ها معمولاً بسته به نوع خانه، موقعیت مکانی و
         خدمات ارائه‌شده متفاوت است. به عنوان مثال، هزینه نظافت پس از اقامت یکی

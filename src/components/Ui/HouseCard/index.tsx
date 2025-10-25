@@ -22,7 +22,7 @@ const HouseCard: FC<IHouseCard> = ({ id, HomeName, HomeAddress, HomePrice,
 
   return (
     <div
-      className={`border border-borderColor dark:border-thidary dark:bg-white w-[431px] min-h-[458px] rounded-[24px] overflow-hidden transition-all`}
+      className={`border border-borderColor  w-[431px] min-h-[458px] rounded-[24px] overflow-hidden transition-all`}
     >
       {/* house cover */}
       <Link href={`/${DetailAdress}/${id}`} className="relative cursor-pointer">
@@ -50,40 +50,40 @@ const HouseCard: FC<IHouseCard> = ({ id, HomeName, HomeAddress, HomePrice,
           {/* house price */}
           <div className="flex gap-5">
             {HomeOffer && (
-              <h3 className="text-[20px] text-gray font-bold line-through">
+              <h3 className="text-[20px] text-gray  font-bold line-through">
                 {HomeOffer}
                 <span className="font-normal text-[16px] pr-1.5">تومان</span>
               </h3>
             )}
-            <h3 className="text-[20px] text-dark font-bold">
+            <h3 className="text-[20px] text-dark dark:text-borderColor font-bold">
               {HomePrice}
-              <span className="font-normal text-gray text-[16px] pr-1.5">
+              <span className="font-normal text-gray dark:text-borderColor text-[16px] pr-1.5">
                 تومان
               </span>
             </h3>
           </div>
           {/* house price end */}
           {/* house name and location */}
-          <h3 className="text-[20px] text-dark text-right pt-3 font-bold">
+          <h3 className="text-[20px] text-dark dark:text-thidary text-right pt-3 font-bold">
             {HomeName}
           </h3>
-          <div className="text-gray text-[16px] flex gap-1.5 pt-3">
+          <div className="text-gray dark:text-borderColor text-[16px] flex gap-1.5 pt-3">
             <MapPin size={20} /> {HomeAddress}
           </div>
           {/* house name and location end */}
         </div>
         {/* the abilitys of house */}
-        <div className="flex gap-4.5 py-3">
-          <div className="text-gray text-[16px] flex gap-1">
+        <div className="flex gap-4.5 text-gray dark:text-borderColor py-3">
+          <div className=" text-[16px] flex gap-1">
             <BedSingle size={20} /> {HomeRoomCount} خواب
           </div>
-          <div className="text-gray text-[16px] flex gap-1">
+          <div className="text-[16px] flex gap-1">
             <Bath size={20} /> {HomeBathroomCount} حمام
           </div>
-          <div className="text-gray text-[16px] flex gap-1">
+          <div className=" text-[16px] flex gap-1">
             <Users size={20} /> {HomeCapacityCount} نفر
           </div>
-          <div className="text-gray text-[16px] flex gap-1">
+          <div className=" text-[16px] flex gap-1">
             <Car size={20} /> {HomeParkingCount} پارکینگ
           </div>
         </div>

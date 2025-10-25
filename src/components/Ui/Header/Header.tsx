@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import MainReafusionLogo from "../../../assets/images/ReafusionLogo/MainReafusionLogo.jpg";
 import Container from "../Container/Container";
 import FillButton from "../Buttons/FillButton";
@@ -25,12 +25,35 @@ interface IProps {
 
 const Header: FC<IProps> = ({ userToken }) => {
   const pathname = usePathname();
-  const { setTheme, theme } = useTheme();
-  console.log(setTheme, theme)
+  const [theme, setTheme] = useState<string>("light");
+
+  // هنگام لود، تم ذخیره‌شده را از localStorage بخوانید
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  // فانکشن برای تغییر تم
+  const toggleTheme = (selectedTheme: string) => {
+    if (selectedTheme === "dark") {
+      setTheme("dark");
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      setTheme("light");
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
   return (
     <Container className="px-12 py-6 flex justify-between max-lg:block max-lg:space-y-7 items-center">
-      <div className="text-[24px] text-center dark:text-white text-[#0D3B66] font-bold flex gap-2.5 max-lg:justify-center items-center">
+      <div className="text-[24px] text-center dark:text-White text-primary font-bold flex gap-2.5 max-lg:justify-center items-center">
         <Image
           src={MainReafusionLogo}
           alt="MainReafusionLogo"
@@ -39,25 +62,25 @@ const Header: FC<IProps> = ({ userToken }) => {
           className=" rounded-full overflow-hidden"
         />
         ریفیوژن
-        <div className="w-[90px] h-[40px] px-2.5 rounded-[50px] bg-primary dark:bg-white flex justify-between  items-center relative">
+        <div className="w-[90px] h-[40px] px-2.5 rounded-[50px] bg-primary flex justify-between items-center relative">
           {/* دایره متحرک */}
           <div
-            className="absolute size-[30px] bg-white dark:bg-primary rounded-full !transition-transform duration-300 ease-in-out"
+            className="absolute size-[30px] bg-White rounded-full !transition-transform duration-300 ease-in-out"
             style={{
-              transform: theme === "dark" ? "translateX(-43px) " : "translateX(3.5px)",
+              transform: theme === "dark" ? "translateX(-43px)" : "translateX(3.5px)",
             }}
           />
           {/* دکمه خورشید */}
           <button
-            onClick={() => setTheme("light")}
+            onClick={() => toggleTheme("light")}
             className="z-10 relative text-secondary cursor-pointer"
           >
             <Sun size={23} />
           </button>
           {/* دکمه ماه */}
           <button
-            onClick={() => setTheme("dark")}
-            className="z-10 relative text-white cursor-pointer"
+            onClick={() => toggleTheme("dark")}
+            className="z-10 relative text-White dark:text-primary cursor-pointer"
           >
             <Moon size={23} />
           </button>
@@ -71,8 +94,8 @@ const Header: FC<IProps> = ({ userToken }) => {
             href={link.href}
             className={
               pathname === link.href
-                ? "text-[#0D3B66] dark:text-thidary font-bold border-b-2 border-primary dark:border-thidary text-[20px]"
-                : "text-[#1E2022] dark:text-white text-[20px]"
+                ? "text-primary font-bold border-b-2 border-primary text-[20px]"
+                : "text-[#1E2022] dark:text-White text-[20px]"
             }
           >
             {link.name}

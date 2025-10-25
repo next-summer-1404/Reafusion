@@ -23,8 +23,8 @@ const CustomerInfoCard = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='flex flex-col gap-8 justify-between p-4 rounded-3xl border border-borderColor bg-whiteColor box-border'>
-            <h3 className='text-2xl text-dark font-bold'>مشخصات مسافران</h3>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-8 justify-between p-4 rounded-3xl border border-borderColor bg-whiteColor dark:bg-dark box-border'>
+            <h3 className='text-2xl text-dark font-bold  dark:text-White'>مشخصات مسافران</h3>
             <div className='flex flex-wrap gap-6'>
                 <CustomInputText
                     labelText='نام شما'

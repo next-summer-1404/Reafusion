@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
 import "./globals.css";
-import { ThemeProvider } from "@/components/Ui/ThemeProvider";
 import CustomToastContainer from "@/components/Ui/ToastContainer";
 
 const geistSans = Geist({
@@ -31,19 +30,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${Shabnam.className} antialiased`}
       >
-      <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-      >
         {children}
         <CustomToastContainer />
-        </ThemeProvider>
       </body>
     </html>
   );

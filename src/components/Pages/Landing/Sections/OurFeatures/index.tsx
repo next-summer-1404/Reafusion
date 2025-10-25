@@ -40,19 +40,19 @@ const OurFeatures = () => {
       {/* section image end */}
       {/* section contents  */}
       <div className="w-[45%] max-xl:w-full max-xl:mt-5 space-y-3">
-        <h1 className="text-[32px] max-sm:text-[29px] text-dark font-bold dark:text-white">
+        <h1 className="text-[32px] max-sm:text-[29px] text-dark font-bold dark:text-White">
           ویژگی‌هایی که ما را متفاوت می‌سازد
         </h1>
         <div className="flex flex-wrap justify-between max-xl:justify-around">
           {features.map((items) => (
             <div key={items.featureTitle} className="space-y-4 pt-8">
-              <h2 className="text-primary text-[24px] font-bold flex gap-2 justify-center items-center">
+              <h2 className="text-primary dark:text-thidary text-[24px] font-bold flex gap-2 justify-center items-center">
                 <CircleCheckBig size={24} color="#FF7F11" />
                 {items.featureTitle}
               </h2>
-              <h3 className="text-[16px] text-gray dark:text-white">{items.features_01}</h3>
-              <h3 className="text-[16px] text-gray dark:text-white">{items.features_02}</h3>
-              <h3 className="text-[16px] text-gray dark:text-white">{items.features_03}</h3>
+              <h3 className="text-[16px] text-gray dark:text-White">{items.features_01}</h3>
+              <h3 className="text-[16px] text-gray dark:text-White">{items.features_02}</h3>
+              <h3 className="text-[16px] text-gray dark:text-White">{items.features_03}</h3>
             </div>
           ))}
         </div>

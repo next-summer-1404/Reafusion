@@ -6,6 +6,7 @@
   --foreground: #171717;
   --primary: #0d3b66;
   --whiteColor: #ffffff;
+  --White: #ffffff;
   --borderColor: #dddddd;
   --lightPrimary: #e6edf5;
   --lightGray: #f5f5f5;
@@ -18,10 +19,11 @@
 }
 
 .dark {
-  --background: #0d3b66;
+  --background: #171717;
   --foreground: #ffffff;
   --primary: #0D3B66;
   --whiteColor: #dddddd;
+  --White: #ffffff;
   --borderColor: #dddddd;
   --lightPrimary: #e6edf5;
   --lightGray: #f5f5f5;
@@ -49,7 +51,8 @@
   --color-red: var(--red);
   --color-pageBg: var(--pageBg);
   --color-secondary: var(--secondary);
-  --color-thidary: var(--thidary)
+  --color-thidary: var(--thidary);
+  --color-White: var(--White);
 }
 
 

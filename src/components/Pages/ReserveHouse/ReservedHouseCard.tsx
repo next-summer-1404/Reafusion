@@ -28,7 +28,7 @@ const HouseCard: FC<IProps> = ({ houseImage, houseName, arrivalDate, departureDa
     return (
         <div className='flex max-md:flex-col h-[190px] max-md:h-fit
          justify-between p-4 rounded-3xl border border-borderColor
-          bg-whiteColor box-border max-lg:gap-4 max-lg:flex-wrap max-lg:h-fit'>
+          bg-whiteColor dark:bg-dark box-border max-lg:gap-4 max-lg:flex-wrap max-lg:h-fit'>
             {/* detail */}
             <div className='flex max-md:w-full max-md:flex-col max-lg:gap-4 gap-6'>
                 <Image
@@ -40,33 +40,33 @@ const HouseCard: FC<IProps> = ({ houseImage, houseName, arrivalDate, departureDa
                 />
                 <ul className='flex flex-col gap-4 max-xl:w-[60%] max-md:[240px] max-lg:h-[158px]'>
                     {/* house name */}
-                    <li className='text-xl text-dark font-bold'>{houseName}</li>
+                    <li className='text-xl text-dark font-bold dark:text-White'>{houseName}</li>
                     {/* house name end */}
                     {/* start date */}
                     <li className='flex max-sm:flex-col gap-2'>
-                        <span className='flex gap-1 items-center text-gray'>
+                        <span className='flex gap-1 items-center text-gray dark:text-White'>
                             <CalendarClock size={16} />
                             تاریخ ورود :
                         </span>
-                        <span className='text-dark max-sm:w-full'>{arrivalDate}</span>
+                        <span className='text-dark max-sm:w-full dark:text-thidary'>{arrivalDate}</span>
                     </li>
                     {/* start date end */}
                     {/* end date */}
                     <li className='flex max-sm:flex-col gap-2'>
-                        <span className='flex gap-1 items-center text-gray'>
+                        <span className='flex gap-1 items-center text-gray dark:text-White'>
                             <CalendarClock size={16} />
                             تاریخ خروج :
                         </span>
-                        <span className='text-dark max-sm:w-full'>{departureDate}</span>
+                        <span className='text-dark max-sm:w-full dark:text-thidary'>{departureDate}</span>
                     </li>
                     {/* end date end */}
                     {/* address */}
                     <li className='flex max-sm:flex-col gap-2'>
-                        <span className='flex gap-1 items-center text-gray'>
+                        <span className='flex gap-1 items-center text-gray dark:text-White'>
                             <MapPin size={16} />
                             آدرس :
                         </span>
-                        <span className='text-dark truncate max-lg:w-[80%] max-sm:w-full'>{houseAddress}</span>
+                        <span className='text-dark dark:text-thidary truncate max-lg:w-[80%] max-sm:w-full'>{houseAddress}</span>
                     </li>
                     {/* address end */}
                 </ul>
@@ -83,8 +83,8 @@ const HouseCard: FC<IProps> = ({ houseImage, houseName, arrivalDate, departureDa
                     </div>
                     )}
                     <div className='flex gap-2 items-center justify-end'>
-                        <span className='text-dark text-2xl font-bold'>{housePrice}</span>
-                        <span className='text-dark'>تومان</span>
+                        <span className='text-dark text-2xl font-bold dark:text-White'>{housePrice}</span>
+                        <span className='text-dark dark:text-White'>تومان</span>
                     </div>
                 </div>
                 <div className='flex justify-end'><IconButton customClass='max-lg:w-full justify-center mt-3' title='تغییر هتل' iconName={'building'} /></div>

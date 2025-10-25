@@ -1,10 +1,8 @@
 'use client';
-import { useTheme } from 'next-themes';
 import React from 'react';
 import { ToastContainer as ReactToastifyContainer } from 'react-toastify'; 
 
 const CustomToastContainer = () => {
-  const { theme } = useTheme();
   return (
     <ReactToastifyContainer
       position="top-right"
@@ -16,7 +14,6 @@ const CustomToastContainer = () => {
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme={theme}
     />
   );
 };

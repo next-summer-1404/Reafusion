@@ -15,9 +15,9 @@ const SendOthersTicket = () => {
     }
 
     return (
-        <div className='flex flex-col gap-8 justify-between p-4 rounded-3xl border border-borderColor bg-whiteColor box-border'>
+        <div className='flex flex-col gap-8 justify-between p-4 rounded-3xl border border-borderColor bg-whiteColor dark:bg-dark box-border'>
             <div className='flex items-center gap-1 max-sm:flex-col max-sm:justify-start max-sm:items-start'>
-                <h3 className='text-2xl text-dark font-bold max-sm:text-xl'>ارسال بلیط به دیگران</h3>
+                <h3 className='text-2xl text-dark font-bold max-sm:text-xl dark:text-White'>ارسال بلیط به دیگران</h3>
                 <span className='text-gray max-sm:text-xs'>( ارسال بلیط به ایمیل و شماره همراه دیگر )</span>
             </div>
 
