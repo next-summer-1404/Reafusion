@@ -33,7 +33,7 @@ const Step2Holder = () => {
        sessionStorage.setItem("reservationId", state.id);
        toast.success("عملیات با موفقیت انجام شد")
        router.push('/reserveHouse/step3')
-    } else {
+    } else if (state.message && state.message !== "عملیات با موفقیت انجام شد") {
         toast.error(state.error || "خطایی رخ داد");
     }
   }, [state, router])

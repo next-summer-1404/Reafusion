@@ -25,7 +25,7 @@ const Step3Holder = () => {
       if (state.message === 'بلیط شما با موفقیت صادر و ارسال شد') {
         toast.success('بلیط شما با موفقیت صادر و ارسال شد');
         // router.push('')
-      } else {
+      } else if (state.message && state.message !== 'بلیط شما با موفقیت صادر و ارسال شد') {
         toast.error('خطا در صدور بلیط')
       }
     }, [state, router])
