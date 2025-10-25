@@ -31,7 +31,7 @@ const ReservationForm: FC<IProps> = ({ discountPercentage, price, discounted_pri
   return (
     <form
       onSubmit={handleSubmit}
-      className={`flex w-[35%] flex-col max-lg:w-full gap-6 border border-[#DDDDDD] dark:border-thidary dark:bg-dark ${discounted_price ? 'max-h-[556px]' : "!max-h-[506px]"} max-h-[556px] rounded-[24px] px-5 py-5`}>
+      className={`flex w-[28%] flex-col max-lg:w-full gap-6 border border-[#DDDDDD] dark:border-thidary dark:bg-dark h-fit rounded-[24px] px-5 py-5`}>
       <Input
         lable="تاریخ ورود"
         type="date"
