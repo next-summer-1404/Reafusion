@@ -13,10 +13,10 @@ const MainLayout: FC<IProps> = async ({ children }) => {
 
   return (
     <Fragment>
-      <Header userToken={token}/>
+      <Header userToken={token} />
 
-          {children}
-          
+      {children}
+
       <Footer />
     </Fragment>
   );

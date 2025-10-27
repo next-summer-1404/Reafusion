@@ -16,13 +16,15 @@
   --pageBg: #f3f4f6;
   --secondary: #ff7f11;
   --thidary: #3b97ff;
+  --lightYellow: #ffdf9b;
+  --yellow: #f8b524;
 }
 
 .dark {
   --background: #171717;
   --foreground: #ffffff;
-  --primary: #0D3B66;
-  --whiteColor: #dddddd;
+  --primary: #0d3b66;
+  --whiteColor: #ffffff;
   --White: #ffffff;
   --borderColor: #dddddd;
   --lightPrimary: #e6edf5;
@@ -33,6 +35,8 @@
   --pageBg: #f3f4f6;
   --secondary: #ff7f11;
   --thidary: #3b97ff;
+  --lightYellow: #ffdf9b;
+  --yellow: #f8b524;
 }
 
 @theme inline {
@@ -53,8 +57,9 @@
   --color-secondary: var(--secondary);
   --color-thidary: var(--thidary);
   --color-White: var(--White);
+  --color-lightYellow: var(--lightYellow);
+  --color-yellow: var(--yellow);
 }
-
 
 body {
   background: var(--background);
