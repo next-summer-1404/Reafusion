@@ -3,7 +3,7 @@ import IconButton from '@/components/Ui/IconButton';
 import Image from 'next/image';
 import userImage from '@/assets/images/UnKnownUserImg/UnKnownUser.jpg';
 import Link from 'next/link';
-import { House } from 'lucide-react';
+import { Bell, House } from 'lucide-react';
 
 const DashboardHeader = () => {
     return (
@@ -36,6 +36,10 @@ const DashboardHeader = () => {
                     iconName='sun'
                     customClass='!size-[40px] !p-0 items-center justify-center rounded-full bg-lightYellow text-yellow hover:!bg-lightYellow hover:!text-yellow border-0'
                 />
+
+                <Link href={'/'} className='flex size-10 items-center justify-center rounded-full bg-primary text-white'>
+                    <Bell size={24} strokeWidth={1.5} />
+                </Link>
 
                 <Link href={'/'} className='flex size-10 items-center justify-center rounded-full bg-primary text-white'>
                     <House size={24} strokeWidth={1.5} />
