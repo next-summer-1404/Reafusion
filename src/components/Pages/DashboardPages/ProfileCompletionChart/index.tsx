@@ -1,0 +1,36 @@
+import ProfileCompletionCircle from "@/components/Ui/ProfileCompletionCircle";
+import Link from "next/link";
+import React, { FC } from "react";
+
+interface IProps {
+  additionalPercentage: number;
+}
+
+const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage }) => {
+  return (
+    <div className="h-[254px] w-[48%] bg-whiteColor rounded-[24px] px-6 py-6">
+      <div className="flex justify-between items-center">
+        <div>
+          <h3 className="text-dark font-bold text-[20px]">
+            نمودار تکمیل پروفایل
+          </h3>
+          <h4 className="text-gray text-[16px] pt-2">
+            پروفایل باید حداقل ۷۰٪ تکمیل شده باشد.
+          </h4>
+        </div>
+        <Link
+          href={"/dashboard/profile"}
+          className="border border-borderColor h-[42px] px-4 rounded-[40px] flex justify-center items-center cursor-pointer hover:bg-primary hover:text-whiteColor hover:border-primary transition-all duration-200"
+        >
+          ویرایش پروفایل
+        </Link>
+      </div>
+      <div className="pt-3 flex justify-between items-end-safe">
+        <h4 className="text-gray text-[14px]">آخرین ویرایش 3 روز پیش</h4>
+        <ProfileCompletionCircle percentage={additionalPercentage} />
+      </div>
+    </div>
+  );
+};
+
+export default ProfileCompletionChart;

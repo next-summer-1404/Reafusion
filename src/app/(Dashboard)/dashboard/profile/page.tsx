@@ -1,9 +1,34 @@
-import React from 'react'
+import UserPersonalInfo from "@/components/Pages/DashboardPages/ProfilePage/UserPersonalInfo";
+import UserSecurityInfo from "@/components/Pages/DashboardPages/ProfilePage/UserSecurityInfo";
+import UserTab from "@/components/Pages/DashboardPages/ProfilePage/UserTab";
+import { GetUserInformation } from "@/core/Apis/Dashboard/UserInformation";
+import { IUserInformation } from "@/core/types/IUserInformation";
+import { AxiosResponse } from "axios";
+import { FC } from "react";
 
-const Profile = () => {
-    return (
-        <div>Profile</div>
-    )
+interface IProps {
+  searchParams: { tab?: string };
 }
 
-export default Profile
+const Profile: FC<IProps> = async ({ searchParams }) => {
+  const tab = searchParams.tab === "امنیتی" ? "اطلاعات امنیتی" : "اطلاعات شخصی";
+  const userInformations =
+    (await GetUserInformation()) as AxiosResponse<IUserInformation>;
+  const { user } = userInformations.data;
+
+  return (
+    <div className="space-y-6">
+      <h3 className="text-[24px] text-dark font-bold">اطلاعات کاربری</h3>
+      <div className="flex gap-7">
+        <UserTab href="/dashboard/profile" TabName="اطلاعات شخصی" active={tab === "اطلاعات شخصی"} />
+        <UserTab href="/dashboard/profile?tab=امنیتی" TabName="اطلاعات امنیتی" active={tab === "اطلاعات امنیتی"} />
+      </div>
+      {tab === "اطلاعات شخصی" && (
+        <UserPersonalInfo  ProfileImage={user.profilePicture}/> 
+      )}
+      {tab === "اطلاعات امنیتی" && <UserSecurityInfo />}
+    </div>
+  );
+};
+
+export default Profile;

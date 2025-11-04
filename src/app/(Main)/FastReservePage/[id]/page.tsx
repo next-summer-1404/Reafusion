@@ -49,7 +49,9 @@ const FastReserveDetailPage: FC<IProps> = async ({ params }) => {
   const cookieStore = await cookies()
   const token = cookieStore.get('token');
   const tokenValue = token?.value as string
-  const decodToken = JSON.parse(atob(tokenValue.split('.')[1]));
+  const decodToken = JSON.parse(
+    Buffer.from(tokenValue.split(".")[1], "base64url").toString("utf-8")
+  );
   // get the token value and decode that end
 
   return (

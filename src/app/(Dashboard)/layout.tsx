@@ -14,7 +14,7 @@ const DashboardLayout: FC<IProps> = async ({ children }) => {
             {/* main layout */}
             <div className='flex flex-col gap-8 w-[80%]'>
                 <DashboardHeader />
-                <div className='h-full overflow-y-auto p-6 bg-lightGray border border-borderColor rounded-[40px]'>
+                <div className='h-full overflow-y-auto p-5 bg-lightGray border border-borderColor rounded-[40px]'>
                     {children}
                 </div>
             </div>

@@ -38,14 +38,14 @@ export const loginAction = async (state: { message: string, redirect?: string },
       return { 
         message: 'عملیات با موفقیت انجام شد',
         token: response.accessToken,
-        redirect: '/' 
+        redirect: '/dashboard' 
       };
     } else {
       return { message: "پاسخ نامعتبر است" };
     }
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'خطا در سرور';
-    return { message: 'خطا در ثبت نظر', error: errorMessage };
+    return { message: 'خطا در ثبت اطلاعات', error: errorMessage };
   }
   // send data to APi & manage that response end
 };
