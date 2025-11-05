@@ -1,11 +1,12 @@
-import { Building2, CircleCheck, ClockFading, House, Sun, UserRoundCheck, UserRoundPen, UserRoundPlus } from 'lucide-react';
+import { Building2, CircleCheck, ClockFading, Funnel, House, Sun, UserRoundCheck, UserRoundPen, UserRoundPlus } from 'lucide-react';
 import React, { FC } from 'react'
 
 interface IProps {
     title?: string;
     customClass?: string;
-    iconName: 'building' | 'clock' | 'addUser' | 'checkedUser' | 'checked' | 'editUser' | 'house' | 'sun';
+    iconName: 'building' | 'clock' | 'addUser' | 'checkedUser' | 'checked' | 'editUser' | 'house' | 'sun' | 'funnel';
     type?: 'submit';
+    onClick?: () => void;
 }
 
 const icons = [
@@ -17,15 +18,19 @@ const icons = [
     { name: 'editUser', icon: <UserRoundPen size={24} strokeWidth={1.5} /> },
     { name: 'house', icon: <House size={24} strokeWidth={1.5} /> },
     { name: 'sun', icon: <Sun size={24} strokeWidth={1.5} /> },
+    { name: 'funnel', icon: <Funnel size={20} strokeWidth={1.5} /> },
 
 ];
 
-const IconButton: FC<IProps> = ({ title, iconName, customClass, type }) => {
+const IconButton: FC<IProps> = ({ title, iconName, customClass, type, onClick }) => {
 
     const selectedIcon = icons.find(i => i.name === iconName)?.icon;
 
     return (
-        <button type={type} className={`${customClass} flex gap-2 px-3 py-2 cursor-pointer border border-primary text-primary rounded-2xl w-fit hover:bg-primary hover:text-whiteColor transition-all`}>
+        <button
+            type={type}
+            onClick={onClick}
+            className={`${customClass} flex gap-2 px-3 py-2 cursor-pointer border border-primary text-primary rounded-2xl w-fit hover:bg-primary hover:text-whiteColor transition-all`}>
             {selectedIcon}
             {title}
 
