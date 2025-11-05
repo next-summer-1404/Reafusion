@@ -4,10 +4,11 @@ import Modal from '@mui/material/Modal';
 import { Banknote, BedDouble, Building, CreditCard, House, HouseHeart, ListChecks, MapPin, SoapDispenserDroplet, SquarePen, UsersRound, Warehouse, X } from 'lucide-react';
 import Image from 'next/image';
 import DetailImg from '@/assets/images/Dashboard/detail.jpg';
-import PassengersModal from '../PassengersModal';
 import ReservesListModal from '../ReservesListModal';
+import PassengersModal from '../PassengersModal';
 import PaymentsModal from '../PaymentsModal';
 import EditHistoryModal from '../EditHistoryModal';
+
 
 interface IProps {
     open: boolean;

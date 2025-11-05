@@ -2,7 +2,7 @@
 import IconButton from '@/components/Ui/IconButton'
 import React, { useState } from 'react'
 import ReservesTable from './ReservesTable'
-import FiltersModal from '../FiltersModal/index';
+import FiltersModal from './FiltersModal/index';
 import CustomInputDate from '../../../Ui/ReusableInputs/InputDate/index';
 import CustomSelectOption from '../../../Ui/ReusableInputs/SelectOption/index';
 
@@ -42,6 +42,7 @@ const Reserves = () => {
 
                 <div className='flex justify-between !text-dark gap-8'>
                     {/* پویا به این ها داده بده از کامنت درش بیار */}
+
                     {/* <CustomSelectOption labelText='نوع ملک' />
                     <CustomSelectOption labelText='وضعیت رزرو' /> */}
                 </div>

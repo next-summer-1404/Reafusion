@@ -10,10 +10,11 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { CircleCheck, CircleX, CreditCard, EllipsisVertical, Info, Trash2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, CircleCheck, CircleX, CreditCard, EllipsisVertical, Info, Trash2 } from 'lucide-react';
 import CustomBadge from '@/components/Ui/CustomBadge';
-import HouseDetailModal from './HouseDetailModal';
 import Link from 'next/link';
+import HouseDetailModal from '../HouseDetailModal/HouseDetailModal';
+import CustomSelectOption from './../../../../Ui/ReusableInputs/SelectOption/index';
 
 function createData(
     id: number,
@@ -242,6 +243,26 @@ const TableMui = () => {
                         })}
                     </TableBody>
                 </Table>
+
+                <div className='flex justify-between px-6'>
+                    <div className='flex gap-6 items-center'>
+                        <button className='flex gap-2 items-center cursor-pointer text-gray'>
+                            <ChevronRight size={18} strokeWidth={1.5} />
+                            بعدی
+                        </button>
+
+                        <button className='rounded-full text-gray size-7 cursor-pointer'>2</button>
+
+                        <button className='rounded-full text-whiteColor bg-primary size-7 cursor-pointer'>1</button>
+
+                        <button className='flex gap-2 items-center cursor-pointer text-gray'>
+                            قبلی
+                            <ChevronLeft size={18} strokeWidth={1.5} />
+                        </button>
+                    </div>
+                    {/* پویا اینم داخلش باید داده بزاری برای فیلتر */}
+                    {/* <CustomSelectOption labelText='تعداد نمایش' /> */}
+                </div>
             </TableContainer>
             {/* table end */}
 
