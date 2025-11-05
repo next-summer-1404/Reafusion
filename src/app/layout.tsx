@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
-
 import "./globals.css";
 import CustomToastContainer from "@/components/Ui/ToastContainer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 const Shabnam = localFont({
-  src: '../assets/fonts/Shabnam-FD.ttf'
-})
+  src: [
+    {
+      path: "../assets/fonts/Shabnam-FD.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    // اگر بولد هم داری، اضافه کن:
+    // {
+    //   path: "../assets/fonts/Shabnam-Bold-FD.ttf",
+    //   weight: "700",
+    //   style: "normal",
+    // },
+  ],
+  variable: "--font-shabnam",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Reafusion",
@@ -30,10 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body
-        className={`${Shabnam.className} antialiased`}
-      >
+    <html lang="fa" dir="rtl" className="dark" suppressHydrationWarning>
+      <body className={`${Shabnam.variable} font-shabnam antialiased`}>
         {children}
         <CustomToastContainer />
       </body>
