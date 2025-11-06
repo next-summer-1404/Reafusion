@@ -33,11 +33,14 @@ export const loginAction = async (state: { message: string, redirect?: string },
     const token = cookieStore.set('token', response.accessToken, {
       maxAge: 900,
     }) 
+    const refreshToken = cookieStore.set('refreshToken', response.refreshToken);
     console.log(token)
+    console.log(refreshToken)
     if (response) {
       return { 
         message: 'عملیات با موفقیت انجام شد',
         token: response.accessToken,
+        refreshToken: response.refreshToken,
         redirect: '/dashboard' 
       };
     } else {

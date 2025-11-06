@@ -22,7 +22,7 @@ const DashboardHeader = async () => {
                     {/* name and role */}
                     <div className='flex gap-1 items-center'>
                         <span className='text-xl'>{user.fullName || 'کاربر بدون نام'}</span>
-                        <span className='text-sm text-primary'>( {user.role === 'buyer' && 'خریدار' || user.role === 'seller' && 'فروشنده' } )</span>
+                        <span className='text-sm text-primary'>( {user.role === 'buyer' && 'خریدار' || user.role === 'seller' && 'فروشنده' || user.role === 'admin' && 'ادمین' } )</span>
                     </div>
                     {/* name and role end */}
                     {/* user phoneNumber */}

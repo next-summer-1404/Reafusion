@@ -1,5 +1,4 @@
 export interface INotificationData {
-  dataValues: {
     id: string;
     userId: string;
     title: string;
@@ -11,5 +10,4 @@ export interface INotificationData {
     isRead: boolean;
     createdAt: string;
     updatedAt: string;
-  };
 }

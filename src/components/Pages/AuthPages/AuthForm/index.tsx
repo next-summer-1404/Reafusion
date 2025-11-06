@@ -15,12 +15,13 @@ interface FormState {
   tempUserId?: string;
   userId?: string;
   token?: string;
+  refreshToken?: string;
   error?: string;
 }
 
 const AuthForm: FC<IChildren> = ({ children, action }) => {
   const initialState: FormState = { message: "" };
-  const [state, formAction] = useActionState(action as (state: FormState, formData: FormData) => Promise<{ message: string, redirect?: string, email?: string, resetCode?: string, tempUserId?: string, userId?: string, token?: string, error?: string;}>, initialState);
+  const [state, formAction] = useActionState(action as (state: FormState, formData: FormData) => Promise<{ message: string, redirect?: string, email?: string, resetCode?: string, tempUserId?: string, userId?: string, token?: string, error?: string, refreshToken?: string}>, initialState);
   console.log(state)
   const router = useRouter(); 
    

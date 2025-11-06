@@ -5,10 +5,8 @@ import React from "react";
 
 interface ICategoryResponse {
   data: Array<{
-    dataValues: {
-      id: string;
-      name: string;
-    };
+    id: string;
+    name: string;
   }>;
   totalCount?: number;
 }
@@ -25,7 +23,7 @@ const Categorys = async () => {
       <div className="flex justify-around gap-2 flex-wrap">
         {/* category list */}
         {data.map((items, index) => (
-          <CategoryCard key={index} CategoryName={items.dataValues.name} />
+          <CategoryCard key={index} CategoryName={items.name} />
         ))}
         {/* category list end */}
       </div>

@@ -1,4 +1,3 @@
-import FilterBlogs from '@/components/Pages/BlogPage/FilterBlogs'
 import BlogCard from '@/components/Ui/BlogCard'
 import Breadcrumb from '@/components/Ui/Breadcrumb'
 import Container from '@/components/Ui/Container/Container'
@@ -19,12 +18,8 @@ interface IBlogDataValues {
   category_id: string;
 }
 
-interface IBlogItem {
-  dataValues: IBlogDataValues;
-}
-
 interface IBlogResponse {
-  data: IBlogItem[];
+  data: IBlogDataValues[];
   totalCount: number;
 }
 
@@ -60,11 +55,11 @@ const BlogPage: FC<IBlogProps> = async ({ searchParams }) => {
       {/* blog list */}
       <div  className='flex flex-wrap justify-between max-md:justify-around space-y-9'>
         {data.map((blog) => (
-          <div key={blog.dataValues.id}>
+          <div key={blog.id}>
             <BlogCard
-              title={blog.dataValues.title}
-              caption={blog.dataValues.caption}
-              estimatedReadingTime={blog.dataValues.estimated_reading_time?.seconds}
+              title={blog.title}
+              caption={blog.caption}
+              estimatedReadingTime={blog.estimated_reading_time?.seconds}
             />
           </div>     
         ))}      

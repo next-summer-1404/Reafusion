@@ -1,3 +1,4 @@
+// import { RefreshToken } from "@/core/Apis/RefreshToken";
 import axios from "axios";
 
 const Api = axios.create({
@@ -31,6 +32,9 @@ Api.interceptors.response.use(
     if (error.response?.status === 401) {
       console.log("Unauthorize !, you must login egain");
     }
+    // if (error.response?.status === 403) {
+    //   RefreshToken()
+    // }
     // more thing in future pouya add here for beter managing
     return Promise.reject(error);
   }

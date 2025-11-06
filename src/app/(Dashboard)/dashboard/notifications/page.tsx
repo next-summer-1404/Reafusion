@@ -23,6 +23,7 @@ const Notifications: FC<INotificationList> = async ({ searchParams }) => {
   // list of the unReadNotification
   const response = (await GetUserNotifications(false, limit, currentPage)) as AxiosResponse<INotificationResponse>;
   const unreadNotifications = response.data.data;
+  console.log(unreadNotifications)
   // list of the unReadNotification end
   // list of the ReadNotification
   const response2 = (await GetUserNotifications(true, limit, currentPage)) as AxiosResponse<INotificationResponse>;
@@ -46,11 +47,11 @@ const Notifications: FC<INotificationList> = async ({ searchParams }) => {
         {unreadNotifications.length > 0 ? (
           unreadNotifications.map((items) => (
             <NotificationCard
-              key={items.dataValues.id}
-              id={items.dataValues.id}
-              title={items.dataValues.title}
-              message={items.dataValues.message}
-              isRead={items.dataValues.isRead}
+              key={items.id}
+              id={items.id}
+              title={items.title}
+              message={items.message}
+              isRead={items.isRead}
             />
           ))
         ) : (
@@ -60,11 +61,11 @@ const Notifications: FC<INotificationList> = async ({ searchParams }) => {
         {readNotifications.length > 0 ? (
           readNotifications.map((items) => (
             <NotificationCard
-              id={items.dataValues.id}
-              key={items.dataValues.id}
-              title={items.dataValues.title}
-              message={items.dataValues.message}
-              isRead={items.dataValues.isRead}
+              id={items.id}
+              key={items.id}
+              title={items.title}
+              message={items.message}
+              isRead={items.isRead}
             />
           ))
         ) : (
