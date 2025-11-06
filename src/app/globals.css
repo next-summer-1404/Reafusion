@@ -16,8 +16,13 @@
   --pageBg: #f3f4f6;
   --secondary: #ff7f11;
   --thidary: #3b97ff;
-  --lightYellow: #ffdf9b;
   --yellow: #f8b524;
+  --lightYellow: #fff6e0;
+  --success: #008c78;
+  --lightGreen: #ccf2ed;
+  --lightRed: #ffecec;
+
+  --font-shabnam: "Shabnam", system-ui, sans-serif;
 }
 
 .dark {
@@ -35,16 +40,18 @@
   --pageBg: #f3f4f6;
   --secondary: #ff7f11;
   --thidary: #3b97ff;
-  --lightYellow: #ffdf9b;
+  --lightYellow: #fff6e0;
   --yellow: #f8b524;
+  --success: #008c78;
+  --lightGreen: #ccf2ed;
+  --lightRed: #ffecec;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-shabnam);
   --font-mono: var(--font-geist-mono);
-
   --color-primary: var(--primary);
   --color-whiteColor: var(--whiteColor);
   --color-borderColor: var(--borderColor);
@@ -59,16 +66,59 @@
   --color-White: var(--White);
   --color-lightYellow: var(--lightYellow);
   --color-yellow: var(--yellow);
+  --color-success: var(--success);
+  --color-lightGreen: var(--lightGreen);
+  --color-lightRed: var(--lightRed);
+}
+
+.font-shabnam {
+  font-family: var(--font-shabnam) !important;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
   direction: rtl;
 }
 
+.MuiTypography-root,
 .MuiTable-root,
-.MuiTableCell-root {
-  font-family: "Shabnam", sans-serif !important;
+.MuiTableCell-root,
+.MuiTableHead-root,
+.MuiTableBody-root,
+.MuiTableRow-root,
+.MuiMenu-root,
+.MuiMenuItem-root,
+.MuiMenuList-root,
+.MuiPopover-root,
+.MuiPaper-root,
+.MuiButton-root,
+.MuiButtonBase-root,
+.MuiIconButton-root,
+.MuiInputBase-root,
+.MuiInputLabel-root,
+.MuiFormLabel-root,
+.MuiFormControl-root,
+.MuiSelect-root,
+.MuiListItem-root,
+.MuiListItemText-root,
+.MuiChip-root,
+.MuiBadge-root,
+.MuiTooltip-root,
+.MuiDialogTitle-root,
+.MuiDialogContent-root,
+.MuiDialogActions-root,
+.MuiSnackbarContent-root {
+  font-family: var(--font-shabnam) !important;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-shabnam);
+  }
+}
+
+.MuiPopover-paper,
+.MuiMenu-paper {
+  font-family: var(--font-shabnam) !important;
 }
