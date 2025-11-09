@@ -1,54 +1,54 @@
-'use client'
-import IconButton from '@/components/Ui/IconButton'
-import React, { useState } from 'react'
-import ReservesTable from './ReservesTable'
-import FiltersModal from './FiltersModal/index';
-import CustomInputDate from '../../../Ui/ReusableInputs/InputDate/index';
-import CustomSelectOption from '../../../Ui/ReusableInputs/SelectOption/index';
+// app/dashboard/reserves/page.tsx
+import ReservesTable from "./ReservesTable";
+import FiltersModal from "./FiltersModal/index";
+import FilterButton from "./FilterButton";
+import { FC } from "react";
+import { GetBookingList } from "@/core/Apis/Dashboard/GetBookingList";
+import { IBookingData } from "@/core/types/IBookingDatas";
 
-const Reserves = () => {
-
-    const [isFilterOpen, setIsFilterOpen] = useState(false);
-
-    const handleOpenFilter = () => setIsFilterOpen(true);
-    const handleCloseFilter = () => setIsFilterOpen(false);
-
-    return (
-        <div className='flex flex-col gap-4'>
-            <div className='flex justify-between'>
-                <h2 className='font-bold text-xl text-dark'>لیست رزرو های شما</h2>
-
-                <div className='flex justify-between'>
-
-                    <IconButton
-                        title='فیلتر ها'
-                        iconName='funnel'
-                        onClick={handleOpenFilter}
-                        customClass='bg-whiteColor !border-borderColor !text-dark hover:!bg-whiteColor hover:!text-dark' />
-                </div>
-            </div>
-
-            <ReservesTable />
-
-            <FiltersModal
-                open={isFilterOpen}
-                onClose={handleCloseFilter}
-                filtersAction={() => console.log('پویا فانکشن فیلر هارو اینجا بده')}
-            >
-                <div className='flex justify-between !text-dark gap-8'>
-                    <CustomInputDate labelText='تاریخ رفت' />
-                    <CustomInputDate labelText='تاریخ برگشت' />
-                </div>
-
-                <div className='flex justify-between !text-dark gap-8'>
-                    {/* پویا به این ها داده بده از کامنت درش بیار */}
-
-                    {/* <CustomSelectOption labelText='نوع ملک' />
-                    <CustomSelectOption labelText='وضعیت رزرو' /> */}
-                </div>
-            </FiltersModal>
-        </div>
-    )
+interface IReserveList {
+  searchParams: {
+    modal?: string;
+    page?: string;
+    detail?: string;
+    submodal?: string;
+    payment?: string;
+    status?: "pending" | "canceled" | "confirmed",
+  };
 }
 
-export default Reserves
+const Reserves: FC<IReserveList> = async ({ searchParams }) => {
+  const isModalOpen = searchParams.modal === "filters";
+  const selectedHouseId = searchParams.detail ? parseInt(searchParams.detail, 10) : undefined;
+  const activeSubModal = searchParams.submodal;
+
+  const limit = 4;
+  const currentPage = parseInt(searchParams.page || "1", 10);
+  const status = searchParams.status;
+
+  const response = await GetBookingList(limit, currentPage, status);
+  const bookings: IBookingData[] = response.data.data;
+  const totalPages = Math.ceil((response.data.totalCount as number) / limit);
+  console.log(bookings)
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-between items-center">
+        <h2 className="font-bold text-xl text-dark">لیست رزرو های شما</h2>
+        <FilterButton />
+      </div>
+
+      <ReservesTable
+        data={bookings}
+        totalPages={totalPages}
+        currentPage={currentPage}
+        selectedHouseId={selectedHouseId}
+        activeSubModal={activeSubModal}
+      />
+
+      <FiltersModal open={isModalOpen} />
+    </div>
+  );
+};
+
+export default Reserves;

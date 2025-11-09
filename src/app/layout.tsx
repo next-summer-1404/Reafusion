@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl" className="dark" suppressHydrationWarning>
+    <html lang="fa" dir="rtl" className="" suppressHydrationWarning>
       <body className={`${Shabnam.variable} font-shabnam antialiased`}>
         {children}
         <CustomToastContainer />

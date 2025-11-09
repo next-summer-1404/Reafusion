@@ -49,7 +49,7 @@ export const ReservationAction = async (state: { message: string }, formdata: Fo
   try {
     const response = await CreateReserveHouse(reservationData, token);
     if (response) {
-      return { message: "عملیات با موفقیت انجام شد", id: response.dataValues.id };
+      return { message: "عملیات با موفقیت انجام شد", id: response.id };
     } else { 
       return { message: "خطا در ثبت ریزروشن", error: response?.error || "پاسخ نامعتبر از API" };
     }

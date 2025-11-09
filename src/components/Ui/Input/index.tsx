@@ -3,12 +3,12 @@ import { Calendar } from "lucide-react";
 import React, { FC, Fragment } from "react";
 
 interface IProps {
-  lable: string;
-  type: string;
-  name: string;
+  lable?: string;
+  type?: string;
+  name?: string;
   value?: string;
   setState?: (value: string) => void;
-  placeholder: string;
+  placeholder?: string;
 }
 
 const Input: FC<IProps> = ({ lable, type, name, placeholder, value, setState }) => {

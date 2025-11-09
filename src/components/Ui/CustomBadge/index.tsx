@@ -1,21 +1,20 @@
 import React, { FC } from 'react';
 
 interface IProps {
-  status: 'success' | 'pending' | 'fail';
   title: string;
 }
 
-const CustomBadge: FC<IProps> = ({ status, title, }) => {
+const CustomBadge: FC<IProps> = ({ title }) => {
 
   const statusClasses =
-    status === 'success' ? 'bg-lightGreen text-success' :
-      status === 'pending' ? 'bg-lightYellow text-yellow' :
-        status === 'fail' ? 'bg-lightRed text-red' :
+    title === 'confirmed' ? 'bg-lightGreen text-success' :
+      title === 'pending' ? 'bg-lightYellow text-yellow' :
+        title === 'canceled' ? 'bg-lightRed text-red' :
           '';
 
   return (
     <div className={`py-1 px-2 rounded-lg w-fit text-sm ${statusClasses}`}>
-      {title}
+      {title === 'confirmed' ? 'تایید شده' : title === 'pending' ? 'در انتظار' : title === 'canceled' ? 'تایید نشده' : ''}
     </div>
   );
 };

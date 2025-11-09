@@ -1,12 +1,13 @@
-import React from 'react'
-import IconButton from '@/components/Ui/IconButton';
-import TableMui from '../../../../components/Pages/DashboardPages/ReservesPage/ReservesTable';
+import React, { FC } from 'react'
 import Reserves from '@/components/Pages/DashboardPages/ReservesPage/Reserves';
 
-const ReservesManagment = () => {
+interface ReservesManagmentProps {
+  searchParams: { modal?: string };
+}
 
+const ReservesManagment: FC<ReservesManagmentProps> = ({ searchParams }) => {
     return (
-        <Reserves />
+        <Reserves searchParams={searchParams}/>
     )
 }
 

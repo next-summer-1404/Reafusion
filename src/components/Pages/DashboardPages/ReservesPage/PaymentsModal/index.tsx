@@ -1,9 +1,8 @@
 'use client';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { ScrollText, X } from 'lucide-react';
-
+import { X, ScrollText } from 'lucide-react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,113 +10,90 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useSearchParams } from 'next/navigation';
 
 interface IProps {
-    open: boolean;
-    onClose: () => void;
+  open: boolean;
+  houseId: number;
 }
 
-function createData(
-    id: number,
-    date: string,
-    trackingNumber: string,
-    price: number,
-) {
-    return { id, date, trackingNumber, price };
-}
-
-const rows = [
-    createData(1, '12 مرداد 1401 - 12:33', '123456789', 2000000),
-    createData(2, '12 مرداد 1401 - 12:33', '123456789', 2000000),
-    createData(3, '15 شهریور 1401 - 14:20', '123456789', 3500000),
+const mockPayments = [
+  { id: 1, date: '12 مرداد 1401 - 12:33', trackingNumber: '123456789', price: 2000000 },
+  { id: 2, date: '12 مرداد 1401 - 12:33', trackingNumber: '123456789', price: 2000000 },
+  { id: 3, date: '15 شهریور 1401 - 14:20', trackingNumber: '123456789', price: 3500000 },
 ];
 
-const PaymentsModal: FC<IProps> = ({ open, onClose }) => {
-    return (
-        <Modal
-            open={open}
-            onClose={onClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-        >
-            <Box
-                className="
-                    absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                    w-[50%] max-h-[90%] bg-white flex flex-col rounded-3xl
-                    text-dark py-8 gap-8
-                "
-            >
-                {/* modal header */}
-                <div className='flex justify-between items-center px-8'>
-                    <h3 className='font-bold text-2xl'>لیست پرداختی ها</h3>
-                    <div
-                        onClick={onClose}
-                        className='size-12 rounded-full flex justify-center items-center bg-lightGray cursor-pointer hover:scale-110 transition-all'
-                    >
-                        <X size={32} strokeWidth={1.5} />
-                    </div>
-                </div>
-                {/* modal header end */}
+const PaymentsModal: FC<IProps> = () => {
+  const searchParams = useSearchParams();
+  const open = searchParams.get('submodal') === 'payments';
 
-                {/* modal body */}
-                <div className='px-8 overflow-y-scroll'>
+  const closeModal = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('submodal');
+    window.history.pushState({}, '', url);
+  };
 
-                    {/* table */}
-                    <TableContainer
-                        elevation={0}
-                        component={Paper}
-                        className="!rounded-3xl py-6 border border-borderColor"
-                        sx={{ overflow: 'scroll' }}
-                    >
-                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>تاریخ</TableCell>
-                                    <TableCell align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>شماره پیگیری</TableCell>
-                                    <TableCell align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>مبلغ</TableCell>
-                                    <TableCell align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>عملیات</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {rows.map((row) => {
-                                    const id = `menu-${row.id}`;
+  if (!open) return null;
 
-                                    return (
-                                        <TableRow
-                                            key={row.id}
-                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                            className="hover:!bg-lightPrimary transition-colors"
-                                        >
-                                            <TableCell component="th" scope="row" align="right" sx={{ py: 2 }}>
-                                                {row.date}
-                                            </TableCell>
+  return (
+    <Modal open={open} onClose={closeModal}>
+      <Box
+        className="
+          absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+          w-[50%] max-h-[90%] bg-white flex flex-col rounded-3xl
+          text-dark py-8 gap-8 overflow-hidden
+        "
+      >
+        {/* Header */}
+        <div className='flex justify-between items-center px-8'>
+          <h3 className='font-bold text-2xl'>لیست پرداختی ها</h3>
+          <button
+            onClick={closeModal}
+            className='size-12 rounded-full flex justify-center items-center bg-lightGray hover:scale-110 transition-all cursor-pointer'
+          >
+            <X size={32} strokeWidth={1.5} />
+          </button>
+        </div>
 
-                                            <TableCell align="right" sx={{ px: 0, py: 2 }}>{row.trackingNumber}</TableCell>
+        {/* Body */}
+        <div className='px-8 overflow-y-auto'>
+          <TableContainer elevation={0} component={Paper} className="!rounded-3xl py-6 border border-borderColor">
+            <Table sx={{ minWidth: 650 }}>
+              <TableHead>
+                <TableRow>
+                  <TableCell align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>تاریخ</TableCell>
+                  <TableCell align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>شماره پیگیری</TableCell>
+                  <TableCell align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>مبلغ</TableCell>
+                  <TableCell align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>عملیات</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {mockPayments.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    className="hover:!bg-lightPrimary transition-colors"
+                  >
+                    <TableCell component="th" scope="row" align="right" sx={{ py: 2 }}>
+                      {row.date}
+                    </TableCell>
+                    <TableCell align="right" sx={{ px: 0, py: 2 }}>{row.trackingNumber}</TableCell>
+                    <TableCell align="right" sx={{ px: 0, py: 2 }}>
+                      {row.price.toLocaleString()} تومان
+                    </TableCell>
+                    <TableCell align="right" sx={{ py: 2 }}>
+                      <button className='cursor-pointer text-primary hover:scale-110 transition'>
+                        <ScrollText size={24} strokeWidth={1.5} />
+                      </button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      </Box>
+    </Modal>
+  );
+};
 
-                                            <TableCell align="right" sx={{ px: 0, py: 2 }}>
-                                                {row.price} تومان
-                                            </TableCell>
-
-                                            {/* actions */}
-                                            <TableCell align="right" sx={{ py: 2, position: 'relative' }}>
-                                                <button className='cursor-pointer'>
-                                                    <ScrollText size={24} strokeWidth={1.5} />
-                                                </button>
-                                            </TableCell>
-                                            {/* actions end */}
-                                        </TableRow>
-                                    );
-                                })}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                    {/* table end */}
-                </div>
-                {/* modal body end */}
-
-            </Box>
-        </Modal>
-    )
-}
-
-export default PaymentsModal
+export default PaymentsModal;
