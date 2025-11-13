@@ -24,9 +24,10 @@ const DashboardMenu = () => {
     // link list with icon end
 
     return (
-        <div className="flex flex-col gap-8 p-8 bg-lightGray border border-borderColor rounded-[40px] w-[20%]">
+        <div className="flex flex-col gap-8 p-8 bg-lightGray border border-borderColor rounded-[40px] w-[20%]
+        max-md:hidden">
             {/* logo */}
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 items-center max-lg:flex-col">
                 <Image className="rounded-full size-11" alt="" src={logo} width={32} height={32} />
                 <span className="text-[32px] font-bold">ریفیوژن</span>
             </div>

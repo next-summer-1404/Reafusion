@@ -8,7 +8,7 @@ interface IProps {
 
 const DashboardLayout: FC<IProps> = async ({ children }) => {
     return (
-        <div className='p-8 bg-whiteColor text-dark flex gap-8 h-screen max-h-screen'>
+        <div className='p-8 max-lg:p-4 bg-whiteColor text-dark flex gap-8 h-screen max-h-screen'>
             <DashboardMenu />
 
             {/* main layout */}
