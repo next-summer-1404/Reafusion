@@ -31,9 +31,9 @@ const Dashboard = async () => {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {/* summary of the site status */}
-      <div className="flex justify-between flex-wrap space-y-10">
+      <div className="flex justify-between flex-wrap gap-4">
         {StatusDatas.map((items, index) => (
           <StatusCard
             key={index}
@@ -45,7 +45,7 @@ const Dashboard = async () => {
       </div>
       {/* summary of the site status end */}
       {/* the chart of the compelet userInfo & Income chart */}
-      <div className="flex justify-between">
+      <div className="flex max-sm:flex-col max-sm:gap-4 justify-between">
         <IncomeChart />
         <ProfileCompletionChart additionalPercentage={additionalPercentage}/>
       </div>

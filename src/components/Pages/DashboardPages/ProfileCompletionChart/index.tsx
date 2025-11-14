@@ -8,13 +8,13 @@ interface IProps {
 
 const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage }) => {
   return (
-    <div className="h-[254px] w-[48%] bg-whiteColor rounded-[24px] px-6 py-6">
-      <div className="flex justify-between items-center">
+    <div className="h-[254px] max-xl:h-[379px] w-[48%] max-sm:w-full bg-whiteColor rounded-[24px] px-6 py-6">
+      <div className="flex max-xl:flex-col max-xl:gap-4 justify-between items-center">
         <div>
-          <h3 className="text-dark font-bold text-[20px]">
+          <h3 className="text-dark font-bold text-[20px] max-xl:text-center">
             نمودار تکمیل پروفایل
           </h3>
-          <h4 className="text-gray text-[16px] pt-2">
+          <h4 className="text-gray text-[16px] pt-2 max-xl:text-center">
             پروفایل باید حداقل ۷۰٪ تکمیل شده باشد.
           </h4>
         </div>
@@ -25,7 +25,7 @@ const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage }) => {
           ویرایش پروفایل
         </Link>
       </div>
-      <div className="pt-3 flex justify-between items-end-safe">
+      <div className="pt-3 flex max-xl:flex-col-reverse max-xl:justify-center max-xl:items-center max-xl:gap-4 justify-between items-end-safe">
         <h4 className="text-gray text-[14px]">آخرین ویرایش 3 روز پیش</h4>
         <ProfileCompletionCircle percentage={additionalPercentage} />
       </div>

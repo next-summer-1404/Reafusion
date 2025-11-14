@@ -3,20 +3,22 @@ import React from "react";
 
 const IncomeChart = () => {
   return (
-    <div className="h-[254px] w-[48%] bg-whiteColor rounded-[24px] px-6 py-6">
-      <div className="flex justify-between items-center">
+    <div className="h-[254px] max-xl:h-[379px] w-[48%] max-sm:w-full bg-whiteColor rounded-[24px] px-6 py-6">
+      <div className="flex max-xl:flex-col max-xl:gap-4 justify-between items-center">
         <div>
-          <h3 className="text-dark font-bold text-[20px]">نمودار درآمد</h3>
-          <h4 className="text-gray text-[16px] pt-2">
+          <h3 className="text-dark font-bold text-[20px] max-xl:text-center">نمودار درآمد</h3>
+          <h4 className="text-gray text-[16px] pt-2 max-xl:text-center">
             از تاریخ 1 تا 31 شهریور 1404
           </h4>
         </div>
+
         <select className="border border-borderColor h-[42px] px-4 rounded-[40px] flex justify-center items-center cursor-pointer">
           <option value="">ماه جاری</option>
           <option value="">درآمد کل</option>
         </select>
       </div>
-      <div className="pt-3 flex justify-between items-end-safe">
+
+      <div className="pt-3 flex max-xl:flex-col-reverse max-xl:justify-center max-xl:items-center max-xl:gap-4 justify-between items-end-safe">
         <div className="flex gap-6">
           <div className="space-y-2">
             <div className="flex gap-2 items-center">

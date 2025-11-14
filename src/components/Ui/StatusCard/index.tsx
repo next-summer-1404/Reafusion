@@ -9,13 +9,14 @@ interface IProps {
 
 const StatusCard: FC<IProps> = ({ Icon, label, value }) => {
   return (
-    <div className='bg-whiteColor h-[87px] w-[245px] rounded-[24px] px-4 py-4.5 flex gap-3'>
+    <div className='bg-whiteColor h-[87px] w-[23.4%] xl:w-[23.6%] lg:w-[31.8%] md:w-[31.7%] sm:w-[48.5%] max-sm:w-full rounded-[24px] px-4 py-4.5 flex gap-3'>
        <div className='size-[48px] bg-lightPrimary text-primary rounded-[8px] flex justify-center items-center'>
             <Icon />
        </div>
-       <div className='w-[75%]'>
+       <div className='w-[75%] max-sm:w-[85%]'>
            <div className='text-[16px] text-dark flex justify-between items-center'>
-               <h4>{label}</h4> <ArrowUpLeft size={18}/>
+               <h4 className='truncate'>{label}</h4> 
+               <ArrowUpLeft size={18}/>
            </div>
            <h3 className='text-[24px] text-dark font-bold'>{value}</h3>
        </div>
