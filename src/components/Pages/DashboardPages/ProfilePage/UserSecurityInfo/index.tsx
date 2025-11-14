@@ -20,8 +20,8 @@ const UserSecurityInfo = () => {
   // manage response and show that to user end
 
   return (
-    <form action={formAction}>
-      <div className="flex justify-between flex-wrap space-y-6">
+    <form className="flex flex-col gap-8" action={formAction}>
+      <div className="flex flex-wrap gap-8">
         <UserInput
           lable="رمزعبور قبلی"
           name="currentPassword"
@@ -37,7 +37,10 @@ const UserSecurityInfo = () => {
           placeholder="رمز عبور جدید را تکرار کنید"
         />
       </div>
-      <FillButton type="submit" ButtonText="اعمال تغییرات" className="p-3 px-4 mt-7"/>
+
+      <div className="max-sm:!w-full">
+        <FillButton type="submit" ButtonText="اعمال تغییرات" className="p-3 px-4 max-sm:!w-full" />
+      </div>
     </form>
   );
 };

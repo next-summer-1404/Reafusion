@@ -17,7 +17,7 @@ const Profile: FC<IProps> = async ({ searchParams }) => {
   const { user } = userInformations.data;
 
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col gap-8">
       <h3 className="text-[24px] text-dark font-bold">اطلاعات کاربری</h3>
       <div className="flex gap-7">
         <UserTab href="/dashboard/profile" TabName="اطلاعات شخصی" active={tab === "اطلاعات شخصی"} />

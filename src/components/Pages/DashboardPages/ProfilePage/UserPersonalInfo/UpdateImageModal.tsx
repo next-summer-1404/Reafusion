@@ -72,10 +72,9 @@ const UpdateImageModal: FC<IProps> = ({ open, handleClose, setOpen, handleImageC
               ButtonText="انصراف"
               className="p-3 px-13 !border-gray !text-gray"
             />
-            <FillButton
+            <EmptyButton
               ButtonText="انتخاب عکس"
-              className="p-4 px-8 bg-thidary !text-dark"
-              type="button"
+              className="p-4 px-8"
               onClick={() => document.getElementById("upload-photo")?.click()}
             />
             <FillButton
