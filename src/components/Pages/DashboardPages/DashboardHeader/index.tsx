@@ -11,6 +11,7 @@ import { Bell, House } from 'lucide-react';
 const DashboardHeader = async () => {
     const response = await GetUserInformation() as AxiosResponse<IUserInformation>
     const { user } = response.data;
+    console.log(user)
 
     return (
         <div className='flex justify-between items-center px-4 py-2 bg-lightGray border border-borderColor rounded-3xl'>
@@ -43,7 +44,7 @@ const DashboardHeader = async () => {
                     customClass='!size-[40px] !p-0 items-center justify-center rounded-full bg-whiteColor text-yellow hover:!bg-lightYellow hover:!text-yellow border-0'
                 />
 
-                <Link href={'/'} className='flex size-10 items-center justify-center rounded-full bg-primary text-white'>
+                <Link href={'/dashboard/notifications'} className='flex size-10 items-center justify-center rounded-full bg-primary text-white'>
                     <Bell size={24} strokeWidth={1.5} />
                 </Link>
 

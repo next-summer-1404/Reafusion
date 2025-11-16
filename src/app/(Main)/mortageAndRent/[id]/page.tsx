@@ -53,7 +53,9 @@ const MortageAndRentDetail: FC<IProps> = async ({ params }) => {
   const cookieStore = await cookies()
   const token = cookieStore.get('token');
   const tokenValue = token?.value as string
-  const decodToken = JSON.parse(atob(tokenValue.split('.')[1]));
+  const decodToken = tokenValue 
+  ? JSON.parse(Buffer.from(tokenValue.split('.')[1].replace(/-/g,'+').replace(/_/g,'/'),'base64').toString())
+  : null;
   // get the token value and decode that end
 
   return (

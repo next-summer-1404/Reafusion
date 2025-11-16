@@ -13,6 +13,7 @@ interface IProps {
   reserveId: number;
   houseId: number;
   tokenValue?: string;
+  currentPage?: number;
 }
 
 const ActionMenuButton: FC<IProps> = ({ houseId, reserveId, tokenValue }) => {

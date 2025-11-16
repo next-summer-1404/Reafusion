@@ -83,7 +83,7 @@ const ReservesTable: FC<IProps> = async ({ data, totalPages, currentPage, select
                   <CustomBadge2 title={item.status} />
                 </TableCell>
                 <TableCell align="right" sx={{ py: 2 }}>
-                  <ActionMenuButton houseId={item.houseId} reserveId={item.id} tokenValue={tokenValue}/>
+                  <ActionMenuButton houseId={item.houseId} reserveId={item.id} currentPage={currentPage} tokenValue={tokenValue}/>
                 </TableCell>
               </TableRow>
             ))}
