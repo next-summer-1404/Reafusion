@@ -4,11 +4,12 @@ import React, { FC } from "react";
 
 interface IProps {
   additionalPercentage: number;
+  role: string;
 }
 
-const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage }) => {
+const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage, role }) => {
   return (
-    <div className="h-[254px] w-[48%] bg-whiteColor rounded-[24px] px-6 py-6">
+    <div className={`h-[354px] ${role === 'buyer' ? 'w-[100%]' : 'w-[48%]'} bg-whiteColor rounded-[24px] px-6 py-6`}>
       <div className="flex justify-between items-center">
         <div>
           <h3 className="text-dark font-bold text-[20px]">
@@ -25,7 +26,7 @@ const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage }) => {
           ویرایش پروفایل
         </Link>
       </div>
-      <div className="pt-3 flex justify-between items-end-safe">
+      <div className="pt-19 flex justify-between items-end-safe">
         <h4 className="text-gray text-[14px]">آخرین ویرایش 3 روز پیش</h4>
         <ProfileCompletionCircle percentage={additionalPercentage} />
       </div>

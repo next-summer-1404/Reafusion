@@ -10,8 +10,11 @@ const SpecialVilas = async () => {
   const response = (await GetSpecialVilas()) as AxiosResponse<IApiResponse>;
   const { houses } = response.data;
 
-  // filter all spacials house
-  const filterData = houses.filter((items) => items.discounted_price !== null);
+  const filterData = houses.filter(
+    (item) =>
+      !!item.discounted_price &&
+      parseInt(item.discounted_price as string, 10) > 0
+  );
 
   return (
     <div className="pb-30 space-y-8">

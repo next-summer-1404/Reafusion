@@ -14,9 +14,10 @@ interface IProps {
   houseId: number;
   tokenValue?: string;
   currentPage?: number;
+  role: string;
 }
 
-const ActionMenuButton: FC<IProps> = ({ houseId, reserveId, tokenValue }) => {
+const ActionMenuButton: FC<IProps> = ({ houseId, reserveId, tokenValue, role }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const router = useRouter();
@@ -89,6 +90,9 @@ const ActionMenuButton: FC<IProps> = ({ houseId, reserveId, tokenValue }) => {
     } 
   }
 
+  const isAdminOrSeller = role === 'admin' || 'seller';
+  const isAdminOrBuyer = role === 'admin' || 'buyer'
+
   return (
     <>
       <button
@@ -113,19 +117,27 @@ const ActionMenuButton: FC<IProps> = ({ houseId, reserveId, tokenValue }) => {
             },
           },
         }}
-      >
-        <MenuItem onClick={handleConfrimBoooking} sx={{ gap: 1.5, borderRadius: '12px' }}>
-          <CircleCheck size={18} strokeWidth={1.5} />
-          <span>تایید رزرو</span>
-        </MenuItem>
-        <MenuItem onClick={handleCancelBoooking} sx={{ gap: 1.5, borderRadius: '12px' }}>
-          <CircleX size={18} strokeWidth={1.5} />
-          <span>لغو رزرو</span>
-        </MenuItem>
-        <MenuItem onClick={handleOpenPayment} sx={{ gap: 1.5, borderRadius: '12px' }}>
-          <CreditCard size={18} strokeWidth={1.5} />
-          <span>پرداخت کردن</span>
-        </MenuItem>
+      > 
+        {isAdminOrSeller && (
+          <div>
+            <MenuItem onClick={handleConfrimBoooking} sx={{ gap: 1.5, borderRadius: '12px' }}>
+              <CircleCheck size={18} strokeWidth={1.5} />
+              <span>تایید رزرو</span>
+            </MenuItem>
+            <MenuItem onClick={handleCancelBoooking} sx={{ gap: 1.5, borderRadius: '12px' }}>
+              <CircleX size={18} strokeWidth={1.5} />
+              <span>لغو رزرو</span>
+            </MenuItem>
+          </div>
+        )} 
+        {isAdminOrBuyer && (
+          <div>
+            <MenuItem onClick={handleOpenPayment} sx={{ gap: 1.5, borderRadius: '12px' }}>
+              <CreditCard size={18} strokeWidth={1.5} />
+              <span>پرداخت کردن</span>
+            </MenuItem>
+          </div>
+        )}    
         <MenuItem onClick={handleOpenDetail} sx={{ gap: 1.5, borderRadius: '12px' }}>
           <Info size={18} strokeWidth={1.5} />
           <span>جزئیات</span>

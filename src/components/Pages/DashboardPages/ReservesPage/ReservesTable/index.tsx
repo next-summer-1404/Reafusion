@@ -1,4 +1,3 @@
-// app/dashboard/reserves/ReservesTable.tsx
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -42,6 +41,7 @@ const ReservesTable: FC<IProps> = async ({ data, totalPages, currentPage, select
   const cookieStore = await cookies();
   const token = cookieStore.get("token");
   const tokenValue = token?.value as string;
+  const decodToken = JSON.parse(Buffer.from(tokenValue.split(".")[1], 'base64url').toString('utf-8'));
 
   return (
     <>
@@ -83,7 +83,7 @@ const ReservesTable: FC<IProps> = async ({ data, totalPages, currentPage, select
                   <CustomBadge2 title={item.status} />
                 </TableCell>
                 <TableCell align="right" sx={{ py: 2 }}>
-                  <ActionMenuButton houseId={item.houseId} reserveId={item.id} currentPage={currentPage} tokenValue={tokenValue}/>
+                  <ActionMenuButton houseId={item.houseId} role={decodToken.role} reserveId={item.id} currentPage={currentPage} tokenValue={tokenValue}/>
                 </TableCell>
               </TableRow>
             ))}

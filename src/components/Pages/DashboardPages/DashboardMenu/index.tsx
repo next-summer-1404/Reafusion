@@ -1,25 +1,41 @@
 'use client'
 import Image from 'next/image';
-import React from 'react';
+import React, { FC } from 'react';
 import logo from '@/assets/images/ReafusionLogo/MainReafusionLogo.jpg';
 import { Bell, Building, CircleDollarSign, HandCoins, HeartPlus, LayoutDashboard, ListChecks, LogOut, UserRoundPen } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const DashboardMenu = () => {
+interface IProps {
+    role: string;
+}
+
+const DashboardMenu: FC<IProps> = ({ role }) => {
     // get now url
     const pathname = usePathname();
+
+    const hasManagementAccess = role === 'admin' || role === 'seller';
+    const isBuyerUser = role === 'admin' || role === 'buyer';
 
     // link list with icon
     const menuItems = [
         { href: '/dashboard', label: 'داشبورد', icon: <LayoutDashboard size={24} strokeWidth={1.5} /> },
         { href: '/dashboard/profile', label: 'مشخصات کاربری', icon: <UserRoundPen size={24} strokeWidth={1.5} /> },
         { href: '/dashboard/notifications', label: 'اعلان‌ها', icon: <Bell size={24} strokeWidth={1.5} /> },
-        { href: '/dashboard/placesManagement', label: 'مدیریت املاک', icon: <Building size={24} strokeWidth={1.5} /> },
+        ...(hasManagementAccess
+        ? [
+            { href: '/dashboard/placesManagement', label: 'مدیریت املاک', icon: <Building size={24} strokeWidth={1.5} /> },
+            { href: '/dashboard/financialManagement', label: 'مدیریت مالی', icon: <HandCoins size={24} strokeWidth={1.5} /> },
+            ]
+        : []
+        ),
         { href: '/dashboard/reservesManagment', label: 'مدیریت رزروها', icon: <ListChecks size={24} strokeWidth={1.5} /> },
-        { href: '/dashboard/financialManagement', label: 'مدیریت مالی', icon: <HandCoins size={24} strokeWidth={1.5} /> },
-        { href: '/dashboard/paymentManagement', label: 'مدیریت پرداخت ها', icon: <CircleDollarSign size={24} strokeWidth={1.5} /> },
-        { href: '/dashboard/favoriteManagement', label: 'علاقه مندی ها', icon: <HeartPlus size={24} strokeWidth={1.5} /> },
+        ...(isBuyerUser
+        ? [
+            { href: '/dashboard/paymentManagement', label: 'مدیریت پرداخت ها', icon: <CircleDollarSign size={24} strokeWidth={1.5} /> },
+            { href: '/dashboard/favoriteManagement', label: 'علاقه مندی ها', icon: <HeartPlus size={24} strokeWidth={1.5} /> },
+          ]
+        : []),
         { href: '/dashboard/logout', label: 'خروج از حساب', icon: <LogOut size={24} strokeWidth={1.5} /> },
     ];
     // link list with icon end

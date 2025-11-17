@@ -8,12 +8,18 @@ import { IUserInformation } from "@/core/types/IUserInformation";
 import { AxiosResponse } from "axios";
 import Link from "next/link";
 import LastReserveHousesTable from "../../../components/Pages/DashboardPages/LastReserveHouseTable";
+import { cookies } from "next/headers";
 
 const Dashboard = async () => {
   const response = await GetSummaryStatus();
   const userInformations = await GetUserInformation() as AxiosResponse<IUserInformation>
   const { user, additionalPercentage } = userInformations.data;
-  console.log(user, additionalPercentage) 
+  console.log(user, additionalPercentage)
+  
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token");
+  const tokenValue = token?.value as string;
+  const decodToken = JSON.parse(Buffer.from(tokenValue.split(".")[1], 'base64url').toString('utf-8'));
 
   const StatusDatas = [
     { Icon: House, label: "کل خانه ها", value: response.houses },
@@ -33,21 +39,51 @@ const Dashboard = async () => {
   return (
     <div>
       {/* summary of the site status */}
-      <div className="flex justify-between flex-wrap space-y-10">
-        {StatusDatas.map((items, index) => (
-          <StatusCard
-            key={index}
-            Icon={items.Icon}
-            label={items.label}
-            value={items.value}
-          />
-        ))}
-      </div>
+      {decodToken.role === 'buyer' && (
+        <div className="flex justify-between flex-wrap space-y-10">
+          {StatusDatas.slice(0, 4).map((items, index) => (
+            <StatusCard
+              key={index}
+              Icon={items.Icon}
+              label={items.label}
+              value={items.value}
+            />
+          ))}
+        </div>
+      )}
+      {decodToken.role === 'seller' && (
+        <div className="flex justify-between flex-wrap space-y-10">
+          {StatusDatas.slice(5, 8).map((items, index) => (
+            <StatusCard
+              key={index}
+              Icon={items.Icon}
+              label={items.label}
+              value={items.value}
+            />
+          ))}
+        </div>
+      )}
+      {decodToken.role === 'admin' && (
+        <div className="flex justify-between flex-wrap space-y-10">
+          {StatusDatas.map((items, index) => (
+            <StatusCard
+              key={index}
+              Icon={items.Icon}
+              label={items.label}
+              value={items.value}
+            />
+          ))}
+        </div>
+      )}
       {/* summary of the site status end */}
       {/* the chart of the compelet userInfo & Income chart */}
       <div className="flex justify-between">
-        <IncomeChart />
-        <ProfileCompletionChart additionalPercentage={additionalPercentage}/>
+        {decodToken.role === 'admin' || 'seller' ? (
+          <IncomeChart />
+        ) : (
+          null
+        )}
+        <ProfileCompletionChart additionalPercentage={additionalPercentage} role={decodToken.role}/>
       </div>
       {/* the chart of the compelet userInfo & Income chart end */}
       {/* last reserve houses */}

@@ -1,6 +1,4 @@
-'use client';
-
-import React from 'react';
+import React from "react";
 import {
   Paper,
   Table,
@@ -9,66 +7,89 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from '@mui/material';
-import { EllipsisVertical } from 'lucide-react';
+} from "@mui/material";
+import { GetBookingList } from "@/core/Apis/Dashboard/GetBookingList";
+import { IBookingData } from "@/core/types/IBookingDatas";
+import CustomBadge from "@/components/Ui/CustomBadge";
 
-const LastReserveHousesTable = () => {
+const LastReserveHousesTable = async () => {
+  const limit = 3;
+  const currentPage = 1;
+  const response = await GetBookingList(limit, currentPage);
+  const bookings: IBookingData[] = response.data.data;
+
   return (
-    <div className='pt-6' dir="rtl">
+    <div className="pt-6" dir="rtl">
       <TableContainer
         component={Paper}
         className="!rounded-3xl !shadow-none"
-        sx={{ overflow: 'hidden' }}
+        sx={{ overflow: "hidden" }}
       >
         <Table aria-label="جدول مشخصات مسافران">
           <TableHead>
             <TableRow>
-              <TableCell className="!text-dark !font-bold w-[30%]" align="right">
+              <TableCell
+                className="!text-dark !font-bold w-[30%]"
+                align="right"
+              >
                 نام اقامتگاه
               </TableCell>
-              <TableCell className="!text-dark !font-bold w-[20%]" align="right">
+              <TableCell
+                className="!text-dark !font-bold w-[28%]"
+                align="right"
+              >
                 تاریخ رزرو
               </TableCell>
-              <TableCell className="!text-dark !font-bold w-[30%]" align="right">
+              <TableCell
+                className="!text-dark !font-bold w-[30%]"
+                align="right"
+              >
                 قیمت
               </TableCell>
-              <TableCell className="!text-dark !font-bold w-[15%]" align="right">
+              <TableCell
+                className="!text-dark !font-bold w-[15%]"
+                align="right"
+              >
                 وضعیت
-              </TableCell>
-              <TableCell className="!text-dark !font-bold" align="right">
-                 عملیات
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow
-              sx={{
-                '&:last-child td, &:last-child th': { border: 0 },
-              }}
-            >
-              <TableCell
-                align="right"
-                className="!border-borderColor !text-dark"
-                component="th"
-                scope="row"
+            {bookings.map((items) => (
+              <TableRow
+                key={items.id}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                }}
               >
-                خانه
-              </TableCell>
-              <TableCell className="!border-borderColor !text-dark" align="right">
-                 12 مرداد 1401 - 12:33
-              </TableCell>
-              <TableCell className="!border-borderColor !text-dark" align="right">
-                2,000,000 تومان
-              </TableCell>
-              <TableCell className="!border-borderColor !text-dark" align="right">
-                <div className='w-[85px] p-2 h-[30xp] bg-[#CCF2ED] text-[#008C78] text-center rounded-[8px]'>
-                  تایید شده  
-                </div>
-              </TableCell>
-              <TableCell className="!border-borderColor !text-dark cursor-pointer !flex !justify-center">
-                <EllipsisVertical />
-              </TableCell>
-            </TableRow>
+                <TableCell
+                  align="right"
+                  className="!border-borderColor !text-dark"
+                  component="th"
+                  scope="row"
+                >
+                  {items.house.title}
+                </TableCell>
+                <TableCell
+                  className="!border-borderColor !text-dark"
+                  align="right"
+                >
+                  {items.createdAt.slice(0,10)} - {items.createdAt.slice(11,16)}
+                </TableCell>
+                <TableCell
+                  className="!border-borderColor !text-dark"
+                  align="right"
+                >
+                  {items.house.price} تومان
+                </TableCell>
+                <TableCell
+                  className="!border-borderColor !text-dark"
+                  align="right"
+                >
+                  <CustomBadge title={items.status}/>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
