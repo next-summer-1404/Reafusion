@@ -24,7 +24,7 @@ interface IProps {
   UserImage?: string;
 }
 
-const Header: FC<IProps> = ({ userToken, UserName, UserImage }) => {
+const Header: FC<IProps> = ({ userToken, UserName = 'کاربر بدون نام', UserImage = UnKnownPersonImage }) => {
   const pathname = usePathname();
   const [theme, setTheme] = useState<string>("light");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

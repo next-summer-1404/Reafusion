@@ -13,13 +13,17 @@ interface IProps {
 const MainLayout: FC<IProps> = async ({ children }) => {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value;
-  const userInformations = (await GetUserInformation()) as AxiosResponse<IUserInformation>;
-  const { user } = userInformations.data;
-  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",user)
+  let user = null;
+  if (token) {
+    const userInformations = (await GetUserInformation()) as AxiosResponse<IUserInformation>;
+    user = userInformations?.data?.user || null;
+  }
+  
+
 
   return (
     <Fragment>
-      <Header userToken={token} UserName={user.fullName} UserImage={user.profilePicture} />
+      <Header userToken={token} UserName={user?.fullName} UserImage={user?.profilePicture} />
 
       {children}
 
