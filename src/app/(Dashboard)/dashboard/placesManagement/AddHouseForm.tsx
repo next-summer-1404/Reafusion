@@ -15,6 +15,7 @@ import Image from "next/image";
 import AddHouseAction from "./ServerActions";
 import { toast } from "react-toastify";
 import  AddPhotosActions from "./ServerActions/AddPhotosActions";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -115,7 +116,7 @@ const AddHouseForm = () => {
   };
 
   return (
-    <div>
+    <ScrollReveal>
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-2xl font-bold text-dark">مدیریت املاک</h2>
@@ -456,7 +457,7 @@ const AddHouseForm = () => {
           <p></p>       
         )}
       </div>
-    </div>
+    </ScrollReveal>
   );
 };
 

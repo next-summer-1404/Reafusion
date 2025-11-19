@@ -49,7 +49,7 @@ const Slider: FC<IProps> = ({ filterData }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative mt-7">
       <RightButton onClick={handlePrevSlide} />
       <Swiper
         ref={swiperRef}

@@ -1,5 +1,6 @@
 import FavoriteTable from "@/components/Pages/DashboardPages/FavoritePage/FavoriteTable";
 import FilterBox from "@/components/Pages/DashboardPages/FavoritePage/FilterBox";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { GetFavoriteList } from "@/core/Apis/Dashboard/GetFavoriteList";
 import { IFavoriteResponse } from "@/core/types/IFavoriteResponse";
 import { AxiosResponse } from "axios";
@@ -22,13 +23,13 @@ const FavoriteManagement: FC<IFavoritePage> = async ({ searchParams }) => {
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (
-    <div className="space-y-4">
+    <ScrollReveal className="space-y-4">
       <div className="flex justify-between">
         <h3 className="text-dark font-bold text-[20px]">لیست علاقه مندی ها</h3>
         <FilterBox />
       </div>
       <FavoriteTable data={data} totalPages={totalPages} currentPage={currentPage}/>
-    </div>
+    </ScrollReveal>
   );
 };
 

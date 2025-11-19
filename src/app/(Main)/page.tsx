@@ -8,22 +8,41 @@ import OurFeatures from "@/components/Pages/Landing/Sections/OurFeatures";
 import FreeConsultation from "@/components/Pages/Landing/Sections/FreeConsultation";
 import UserOpenian from "@/components/Pages/Landing/Sections/UserOpenian";
 import RentVilaInBestLocation from "@/components/Pages/Landing/Sections/RentVilaInBestLocation";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 const Home = () => {
   return (
     <>
       <Container>
-        <HeroSection />
-        <Categorys />
-        <SpecialVilas />
+        <ScrollReveal>
+          <HeroSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Categorys />
+        </ScrollReveal>
+        <ScrollReveal>
+          <SpecialVilas />
+        </ScrollReveal>
       </Container>
-      <WhyChoseUs />
+      <ScrollReveal>
+        <WhyChoseUs />
+      </ScrollReveal>
       <Container>
-        <BestHouses />
-        <RentVilaInBestLocation />
-        <OurFeatures />
-        <FreeConsultation />
-        <UserOpenian />
+        <ScrollReveal>
+          <BestHouses />
+        </ScrollReveal>
+        <ScrollReveal>
+          <RentVilaInBestLocation />
+        </ScrollReveal>
+        <ScrollReveal>
+          <OurFeatures />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FreeConsultation />
+        </ScrollReveal>
+        <ScrollReveal>
+          <UserOpenian />
+        </ScrollReveal>
       </Container>
     </>
   );

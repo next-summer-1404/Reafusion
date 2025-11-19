@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React, { FC } from 'react';
 import logo from '@/assets/images/ReafusionLogo/MainReafusionLogo.jpg';
-import { Bell, Building, CircleDollarSign, HandCoins, HeartPlus, LayoutDashboard, ListChecks, LogOut, UserRoundPen } from 'lucide-react';
+import { Bell, Building, Building2, ChartBarDecreasing, ChartColumnStacked, CircleDollarSign, CreditCard, HandCoins, HeartPlus, LayoutDashboard, ListChecks, LogOut, MessageCircle, MessageCircleMore, ScrollText, UserRoundPen, Users } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -37,6 +37,13 @@ const DashboardMenu: FC<IProps> = ({ role }) => {
           ]
         : []),
         { href: '/dashboard/logout', label: 'خروج از حساب', icon: <LogOut size={24} strokeWidth={1.5} /> },
+        { href: '', label: 'مدیریت کاربران', icon: <Users size={24} strokeWidth={1.5} /> },
+        { href: '', label: 'مدیریت کل رزروها', icon: <ChartBarDecreasing size={24} strokeWidth={1.5} /> },
+        { href: '', label: 'مدیریت کل خانه ها', icon: <Building2 size={24} strokeWidth={1.5} /> },
+        { href: '', label: 'مدیریت نظرات', icon: <MessageCircleMore size={24} strokeWidth={1.5} /> },
+        { href: '', label: 'مدیریت کل پرداخت ها', icon: <CreditCard size={24} strokeWidth={1.5} /> },
+        { href: '', label: 'مدیریت دسته بندی ها', icon: <ChartColumnStacked size={24} strokeWidth={1.5} /> },
+        { href: '', label: 'مدیریت سند ها', icon: <ScrollText size={24} strokeWidth={1.5} /> },
     ];
     // link list with icon end
 
@@ -81,7 +88,30 @@ const DashboardMenu: FC<IProps> = ({ role }) => {
                     <span className="text-sm text-primary">مدیریت</span>
                     {/* navigation */}
                     <ul className="flex flex-col gap-6">
-                        {menuItems.slice(3).map((item) => (
+                        {menuItems.slice(3, 9).map((item) => (
+                            <li key={item.href}>
+                                <Link
+                                    href={item.href}
+                                    className={`flex gap-4 items-center ${pathname === item.href
+                                        ? 'font-bold text-primary'
+                                        : 'text-dark'
+                                        }`}
+                                >
+                                    <span className={ pathname === item.href ? 'text-primary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark'}>{item.icon}</span>
+                                    <span className={ pathname === item.href ? 'text-primary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark'}>{item.label}</span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                    {/* navigation end */}
+                </div>
+                {/* menu group end */}
+                  {/* group */}
+                <div className="flex flex-col gap-4">
+                    <span className="text-sm text-primary">مدیریت سایت ( ادمین ) </span>
+                    {/* navigation */}
+                    <ul className="flex flex-col gap-6">
+                        {menuItems.slice(9).map((item) => (
                             <li key={item.href}>
                                 <Link
                                     href={item.href}

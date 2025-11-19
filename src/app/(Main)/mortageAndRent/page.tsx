@@ -8,6 +8,7 @@ import CustomPagination from "@/components/Ui/CustomPagination";
 import FilterBox from "@/components/Pages/MortageAndRent/FilterBox";
 import { IMortageAndRent } from "@/core/Types/IMortageAndRent";
 import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
   // the data of searchParams witch send that to Api
@@ -40,35 +41,39 @@ const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
 
   return (
     <Container className="flex flex-col gap-10">
-      <Breadcrumb
-        homeElement={"خانه"}
-        activeClasses="!text-dark !font-bold dark:!text-thidary"
-        containerClasses="flex gap-4"
-        listClasses="hover:text-dark text-gray dark:text-white dark:hover:text-borderColor"
-        capitalizeLinks
-      />
-      <FilterBox itemsLenght={totalCount} />
-      <div className="pt-2 flex justify-between flex-wrap space-y-10 max-lg:justify-around">
-        {houses.map((house) => (
-          <HouseCard
-            key={house.id}
-            id={house.id}
-            HomeName={house.title}
-            HomeAddress={house.address}
-            HomePrice={house.price}
-            HomeOffer={house.discounted_price}
-            HomeImage={house.photos}
-            HomeBathroomCount={house.bathrooms}
-            HomeParkingCount={house.parking}
-            HomeCapacityCount={house.capacity}
-            HomeRoomCount={house.rooms}
-            DetailAdress={"mortageAndRent"}
+      <ScrollReveal>
+          <Breadcrumb
+            homeElement={"خانه"}
+            activeClasses="!text-dark !font-bold dark:!text-thidary"
+            containerClasses="flex gap-4"
+            listClasses="hover:text-dark text-gray dark:text-white dark:hover:text-borderColor"
+            capitalizeLinks
           />
-        ))}
-      </div>
-      {totalPages > 1 && (
-        <CustomPagination totalPages={totalPages} currentPage={currentPage} />
-      )}
+          <FilterBox itemsLenght={totalCount} />
+      </ScrollReveal>
+     <ScrollReveal>
+        <div className="pt-2 flex justify-between flex-wrap space-y-10 max-lg:justify-around">
+          {houses.map((house) => (
+            <HouseCard
+              key={house.id}
+              id={house.id}
+              HomeName={house.title}
+              HomeAddress={house.address}
+              HomePrice={house.price}
+              HomeOffer={house.discounted_price}
+              HomeImage={house.photos}
+              HomeBathroomCount={house.bathrooms}
+              HomeParkingCount={house.parking}
+              HomeCapacityCount={house.capacity}
+              HomeRoomCount={house.rooms}
+              DetailAdress={"mortageAndRent"}
+            />
+          ))}
+        </div>
+        {totalPages > 1 && (
+          <CustomPagination totalPages={totalPages} currentPage={currentPage} />
+        )}
+      </ScrollReveal>
     </Container>
   );
 };

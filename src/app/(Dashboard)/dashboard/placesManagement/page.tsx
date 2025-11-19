@@ -4,6 +4,7 @@ import { GetAllPlace } from "@/core/Apis/Dashboard/GetAllPlace";
 import { IApiResponse } from "@/core/types/IApiResForGetHouses";
 import { AxiosResponse } from "axios";
 import AddHouseForm from "./AddHouseForm";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 interface IPlaceMangement {
   searchParams: {
@@ -50,13 +51,13 @@ const PlacesManagement = async ({ searchParams }: IPlaceMangement) => {
   // calcude the pages for pagenation end
 
   return (
-    <div className="space-y-4">
+    <ScrollReveal className="space-y-4">
       <div className="flex justify-between items-center">
         <h3 className="text-dark text-[24px] font-bold">مدیریت املاک</h3>
         <PlaceManagementFilterBox />
       </div>
       <PlaceTable houses={houses} totalPages={totalPages} currentPage={currentPage} />
-    </div>
+    </ScrollReveal>
   );
 };
 

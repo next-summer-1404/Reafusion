@@ -1,4 +1,5 @@
 import FilteringList from "@/components/Pages/FastReservePage/Filtering";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import Breadcrumb from "@/components/Ui/Breadcrumb";
 import Container from "@/components/Ui/Container/Container";
 import CustomPagination from "@/components/Ui/CustomPagination";
@@ -37,14 +38,16 @@ const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
 
   return (
     <Container>
-      <Breadcrumb
-        homeElement={"خانه"}
-        activeClasses="!text-dark dark:!text-thidary !font-bold"
-        containerClasses="flex gap-4"
-        listClasses="hover:text-dark dark:hover:text-borderColor text-gray dark:text-white"
-        capitalizeLinks
-      />
-      <FilteringList ItemLength={totalCount} locations={locations} houses={houses} />
+      <ScrollReveal>
+          <Breadcrumb
+            homeElement={"خانه"}
+            activeClasses="!text-dark dark:!text-thidary !font-bold"
+            containerClasses="flex gap-4"
+            listClasses="hover:text-dark dark:hover:text-borderColor text-gray dark:text-white"
+            capitalizeLinks
+          />
+          <FilteringList ItemLength={totalCount} locations={locations} houses={houses} />
+      </ScrollReveal>
       <CustomPagination totalPages={totalPages} currentPage={currentPage} />
     </Container>
   );

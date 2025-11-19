@@ -1,3 +1,4 @@
+import ScrollReveal from '@/components/Ui/Animations/ScrollReveal'
 import BlogCard from '@/components/Ui/BlogCard'
 import Breadcrumb from '@/components/Ui/Breadcrumb'
 import Container from '@/components/Ui/Container/Container'
@@ -44,28 +45,30 @@ const BlogPage: FC<IBlogProps> = async ({ searchParams }) => {
 
   return (
     <Container className='space-y-11'>
-      <Breadcrumb
-        homeElement={"خانه"}
-        activeClasses="!text-dark dark:!text-thidary !font-bold"
-        containerClasses="flex gap-4"
-        listClasses="hover:text-dark dark:hover:text-borderColor text-gray dark:text-white"
-        capitalizeLinks
-      />
-      {/* <FilterBlogs /> */}
-      {/* blog list */}
-      <div  className='flex flex-wrap justify-between max-md:justify-around space-y-9'>
-        {data.map((blog) => (
-          <div key={blog.id}>
-            <BlogCard
-              title={blog.title}
-              caption={blog.caption}
-              estimatedReadingTime={blog.estimated_reading_time?.seconds}
-            />
-          </div>     
-        ))}      
-      </div>
-      <CustomPagination  totalPages={totalPages} currentPage={currentPage}/>
-      {/* blog list end */}
+      <ScrollReveal>
+          <Breadcrumb
+            homeElement={"خانه"}
+            activeClasses="!text-dark dark:!text-thidary !font-bold"
+            containerClasses="flex gap-4"
+            listClasses="hover:text-dark dark:hover:text-borderColor text-gray dark:text-white"
+            capitalizeLinks
+          />
+          {/* <FilterBlogs /> */}
+          {/* blog list */}
+          <div className='flex flex-wrap justify-between mt-7 max-md:justify-around space-y-9'>
+            {data.map((blog) => (
+              <div key={blog.id}>
+                <BlogCard
+                  title={blog.title}
+                  caption={blog.caption}
+                  estimatedReadingTime={blog.estimated_reading_time?.seconds}
+                />
+              </div>     
+            ))}      
+          </div>
+          <CustomPagination  totalPages={totalPages} currentPage={currentPage}/>
+          {/* blog list end */}
+      </ScrollReveal>   
     </Container>
   )
 }

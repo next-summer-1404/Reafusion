@@ -1,4 +1,5 @@
 import FinanceTable from "@/components/Pages/DashboardPages/FinancePage/FinanceTable";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import StatusCard from "@/components/Ui/StatusCard";
 import { GetDashboardFinance } from "@/core/Apis/Dashboard/GetDashboardFinance";
 import { AxiosResponse } from "axios";
@@ -36,7 +37,7 @@ const FinancialManagement: FC<IFinancePage> = async ({ searchParams }) => {
   const token = cookiesStore.get("token")?.value as string;
 
   return (
-    <div className="space-y-4">
+    <ScrollReveal className="space-y-4">
       <div className="flex justify-between">
         {StatusDatas.map((items, index) => (
           <StatusCard
@@ -49,7 +50,7 @@ const FinancialManagement: FC<IFinancePage> = async ({ searchParams }) => {
         ))}
       </div>
       <FinanceTable searchParams={searchParams} token={token}/>
-    </div>
+    </ScrollReveal>
   );
 };
 

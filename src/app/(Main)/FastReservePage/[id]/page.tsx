@@ -13,6 +13,7 @@ import { cookies } from "next/headers";
 import { IHouseDetailData } from "@/core/Types/IHouseDetailData";
 import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
 import { IComment } from "@/core/Types/ICommentResponse";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 interface IProps {
   params: { id: string };
@@ -56,41 +57,47 @@ const FastReserveDetailPage: FC<IProps> = async ({ params }) => {
 
   return (
     <Container className="space-y-10">
-      <Breadcrumb
-        homeElement={"خانه"}
-        activeClasses="!text-[#1E2022] !font-bold dark:!text-thidary"
-        containerClasses="flex gap-4 dark:text-thidary"
-        listClasses="hover:text-[#1E2022] text-[#777777] dark:text-white"
-        capitalizeLinks
-        currentItem={houseName}
-      />
-      <DetailCoverAndPhotos houseImages={houseImages} houseName={houseName} />
-      <DetailContent
-        id={id}
-        houseName={houseName}
-        houseAddress={houseAddress}
-        houseCaption={houseCaption}
-        houseType={houseType}
-        houseCapacity={houseCapacity}
-        BathroomsLength={BathroomsLength}
-        parkingLength={parkingLength}
-        roomLength={roomLength}
-        yardType={yardType}
-        sellerName={sellerName}
-        price={price}
-        discounted_price={discounted_price}
-        CommnetList={data}
-        CommentCount={totalCount}
-        userId={decodToken.id}
-        userProfile={decodToken.profilePicture}
-        userName={decodToken.name}
-        isMortageDetail={false}
-      />
-      <div className="flex justify-between dark:text-white">
-        <h2 className="text-dark text-[24px] font-bold dark:text-white">آگهی های مشابه</h2>
-        <EmptyButton ButtonText="مشاهده همه" className="p-2 px-5" />
-      </div>
-      <Slider filterData={similarHouses} />
+      <ScrollReveal>
+        <Breadcrumb
+          homeElement={"خانه"}
+          activeClasses="!text-[#1E2022] !font-bold dark:!text-thidary"
+          containerClasses="flex gap-4 dark:text-thidary"
+          listClasses="hover:text-[#1E2022] text-[#777777] dark:text-white"
+          capitalizeLinks
+          currentItem={houseName}
+        />
+        <DetailCoverAndPhotos houseImages={houseImages} houseName={houseName} />
+      </ScrollReveal>
+      <ScrollReveal>
+         <DetailContent
+            id={id}
+            houseName={houseName}
+            houseAddress={houseAddress}
+            houseCaption={houseCaption}
+            houseType={houseType}
+            houseCapacity={houseCapacity}
+            BathroomsLength={BathroomsLength}
+            parkingLength={parkingLength}
+            roomLength={roomLength}
+            yardType={yardType}
+            sellerName={sellerName}
+            price={price}
+            discounted_price={discounted_price}
+            CommnetList={data}
+            CommentCount={totalCount}
+            userId={decodToken.id}
+            userProfile={decodToken.profilePicture}
+            userName={decodToken.name}
+            isMortageDetail={false}
+          />
+      </ScrollReveal>
+      <ScrollReveal>
+          <div className="flex justify-between dark:text-white">
+            <h2 className="text-dark text-[24px] font-bold dark:text-white">آگهی های مشابه</h2>
+            <EmptyButton ButtonText="مشاهده همه" className="p-2 px-5" />
+          </div>
+          <Slider filterData={similarHouses} />
+      </ScrollReveal>
     </Container>
   );
 };

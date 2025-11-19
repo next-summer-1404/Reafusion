@@ -7,8 +7,7 @@ import MainReafusionLogo from "../../../assets/images/ReafusionLogo/MainReafusio
 import Container from "../Container/Container";
 import FillButton from "../Buttons/FillButton";
 import EmptyButton from "../Buttons/EmptyButton";
-import UnKnownPersonImage from '../../../assets/images/UnKnownUserImg/UnKnownUser.jpg' 
-import { useTheme } from "next-themes";
+import UnKnownPersonImage from '../../../assets/images/UnKnownUserImg/UnKnownUser.jpg';
 import { Moon, Sun } from "lucide-react";
 
 const links = [
@@ -21,13 +20,16 @@ const links = [
 
 interface IProps {
   userToken?: string | undefined;
+  UserName?: string;
+  UserImage?: string;
 }
 
-const Header: FC<IProps> = ({ userToken }) => {
+const Header: FC<IProps> = ({ userToken, UserName, UserImage }) => {
   const pathname = usePathname();
   const [theme, setTheme] = useState<string>("light");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // هنگام لود، تم ذخیره‌شده را از localStorage بخوانید
+  // تم از localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
@@ -38,7 +40,7 @@ const Header: FC<IProps> = ({ userToken }) => {
     }
   }, []);
 
-  // فانکشن برای تغییر تم
+  // تغییر تم
   const toggleTheme = (selectedTheme: string) => {
     if (selectedTheme === "dark") {
       setTheme("dark");
@@ -51,42 +53,46 @@ const Header: FC<IProps> = ({ userToken }) => {
     }
   };
 
+  // بستن منو با کلیک بیرون
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement)?.closest(".user-dropdown")) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
   return (
     <Container className="px-12 py-6 flex justify-between max-lg:block max-lg:space-y-7 items-center">
+      {/* لوگو و سوییچ تم */}
       <div className="text-[24px] text-center dark:text-White text-primary font-bold flex gap-2.5 max-lg:justify-center items-center">
         <Image
           src={MainReafusionLogo}
           alt="MainReafusionLogo"
           width={40}
           height={35}
-          className=" rounded-full overflow-hidden"
+          className="rounded-full overflow-hidden"
         />
         ریفیوژن
         <div className="w-[90px] h-[40px] px-2.5 rounded-[50px] bg-primary flex justify-between items-center relative">
-          {/* دایره متحرک */}
           <div
             className="absolute size-[30px] bg-White rounded-full !transition-transform duration-300 ease-in-out"
             style={{
               transform: theme === "dark" ? "translateX(-43px)" : "translateX(3.5px)",
             }}
           />
-          {/* دکمه خورشید */}
-          <button
-            onClick={() => toggleTheme("light")}
-            className="z-10 relative text-secondary cursor-pointer"
-          >
+          <button onClick={() => toggleTheme("light")} className="z-10 relative text-secondary cursor-pointer">
             <Sun size={23} />
           </button>
-          {/* دکمه ماه */}
-          <button
-            onClick={() => toggleTheme("dark")}
-            className="z-10 relative text-White dark:text-primary cursor-pointer"
-          >
+          <button onClick={() => toggleTheme("dark")} className="z-10 relative text-White dark:text-primary cursor-pointer">
             <Moon size={23} />
           </button>
         </div>
       </div>
-      
+
+      {/* منوی اصلی */}
       <div className="h-[31px] flex justify-between gap-11 max-lg:gap-2 max-lg:px-20 max-md:px-0">
         {links.map((link) => (
           <Link
@@ -102,19 +108,53 @@ const Header: FC<IProps> = ({ userToken }) => {
           </Link>
         ))}
       </div>
+
+      {/* بخش کاربر یا ورود/ثبت‌نام */}
       {userToken ? (
-        <div className="min-w-[110px] flex items-center gap-3 cursor-pointer">
-            <h3>کاربر بدون نام</h3>
-            <Image  
-              src={UnKnownPersonImage}
+        <div className="relative user-dropdown">
+          {/* بخش قابل کلیک کاربر */}
+          <div
+            onClick={() => setIsDropdownOpen((prev) => !prev)}
+            className="min-w-[110px] flex items-center gap-3 cursor-pointer select-none"
+          >
+            <h3 className="text-lg font-medium">{UserName || "کاربر بدون نام"}</h3>
+            <Image
+              src={UserImage || UnKnownPersonImage}
               alt="userImage"
               width={40}
               height={35}
-              className="rounded-full overflow-hidden"
+              className="rounded-full size-[45px] object-cover"
             />
+          </div>
+
+          {/* منوی کشویی */}
+          {isDropdownOpen && (
+            <div className="absolute top-full mt-3 left-1 w-[150px] bg-white dark:bg-dark rounded-xl shadow-2xl border-2 border-primary dark:border-thidary overflow-hidden z-50 !animate-in !fade-in !slide-in-from-top-2 !duration-700">
+              <Link
+                href="/dashboard"
+                onClick={() => setIsDropdownOpen(false)}
+                className="flex items-center gap-3 px-5 py-4 hover:bg-lightPrimary dark:hover:bg-gray-700 transition-colors"
+              >
+                <span className="text-primary dark:text-whiteColor font-medium">
+                  داشبورد
+                </span>
+              </Link>
+
+              <button
+                onClick={() => {
+                  document.cookie = "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                  localStorage.clear();
+                  window.location.href = "/login";
+                }}
+                className="w-full text-right px-5 py-4 hover:bg-red-50 cursor-pointer dark:hover:bg-red-900/30 transition-colors text-red font-medium"
+              >
+                خروج از حساب
+              </button>
+            </div>
+          )}
         </div>
       ) : (
-        <div className="flex gap-5 max-lg: justify-center items-center">
+        <div className="flex gap-5 max-lg:justify-center items-center">
           <Link href={"/login"}>
             <FillButton
               ButtonText={"ورود"}
@@ -129,7 +169,6 @@ const Header: FC<IProps> = ({ userToken }) => {
           </Link>
         </div>
       )}
-      
     </Container>
   );
 };

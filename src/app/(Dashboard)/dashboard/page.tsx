@@ -9,6 +9,7 @@ import { AxiosResponse } from "axios";
 import Link from "next/link";
 import LastReserveHousesTable from "../../../components/Pages/DashboardPages/LastReserveHouseTable";
 import { cookies } from "next/headers";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 const Dashboard = async () => {
   const response = await GetSummaryStatus();
@@ -37,7 +38,7 @@ const Dashboard = async () => {
   ];
 
   return (
-    <div>
+    <ScrollReveal>
       {/* summary of the site status */}
       {decodToken.role === 'buyer' && (
         <div className="flex justify-between flex-wrap space-y-10">
@@ -95,7 +96,7 @@ const Dashboard = async () => {
         <LastReserveHousesTable />
       </div>
       {/* last reserve houses end */}
-    </div>
+    </ScrollReveal>
   );
 };
 

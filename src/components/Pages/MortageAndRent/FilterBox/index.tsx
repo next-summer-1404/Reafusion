@@ -60,7 +60,7 @@ const FilterBox: FC<IProps> = ({ itemsLenght }) => {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mt-5">
         <span className="text-2xl font-bold text-dark dark:text-white">فیلتر ها</span>
         <span className="text-xl text-primary dark:text-thidary">{itemsLenght} نتیجه</span>
       </div>

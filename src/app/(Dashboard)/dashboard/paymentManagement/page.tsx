@@ -1,5 +1,6 @@
 import FilterPayment from "@/components/Pages/DashboardPages/PaymentPage/FilterPayments";
 import PaymentTable from "@/components/Pages/DashboardPages/PaymentPage/PaymentTable";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { GetPaymentList } from "@/core/Apis/Dashboard/GetPaymentList";
 import { IPayemntsResponse } from "@/core/types/IPaymentResponse";
 import { AxiosResponse } from "axios";
@@ -24,13 +25,13 @@ const paymentManagement: FC<IPaymentPage> = async ({ searchParams }) => {
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (
-    <div className="space-y-4">
+    <ScrollReveal className="space-y-4">
       <div className="flex justify-between">
         <h3 className="text-dark font-bold text-[20px]">لیست تراکنش های شما</h3>
         <FilterPayment />
       </div>
       <PaymentTable Payments={payments} currentPage={currentPage} totalPages={totalPages}/>
-    </div>
+    </ScrollReveal>
   );
 };
 

@@ -1,6 +1,7 @@
 import UserPersonalInfo from "@/components/Pages/DashboardPages/ProfilePage/UserPersonalInfo";
 import UserSecurityInfo from "@/components/Pages/DashboardPages/ProfilePage/UserSecurityInfo";
 import UserTab from "@/components/Pages/DashboardPages/ProfilePage/UserTab";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { GetUserInformation } from "@/core/Apis/Dashboard/UserInformation";
 import { IUserInformation } from "@/core/types/IUserInformation";
 import { AxiosResponse } from "axios";
@@ -17,7 +18,7 @@ const Profile: FC<IProps> = async ({ searchParams }) => {
   const { user } = userInformations.data;
 
   return (
-    <div className="space-y-6">
+    <ScrollReveal className="space-y-6">
       <h3 className="text-[24px] text-dark font-bold">اطلاعات کاربری</h3>
       <div className="flex gap-7">
         <UserTab href="/dashboard/profile" TabName="اطلاعات شخصی" active={tab === "اطلاعات شخصی"} />
@@ -27,7 +28,7 @@ const Profile: FC<IProps> = async ({ searchParams }) => {
         <UserPersonalInfo  ProfileImage={user.profilePicture}/> 
       )}
       {tab === "اطلاعات امنیتی" && <UserSecurityInfo />}
-    </div>
+    </ScrollReveal>
   );
 };
 

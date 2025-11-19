@@ -9,7 +9,7 @@ interface IProps {
 
 const DetailCoverAndPhotos: FC<IProps> = ({ houseImages, houseName }) => {
   return (
-    <div className="h-[440px] flex justify-between max-lg:flex-col max-lg:h-fit gap-8">
+    <div className="h-[440px] flex justify-between mt-7 max-lg:flex-col max-lg:h-fit gap-8">
       <Image
         className="rounded-[24px] max-md:w-full max-lg:h-[350px]"
         width={1000}

@@ -16,7 +16,7 @@ const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage, role }) => {
             نمودار تکمیل پروفایل
           </h3>
           <h4 className="text-gray text-[16px] pt-2">
-            پروفایل باید حداقل ۷۰٪ تکمیل شده باشد.
+            پروفایل باید حداقل 6۰٪ تکمیل شده باشد.
           </h4>
         </div>
         <Link

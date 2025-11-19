@@ -1,5 +1,6 @@
 import DashboardHeader from '@/components/Pages/DashboardPages/DashboardHeader';
 import DashboardMenu from '@/components/Pages/DashboardPages/DashboardMenu';
+import ScrollReveal from '@/components/Ui/Animations/ScrollReveal';
 import { cookies } from 'next/headers';
 import React, { FC, ReactNode } from 'react'
 
@@ -14,7 +15,7 @@ const DashboardLayout: FC<IProps> = async ({ children }) => {
     const decodToken = JSON.parse(Buffer.from(tokenValue.split(".")[1], 'base64url').toString('utf-8'));
     
     return (
-        <div className='p-8 max-lg:p-4 bg-whiteColor text-dark flex gap-8 h-screen max-h-screen'>
+        <ScrollReveal className='p-8 max-lg:p-4 bg-whiteColor text-dark flex gap-8 h-screen max-h-screen'>
             <DashboardMenu role={decodToken.role}/>
 
             {/* main layout */}
@@ -25,7 +26,7 @@ const DashboardLayout: FC<IProps> = async ({ children }) => {
                 </div>
             </div>
             {/* main layout end */}
-        </div>
+        </ScrollReveal>
     )
 }
 

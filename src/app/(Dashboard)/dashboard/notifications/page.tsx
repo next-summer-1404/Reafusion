@@ -1,5 +1,6 @@
 import NotificationCard from "@/components/Pages/DashboardPages/NotificationPage/NotificationCard";
 import NotificationTopBar from "@/components/Pages/DashboardPages/NotificationPage/NotificationTopBar";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import CustomPagination2 from "@/components/Ui/CustomPagination2";
 import { GetUserNotifications } from "@/core/Apis/Dashboard/GetUserNotifications";
 import { INotificationData } from "@/core/types/INotificationData";
@@ -35,7 +36,7 @@ const Notifications: FC<INotificationList> = async ({ searchParams }) => {
   // calculet the page count for pagination end 
 
   return (
-    <div className="space-y-5">
+    <ScrollReveal className="space-y-5">
       <NotificationTopBar />
       <div className="bg-whiteColor border border-borderColor py-6 px-6 rounded-[24px] space-y-7">
         <div className="flex justify-between text-dark text-[20px] font-bold">
@@ -73,7 +74,7 @@ const Notifications: FC<INotificationList> = async ({ searchParams }) => {
         )}
         {totalPages > 1 && <CustomPagination2 totalPages={totalPages} currentPage={currentPage} />}
       </div>
-    </div>
+    </ScrollReveal>
   );
 };
 

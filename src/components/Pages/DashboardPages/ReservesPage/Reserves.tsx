@@ -5,6 +5,7 @@ import FilterButton from "./FilterButton";
 import { FC } from "react";
 import { GetBookingList } from "@/core/Apis/Dashboard/GetBookingList";
 import { IBookingData } from "@/core/types/IBookingDatas";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 interface IReserveList {
   searchParams: {
@@ -32,7 +33,7 @@ const Reserves: FC<IReserveList> = async ({ searchParams }) => {
   console.log(bookings)
 
   return (
-    <div className="flex flex-col gap-4">
+    <ScrollReveal className="flex flex-col gap-4">
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-xl text-dark">لیست رزرو های شما</h2>
         <FilterButton />
@@ -47,7 +48,7 @@ const Reserves: FC<IReserveList> = async ({ searchParams }) => {
       />
 
       <FiltersModal open={isModalOpen} />
-    </div>
+    </ScrollReveal>
   );
 };
 
