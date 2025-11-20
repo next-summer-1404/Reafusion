@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import IconButton from '@/components/Ui/IconButton';
 import Image from 'next/image';
 import userImage from '@/assets/images/UnKnownUserImg/UnKnownUser.jpg';
@@ -9,7 +9,11 @@ import { IUserInformation } from '@/core/types/IUserInformation';
 import { Bell, House } from 'lucide-react';
 import HeaderMenu from './HeaderMenu';
 
-const DashboardHeader = async () => {
+interface IProps {
+    role: string;
+}
+
+const DashboardHeader: FC<IProps> = async ({ role }) => {
     const response = await GetUserInformation() as AxiosResponse<IUserInformation>
     const { user } = response.data;
     console.log(user)
@@ -52,7 +56,7 @@ const DashboardHeader = async () => {
                 <Link href={'/'} className='flex size-10 items-center justify-center rounded-full bg-primary text-white'>
                     <House size={24} strokeWidth={1.5} />
                 </Link>
-                <HeaderMenu />
+                <HeaderMenu role={role}/>
             </div>
             {/* actions end */}
         </div>

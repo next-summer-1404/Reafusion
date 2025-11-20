@@ -8,9 +8,10 @@ import { usePathname } from 'next/navigation';
 
 interface IProps {
     role: string;
+    className?: string;
 }
 
-const DashboardMenu: FC<IProps> = ({ role }) => {
+const DashboardMenu: FC<IProps> = ({ role, className }) => {
     // get now url
     const pathname = usePathname();
 
@@ -48,8 +49,7 @@ const DashboardMenu: FC<IProps> = ({ role }) => {
     // link list with icon end
 
     return (
-        <div className="flex flex-col gap-8 p-8 bg-lightGray border border-borderColor rounded-[40px] w-[20%]
-        max-md:hidden">
+        <div className={`flex flex-col gap-8 p-8 bg-lightGray border border-borderColor rounded-[40px] w-[20%] ${className}`}>
             {/* logo */}
             <div className="flex gap-4 items-center max-lg:flex-col">
                 <Image className="rounded-full size-11" alt="" src={logo} width={32} height={32} />
