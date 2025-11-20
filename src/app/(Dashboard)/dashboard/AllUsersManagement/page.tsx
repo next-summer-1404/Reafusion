@@ -14,13 +14,17 @@ interface IAllUserManagement {
 }
 
 const AllUsersManagementPage: FC<IAllUserManagement> = async ({ searchParams }) => {
+  // the data which send to api
   const limit = 25;
   const currentPage = parseInt(searchParams.page || "1", 25);
   const role = searchParams.role || "buyer";
   const order = searchParams.order || "ASC";
+  // the data which send to api end
+  // the call api for get the all user list
   const response = (await ManageAllUsers(currentPage, limit, role, order)) as AxiosResponse<IAllUsersResponse>;
   const { data, totalCount } = response.data;
   const totalPages = Math.ceil((totalCount as number) / limit);
+  // the call api for get the all user list end
 
   return (
     <div className="space-y-6">

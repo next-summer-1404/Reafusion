@@ -10,6 +10,8 @@ import { IUsersDatas } from "@/core/types/IAllUsersResponse";
 import EmptyImage from '../../../../../assets/images/UnKnownUserImg/UnKnownUser.jpg'
 import Image from "next/image";
 import CustomPagination2 from "@/components/Ui/CustomPagination2";
+import UserActionMenu from "../UserActionMenu";
+import { cookies } from "next/headers";
 
 interface IProps {
   data: IUsersDatas[];
@@ -17,7 +19,10 @@ interface IProps {
   currentPage: number
 }
 
-const AllUsersManagementTable: FC<IProps> = ({ data, totalPages, currentPage }) => {
+const AllUsersManagementTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
+  const cookiesStore = await cookies();
+  const token = cookiesStore.get('token')?.value as string;
+
   return (
     <TableContainer
       elevation={0}
@@ -131,7 +136,19 @@ const AllUsersManagementTable: FC<IProps> = ({ data, totalPages, currentPage }) 
                 className="!px-7 cursor-pointer"
                 sx={{ px: 0, py: 2 }}
               >
-                ssss
+                <UserActionMenu
+                  userId={items.id}
+                  userRole={items.role}
+                  token={token}
+                  userFirstName={items.firstName}
+                  userLastName={items.lastName}
+                  userName={items.fullName}
+                  userEmail={items.email}
+                  userPhone={items.phoneNumber}
+                  userMemberShip={items.membershipDate}
+                  emailVerified={items.emailVerified}
+                  userPhoto={items.profilePicture || EmptyImage}
+                />
               </TableCell>
             </TableRow>
           ))}

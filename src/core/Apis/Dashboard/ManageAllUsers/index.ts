@@ -5,7 +5,7 @@ export const ManageAllUsers = async (currentPage: number, limit: number, role: s
   const cookieStore = await cookies();
   const token = cookieStore.get("token");
   const tokenValue = token?.value as string;
-  const response = await Api.get(`/api/admin/users?page=${currentPage}&limit=${limit}&role=${role}&order=${order}`, {
+  const response = await Api.get(`/api/admin/users?page=${currentPage}&limit=${limit}&order=${order}&role=${role}`, {
     headers: {
         Authorization: `Bearer ${tokenValue}`,
     },
