@@ -2,7 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['storage.c2.liara.space'],
+    remotePatterns: [
+      { protocol: "https", hostname: "storage.c2.liara.space" },
+      { protocol: "https", hostname: "**" },
+    ],
   },
 };
 

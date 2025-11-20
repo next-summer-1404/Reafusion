@@ -7,6 +7,7 @@ import { GetUserInformation } from '@/core/Apis/Dashboard/UserInformation';
 import { AxiosResponse } from 'axios';
 import { IUserInformation } from '@/core/types/IUserInformation';
 import { Bell, House } from 'lucide-react';
+import HeaderMenu from './HeaderMenu';
 
 const DashboardHeader = async () => {
     const response = await GetUserInformation() as AxiosResponse<IUserInformation>
@@ -51,6 +52,7 @@ const DashboardHeader = async () => {
                 <Link href={'/'} className='flex size-10 items-center justify-center rounded-full bg-primary text-white'>
                     <House size={24} strokeWidth={1.5} />
                 </Link>
+                <HeaderMenu />
             </div>
             {/* actions end */}
         </div>

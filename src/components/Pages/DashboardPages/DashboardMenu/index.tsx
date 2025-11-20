@@ -37,7 +37,7 @@ const DashboardMenu: FC<IProps> = ({ role }) => {
           ]
         : []),
         { href: '/dashboard/logout', label: 'خروج از حساب', icon: <LogOut size={24} strokeWidth={1.5} /> },
-        { href: '', label: 'مدیریت کاربران', icon: <Users size={24} strokeWidth={1.5} /> },
+        { href: '/dashboard/AllUsersManagement', label: 'مدیریت کاربران', icon: <Users size={24} strokeWidth={1.5} /> },
         { href: '', label: 'مدیریت کل رزروها', icon: <ChartBarDecreasing size={24} strokeWidth={1.5} /> },
         { href: '', label: 'مدیریت کل خانه ها', icon: <Building2 size={24} strokeWidth={1.5} /> },
         { href: '', label: 'مدیریت نظرات', icon: <MessageCircleMore size={24} strokeWidth={1.5} /> },
@@ -64,8 +64,8 @@ const DashboardMenu: FC<IProps> = ({ role }) => {
                     <span className="text-sm text-primary">منو</span>
                     {/* navigation */}
                     <ul className="flex flex-col gap-6">
-                        {menuItems.slice(0, 3).map((item) => (
-                            <li key={item.href}>
+                        {menuItems.slice(0, 3).map((item, index) => (
+                            <li key={index}>
                                 <Link
                                     href={item.href}
                                     className={`flex gap-4 items-center ${pathname === item.href
@@ -88,8 +88,8 @@ const DashboardMenu: FC<IProps> = ({ role }) => {
                     <span className="text-sm text-primary">مدیریت</span>
                     {/* navigation */}
                     <ul className="flex flex-col gap-6">
-                        {menuItems.slice(3, 9).map((item) => (
-                            <li key={item.href}>
+                        {menuItems.slice(3, 9).map((item, index) => (
+                            <li key={index}>
                                 <Link
                                     href={item.href}
                                     className={`flex gap-4 items-center ${pathname === item.href
@@ -111,8 +111,8 @@ const DashboardMenu: FC<IProps> = ({ role }) => {
                     <span className="text-sm text-primary">مدیریت سایت ( ادمین ) </span>
                     {/* navigation */}
                     <ul className="flex flex-col gap-6">
-                        {menuItems.slice(9).map((item) => (
-                            <li key={item.href}>
+                        {menuItems.slice(9).map((item, index) => (
+                            <li key={index}>
                                 <Link
                                     href={item.href}
                                     className={`flex gap-4 items-center ${pathname === item.href
