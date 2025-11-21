@@ -41,7 +41,7 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
         { href: '/dashboard/AllUsersManagement', label: 'مدیریت کاربران', icon: <Users size={24} strokeWidth={1.5} /> },
         { href: '', label: 'مدیریت کل رزروها', icon: <ChartBarDecreasing size={24} strokeWidth={1.5} /> },
         { href: '', label: 'مدیریت کل خانه ها', icon: <Building2 size={24} strokeWidth={1.5} /> },
-        { href: '', label: 'مدیریت نظرات', icon: <MessageCircleMore size={24} strokeWidth={1.5} /> },
+        { href: '/dashboard/CommentsManagement', label: 'مدیریت نظرات', icon: <MessageCircleMore size={24} strokeWidth={1.5} /> },
         { href: '', label: 'مدیریت کل پرداخت ها', icon: <CreditCard size={24} strokeWidth={1.5} /> },
         { href: '', label: 'مدیریت دسته بندی ها', icon: <ChartColumnStacked size={24} strokeWidth={1.5} /> },
         { href: '', label: 'مدیریت سند ها', icon: <ScrollText size={24} strokeWidth={1.5} /> },
