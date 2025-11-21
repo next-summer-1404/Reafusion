@@ -38,7 +38,7 @@ const FinancialManagement: FC<IFinancePage> = async ({ searchParams }) => {
 
   return (
     <ScrollReveal className="space-y-4">
-      <div className="flex justify-between">
+      <div className="flex gap-4 flex-wrap">
         {StatusDatas.map((items, index) => (
           <StatusCard
             key={index}
@@ -49,7 +49,7 @@ const FinancialManagement: FC<IFinancePage> = async ({ searchParams }) => {
           />
         ))}
       </div>
-      <FinanceTable searchParams={searchParams} token={token}/>
+      <FinanceTable searchParams={searchParams} token={token} />
     </ScrollReveal>
   );
 };
