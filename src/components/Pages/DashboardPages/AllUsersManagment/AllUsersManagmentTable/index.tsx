@@ -116,11 +116,11 @@ const AllUsersManagementTable: FC<IProps> = async ({ data, totalPages, currentPa
                       height={40}
                     />
                 </div>
-                {items.fullName === 'نام کاربر' ? 'کاربر بدون نام' : items.fullName}
+                {items.fullName === 'نام کاربر' ? 'کاربر بدون نام' : items.fullName || '--------------------'}
               </div>
               </TableCell>
               <TableCell align="right" sx={{ px: 0, py: 2 }}>
-                {items.email}
+                {items.email || '--------------------------------------------'}
               </TableCell>
               <TableCell align="right" sx={{ px: 0, py: 2 }}>
                 {items.phoneNumber || '-----------------'}

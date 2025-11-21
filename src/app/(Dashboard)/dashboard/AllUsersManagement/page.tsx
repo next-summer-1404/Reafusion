@@ -30,7 +30,7 @@ const AllUsersManagementPage: FC<IAllUserManagement> = async ({ searchParams }) 
     <div className="space-y-6">
       <div className="flex justify-between">
         <h3 className="text-dark font-bold text-[20px]">
-          مدیریت تمامی کاربران
+          مدیریت تمامی کاربران ( {totalCount} )
         </h3>
         <UsersManagmentFilters />
       </div>
