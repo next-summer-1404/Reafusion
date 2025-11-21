@@ -16,10 +16,10 @@ const DashboardLayout: FC<IProps> = async ({ children }) => {
     
     return (
         <ScrollReveal className='p-8 max-lg:p-4 bg-whiteColor text-dark flex gap-8 h-screen max-h-screen'>
-            <DashboardMenu className='max-md:hidden' role={decodToken.role}/>
+            <DashboardMenu className='max-lg:hidden' role={decodToken.role}/>
 
             {/* main layout */}
-            <div className='flex flex-col gap-8 w-[80%]'>
+            <div className='flex flex-col gap-8 xl:w-[80%] lg:w-[75%] max-lg:w-full'>
                 <DashboardHeader role={decodToken.role}/>
                 <div className='h-full overflow-scroll p-6 bg-lightGray border border-borderColor rounded-[40px]'>
                     {children}

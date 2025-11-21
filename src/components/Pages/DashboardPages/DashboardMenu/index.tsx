@@ -24,19 +24,19 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
         { href: '/dashboard/profile', label: 'مشخصات کاربری', icon: <UserRoundPen size={24} strokeWidth={1.5} /> },
         { href: '/dashboard/notifications', label: 'اعلان‌ها', icon: <Bell size={24} strokeWidth={1.5} /> },
         ...(hasManagementAccess
-        ? [
-            { href: '/dashboard/placesManagement', label: 'مدیریت املاک', icon: <Building size={24} strokeWidth={1.5} /> },
-            { href: '/dashboard/financialManagement', label: 'مدیریت مالی', icon: <HandCoins size={24} strokeWidth={1.5} /> },
+            ? [
+                { href: '/dashboard/placesManagement', label: 'مدیریت املاک', icon: <Building size={24} strokeWidth={1.5} /> },
+                { href: '/dashboard/financialManagement', label: 'مدیریت مالی', icon: <HandCoins size={24} strokeWidth={1.5} /> },
             ]
-        : []
+            : []
         ),
         { href: '/dashboard/reservesManagment', label: 'مدیریت رزروها', icon: <ListChecks size={24} strokeWidth={1.5} /> },
         ...(isBuyerUser
-        ? [
-            { href: '/dashboard/paymentManagement', label: 'مدیریت پرداخت ها', icon: <CircleDollarSign size={24} strokeWidth={1.5} /> },
-            { href: '/dashboard/favoriteManagement', label: 'علاقه مندی ها', icon: <HeartPlus size={24} strokeWidth={1.5} /> },
-          ]
-        : []),
+            ? [
+                { href: '/dashboard/paymentManagement', label: 'مدیریت پرداخت ها', icon: <CircleDollarSign size={24} strokeWidth={1.5} /> },
+                { href: '/dashboard/favoriteManagement', label: 'علاقه مندی ها', icon: <HeartPlus size={24} strokeWidth={1.5} /> },
+            ]
+            : []),
         { href: '/dashboard/logout', label: 'خروج از حساب', icon: <LogOut size={24} strokeWidth={1.5} /> },
         { href: '/dashboard/AllUsersManagement', label: 'مدیریت کاربران', icon: <Users size={24} strokeWidth={1.5} /> },
         { href: '', label: 'مدیریت کل رزروها', icon: <ChartBarDecreasing size={24} strokeWidth={1.5} /> },
@@ -49,16 +49,20 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
     // link list with icon end
 
     return (
-        <div className={`flex flex-col gap-8 p-8 bg-lightGray border border-borderColor rounded-[40px] w-[20%] ${className}`}>
+        <div className={`flex flex-col gap-8 py-8 bg-lightGray
+         border border-borderColor rounded-[40px] max-lg:rounded-none lg:w-[25%] xl:w-[20%]
+
+          ${className}
+          `}>
             {/* logo */}
-            <div className="flex gap-4 items-center max-lg:flex-col">
+            <div className="flex gap-4 items-center px-8">
                 <Image className="rounded-full size-11" alt="" src={logo} width={32} height={32} />
                 <span className="text-[32px] font-bold">ریفیوژن</span>
             </div>
             {/* logo end */}
 
             {/* menu */}
-            <div className="flex flex-col gap-8 overflow-y-auto">
+            <div className="flex flex-col px-8 max-xl:px-4 gap-8 overflow-y-auto">
                 {/* menu group */}
                 <div className="flex flex-col gap-4">
                     <span className="text-sm text-primary">منو</span>
@@ -97,8 +101,8 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
                                         : 'text-dark'
                                         }`}
                                 >
-                                    <span className={ pathname === item.href ? 'text-primary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark'}>{item.icon}</span>
-                                    <span className={ pathname === item.href ? 'text-primary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark'}>{item.label}</span>
+                                    <span className={pathname === item.href ? 'text-primary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark'}>{item.icon}</span>
+                                    <span className={pathname === item.href ? 'text-primary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark'}>{item.label}</span>
                                 </Link>
                             </li>
                         ))}
@@ -106,7 +110,7 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
                     {/* navigation end */}
                 </div>
                 {/* menu group end */}
-                  {/* group */}
+                {/* group */}
                 <div className="flex flex-col gap-4">
                     <span className="text-sm text-primary">مدیریت سایت ( ادمین ) </span>
                     {/* navigation */}

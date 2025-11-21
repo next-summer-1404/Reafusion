@@ -33,7 +33,7 @@ const DashboardHeader: FC<IProps> = async ({ role }) => {
                     {/* name and role end */}
                     {/* user phoneNumber */}
                     <div className='flex gap-1'>
-                        <span>شماره تلفن شما :</span>
+                        <span>شماره تماس :</span>
                         <span className='text-gray'>{user.phoneNumber || '-'}</span>
                     </div>
                     {/* user phoneNumber */}
@@ -49,13 +49,16 @@ const DashboardHeader: FC<IProps> = async ({ role }) => {
                     customClass='!size-[40px] !p-0 items-center justify-center rounded-full bg-whiteColor text-yellow hover:!bg-lightYellow hover:!text-yellow border-0'
                 />
 
-                <Link href={'/dashboard/notifications'} className='flex size-10 items-center justify-center rounded-full bg-primary text-white'>
+                <Link 
+                href={'/dashboard/notifications'} 
+                className='flex size-10 items-center justify-center rounded-full bg-primary text-white max-md:hidden'>
                     <Bell size={24} strokeWidth={1.5} />
                 </Link>
 
                 <Link href={'/'} className='flex size-10 items-center justify-center rounded-full bg-primary text-white'>
                     <House size={24} strokeWidth={1.5} />
                 </Link>
+                
                 <HeaderMenu role={role}/>
             </div>
             {/* actions end */}
