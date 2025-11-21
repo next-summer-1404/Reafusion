@@ -51,8 +51,8 @@ const PlacesManagement = async ({ searchParams }: IPlaceMangement) => {
   // calcude the pages for pagenation end
 
   return (
-    <ScrollReveal className="space-y-4">
-      <div className="flex justify-between items-center">
+    <ScrollReveal className="flex flex-col gap-4 w-full">
+      <div className="flex max-lg:flex-col gap-4 justify-between items-center">
         <h3 className="text-dark text-[24px] font-bold">مدیریت املاک</h3>
         <PlaceManagementFilterBox />
       </div>

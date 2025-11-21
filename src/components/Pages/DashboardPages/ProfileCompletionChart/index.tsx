@@ -9,8 +9,8 @@ interface IProps {
 
 const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage, role }) => {
   return (
-    <div className={`h-[354px] ${role === 'buyer' ? 'w-[100%]' : 'w-[48%]'} bg-whiteColor rounded-[24px] px-6 py-6`}>
-      <div className="flex justify-between items-center">
+    <div className={`${role === 'buyer' ? 'w-[100%]' : 'w-[50%] max-sm:w-full'} bg-whiteColor rounded-3xl p-5`}>
+      <div className="flex max-md:flex-col gap-4 justify-between items-center">
         <div>
           <h3 className="text-dark font-bold text-[20px]">
             نمودار تکمیل پروفایل

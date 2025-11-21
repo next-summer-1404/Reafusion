@@ -38,10 +38,10 @@ const Dashboard = async () => {
   ];
 
   return (
-    <ScrollReveal>
+    <ScrollReveal className="flex flex-col gap-4">
       {/* summary of the site status */}
       {decodToken.role === 'buyer' && (
-        <div className="flex justify-between flex-wrap space-y-10">
+        <div className="flex justify-between flex-wrap gap-4">
           {StatusDatas.slice(0, 4).map((items, index) => (
             <StatusCard
               key={index}
@@ -53,7 +53,7 @@ const Dashboard = async () => {
         </div>
       )}
       {decodToken.role === 'seller' && (
-        <div className="flex justify-between flex-wrap space-y-10">
+        <div className="flex justify-between flex-wrap gap-4">
           {StatusDatas.slice(5, 8).map((items, index) => (
             <StatusCard
               key={index}
@@ -65,7 +65,7 @@ const Dashboard = async () => {
         </div>
       )}
       {decodToken.role === 'admin' && (
-        <div className="flex justify-between flex-wrap space-y-10">
+        <div className="flex justify-between flex-wrap gap-4">
           {StatusDatas.map((items, index) => (
             <StatusCard
               key={index}
@@ -78,7 +78,7 @@ const Dashboard = async () => {
       )}
       {/* summary of the site status end */}
       {/* the chart of the compelet userInfo & Income chart */}
-      <div className="flex justify-between">
+      <div className="flex max-sm:flex-col justify-between gap-4">
         {decodToken.role === 'admin' || 'seller' ? (
           <IncomeChart />
         ) : (
@@ -88,7 +88,7 @@ const Dashboard = async () => {
       </div>
       {/* the chart of the compelet userInfo & Income chart end */}
       {/* last reserve houses */}
-      <div className="bg-whiteColor rounded-[24px] border border-lightGray w-full px-6 py-6 mt-6">
+      <div className="bg-whiteColor rounded-[24px] border border-lightGray w-full px-6 py-6">
         <div className="flex justify-between">
             <h3 className="text-[20px] text-dark font-bold">رزرو های اخیر</h3>
             <Link href={'/dashboard/reservesManagment'} className="text-gray text-[16px] hover:text-primary cursor-pointer">مشاهده همه</Link>
