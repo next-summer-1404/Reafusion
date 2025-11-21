@@ -1,10 +1,7 @@
-// components/HeaderMenu.tsx
 "use client";
-
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { IconButton } from "@mui/material";
 import DashboardMenu from "../DashboardMenu";
+import IconButton from "@/components/Ui/IconButton";
 
 const HeaderMenu = ({ role }: { role?: string }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,18 +10,10 @@ const HeaderMenu = ({ role }: { role?: string }) => {
     <>
       <div className="md:hidden">
         <IconButton
+          iconName="menu"
           onClick={() => setMobileMenuOpen(true)}
-          sx={{
-            width: 40,
-            height: 40,
-            bgcolor: "primary.main",
-            color: "white",
-            borderRadius: "50%",
-            "&:hover": { bgcolor: "primary.dark" },
-          }}
-        >
-          <Menu size={24} />
-        </IconButton>
+          customClass="!size-[40px] !p-0 items-center justify-center rounded-full bg-primary text-white !p-0"
+        />
       </div>
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50">
@@ -33,7 +22,7 @@ const HeaderMenu = ({ role }: { role?: string }) => {
             onClick={() => setMobileMenuOpen(false)}
           />
           <div className="fixed inset-y-0 right-0 w-[320px] bg-white shadow-2xl overflow-y-auto">
-              <DashboardMenu className='!w-full !max-md:block' role={role as string} />
+            <DashboardMenu className='!w-full !max-md:block' role={role as string} />
           </div>
         </div>
       )}
