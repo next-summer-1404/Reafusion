@@ -26,7 +26,7 @@ const paymentManagement: FC<IPaymentPage> = async ({ searchParams }) => {
 
   return (
     <ScrollReveal className="space-y-4">
-      <div className="flex justify-between">
+      <div className="flex max-sm:flex-col max-sm:gap-4 justify-between">
         <h3 className="text-dark font-bold text-[20px]">لیست تراکنش های شما</h3>
         <FilterPayment />
       </div>

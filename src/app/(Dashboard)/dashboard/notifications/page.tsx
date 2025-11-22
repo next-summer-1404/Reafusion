@@ -13,9 +13,9 @@ interface INotificationResponse {
 }
 
 interface INotificationList {
-    searchParams: {
-        page: string;
-    }
+  searchParams: {
+    page: string;
+  }
 }
 
 const Notifications: FC<INotificationList> = async ({ searchParams }) => {

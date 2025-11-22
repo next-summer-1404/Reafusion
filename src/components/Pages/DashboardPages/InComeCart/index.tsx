@@ -1,6 +1,5 @@
 import { GetDashboardFinance } from "@/core/Apis/Dashboard/GetDashboardFinance";
 import { AxiosResponse } from "axios";
-import { Box, Typography } from "@mui/material";
 
 interface IFinancialData {
   totalAmount: number;
@@ -22,46 +21,57 @@ const IncomeChart = async () => {
   const maxHeight = 85;
 
   const points = [
-    { x: 50,  y: baseHeight - (previous > 0 ? 10 : 5) },         
-    { x: 100, y: baseHeight - (previous > 0 ? 35 : 20) },         
-    { x: 180, y: baseHeight - (previous > 0 ? 15 : 40) },          
-    { x: 280, y: baseHeight - (previous > 0 ? 45 : 15) },          
-    { x: 350, y: baseHeight - (current / total) * maxHeight },     
+    { x: 50, y: baseHeight - (previous > 0 ? 10 : 5) },
+    { x: 100, y: baseHeight - (previous > 0 ? 35 : 20) },
+    { x: 180, y: baseHeight - (previous > 0 ? 15 : 40) },
+    { x: 280, y: baseHeight - (previous > 0 ? 45 : 15) },
+    { x: 350, y: baseHeight - (current / total) * maxHeight },
   ];
 
-  // تبدیل به string برای polyline
   const pointsString = points.map(p => `${p.x},${p.y}`).join(" ");
 
   return (
-    <Box sx={{ height: 354, width: "48%", bgcolor: "white", borderRadius: 6, p: 3 }}>
+    <div className="flex flex-col w-[50%] max-sm:w-full bg-whiteColor rounded-3xl p-5">
       {/* هدر */}
-      <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-        <Box>
-          <Typography fontWeight="bold" fontSize={20}>نمودار درآمد</Typography>
-          <Typography fontSize={14} color="text.secondary" mt={0.5}>
-            از تاریخ ۱ تا ۳۱ آبان ۱۴۰۴
-          </Typography>
-        </Box>
-        <Box>
-          درآمد کل: <span className="text-primary font-semibold">{data.totalAmount}  تومان </span>
-        </Box>
-      </Box>
-      <Box sx={{ flexGrow: 1, position: "relative" }}>
-        <svg width="100%" height="140" viewBox="0 0 400 140">
+      <div className="flex max-md:flex-col justify-between items-start">
+        <div>
+          <h3 className="text-xl font-bold text-dark">نمودار درآمد</h3>
+          <p className="text-sm text-gray mt-1">از تاریخ ۱ تا ۳۱ آبان ۱۴۰۴</p>
+        </div>
+        <div className="text-right">
+          <span className="text-sm text-gray">درآمد کل:</span>{' '}
+          <span className="text-lg font-bold text-primary">
+            {data.totalAmount.toLocaleString("fa-IR")} تومان
+          </span>
+        </div>
+      </div>
+
+      {/* نمودار SVG */}
+      <div className="relative flex-1 mt-4">
+        <svg viewBox="0 0 400 140" className="w-full h-36">
+          {/* خط پایه */}
           <line x1="50" y1="100" x2="350" y2="100" stroke="#f0f0f0" strokeWidth="2" />
+
+          {/* خط اصلی با انیمیشن */}
           <polyline
             fill="none"
-            className=""
             stroke="#0d3b66"
             strokeWidth="5"
             strokeLinecap="round"
             strokeLinejoin="round"
             points={pointsString}
+            className="drop-shadow-md"
           >
-            <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="1.8s" fill="freeze" />
+            <animate
+              attributeName="stroke-dasharray"
+              from="0,1000"
+              to="1000,0"
+              dur="2s"
+              fill="freeze"
+            />
           </polyline>
 
-          {/* نقطه‌های روی خط برای طبیعی‌تر شدن */}
+          {/* نقطه‌ها با انیمیشن */}
           {points.map((p, i) => (
             <circle
               key={i}
@@ -71,47 +81,54 @@ const IncomeChart = async () => {
               fill={i === points.length - 1 ? "#0d3b66" : "#e6edf5"}
               opacity={i === points.length - 1 ? 1 : 0.6}
             >
-              <animate attributeName="r" from="0" to={i === points.length - 1 ? 9 : 5} dur="1s" begin={`${i * 0.2}s`} />
+              <animate
+                attributeName="r"
+                from="0"
+                to={i === points.length - 1 ? 9 : 5}
+                dur="0.8s"
+                begin={`${i * 0.15}s`}
+                fill="freeze"
+              />
             </circle>
           ))}
 
-          {/* مقدار نهایی روی نقطه آخر */}
+          {/* مقدار نهایی این ماه */}
           <text
             x="350"
             y={points[4].y - 15}
             textAnchor="middle"
-            fontSize="14"
-            fontWeight="bold"
-            fill="#0d3b66"
+            className="text-sm font-bold fill-primary"
           >
             {current.toLocaleString("fa-IR")}
           </text>
         </svg>
-      </Box>
+      </div>
 
-      {/* لجند */}
-      <Box display="flex" justifyContent="space-between" mt={3} px={2}>
-        <Box display="flex" alignItems="center" gap={1.5}>
-          <Box sx={{ width: 14, height: 14, bgcolor: "#0d3b66", borderRadius: "50%" }} />
-          <Box>
-            <Typography fontSize={13} color="text.secondary">قبل از این ماه</Typography>
-            <Typography fontWeight="bold" fontSize={14}>
+      {/* لجند پایین */}
+      <div className="flex max-md:flex-col justify-between mt-8 px-4">
+        {/* قبل از این ماه */}
+        <div className="flex items-center gap-3">
+          <div className="w-4 h-4 bg-primary rounded-full shadow" />
+          <div>
+            <p className="text-xs text-gray">قبل از این ماه</p>
+            <p className="font-bold text-dark">
               {previous > 0 ? previous.toLocaleString("fa-IR") : "۰"} تومان
-            </Typography>
-          </Box>
-        </Box>
+            </p>
+          </div>
+        </div>
 
-        <Box display="flex" alignItems="center" gap={1.5}>
-          <Box sx={{ width: 14, height: 14, bgcolor: "#0d3b66", borderRadius: "50%" }} />
-          <Box textAlign="right">
-            <Typography fontSize={13} color="text.secondary">این ماه</Typography>
-            <Typography fontWeight="bold" fontSize={15}>
+        {/* این ماه */}
+        <div className="flex items-center gap-3">
+          <div className="w-4 h-4 bg-primary rounded-full shadow" />
+          <div className="text-right">
+            <p className="text-xs text-gray">این ماه</p>
+            <p className="font-bold text-lg text-primary">
               {current.toLocaleString("fa-IR")} تومان
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

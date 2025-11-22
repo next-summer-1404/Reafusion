@@ -8,9 +8,9 @@ const NotificationTopBar = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex max-sm:flex-col max-sm:gap-4 justify-between items-center">
       <h2 className="text-[24px] text-dark font-bold">لیست اعلانات شما</h2>
-      <div className="flex gap-5">
+      <div className="flex max-sm:flex-col gap-5">
         <select className="bg-whiteColor border border-borderColor p-2 cursor-pointer rounded-[16px]">
           <option value="">نوع اعلان</option>
           <option value="">-</option>
