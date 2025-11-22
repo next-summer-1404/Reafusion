@@ -419,7 +419,7 @@ const AddHouseForm = () => {
         {currentStep < 4 ? (
           <button
             onClick={handleNext}
-            className="px-6 py-3 bg-primary text-whiteColor cursor-pointer rounded-xl flex items-center gap-2 hover:bg-primary/90 transition"
+            className="px-6 py-3 bg-primary text-whiteColor cursor-pointer rounded-xl flex items-center gap-2 hover:bg-primary/90 transition mt-4"
           >
             مرحله بعد
             <ChevronLeft size={20} />
