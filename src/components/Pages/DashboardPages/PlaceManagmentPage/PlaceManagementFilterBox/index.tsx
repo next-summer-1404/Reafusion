@@ -37,17 +37,19 @@ const PlaceManagementFilterBox = () => {
 
   return (
     <>
-      <div className="flex gap-4">
-        <div className="relative">
+      <div className="flex xl:w-[70%] xl:justify-end max-sm:flex-wrap gap-4 max-lg:w-full">
+        <div className="flex items-center max-sm:w-full border bg-whiteColor border-borderColor
+             rounded-[16px] p-3 xl:w-[60%] max-md:w-[50%] max-lg:w-[60%]">
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             type="text"
-            className="bg-whiteColor border border-borderColor rounded-[16px] w-[440px] p-3 indent-2 text-primary placeholder:text-gray outline-none"
+            className="w-full indent-2 text-primary
+              placeholder:text-gray outline-none"
             placeholder="جستجو..."
             dir="rtl"
           />
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray w-5 h-5 pointer-events-none" />
+          <Search className="text-gray" size={20} />
         </div>
 
         <IconButton

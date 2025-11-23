@@ -1,8 +1,8 @@
 "use client";
 import React, { useActionState, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Banknote, BathIcon, Bed, ChevronLeft, ChevronRight, HouseIcon, LocationEditIcon, ParkingCircleIcon, Plus, Theater, Upload, Users, X } 
-from "lucide-react";
+import { Banknote, BathIcon, Bed, ChevronLeft, ChevronRight, HouseIcon, LocationEditIcon, ParkingCircleIcon, Plus, Theater, Upload, Users, X }
+  from "lucide-react";
 import FillButton from "@/components/Ui/Buttons/FillButton";
 import AddPlaceFormInput from "@/components/Pages/DashboardPages/PlaceManagmentPage/AddPlaceFormInput";
 import AddPlaceFromSelectOption from "@/components/Pages/DashboardPages/PlaceManagmentPage/AddPlaceFromSelectOption";
@@ -14,7 +14,7 @@ import TagsInputMUI from "@/components/Pages/DashboardPages/PlaceManagmentPage/I
 import Image from "next/image";
 import AddHouseAction from "./ServerActions";
 import { toast } from "react-toastify";
-import  AddPhotosActions from "./ServerActions/AddPhotosActions";
+import AddPhotosActions from "./ServerActions/AddPhotosActions";
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -57,7 +57,7 @@ const AddHouseForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [state, formAction] = useActionState(AddHouseAction, { message: '' });
-  const [imageState, ImageAction] =useActionState(AddPhotosActions, { message: '' });
+  const [imageState, ImageAction] = useActionState(AddPhotosActions, { message: '' });
   console.log(imageState)
   const currentStep = parseInt(searchParams.get("step") || "1");
   const [selectedLatLng, setSelectedLatLng] = useState<{ lat: number; lng: number; } | null>(null);
@@ -79,17 +79,17 @@ const AddHouseForm = () => {
   // the hook and state for add house and add photos for that end
   // manage response and show that to user
   useEffect(() => {
-   if (state.message === 'خانه شما با موفقیت شاخته شد') {
-     toast.success('خانه شما با موفقیت شاخته شد');
-     sessionStorage.setItem('newHouseId', state.newHouseId)
-   } else if (state.message && state.message !== 'خانه شما با موفقیت شاخته شد') {
-     toast.error(state.error)
-   }
-   if (imageState.message === 'عکس ها با موفقیت ثبت شد') {
-    toast.success('عکس ها با موفقیت ثبت شد')
-   } else if (imageState.message && imageState.message !== 'عکس ها با موفقیت ثبت شد') {
-    toast.error(imageState.message)
-   }
+    if (state.message === 'خانه شما با موفقیت شاخته شد') {
+      toast.success('خانه شما با موفقیت شاخته شد');
+      sessionStorage.setItem('newHouseId', state.newHouseId)
+    } else if (state.message && state.message !== 'خانه شما با موفقیت شاخته شد') {
+      toast.error(state.error)
+    }
+    if (imageState.message === 'عکس ها با موفقیت ثبت شد') {
+      toast.success('عکس ها با موفقیت ثبت شد')
+    } else if (imageState.message && imageState.message !== 'عکس ها با موفقیت ثبت شد') {
+      toast.error(imageState.message)
+    }
   }, [state, imageState])
   // manage response and show that to user end
   // go to step func 
@@ -129,25 +129,23 @@ const AddHouseForm = () => {
         </button>
       </div>
       {/* steps */}
-      <div className="w-[700px] flex justify-center gap-2 mb-8">
+      <div className="w-full flex sm:flex-wrap max-sm:flex-col justify-center gap-2 mb-8">
         {steps.map((step, index) => (
           <div
             key={step.id}
-            className={`flex items-center ${
-              index < steps.length - 1 ? "flex-1" : ""
-            }`}
+            className={`flex items-center ${index < steps.length - 1 ? "flex-1" : ""
+              }`}
           >
             <div
-              className={`min-w-[124px] min-h-[48px] rounded-[16px] flex justify-center items-center ${
-                currentStep >= step.id
-                  ? "text-primary border-2 border-primary"
-                  : "text-gray border border-gray"
-              }`}
+              className={`min-w-[124px] min-h-[48px] max-sm:w-full rounded-[16px] flex justify-center items-center ${currentStep >= step.id
+                ? "text-primary border-2 border-primary"
+                : "text-gray border border-gray"
+                }`}
             >
               {step.title}
             </div>
             {index < steps.length - 1 && (
-              <div className="w-full h-0.5 bg-gray mx-2"></div>
+              <div className="w-full h-0.5 bg-gray mx-2 max-sm:hidden"></div>
             )}
           </div>
         ))}
@@ -220,7 +218,7 @@ const AddHouseForm = () => {
               type="text"
               label="آدرس"
               placeHolder="آدرس محل سکونت خود را بنویسید..."
-              className="w-full"
+              className="!w-full"
             />
             <div className="w-full h-[380px] border border-borderColor rounded-[24px] mt-8 overflow-hidden">
               <MapContainer
@@ -278,55 +276,55 @@ const AddHouseForm = () => {
             />
           </div>
         )}
-        {currentStep === 4 && 
+        {currentStep === 4 &&
           <div className="space-y-4">
-             <div className="space-y-3">
-                 <h3 className="text-dark font-bold text-[20px]">{title || '---'}</h3>
-                 <h3 className="flex gap-1 text-gray text-[16px]"><LocationEditIcon size={19}/> {address}</h3>
-                 <p className="text-dark text-[16px] text-justify">{caption}</p>
-                 <h3 className="text-dark text-[24px]  font-bold">{price} <span className="font-normal text-[16px]">تومان</span></h3>
-             </div>
-             <div className="space-y-5">
-                <h3 className="text-[16px] text-dark font-bold">برچسب ها :</h3>
-                {tags.map((items, index) => (
-                  <span key={index} className="bg-secondary px-4 py-2 mx-1 rounded-[8px] text-whiteColor">
-                    {items}
-                  </span>
-                ))}         
-             </div>
-              <div className="space-y-5 mt-8">
-                <h3 className="text-[16px] text-dark font-bold">سایر مشخصات ها :</h3>
-                <div className="flex justify-start gap-3"> 
-                  <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
-                    <Bed />
-                   خوابه  {rooms}  
-                  </div>
-                  <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
-                    <BathIcon />
-                     حمام{bathrooms}
-                  </div>
-                  <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
-                    <ParkingCircleIcon />
-                    {parking}  پارکینگ
-                  </div>
-                  <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
-                    <Users />
-                    {capacity} نفر ظرفیت
-                  </div>
-                  <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
-                    <HouseIcon />
-                    {yard_type}
-                  </div>
-                   <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
-                    <Theater />
-                     {categories}
-                  </div>
-                   <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
-                    <Banknote />
-                     {transactiontype}
-                  </div>
+            <div className="space-y-3">
+              <h3 className="text-dark font-bold text-[20px]">{title || '---'}</h3>
+              <h3 className="flex gap-1 text-gray text-[16px]"><LocationEditIcon size={19} /> {address}</h3>
+              <p className="text-dark text-[16px] text-justify">{caption}</p>
+              <h3 className="text-dark text-[24px]  font-bold">{price} <span className="font-normal text-[16px]">تومان</span></h3>
+            </div>
+            <div className="space-y-5">
+              <h3 className="text-[16px] text-dark font-bold">برچسب ها :</h3>
+              {tags.map((items, index) => (
+                <span key={index} className="bg-secondary px-4 py-2 mx-1 rounded-[8px] text-whiteColor">
+                  {items}
+                </span>
+              ))}
+            </div>
+            <div className="space-y-5 my-8">
+              <h3 className="text-[16px] text-dark font-bold">سایر مشخصات ها :</h3>
+              <div className="flex flex-wrap justify-start gap-3">
+                <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
+                  <Bed />
+                  خوابه  {rooms}
                 </div>
-             </div>
+                <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
+                  <BathIcon />
+                  حمام{bathrooms}
+                </div>
+                <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
+                  <ParkingCircleIcon />
+                  {parking}  پارکینگ
+                </div>
+                <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
+                  <Users />
+                  {capacity} نفر ظرفیت
+                </div>
+                <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
+                  <HouseIcon />
+                  {yard_type}
+                </div>
+                <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
+                  <Theater />
+                  {categories}
+                </div>
+                <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
+                  <Banknote />
+                  {transactiontype}
+                </div>
+              </div>
+            </div>
           </div>
         }
         {currentStep === 5 && (
@@ -341,7 +339,7 @@ const AddHouseForm = () => {
                     افزدون عکس
                   </span>
                 </div>
-                <input type="hidden" name="id" value={newHouseId}/>
+                <input type="hidden" name="id" value={newHouseId} />
                 <input
                   type="file"
                   accept="image/jpeg,image/png,image/webp"
@@ -406,11 +404,11 @@ const AddHouseForm = () => {
         )}
       </div>
       {/* actions */}
-      <div className="flex justify-between mt-8">
+      <div className="flex max-sm:flex-col justify-between">
         {currentStep > 1 ? (
           <button
             onClick={handlePrev}
-            className={`px-6 py-3 rounded-xl flex items-center bg-gray gap-2 cursor-pointer text-whiteColor`}
+            className={`px-6 py-3 rounded-xl flex items-center bg-gray gap-2 cursor-pointer text-whiteColor max-sm:my-4`}
           >
             <ChevronRight size={20} />
             مرحله قبل
@@ -421,14 +419,14 @@ const AddHouseForm = () => {
         {currentStep < 4 ? (
           <button
             onClick={handleNext}
-            className="px-6 py-3 bg-primary text-whiteColor cursor-pointer rounded-xl flex items-center gap-2 hover:bg-primary/90 transition"
+            className="px-6 py-3 bg-primary text-whiteColor cursor-pointer rounded-xl flex items-center gap-2 hover:bg-primary/90 transition mt-4"
           >
             مرحله بعد
             <ChevronLeft size={20} />
           </button>
         ) : currentStep === 4 ? (
-          <div className="flex gap-3">
-            <button onClick={handleNext} className="px-8 !rounded-[14px] border border-primary text-primary font-semibold cursor-pointer py-4 ">
+          <div className="flex max-sm:flex-col gap-3">
+            <button onClick={handleNext} className="p-4 !rounded-[14px] border border-primary text-primary font-semibold cursor-pointer">
               ایجاد عکس پس از ساخت خانه
             </button>
             <form action={formAction}>
@@ -448,13 +446,13 @@ const AddHouseForm = () => {
               <input type="hidden" name="lng" value={selectedLatLng?.lng || ""} />
               <FillButton
                 ButtonText="تایید و ساخت خانه"
-                className="px-8 !rounded-[14px] py-4"
+                className="px-8 !rounded-[14px] py-4 max-sm:w-full"
                 type="submit"
               />
-            </form>    
+            </form>
           </div>
         ) : (
-          <p></p>       
+          <p></p>
         )}
       </div>
     </ScrollReveal>

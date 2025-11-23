@@ -4,17 +4,20 @@ interface IProps {
   lable: string;
   placeholder: string;
   name?: string;
+  customClass?: string;
 }
 
-const UserInput: FC<IProps> = ({ lable, placeholder, name }) => {
+const UserInput: FC<IProps> = ({ lable, placeholder, name, customClass }) => {
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-4 w-[48.5%] 2xl:w-[48.2%] max-2xl:w-[48.2%] max-xl:w-[47.5%] max-lg:w-[47.7%] max-md:w-[47.1%] max-sm:w-full">
       <h3 className="text-dark text-[16px]">{lable}</h3>
       <input
         type="text"
         name={name}
         placeholder={placeholder}
-        className="text-dark p-2.5 outline-0 indent-2 bg-whiteColor rounded-[16px] border border-borderColor w-[500px]"
+        className={`text-dark p-2.5 outline-0 indent-2 bg-whiteColor rounded-[16px] border border-borderColor w-full 
+          ${customClass}
+          `}
       />
     </div>
   );
