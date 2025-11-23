@@ -34,7 +34,7 @@ const AllCategoriesManagementPage: FC<IAllCategoriesManagement> = async ({ searc
 
   return (
     <div className='space-y-5'>
-        <div className="flex justify-between">
+      <div className="flex justify-between flex-wrap gap-3">
         <h3 className="text-dark font-bold text-[20px]">
           مدیریت تمامی دسته بندی ها ( {totalCount} )
         </h3>
