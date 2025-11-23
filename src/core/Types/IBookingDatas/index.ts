@@ -9,6 +9,10 @@ export interface IBookingData {
     { 
       value: string; 
       inclusive: boolean 
+    },
+    { 
+      value: string; 
+      inclusive: boolean 
     }
   ];
   traveler_details: [
