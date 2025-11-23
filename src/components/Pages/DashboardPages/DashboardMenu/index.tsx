@@ -44,7 +44,7 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
         { href: '/dashboard/CommentsManagement', label: 'مدیریت نظرات', icon: <MessageCircleMore size={24} strokeWidth={1.5} /> },
         { href: '/dashboard/AllPaymentsManagments', label: 'مدیریت کل پرداخت ها', icon: <CreditCard size={24} strokeWidth={1.5} /> },
         { href: '/dashboard/AllCategoriesManagement', label: 'مدیریت دسته بندی ها', icon: <ChartColumnStacked size={24} strokeWidth={1.5} /> },
-        { href: '', label: 'مدیریت سند ها', icon: <ScrollText size={24} strokeWidth={1.5} /> },
+        { href: '/dashboard/AllDocumentsManagement', label: 'مدیریت سند ها', icon: <ScrollText size={24} strokeWidth={1.5} /> },
     ];
     // link list with icon end
 
