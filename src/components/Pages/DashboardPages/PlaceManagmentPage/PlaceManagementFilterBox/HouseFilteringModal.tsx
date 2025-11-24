@@ -64,7 +64,7 @@ const HousingFiltersModal: FC<IProps> = ({ open }) => {
       <Box
         className="
           absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-          lg:w-[40%] max-lg:w-[70%] max-md:w-[80%] max-sm:w-[90%] bg-white flex flex-col rounded-3xl
+          lg:w-[40%] max-lg:w-[70%] max-md:w-[80%] max-sm:w-[90%] bg-whiteColor dark:bg-dark dark:text-whiteColor flex flex-col rounded-3xl
           text-dark p-8 gap-8 shadow-2xl
         "
         dir="rtl"
@@ -74,7 +74,7 @@ const HousingFiltersModal: FC<IProps> = ({ open }) => {
           <h3 className="font-bold text-2xl">فیلتر ها</h3>
           <div
             onClick={closeModal}
-            className="size-12 rounded-full flex justify-center items-center bg-lightGray cursor-pointer hover:scale-110 transition-all"
+            className="size-12 rounded-full flex justify-center items-center bg-lightGray dark:bg-background cursor-pointer hover:scale-110 transition-all"
           >
             <X size={32} strokeWidth={1.5} />
           </div>
@@ -117,7 +117,7 @@ const HousingFiltersModal: FC<IProps> = ({ open }) => {
         <div className="flex justify-between gap-6">
           <button
             onClick={closeModal}
-            className="rounded-2xl border border-gray text-gray p-3 cursor-pointer w-1/2 hover:bg-gray-50 transition"
+            className="rounded-2xl border border-gray text-gray dark:text-lightGray dark:border-lightGray p-3 cursor-pointer w-1/2  transition"
           >
             انصراف
           </button>

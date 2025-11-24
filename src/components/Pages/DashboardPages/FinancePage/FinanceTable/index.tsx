@@ -33,10 +33,10 @@ const FinanceTable: FC<IProps> = async ({ searchParams, token }) => {
     <TableContainer
       elevation={0}
       component={Paper}
-      className="!rounded-3xl pt-3 pb-8"
+      className="!rounded-3xl pt-3 pb-8 dark:!bg-background"
     >
       <div className="flex justify-between px-7 pt-5">
-        <h3 className="text-[24px] text-primary font-bold">
+        <h3 className="text-[24px] text-primary dark:text-thidary font-bold">
           لیست تراکنش های مشتریان ({totalCount})
         </h3>
         <FinanceFilterBox />
@@ -46,6 +46,7 @@ const FinanceTable: FC<IProps> = async ({ searchParams, token }) => {
           <TableRow>
             <TableCell
               align="right"
+              className="dark:!text-whiteColor"
               sx={{
                 px: 4,
                 py: 3,
@@ -58,6 +59,7 @@ const FinanceTable: FC<IProps> = async ({ searchParams, token }) => {
             </TableCell>
             <TableCell
               align="right"
+              className="dark:!text-whiteColor"
               sx={{
                 py: 3,
                 px: 0,
@@ -70,6 +72,7 @@ const FinanceTable: FC<IProps> = async ({ searchParams, token }) => {
             </TableCell>
             <TableCell
               align="right"
+              className="dark:!text-whiteColor"
               sx={{
                 py: 3,
                 px: 0,
@@ -82,12 +85,14 @@ const FinanceTable: FC<IProps> = async ({ searchParams, token }) => {
             </TableCell>
             <TableCell
               align="right"
+              className="dark:!text-whiteColor"
               sx={{ py: 3, px: 0, fontWeight: "bold", fontSize: 16 }}
             >
               وضعیت پرداخت
             </TableCell>
             <TableCell
               align="right"
+              className="dark:!text-whiteColor"
               sx={{ py: 3, fontWeight: "bold", fontSize: 16 }}
             >
               عملیات
@@ -96,20 +101,20 @@ const FinanceTable: FC<IProps> = async ({ searchParams, token }) => {
         </TableHead>
         <TableBody>
           {data.map((items) => (
-            <TableRow key={items.id} className="hover:!bg-lightPrimary transition-colors">
+            <TableRow key={items.id} className="hover:!bg-lightPrimary dark:hover:!bg-dark transition-colors">
               <TableCell
                 component="th"
                 scope="row"
-                className="text-primary"
+                className="text-primary dark:!text-thidary"
                 align="right"
                 sx={{ width: "300px", px: 4, py: 2 }}
               >
                 {items.createdAt.slice(0,10)} - {items.createdAt.slice(11,16)}
               </TableCell>
-              <TableCell align="right" sx={{ px: 0, py: 2 }}>
+              <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                 {items.description === 'Payment' ? 'پرداخت' : items.description}
               </TableCell>
-              <TableCell align="right" sx={{ px: 0, py: 2 }}>
+              <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                 {items.amount} تومان 
               </TableCell>
               <TableCell align="right" className="!px-8" sx={{ px: 0, py: 2 }}>
@@ -125,7 +130,7 @@ const FinanceTable: FC<IProps> = async ({ searchParams, token }) => {
                 sx={{ px: 0, py: 2 }}
               >
                 {items.status === 'completed' ? (
-                 <h3 className="px-2 text-primary">----</h3>
+                 <h3 className="px-2 text-primary dark:text-thidary">----</h3>
                 ) : (
                    <FinanceActionMenu financeId={items.id} token={token}/>
                 ) }

@@ -36,7 +36,7 @@ const PassengersModal: FC<IProps> = ({ BookingList }) => {
       <Box
         className="
           absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-          w-[50%] max-h-[90%] bg-white flex flex-col rounded-3xl
+          w-[50%] max-h-[90%] bg-white dark:bg-dark dark:text-whiteColor flex flex-col rounded-3xl
           text-dark py-8 gap-8 overflow-hidden
         "
       >
@@ -47,20 +47,20 @@ const PassengersModal: FC<IProps> = ({ BookingList }) => {
             onClick={closeModal}
             className='size-12 rounded-full flex justify-center items-center bg-lightGray hover:scale-110 transition-all cursor-pointer'
           >
-            <X size={32} strokeWidth={1.5} />
+            <X size={32} strokeWidth={1.5} className='dark:text-dark'/>
           </button>
         </div>
 
         {/* Body */}
         <div className='px-8 overflow-y-auto'>
-          <TableContainer elevation={0} component={Paper} className="!rounded-3xl py-6 border border-borderColor">
+          <TableContainer elevation={0} component={Paper} className="!rounded-3xl py-6 border border-borderColor dark:!bg-background">
             <Table sx={{ minWidth: 650 }}>
               <TableHead>
                 <TableRow>
-                  <TableCell align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>نام</TableCell>
-                  <TableCell align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>جنسیت</TableCell>
-                  <TableCell align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>شماره تماس</TableCell>
-                  <TableCell align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>عملیات</TableCell>
+                  <TableCell className='dark:!text-whiteColor' align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>نام</TableCell>
+                  <TableCell className='dark:!text-whiteColor' align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>جنسیت</TableCell>
+                  <TableCell className='dark:!text-whiteColor' align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>شماره تماس</TableCell>
+                  <TableCell className='dark:!text-whiteColor' align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>عملیات</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -72,14 +72,14 @@ const PassengersModal: FC<IProps> = ({ BookingList }) => {
                     phone: booking.sharedMobile, 
                   }))
                 ).map((row) => (
-                  <TableRow key={row.id} className="hover:!bg-lightPrimary transition-colors">
-                    <TableCell component="th" scope="row" align="right" sx={{ py: 2 }}>
+                  <TableRow key={row.id} className="hover:!bg-lightPrimary dark:hover:!bg-dark transition-colors">
+                    <TableCell className='dark:!text-whiteColor' component="th" scope="row" align="right" sx={{ py: 2 }}>
                       {row.name}
                     </TableCell>
-                    <TableCell align="right" sx={{ px: 0, py: 2 }}>{row.gender}</TableCell>
-                    <TableCell align="right" sx={{ px: 0, py: 2 }}>{row.phone}</TableCell>
+                    <TableCell className='dark:!text-whiteColor' align="right" sx={{ px: 0, py: 2 }}>{row.gender}</TableCell>
+                    <TableCell className='dark:!text-whiteColor' align="right" sx={{ px: 0, py: 2 }}>{row.phone}</TableCell>
                     <TableCell align="right" sx={{ py: 2 }}>
-                      <button className='cursor-pointer text-primary hover:scale-110 transition'>
+                      <button className='cursor-pointer text-primary dark:text-thidary hover:scale-110 transition'>
                         <MessageCircleMore size={24} strokeWidth={1.5} />
                       </button>
                     </TableCell>

@@ -84,7 +84,7 @@ const CommentActionMenu: FC<IProps> = ({
       >
         <EllipsisVertical
           size={20}
-          className="text-primary transition-colors"
+          className="text-primary dark:text-thidary transition-colors"
         />
       </button>
       <Menu
@@ -128,16 +128,15 @@ const CommentActionMenu: FC<IProps> = ({
           },
         }}
       >
-        <div className="flex items-center justify-between px-4 py-2">
-          <DialogTitle className="text-[22px] font-bold text-primary">
+        <div className="flex items-center justify-between px-4 py-2 dark:bg-dark">
+          <DialogTitle className="text-[22px] font-bold text-primary dark:text-thidary">
             ویرایش نظر کاربر
           </DialogTitle>
           <IconButton onClick={() => setOpenEditModal(false)}>
-            <X size={24} />
+            <X size={24} className="dark:text-whiteColor" />
           </IconButton>
         </div>
-
-        <DialogContent className="px-6 space-y-5">
+        <DialogContent className="px-6 space-y-5 dark:bg-dark">
           <form action={formAction} className="space-y-5">
             <input type="hidden" name="id" value={id} />
             <Input
@@ -155,14 +154,14 @@ const CommentActionMenu: FC<IProps> = ({
               placeholder="عنوان نظر را وارد کنید"
             />
             <div>
-              <label className="block text-[16px] font-medium text-dark mb-2">
+              <label className="block text-[16px] font-medium text-dark dark:text-whiteColor mb-2">
                 امتیاز (از ۱ تا ۵)
               </label>
               <select
                 value={rating || '0'}
                 name="rating"
                 onChange={(e) => setRating(e.target.value)}
-                className="w-full p-3 bg-lightGray rounded-xl text-primary outline-none focus:border-primary"
+                className="w-full p-3 bg-lightGray dark:bg-gray dark:text-whiteColor rounded-xl text-primary outline-none focus:border-primary"
               > 
                 <option value="0">0</option>
                 <option value="1">1</option>

@@ -9,13 +9,8 @@ const NotificationTopBar = () => {
 
   return (
     <div className="flex max-sm:flex-col max-sm:gap-4 justify-between items-center">
-      <h2 className="text-[24px] text-dark font-bold">لیست اعلانات شما</h2>
+      <h2 className="text-[24px] text-dark dark:text-whiteColor font-bold">لیست اعلانات شما</h2>
       <div className="flex max-sm:flex-col gap-5">
-        <select className="bg-whiteColor border border-borderColor p-2 cursor-pointer rounded-[16px]">
-          <option value="">نوع اعلان</option>
-          <option value="">-</option>
-          <option value="">-</option>
-        </select>
         <FillButton
           className="p-2.5 px-4"
           onClick={() => setOpen(true)}

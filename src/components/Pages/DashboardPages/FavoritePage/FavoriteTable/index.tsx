@@ -27,18 +27,20 @@ const FavoriteTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
     <TableContainer
       elevation={0}
       component={Paper}
-      className="!rounded-3xl pt-3 pb-8"
+      className="!rounded-3xl pt-3 pb-8 dark:!bg-background"
     >
       <Table sx={{ minWidth: 650 }} aria-label="reserves table">
         <TableHead>
           <TableRow>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, width: "300px", fontWeight: "bold", fontSize: 16 }}
             >
               نام اقامتگاه
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -51,6 +53,7 @@ const FavoriteTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
               قیمت کل
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -63,6 +66,7 @@ const FavoriteTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
               آدرس
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, fontWeight: "bold", fontSize: 16 }}
             >
@@ -74,16 +78,16 @@ const FavoriteTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
           {data.map((items) => (
             <TableRow
               key={items.id}
-              className="hover:!bg-lightPrimary transition-colors"
+              className="hover:!bg-lightPrimary transition-colors dark:hover:!bg-dark"
             >
               <TableCell
                 component="th"
                 scope="row"
-                className="text-primary"
+                className="text-primary dark:!text-thidary"
                 align="right"
                 sx={{ py: 2 }}
               >
-                <div className="flex items-center gap-3 text-primary">
+                <div className="flex items-center gap-3 text-primary dark:!text-thidary">
                   <Image
                     src={items.house.photos?.[0] || EmptyImage}
                     alt="houseImage"
@@ -94,10 +98,10 @@ const FavoriteTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
                   {items.house.title}
                 </div>
               </TableCell>
-              <TableCell align="right" sx={{ px: 0, py: 2 }}>
+              <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                 {items.house.price} تومان
               </TableCell>
-              <TableCell align="right" sx={{ px: 0, py: 2 }}>
+              <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                 {items.house.address}
               </TableCell>
               <TableCell

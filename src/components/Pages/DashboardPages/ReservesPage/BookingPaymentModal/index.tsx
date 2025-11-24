@@ -45,12 +45,12 @@ const BookingPaymentModal: FC<IProps> = ({ booking }) => {
       <Box
         className="
           absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-          w-[560px] bg-white flex flex-col rounded-3xl
+          w-[560px] bg-white dark:bg-dark flex flex-col rounded-3xl
           text-dark p-8 gap-8 overflow-y-auto max-h-[90%]
         "
       >
         <div className="flex justify-between items-center">
-          <h3 className="font-bold text-2xl text-primary">پرداخت رزرو</h3>
+          <h3 className="font-bold text-2xl text-primary dark:text-thidary">پرداخت رزرو</h3>
           <button
             onClick={closeModal}
             className="size-12 rounded-full flex justify-center items-center bg-lightGray hover:scale-110 transition-all cursor-pointer"

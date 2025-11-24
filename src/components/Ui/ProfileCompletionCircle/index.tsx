@@ -1,6 +1,7 @@
 'use client';
 
 import { Box, CircularProgress, Typography } from '@mui/material';
+import { color } from 'framer-motion';
 
 const ProfileCompletionCircle = ({ percentage = 19 }: { percentage: number }) => {
   return (

@@ -38,13 +38,13 @@ const Notifications: FC<INotificationList> = async ({ searchParams }) => {
   return (
     <ScrollReveal className="space-y-5">
       <NotificationTopBar />
-      <div className="bg-whiteColor border border-borderColor py-6 px-6 rounded-[24px] space-y-7">
-        <div className="flex justify-between text-dark text-[20px] font-bold">
+      <div className="bg-whiteColor dark:bg-background dark:border-none border border-borderColor py-6 px-6 rounded-[24px] space-y-7">
+        <div className="flex justify-between text-dark dark:text-whiteColor text-[20px] font-bold">
           <h3>عنوان اعلان</h3>
           <h3>پیام اعلان</h3>
           <h3></h3>
         </div>
-        <h3 className="text-[20px] text-gray">اعلان های خوانده نشده</h3>
+        <h3 className="text-[20px] text-gray dark:text-lightGray">اعلان های خوانده نشده</h3>
         {unreadNotifications.length > 0 ? (
           unreadNotifications.map((items) => (
             <NotificationCard
@@ -56,9 +56,9 @@ const Notifications: FC<INotificationList> = async ({ searchParams }) => {
             />
           ))
         ) : (
-          <p className="text-[16px] text-dark">اعلان خوانده نشده ای وجود ندارد</p>
+          <p className="text-[16px] text-dark dark:text-lightGray">اعلان خوانده نشده ای وجود ندارد</p>
         )}
-        <h3 className="text-[20px] text-gray">اعلان های خوانده شده</h3>
+        <h3 className="text-[20px] text-gray dark:text-lightGray">اعلان های خوانده شده</h3>
         {readNotifications.length > 0 ? (
           readNotifications.map((items) => (
             <NotificationCard
@@ -70,7 +70,7 @@ const Notifications: FC<INotificationList> = async ({ searchParams }) => {
             />
           ))
         ) : (
-          <p className="text-[16px] text-dark">اعلان خوانده شده ای وجود ندارد</p>
+          <p className="text-[16px] text-dark dark:text-lightGray">اعلان خوانده شده ای وجود ندارد</p>
         )}
         {totalPages > 1 && <CustomPagination2 totalPages={totalPages} currentPage={currentPage} />}
       </div>

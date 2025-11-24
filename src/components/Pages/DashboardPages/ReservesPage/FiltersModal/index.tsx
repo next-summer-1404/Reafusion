@@ -35,7 +35,7 @@ const FiltersModal: FC<IProps> = ({ open }) => {
       <Box
         className="
           absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-          lg:w-[40%] max-lg:w-[70%] max-md:w-[80%] max-sm:w-[90%] bg-white flex flex-col rounded-3xl
+          lg:w-[40%] max-lg:w-[70%] max-md:w-[80%] max-sm:w-[90%] bg-white dark:bg-dark dark:text-whiteColor flex flex-col rounded-3xl
           text-dark p-8 gap-8
         "
       >
@@ -46,7 +46,7 @@ const FiltersModal: FC<IProps> = ({ open }) => {
             onClick={closeModal}
             className='size-12 rounded-full flex justify-center items-center bg-lightGray cursor-pointer hover:scale-110 transition-all'
           >
-            <X size={32} strokeWidth={1.5} />
+            <X size={32} strokeWidth={1.5} className='dark:text-dark'/>
           </div>
         </div>
         <div className="flex justify-between !text-dark gap-8">

@@ -45,7 +45,7 @@ const FinanceActionMenu: FC<IProps> = ({ financeId, token }) => {
         className="p-2 hover:bg-whiteColor cursor-pointer rounded-full transition-colors"
         aria-label="منوی عملیات"
       >
-        <EllipsisVertical size={20} className="text-primary" />
+        <EllipsisVertical size={20} className="text-primary dark:text-thidary" />
       </button>
 
       <Menu

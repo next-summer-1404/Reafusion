@@ -23,7 +23,7 @@ const AllDocumentsManagementPage: FC<IAllDocumentsManaegment> = async ({ searchP
   return (
     <div className="space-y-6">
       <div className="flex justify-between">
-        <h3 className="text-dark font-bold text-[20px]">
+        <h3 className="text-dark dark:text-whiteColor font-bold text-[20px]">
           مدیریت تمامی سند ها ( {totalCount} )
         </h3>
         <AllPaymentManagementFilterBox />

@@ -38,25 +38,25 @@ const PlaceManagementFilterBox = () => {
   return (
     <>
       <div className="flex xl:w-[70%] xl:justify-end max-sm:flex-wrap gap-4 max-lg:w-full">
-        <div className="flex items-center max-sm:w-full border bg-whiteColor border-borderColor
+        <div className="flex items-center max-sm:w-full border bg-whiteColor dark:bg-background dark:border-thidary border-borderColor
              rounded-[16px] p-3 xl:w-[60%] max-md:w-[50%] max-lg:w-[60%]">
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             type="text"
-            className="w-full indent-2 text-primary
+            className="w-full indent-2 text-primary dark:text-thidary
               placeholder:text-gray outline-none"
             placeholder="جستجو..."
             dir="rtl"
           />
-          <Search className="text-gray" size={20} />
+          <Search className="text-gray dark:text-lightGray" size={20} />
         </div>
 
         <IconButton
           title="فیلتر ها"
           iconName="funnel"
           onClick={openFilters}
-          customClass="bg-whiteColor !border-borderColor !flex !items-center hover:!border-whiteColor !text-dark hover:!bg-primary hover:!text-whiteColor"
+          customClass="bg-whiteColor dark:!bg-background dark:!border-thidary !border-borderColor dark:!text-lightGray !flex !items-center hover:!border-whiteColor !text-dark hover:!bg-primary hover:!text-whiteColor"
         />
 
         <IconButton

@@ -47,7 +47,7 @@ const DocumentActionMenu: FC<IProps> = ({ documentId, token }) => {
         onClick={handleClick}
         className="p-2 hover:bg-whiteColor rounded-full transition-all duration-200 group cursor-pointer"
       >
-        <EllipsisVertical size={20} className="text-primary" />
+        <EllipsisVertical size={20} className="text-primary dark:!text-thidary" />
       </button>
 
       {/* منوی کشویی */}

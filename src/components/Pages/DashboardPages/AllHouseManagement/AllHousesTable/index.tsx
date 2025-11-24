@@ -28,12 +28,13 @@ const AllHousesTable: FC<IProps> = async ({ data, currentPage, totalPages }) => 
     <TableContainer
       elevation={0}
       component={Paper}
-      className="!rounded-3xl pt-3 pb-8"
+      className="!rounded-3xl pt-3 pb-8 dark:!bg-background"
     >
       <Table sx={{ minWidth: 650 }} aria-label="reserves table">
         <TableHead>
           <TableRow>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 px: 4,
@@ -46,6 +47,7 @@ const AllHousesTable: FC<IProps> = async ({ data, currentPage, totalPages }) => 
               نام اقامتگاه
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -58,6 +60,7 @@ const AllHousesTable: FC<IProps> = async ({ data, currentPage, totalPages }) => 
               آدرس
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -70,18 +73,21 @@ const AllHousesTable: FC<IProps> = async ({ data, currentPage, totalPages }) => 
               قیمت
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, px: 2, fontWeight: "bold", fontSize: 16 }}
             >
               نوع خانه
             </TableCell>
-                        <TableCell
+            <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, px: 2, fontWeight: "bold", fontSize: 16 }}
             >
               نام فروشنده
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, px: 2.5, fontWeight: "bold", fontSize: 16 }}
             >
@@ -110,16 +116,16 @@ const AllHousesTable: FC<IProps> = async ({ data, currentPage, totalPages }) => 
            data.map((house) => ( 
               <TableRow
                 key={house.id}
-                className="hover:!bg-lightPrimary transition-colors"
+                className="hover:!bg-lightPrimary transition-colors dark:hover:!bg-dark"
               >
                 <TableCell
                   component="th"
                   scope="row"
-                  className="text-primary"
+                  className="text-primary "
                   align="right"
                   sx={{ px: 4, py: 2 }}
                 >
-                  <div className="flex gap-3 items-center text-primary">
+                  <div className="flex gap-3 items-center text-primary dark:!text-thidary">
                     <Image
                       src={house.photos?.[0] || EmptyImage}
                       alt="houseImage"
@@ -130,15 +136,15 @@ const AllHousesTable: FC<IProps> = async ({ data, currentPage, totalPages }) => 
                     <h3>{house.title}</h3>
                   </div>
                 </TableCell>
-                <TableCell align="right" sx={{ px: 0, py: 2 }}>
+                <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                   {house.address}
                 </TableCell>
-                <TableCell align="right" sx={{ px: 0, py: 2 }}>
+                <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                   {house.price.toLocaleString()} تومان
                 </TableCell>
                 <TableCell
                   align="right"
-                  className="!px-8"
+                  className="!px-8 dark:!text-whiteColor"
                   sx={{ px: 0, py: 2 }}
                 >
                   {house.transaction_type === "rental"
@@ -147,7 +153,7 @@ const AllHousesTable: FC<IProps> = async ({ data, currentPage, totalPages }) => 
                     ? "رهن"
                     : "رزرو"}
                 </TableCell>
-                <TableCell align="right" sx={{ px: 2, py: 2 }}>
+                <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 2, py: 2 }}>
                   {house.sellerName === 'نام کاربر' ? "کاربر بدون نام" : house.sellerName} 
                 </TableCell>
                 <TableCell

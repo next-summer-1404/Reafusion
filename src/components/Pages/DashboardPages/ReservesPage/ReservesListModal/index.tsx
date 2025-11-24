@@ -41,7 +41,7 @@ const ReservesListModal: FC<IProps> = ({ open, BookingList }) => {
         <Box
           className="
             absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-            w-[40%] max-h-[90%] bg-white flex flex-col rounded-3xl
+            w-[40%] max-h-[90%] bg-white dark:bg-dark dark:text-whiteColor flex flex-col rounded-3xl
             text-dark py-8 gap-8 overflow-y-auto
           "
         >
@@ -52,18 +52,18 @@ const ReservesListModal: FC<IProps> = ({ open, BookingList }) => {
               onClick={closeModal}
               className='size-12 rounded-full flex cursor-pointer justify-center items-center bg-lightGray hover:scale-110 transition-all'
             >
-              <X size={32} strokeWidth={1.5} />
+              <X size={32} strokeWidth={1.5} className='dark:text-dark'/>
             </button>
           </div>
 
           {/* Body */}
           <div className='px-8'>
-            <TableContainer elevation={0} component={Paper} className="!rounded-3xl py-6 border border-borderColor">
+            <TableContainer elevation={0} component={Paper} className="!rounded-3xl py-6 border border-borderColor dark:!bg-background">
               <Table sx={{ minWidth: 400 }}>
                 <TableHead>
                   <TableRow>
-                    <TableCell align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>تاریخ و ساعت</TableCell>
-                    <TableCell align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>اطلاعات مسافر ها</TableCell>
+                    <TableCell className='dark:!text-whiteColor' align="right" sx={{ py: 3, fontWeight: 'bold', fontSize: 16 }}>تاریخ و ساعت</TableCell>
+                    <TableCell className='dark:!text-whiteColor' align="right" sx={{ py: 3, px: 0, fontWeight: 'bold', fontSize: 16 }}>اطلاعات مسافر ها</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -73,8 +73,8 @@ const ReservesListModal: FC<IProps> = ({ open, BookingList }) => {
                       date: `${traveler.value.slice(0,10)} - ${traveler.value.slice(11,16)}`,
                     }))
                   ).map((row) => (
-                    <TableRow key={row.id} className="hover:!bg-lightPrimary transition-colors">
-                      <TableCell component="th" scope="row" align="right" sx={{ py: 2 }}>
+                    <TableRow key={row.id} className="hover:!bg-lightPrimary dark:hover:!bg-dark transition-colors">
+                      <TableCell className='dark:!text-whiteColor' component="th" scope="row" align="right" sx={{ py: 2 }}>
                         {row.date}
                       </TableCell>
                       <TableCell align="right" sx={{ py: 2 }}>
@@ -84,7 +84,7 @@ const ReservesListModal: FC<IProps> = ({ open, BookingList }) => {
                             url.searchParams.set('passengerInfo', row.id);
                             router.push(url.toString(), { scroll: false });
                           }}
-                          className='flex items-center cursor-pointer  gap-2 text-primary hover:underline'
+                          className='flex items-center cursor-pointer  gap-2 text-primary dark:text-thidary hover:underline'
                         >
                           <Eye size={24} strokeWidth={1.5} />
                           <span>مشاهده</span>

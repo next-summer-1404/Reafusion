@@ -35,12 +35,12 @@ const UpdateImageModal: FC<IProps> = ({ open, handleClose, setOpen, handleImageC
       onClose={handleClose}
       maxWidth={false}
       PaperProps={{
-        className: "!w-[450px] m-auto !rounded-[24px] max-w-none py-6 px-5",
+        className: "!w-[450px] m-auto !rounded-[24px] max-w-none py-6 px-5 dark:!bg-dark",
       }}
       fullWidth
     >
       <div className="flex justify-between items-center">
-        <h3 className="!text-[24px] !text-dark !font-bold">انتخاب پروفایل</h3>
+        <h3 className="!text-[24px] !text-dark dark:!text-whiteColor !font-bold">انتخاب پروفایل</h3>
         <button
           onClick={handleClose}
           className="flex justify-center items-center size-[48px] rounded-full bg-lightGray cursor-pointer hover:bg-gray-300 transition"
@@ -70,7 +70,7 @@ const UpdateImageModal: FC<IProps> = ({ open, handleClose, setOpen, handleImageC
             <EmptyButton
               onClick={handleClose}
               ButtonText="انصراف"
-              className="p-3 px-13 !border-gray !text-gray"
+              className="p-3 px-13 !border-gray dark:!border-lightGray dark:!text-lightGray !text-gray"
             />
             <FillButton
               ButtonText="انتخاب عکس"

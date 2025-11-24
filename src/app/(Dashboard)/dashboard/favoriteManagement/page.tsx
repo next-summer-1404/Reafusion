@@ -25,7 +25,7 @@ const FavoriteManagement: FC<IFavoritePage> = async ({ searchParams }) => {
   return (
     <ScrollReveal className="space-y-4">
       <div className="flex justify-between">
-        <h3 className="text-dark font-bold text-[20px]">لیست علاقه مندی ها</h3>
+        <h3 className="text-dark font-bold text-[20px] dark:text-whiteColor">لیست علاقه مندی ها</h3>
         <FilterBox />
       </div>
       <FavoriteTable data={data} totalPages={totalPages} currentPage={currentPage}/>

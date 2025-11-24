@@ -1,10 +1,10 @@
-import { Building2, CircleCheck, ClockFading, Funnel, House, Menu, Plus, Sun, UserRoundCheck, UserRoundPen, UserRoundPlus } from 'lucide-react';
+import { Building2, CircleCheck, ClockFading, Funnel, House, Menu, Moon, Plus, Sun, UserRoundCheck, UserRoundPen, UserRoundPlus } from 'lucide-react';
 import React, { FC } from 'react'
 
 interface IProps {
     title?: string;
     customClass?: string;
-    iconName: 'building' | 'clock' | 'addUser' | 'checkedUser' | 'checked' | 'editUser' | 'house' | 'sun' | 'funnel' | 'plus' | 'menu';
+    iconName: 'building' | 'clock' | 'addUser' | 'checkedUser' | 'moon' | 'checked' | 'editUser' | 'house' | 'sun' | 'funnel' | 'plus' | 'menu';
     type?: 'submit';
     onClick?: () => void;
 }
@@ -18,6 +18,7 @@ const icons = [
     { name: 'editUser', icon: <UserRoundPen size={24} strokeWidth={1.5} /> },
     { name: 'house', icon: <House size={24} strokeWidth={1.5} /> },
     { name: 'sun', icon: <Sun size={24} strokeWidth={1.5} /> },
+    { name: 'moon', icon: <Moon size={24} strokeWidth={1.5} /> },
     { name: 'funnel', icon: <Funnel size={20} strokeWidth={1.5} /> },
     { name: 'plus', icon: <Plus size={24} strokeWidth={1.5} /> },
     { name: 'menu', icon: <Menu size={24} strokeWidth={1.5} /> },

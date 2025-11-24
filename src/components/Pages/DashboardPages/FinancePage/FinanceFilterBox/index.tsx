@@ -15,7 +15,7 @@ const FinanceFilterBox = () => {
 
   return (
     <div className='flex gap-3'>
-       <select value={paymentStatus} onChange={(event) => setPaymentStatus(event.target.value)} className='bg-white p-3 border border-borderColor rounded-[16px] cursor-pointer'>
+       <select value={paymentStatus} onChange={(event) => setPaymentStatus(event.target.value)} className='bg-white dark:bg-dark dark:border-whiteColor dark:text-whiteColor p-3 border border-borderColor rounded-[16px] cursor-pointer'>
            <option value="">وضعیت پرداخت</option>
            <option value="completed">تایید شده</option>
            <option value="pending">در انتظار</option>

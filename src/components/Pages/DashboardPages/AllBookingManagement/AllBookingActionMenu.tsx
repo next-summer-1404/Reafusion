@@ -124,7 +124,7 @@ const AllBookingActionMenu: FC<IProps> = ({
         onClick={handleClick}
         className="p-2 hover:bg-whiteColor rounded-full transition-all duration-200 group cursor-pointer"
       >
-        <EllipsisVertical size={20} className="text-primary" />
+        <EllipsisVertical size={20} className="text-primary dark:text-thidary" />
       </button>
       <Menu
         anchorEl={anchorEl}
@@ -184,17 +184,17 @@ const AllBookingActionMenu: FC<IProps> = ({
           },
         }}
       >
-        <div className="flex items-center justify-between py-2">
-          <DialogTitle className="text-[22px] font-bold text-primary">
+        <div className="flex items-center justify-between py-2 dark:bg-dark">
+          <DialogTitle className="text-[22px] font-bold text-primary dark:text-thidary">
             ویرایش اطلاعات رزرو
           </DialogTitle>
           <IconButton className="!ml-3" onClick={() => setOpenEditModal(false)}>
-            <X size={24} />
+            <X size={24} className="dark:text-whiteColor"/>
           </IconButton>
         </div>
 
-        <DialogContent className="p-6 space-y-6">
-          <form action={formAction}>
+        <DialogContent className="p-6 dark:bg-dark">
+          <form action={formAction} className="space-y-6">
             <input type="hidden" name="houseId" value={booking.houseId} />
             <input type="hidden" name="id" value={booking.id} />
             <Input
@@ -226,9 +226,9 @@ const AllBookingActionMenu: FC<IProps> = ({
               setState={setSharedMobile}
             />
             <div className="space-y-2">
-              <h3 className="font-bold text-dark text-[16px]">جنسیت مسافر</h3>
+              <h3 className="font-bold text-dark dark:text-whiteColor text-[16px]">جنسیت مسافر</h3>
               <select
-                className="bg-lightGray w-full p-3 text-primary rounded-[40px]"
+                className="bg-lightGray dark:bg-gray w-full p-3 text-primary rounded-[40px]"
                 name="gender"
                 value={gender}
                 onChange={(event) => setGender(event.target.value)}
@@ -266,9 +266,9 @@ const AllBookingActionMenu: FC<IProps> = ({
               setState={setNationalId}
             />
             <div className="space-y-2">
-              <h3 className="font-bold text-dark text-[16px]">وضعیت رزرو</h3>
+              <h3 className="font-bold text-dark dark:text-whiteColor text-[16px]">وضعیت رزرو</h3>
               <select
-                className="bg-lightGray w-full p-3 text-primary rounded-[40px]"
+                className="bg-lightGray dark:bg-gray dark:text-whiteColor w-full p-3 text-primary rounded-[40px]"
                 name="status"
                 value={userstatus}
                 onChange={(event) => setUserstatuss(event.target.value)}

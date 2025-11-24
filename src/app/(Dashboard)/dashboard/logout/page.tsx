@@ -20,7 +20,7 @@ const Logout = () => {
     handleLogout();
   }, [router]);
 
-  return <div className='flex justify-center items-center h-full text-[50px] text-primary'>در حال خروج....</div>;
+  return <div className='flex justify-center items-center h-full text-[50px] text-primary dark:!text-thidary'>در حال خروج....</div>;
 };
 
 export default Logout;

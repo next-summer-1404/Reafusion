@@ -24,7 +24,7 @@ const FilterButton = () => {
       title="فیلتر ها"
       iconName="funnel"
       onClick={toggleModal}
-      customClass="bg-whiteColor !border-borderColor hover!border-whiteColor !text-dark hover:!bg-primary hover:!text-whiteColor"
+      customClass="bg-whiteColor dark:bg-background dark:!text-whiteColor !border-borderColor hover!border-whiteColor !text-dark hover:!bg-primary hover:!text-whiteColor"
     />
   );
 }

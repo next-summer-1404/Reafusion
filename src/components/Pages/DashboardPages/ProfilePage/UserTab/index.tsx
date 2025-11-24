@@ -15,8 +15,8 @@ const UserTab: FC<IProps> = ({ TabName, href, active }) => {
       href={href}
       className={`p-3 border rounded-[14px] transition-colors ${
         active
-          ? 'border-primary text-primary font-bold'
-          : 'border-transparent text-gray hover:text-dark'
+          ? 'border-primary dark:border-thidary text-primary dark:text-thidary font-bold'
+          : 'border-transparent text-gray dark:text-lightGray dark:hover:text-thidary hover:text-dark'
       }`}
     >
       {TabName}

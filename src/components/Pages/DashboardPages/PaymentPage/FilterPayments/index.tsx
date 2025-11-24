@@ -17,13 +17,13 @@ const FilterPayment = () => {
 
   return (
     <div className='flex gap-4'>
-        <select value={status} onChange={(event) => setStatus(event.target.value)} className='bg-white p-3 border border-borderColor rounded-[16px] cursor-pointer'>
+        <select value={status} onChange={(event) => setStatus(event.target.value)} className='bg-white dark:bg-background dark:text-whiteColor p-3 border border-borderColor rounded-[16px] cursor-pointer'>
            <option value="">وضعیت پرداخت</option>
            <option value="completed">تایید شده</option>
            <option value="pending">در انتظار</option>
            <option value="canceled">تایید نشده</option>
         </select>
-        <select value={order} onChange={(event) => setOrder(event.target.value)} className='bg-white p-3 border border-borderColor rounded-[16px] cursor-pointer'>
+        <select value={order} onChange={(event) => setOrder(event.target.value)} className='bg-white dark:bg-background dark:text-whiteColor p-3 border border-borderColor rounded-[16px] cursor-pointer'>
            <option value="">دسته بندی</option>
            <option value="ASC">سعودی</option>
            <option value="DESC">نزولی </option>

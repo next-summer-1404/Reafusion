@@ -28,7 +28,7 @@ const AllHousesManagementPage: FC<IAllHousesManaegment> = async ({ searchParams 
   return (
     <div className='space-y-5'>
       <div className="flex justify-between">
-        <h3 className="text-dark font-bold text-[20px]">
+        <h3 className="text-dark dark:text-whiteColor font-bold text-[20px]">
           مدیریت تمامی ملک ها ( {totalCount} )
         </h3>
         <AllPaymentManagementFilterBox />

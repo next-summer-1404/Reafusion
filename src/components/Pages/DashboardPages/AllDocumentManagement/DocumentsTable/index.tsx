@@ -28,12 +28,13 @@ const DocumentsTable: FC<IProps> = async ({ documents, totalPages, currentPage }
     <TableContainer
       elevation={0}
       component={Paper}
-      className="!rounded-3xl pt-3 pb-8"
+      className="!rounded-3xl pt-3 pb-8 dark:!bg-background"
     >
       <Table sx={{ minWidth: 650 }} aria-label="reserves table">
         <TableHead>
           <TableRow>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 px: 4,
@@ -46,6 +47,7 @@ const DocumentsTable: FC<IProps> = async ({ documents, totalPages, currentPage }
               نوع سند
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -58,6 +60,7 @@ const DocumentsTable: FC<IProps> = async ({ documents, totalPages, currentPage }
               آیا خوانده شده؟
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -70,6 +73,7 @@ const DocumentsTable: FC<IProps> = async ({ documents, totalPages, currentPage }
               تاریخ ساخت
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 width: "260px",
@@ -82,6 +86,7 @@ const DocumentsTable: FC<IProps> = async ({ documents, totalPages, currentPage }
               دیدن سند
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, fontWeight: "bold", fontSize: 16 }}
             >
@@ -93,12 +98,12 @@ const DocumentsTable: FC<IProps> = async ({ documents, totalPages, currentPage }
           {documents.map((items) => (
             <TableRow
               key={items.id}
-              className="hover:!bg-lightPrimary transition-colors"
+              className="hover:!bg-lightPrimary transition-colors dark:hover:!bg-dark"
             >
               <TableCell
                 component="th"
                 scope="row"
-                className="!text-primary"
+                className="!text-primary dark:!text-thidary"
                 align="right"
                 sx={{ width: "240px", px: 5, py: 2 }}
               >
@@ -120,12 +125,12 @@ const DocumentsTable: FC<IProps> = async ({ documents, totalPages, currentPage }
                   {items.signed ? "بله" : "خیر"}
                 </Box>
               </TableCell>
-              <TableCell align="right" sx={{ px: 0, py: 2 }}>
+              <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                 {items.createdAt.slice(0, 10)} - {items.createdAt.slice(11, 16)}
               </TableCell>
               <TableCell
                 align="right"
-                className="!px-8 !text-primary hover:!font-bold"
+                className="!px-8 !text-primary dark:!text-thidary hover:!font-bold"
                 sx={{ px: 0, py: 2 }}
               >
                 <Link href={items.filePath}>دیدن فایل سند</Link>

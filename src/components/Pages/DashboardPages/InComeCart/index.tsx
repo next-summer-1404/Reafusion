@@ -31,16 +31,16 @@ const IncomeChart = async () => {
   const pointsString = points.map(p => `${p.x},${p.y}`).join(" ");
 
   return (
-    <div className="flex flex-col w-[50%] max-sm:w-full bg-whiteColor rounded-3xl p-5">
+    <div className="flex flex-col w-[50%] max-sm:w-full bg-whiteColor dark:bg-background rounded-3xl p-5">
       {/* هدر */}
       <div className="flex max-md:flex-col justify-between items-start">
         <div>
-          <h3 className="text-xl font-bold text-dark">نمودار درآمد</h3>
-          <p className="text-sm text-gray mt-1">از تاریخ ۱ تا ۳۱ آبان ۱۴۰۴</p>
+          <h3 className="text-xl font-bold text-dark dark:text-whiteColor">نمودار درآمد</h3>
+          <p className="text-sm text-gray mt-1  dark:text-lightGray">از تاریخ ۱ تا ۳۱ آبان ۱۴۰۴</p>
         </div>
         <div className="text-right">
-          <span className="text-sm text-gray">درآمد کل:</span>{' '}
-          <span className="text-lg font-bold text-primary">
+          <span className="text-sm text-gray dark:text-lightGray">درآمد کل:</span>{' '}
+          <span className="text-lg font-bold text-primary dark:text-thidary">
             {data.totalAmount.toLocaleString("fa-IR")} تومان
           </span>
         </div>
@@ -108,10 +108,10 @@ const IncomeChart = async () => {
       <div className="flex max-md:flex-col justify-between mt-8 px-4">
         {/* قبل از این ماه */}
         <div className="flex items-center gap-3">
-          <div className="w-4 h-4 bg-primary rounded-full shadow" />
+          <div className="w-4 h-4 bg-primary dark:bg-thidary rounded-full shadow" />
           <div>
-            <p className="text-xs text-gray">قبل از این ماه</p>
-            <p className="font-bold text-dark">
+            <p className="text-xs text-gray dark:text-whiteColor">قبل از این ماه</p>
+            <p className="font-bold text-dark  dark:text-whiteColor">
               {previous > 0 ? previous.toLocaleString("fa-IR") : "۰"} تومان
             </p>
           </div>
@@ -119,10 +119,10 @@ const IncomeChart = async () => {
 
         {/* این ماه */}
         <div className="flex items-center gap-3">
-          <div className="w-4 h-4 bg-primary rounded-full shadow" />
+          <div className="w-4 h-4 bg-primary dark:bg-thidary rounded-full shadow" />
           <div className="text-right">
-            <p className="text-xs text-gray">این ماه</p>
-            <p className="font-bold text-lg text-primary">
+            <p className="text-xs text-gray dark:text-whiteColor">این ماه</p>
+            <p className="font-bold text-lg text-primary dark:text-thidary">
               {current.toLocaleString("fa-IR")} تومان
             </p>
           </div>

@@ -53,7 +53,7 @@ const PlacesManagement = async ({ searchParams }: IPlaceMangement) => {
   return (
     <ScrollReveal className="flex flex-col gap-4 w-full">
       <div className="flex max-lg:flex-col gap-4 justify-between items-center">
-        <h3 className="text-dark text-[24px] font-bold">مدیریت املاک</h3>
+        <h3 className="text-dark dark:text-whiteColor text-[24px] font-bold">مدیریت املاک</h3>
         <PlaceManagementFilterBox />
       </div>
       <PlaceTable houses={houses} totalPages={totalPages} currentPage={currentPage} />

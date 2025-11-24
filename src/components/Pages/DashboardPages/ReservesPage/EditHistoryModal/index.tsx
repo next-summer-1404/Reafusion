@@ -42,7 +42,7 @@ const EditHistoryModal: FC<IProps> = ({ BookingList }) => {
       <Box
         className="
           absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-          w-[40%] max-h-[90%] bg-white flex flex-col rounded-3xl
+          w-[40%] max-h-[90%] bg-white dark:bg-dark dark:text-whiteColor  flex flex-col rounded-3xl
           text-dark py-8 gap-8 overflow-hidden
         "
       >
@@ -53,7 +53,7 @@ const EditHistoryModal: FC<IProps> = ({ BookingList }) => {
             onClick={closeModal}
             className="size-12 rounded-full flex justify-center items-center bg-lightGray hover:scale-110 transition-all cursor-pointer"
           >
-            <X size={32} strokeWidth={1.5} />
+            <X size={32} strokeWidth={1.5} className="dark:text-dark" />
           </button>
         </div>
 
@@ -62,18 +62,20 @@ const EditHistoryModal: FC<IProps> = ({ BookingList }) => {
           <TableContainer
             elevation={0}
             component={Paper}
-            className="!rounded-3xl py-6 border border-borderColor"
+            className="!rounded-3xl py-6 border border-borderColor dark:!bg-background"
           >
             <Table sx={{ minWidth: 400 }}>
               <TableHead>
                 <TableRow>
                   <TableCell
+                    className="dark:!text-whiteColor"
                     align="right"
                     sx={{ py: 3, fontWeight: "bold", fontSize: 16 }}
                   >
                     تاریخ و ساعت
                   </TableCell>
                   <TableCell
+                    className="dark:!text-whiteColor"
                     align="right"
                     sx={{ py: 3, px: 0, fontWeight: "bold", fontSize: 16 }}
                   >
@@ -102,23 +104,33 @@ const EditHistoryModal: FC<IProps> = ({ BookingList }) => {
                 ]).map((row) => (
                   <TableRow
                     key={row.id}
-                    className="hover:!bg-lightPrimary transition-colors"
+                    className="hover:!bg-lightPrimary transition-colors dark:hover:!bg-dark"
                   >
                     <TableCell
+                      className="dark:!text-whiteColor"
                       component="th"
                       scope="row"
                       align="right"
                       sx={{ py: 2 }}
                     >
-                      {row.date.slice(0,10)} - {row.date.slice(11,16)}
+                      {row.date.slice(0, 10)} - {row.date.slice(11, 16)}
                     </TableCell>
-                    <TableCell align="right" sx={{ py: 2 }}>
+                    <TableCell
+                      className="dark:!text-whiteColor"
+                      align="right"
+                      sx={{ py: 2 }}
+                    >
                       {row.type}
                     </TableCell>
                   </TableRow>
                 )) || (
                   <TableRow>
-                    <TableCell colSpan={2} align="center" sx={{ py: 3 }}>
+                    <TableCell
+                      className="dark:!text-whiteColor"
+                      colSpan={2}
+                      align="center"
+                      sx={{ py: 3 }}
+                    >
                       تاریخچه‌ای یافت نشد
                     </TableCell>
                   </TableRow>

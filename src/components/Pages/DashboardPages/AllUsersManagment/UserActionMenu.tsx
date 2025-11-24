@@ -138,7 +138,7 @@ const UserActionMenu: React.FC<IProps> = ({
       >
         <EllipsisVertical
           size={20}
-          className="text-gray-500 group-hover:text-primary transition-colors"
+          className="text-primary dark:text-thidary group-hover:text-primary transition-colors"
         />
       </button>
       <Menu
@@ -186,16 +186,14 @@ const UserActionMenu: React.FC<IProps> = ({
         PaperProps={{
           sx: {
             borderRadius: "40px",
-            padding: "10px",
             overflow: "hidden",
             boxShadow: "0 10px 40px rgba(0,0,0,0.15)",
-            border: "2px solid transparent",
             backgroundColor: "#ffffff",
           },
         }}
       >
-        <div className="flex items-center justify-between">
-          <DialogTitle className="text-[20px] flex items-center text-primary gap-2 font-bold">
+        <div className="p-2 flex items-center justify-between dark:bg-dark">
+          <DialogTitle className="text-[20px] flex items-center text-primary dark:text-thidary gap-2 font-bold">
             تغییر نقش کاربر
           </DialogTitle>
           <button
@@ -205,15 +203,15 @@ const UserActionMenu: React.FC<IProps> = ({
             <X size={20} />
           </button>
         </div>
-        <DialogContent className="pt-6 space-y-6">
+        <DialogContent className="p-2 space-y-6 dark:bg-dark">
           <form action={formAction}>
             <input type="hidden" name="id" value={userId} />
             <div>
-              <label className="block text-[18px] mb-2">انتخاب نقش جدید</label>
+              <label className="block text-[18px] mb-2 dark:text-whiteColor">انتخاب نقش جدید</label>
               <select
                 name="role"
                 defaultValue={userRole}
-                className="w-full px-4 py-3 border border-borderColor outline-0 rounded-xl"
+                className="w-full px-4 py-3 border border-borderColor outline-0 rounded-xl dark:text-whiteColor"
               >
                 <option value="buyer">خریدار</option>
                 <option value="seller">فروشنده</option>
@@ -223,7 +221,7 @@ const UserActionMenu: React.FC<IProps> = ({
             <div className="flex justify-between pt-4">
               <button
                 onClick={() => setOpenRoleModal(false)}
-                className="px-5 py-2 w-[47%] cursor-pointer border border-gray rounded-xl"
+                className="px-5 py-2 w-[47%] cursor-pointer dark:text-whiteColor border border-gray dark:border-lightGray rounded-xl"
               >
                 لغو
               </button>
@@ -250,8 +248,8 @@ const UserActionMenu: React.FC<IProps> = ({
           },
         }}
       >
-        <div className="flex items-center justify-between p-2">
-          <DialogTitle className="text-[22px] font-bold text-primary flex items-center gap-3">
+        <div className="flex items-center justify-between p-2 dark:bg-dark">
+          <DialogTitle className="text-[22px] font-bold text-primary dark:text-thidary flex items-center gap-3">
             ویرایش اطلاعات کاربر
           </DialogTitle>
           <button
@@ -261,7 +259,7 @@ const UserActionMenu: React.FC<IProps> = ({
             <X size={24} />
           </button>
         </div>
-        <DialogContent className="p-8 space-y-6">
+        <DialogContent className="p-8 space-y-6 dark:bg-dark">
           <form action={formAction2} className="space-y-6">
             <div className="rounded-[25px] h-[200px] overflow-hidden !object-cover mb-4">
               <Image
@@ -315,13 +313,13 @@ const UserActionMenu: React.FC<IProps> = ({
               name="membershipDate"
             />
             <div className="space-y-2">
-              <h3 className="font-bold text-dark text-[16px]">
+              <h3 className="font-bold text-dark dark:text-whiteColor text-[16px]">
                 آیا ایمیل تایید شده است ؟
               </h3>
               <select
                 defaultValue={emailverified === true ? "true" : "false"}
                 onChange={(event) => setEmailverified(event.target.value === 'true')}
-                className="bg-lightGray w-full p-3  text-primary rounded-[40px]"
+                className="bg-lightGray dark:bg-gray dark:text-whiteColor w-full p-3  text-primary rounded-[40px]"
                 name="emailVerified"
               >
                 <option value="true">بله</option>

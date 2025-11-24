@@ -95,8 +95,8 @@ const EditAllHouseModal: FC<IProps> = ({ open, onClose, house }) => {
 
   return (
     <Modal open={open} onClose={onClose}>
-      <Box className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] max-h-[90vh] overflow-y-auto bg-whiteColor rounded-3xl p-6 shadow-2xl">
-        <h3 className="text-primary text-[24px] font-bold text-center">
+      <Box className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] max-h-[90vh] overflow-y-auto bg-whiteColor dark:bg-dark rounded-3xl p-6 shadow-2xl">
+        <h3 className="text-primary dark:text-thidary text-[24px] font-bold">
           ویرایش خانه
         </h3>
         <button
@@ -187,10 +187,10 @@ const EditAllHouseModal: FC<IProps> = ({ open, onClose, house }) => {
               </div>
             </div>
             <div className="space-y-2">
-              <h3 className="font-bold text-dark text-[16px]">دسته‌بندی</h3>
+              <h3 className="font-bold text-dark text-[16px] dark:text-whiteColor">دسته‌بندی</h3>
               <select
                 name="categories"
-                className="bg-lightGray w-full p-3 text-primary rounded-[40px]"
+                className="bg-lightGray dark:bg-gray dark:text-whiteColor w-full p-3 text-primary rounded-[40px]"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
@@ -202,10 +202,10 @@ const EditAllHouseModal: FC<IProps> = ({ open, onClose, house }) => {
               </select>
             </div>
             <div className="space-y-2">
-              <h3 className="font-bold text-dark text-[16px]">نوع حیاط</h3>
+              <h3 className="font-bold text-dark text-[16px] dark:text-whiteColor">نوع حیاط</h3>
               <select
                 name="yard_type"
-                className="bg-lightGray w-full p-3 text-primary rounded-[40px]"
+                className="bg-lightGray dark:bg-gray dark:text-whiteColor w-full p-3 text-primary rounded-[40px]"
                 value={yardType}
                 onChange={(e) => setYardType(e.target.value)}
               >
@@ -215,10 +215,10 @@ const EditAllHouseModal: FC<IProps> = ({ open, onClose, house }) => {
               </select>
             </div>
             <div className="space-y-2">
-              <h3 className="font-bold text-dark text-[16px]">نوع معامله</h3>
+              <h3 className="font-bold text-dark text-[16px] dark:text-whiteColor">نوع معامله</h3>
               <select
                 name="transaction_type"
-                className="bg-lightGray w-full p-3 text-primary rounded-[40px]"
+                className="bg-lightGray dark:bg-gray dark:text-whiteColor w-full p-3 text-primary rounded-[40px]"
                 value={transactionType}
                 onChange={(e) => setTransactionType(e.target.value)}
               >

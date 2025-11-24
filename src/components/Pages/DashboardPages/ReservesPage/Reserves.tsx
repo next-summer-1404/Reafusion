@@ -35,7 +35,7 @@ const Reserves: FC<IReserveList> = async ({ searchParams }) => {
   return (
     <ScrollReveal className="flex flex-col gap-4">
       <div className="flex justify-between items-center">
-        <h2 className="font-bold text-xl text-dark">لیست رزرو های شما</h2>
+        <h2 className="font-bold text-xl text-dark dark:text-whiteColor">لیست رزرو های شما</h2>
         <FilterButton />
       </div>
 

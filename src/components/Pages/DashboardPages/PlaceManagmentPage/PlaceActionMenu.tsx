@@ -67,7 +67,7 @@ const PlaceActionMenu: FC<PlaceActionMenuProps> = ({ houseId, tokenValue, houseI
         onClick={handleMenuClick}
         className="mx-auto p-1 rounded-full hover:bg-whiteColor transition-colors cursor-pointer"
       >
-        <EllipsisVertical className="text-primary" size={20} />
+        <EllipsisVertical className="text-primary dark:text-thidary" size={20} />
       </button>
 
       <Menu

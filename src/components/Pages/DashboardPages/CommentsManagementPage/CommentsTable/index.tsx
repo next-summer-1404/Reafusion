@@ -25,12 +25,13 @@ const CommentsTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
     <TableContainer
       elevation={0}
       component={Paper}
-      className="!rounded-3xl pt-3 pb-8"
+      className="!rounded-3xl pt-3 pb-8 dark:!bg-background"
     >
       <Table sx={{ minWidth: 650 }} aria-label="reserves table">
         <TableHead>
           <TableRow>
             <TableCell
+              className="dark:!text-whiteColor"
               align="right"
               sx={{
                 px: 4,
@@ -43,6 +44,7 @@ const CommentsTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
               عنوان
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -55,6 +57,7 @@ const CommentsTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
               توضیحات
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -67,6 +70,7 @@ const CommentsTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
               تاریخ ساخت
             </TableCell>
              <TableCell
+             className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -79,6 +83,7 @@ const CommentsTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
                امتیاز
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, fontWeight: "bold", fontSize: 16 }}
             >
@@ -90,24 +95,24 @@ const CommentsTable: FC<IProps> = async ({ data, totalPages, currentPage }) => {
           {data.map((items) => (
             <TableRow
               key={items.id}
-              className="hover:!bg-lightPrimary transition-colors"
+              className="hover:!bg-lightPrimary transition-colors dark:hover:!bg-dark"
             >
               <TableCell
                 component="th"
                 scope="row"
-                className="!text-primary"
+                className="!text-primary dark:!text-thidary"
                 align="right"
                 sx={{ width: "240px", px: 4, py: 2 }}
               >
                 {items.title || '---------------'}
               </TableCell>
-              <TableCell align="right" className="!max-w-[350px] !px-6 !overflow-hidden !truncate" sx={{ px: 0, py: 2 }}>
+              <TableCell align="right" className="!max-w-[350px] !px-6 !overflow-hidden dark:!text-whiteColor !truncate" sx={{ px: 0, py: 2 }}>
                 {items.caption || '---------------'}
               </TableCell>
-              <TableCell align="right" sx={{ px: 0, py: 2 }}>
+              <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                 {items.created_at.slice(0, 10)} - {items.created_at.slice(11, 16)}
               </TableCell>
-              <TableCell align="right" sx={{ px: 2, py: 2 }}>
+              <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 2, py: 2 }}>
                 {items.rating || '0'}
               </TableCell>
               <TableCell

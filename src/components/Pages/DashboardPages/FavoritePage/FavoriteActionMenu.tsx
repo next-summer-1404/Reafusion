@@ -53,7 +53,7 @@ const FavoriteActionMenu: FC<IProps> = ({ houseId, favoriteId, token }) => {
         onClick={handleClick}
         className="mx-auto p-1 rounded-full hover:bg-whiteColor transition-colors cursor-pointer"
       >
-        <EllipsisVertical className="text-primary transition-colors" size={20} />
+        <EllipsisVertical className="text-primary dark:!text-thidary transition-colors" size={20} />
       </button>
 
       <Menu

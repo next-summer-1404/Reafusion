@@ -27,12 +27,13 @@ const AllUsersManagementTable: FC<IProps> = async ({ data, totalPages, currentPa
     <TableContainer
       elevation={0}
       component={Paper}
-      className="!rounded-3xl pt-3 pb-8"
+      className="!rounded-3xl pt-3 pb-8 dark:!bg-background"
     >
       <Table sx={{ minWidth: 650 }} aria-label="reserves table">
         <TableHead>
           <TableRow>
             <TableCell
+              className="dark:!text-whiteColor"
               align="right"
               sx={{
                 px: 4,
@@ -45,6 +46,7 @@ const AllUsersManagementTable: FC<IProps> = async ({ data, totalPages, currentPa
               نام کاربر
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -57,6 +59,7 @@ const AllUsersManagementTable: FC<IProps> = async ({ data, totalPages, currentPa
               ایمیل
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{
                 py: 3,
@@ -69,18 +72,21 @@ const AllUsersManagementTable: FC<IProps> = async ({ data, totalPages, currentPa
               شماره تماس
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, px: 0, fontWeight: "bold", fontSize: 16 }}
             >
               نقش کاربر
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, px: 5, fontWeight: "bold", fontSize: 16 }}
             >
               تاریخ ساخت
             </TableCell>
             <TableCell
+            className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, fontWeight: "bold", fontSize: 16 }}
             >
@@ -92,7 +98,7 @@ const AllUsersManagementTable: FC<IProps> = async ({ data, totalPages, currentPa
           {data.map((items) => (
             <TableRow
               key={items.id}
-              className="hover:!bg-lightPrimary transition-colors"
+              className="hover:!bg-lightPrimary transition-colors dark:hover:!bg-dark"
             >
               <TableCell
                 component="th"
@@ -101,7 +107,7 @@ const AllUsersManagementTable: FC<IProps> = async ({ data, totalPages, currentPa
                 align="right"
                 sx={{ width: "240px", px: 4, py: 2 }}
               > 
-              <div className="flex gap-2 items-center text-primary">
+              <div className="flex gap-2 items-center text-primary dark:text-thidary">
                 <div className="size-[40px] rounded-full overflow-hidden">
                    <Image
                       src={
@@ -119,16 +125,16 @@ const AllUsersManagementTable: FC<IProps> = async ({ data, totalPages, currentPa
                 {items.fullName === 'نام کاربر' ? 'کاربر بدون نام' : items.fullName || '--------------------'}
               </div>
               </TableCell>
-              <TableCell align="right" sx={{ px: 0, py: 2 }}>
+              <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                 {items.email || '--------------------------------------------'}
               </TableCell>
-              <TableCell align="right" sx={{ px: 0, py: 2 }}>
+              <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                 {items.phoneNumber || '-----------------'}
               </TableCell>
-              <TableCell align="right" className="!px-8" sx={{ px: 0, py: 2 }}>
+              <TableCell  align="right" className="!px-8 dark:!text-whiteColor" sx={{ px: 0, py: 2 }}>
                 {items.role === 'buyer' ? 'خریدار' : items.role === 'seller' ? 'فروشنده' : 'ادمین'}
               </TableCell>
-              <TableCell align="right" className="!px-8" sx={{ px: 0, py: 2 }}>
+              <TableCell  align="right" className="!px-8 dark:!text-whiteColor" sx={{ px: 0, py: 2 }}>
                 {items.createdAt.slice(0, 10)} - {items.createdAt.slice(11, 16)}
               </TableCell>
               <TableCell

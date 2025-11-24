@@ -15,7 +15,7 @@ const UserInput: FC<IProps> = ({ lable, placeholder, name, customClass }) => {
         type="text"
         name={name}
         placeholder={placeholder}
-        className={`text-dark p-2.5 outline-0 indent-2 bg-whiteColor rounded-[16px] border border-borderColor w-full 
+        className={`text-dark p-2.5 outline-0 indent-2 bg-whiteColor dark:bg-background dark:border-thidary dark:text-whiteColor rounded-[16px] border border-borderColor w-full 
           ${customClass}
           `}
       />

@@ -130,10 +130,10 @@ const EditHouseModal: FC<IProps> = ({
       <Box
         className="
           absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-          w-[520px] max-h-[90vh] overflow-y-auto bg-whiteColor rounded-3xl p-6 shadow-2xl
+          w-[520px] max-h-[90vh] overflow-y-auto bg-whiteColor dark:bg-dark rounded-3xl p-6 shadow-2xl
         "
       >
-        <h3 className="text-primary text-[24px] font-bold text-center">
+        <h3 className="text-primary text-[24px] font-bold dark:text-thidary">
           ویرایش خانه
         </h3>
         <button
@@ -235,7 +235,7 @@ const EditHouseModal: FC<IProps> = ({
           <div className="space-y-2">
             <h3 className="font-bold text-dark text-[16px]">دسته بندی</h3>
             <select
-              className="bg-lightGray w-full p-3 text-primary rounded-[40px]"
+              className="bg-lightGray dark:bg-gray dark:text-whiteColor w-full p-3 text-primary rounded-[40px]"
               name="categories"
               value={category}
               onChange={(event) => setCategory(event.target.value)}
@@ -250,7 +250,7 @@ const EditHouseModal: FC<IProps> = ({
           <div className="space-y-2">
             <h3 className="font-bold text-dark text-[16px]">نوع حیاط</h3>
             <select
-              className="bg-lightGray w-full p-3 text-primary rounded-[40px]"
+              className="bg-lightGray dark:bg-gray dark:text-whiteColor w-full p-3 text-primary rounded-[40px]"
               name="yard_type"
               value={houseYardType}
               onChange={(event) => setHouseYardType(event.target.value)}
@@ -264,7 +264,7 @@ const EditHouseModal: FC<IProps> = ({
           <div className="space-y-2">
             <h3 className="font-bold text-dark text-[16px]">نوع معامله</h3>
             <select
-              className="bg-lightGray w-full p-3 text-primary rounded-[40px]"
+              className="bg-lightGray dark:bg-gray dark:text-whiteColor w-full p-3 text-primary rounded-[40px]"
               name="transaction_type"
               value={transactionType}
               onChange={(event) => setTransactionType(event.target.value)}

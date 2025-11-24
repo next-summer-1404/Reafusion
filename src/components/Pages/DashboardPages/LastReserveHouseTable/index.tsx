@@ -22,32 +22,32 @@ const LastReserveHousesTable = async () => {
     <div className="pt-6" dir="rtl">
       <TableContainer
         component={Paper}
-        className="!rounded-3xl !shadow-none"
+        className="!rounded-3xl !shadow-none dark:!bg-background"
         sx={{ overflow: "hidden" }}
       >
         <Table aria-label="جدول مشخصات مسافران">
           <TableHead>
             <TableRow>
               <TableCell
-                className="!text-dark !font-bold w-[30%]"
+                className="!text-dark dark:!text-whiteColor !font-bold w-[30%]"
                 align="right"
               >
                 نام اقامتگاه
               </TableCell>
               <TableCell
-                className="!text-dark !font-bold w-[28%]"
+                className="!text-dark dark:!text-whiteColor !font-bold w-[28%]"
                 align="right"
               >
                 تاریخ رزرو
               </TableCell>
               <TableCell
-                className="!text-dark !font-bold w-[30%]"
+                className="!text-dark dark:!text-whiteColor !font-bold w-[30%]"
                 align="right"
               >
                 قیمت
               </TableCell>
               <TableCell
-                className="!text-dark !font-bold w-[15%]"
+                className="!text-dark dark:!text-whiteColor !font-bold w-[15%]"
                 align="right"
               >
                 وضعیت
@@ -64,26 +64,26 @@ const LastReserveHousesTable = async () => {
               >
                 <TableCell
                   align="right"
-                  className="!border-borderColor !text-dark"
+                  className="!border-borderColor !text-dark dark:!text-whiteColor"
                   component="th"
                   scope="row"
                 >
                   {items.house.title}
                 </TableCell>
                 <TableCell
-                  className="!border-borderColor !text-dark"
+                  className="!border-borderColor !text-dark dark:!text-whiteColor"
                   align="right"
                 >
                   {items.createdAt.slice(0,10)} - {items.createdAt.slice(11,16)}
                 </TableCell>
                 <TableCell
-                  className="!border-borderColor !text-dark"
+                  className="!border-borderColor !text-dark dark:!text-whiteColor"
                   align="right"
                 >
                   {items.house.price} تومان
                 </TableCell>
                 <TableCell
-                  className="!border-borderColor !text-dark"
+                  className="!border-borderColor !text-dark dark:!text-whiteColor"
                   align="right"
                 >
                   <CustomBadge title={items.status}/>

@@ -88,10 +88,10 @@ const Dashboard = async () => {
       </div>
       {/* the chart of the compelet userInfo & Income chart end */}
       {/* last reserve houses */}
-      <div className="bg-whiteColor rounded-[24px] border border-lightGray w-full px-6 py-6">
+      <div className="bg-whiteColor dark:bg-background rounded-[24px] border border-lightGray  dark:border-none w-full px-6 py-6">
         <div className="flex justify-between">
-            <h3 className="text-[20px] text-dark font-bold">رزرو های اخیر</h3>
-            <Link href={'/dashboard/reservesManagment'} className="text-gray text-[16px] hover:text-primary cursor-pointer">مشاهده همه</Link>
+            <h3 className="text-[20px] text-dark dark:text-whiteColor font-bold">رزرو های اخیر</h3>
+            <Link href={'/dashboard/reservesManagment'} className="text-gray dark:text-lightGray dark:hover:text-thidary text-[16px] hover:text-primary cursor-pointer">مشاهده همه</Link>
         </div>
         <LastReserveHousesTable />
       </div>

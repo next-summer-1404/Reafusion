@@ -99,7 +99,7 @@ const ActionMenuButton: FC<IProps> = ({ houseId, reserveId, tokenValue, role }) 
         onClick={handleClick}
         className="mx-auto p-1 rounded-full hover:bg-gray-100 transition-colors cursor-pointer"
       >
-        <EllipsisVertical className="text-gray-500 hover:text-primary transition-colors" size={20} />
+        <EllipsisVertical className="text-primary dark:text-thidary hover:text-primary transition-colors" size={20} />
       </button>
 
       <Menu

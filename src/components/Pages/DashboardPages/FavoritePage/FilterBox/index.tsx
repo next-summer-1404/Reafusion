@@ -15,7 +15,7 @@ const FilterBox = () => {
 
   return (
     <div>
-        <select value={order} onChange={(event) => setOrder(event.target.value)} className='bg-white p-3 border border-borderColor rounded-[16px] cursor-pointer'>
+        <select value={order} onChange={(event) => setOrder(event.target.value)} className='bg-white dark:bg-background dark:text-whiteColor p-3 border border-borderColor rounded-[16px] cursor-pointer'>
             <option value="">دسته بندی ها</option>
             <option value="ASC">سعودی</option>
             <option value="DESC">نزولی</option>

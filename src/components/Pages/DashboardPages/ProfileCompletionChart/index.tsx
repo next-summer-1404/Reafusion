@@ -9,10 +9,10 @@ interface IProps {
 
 const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage, role }) => {
   return (
-    <div className={`${role === 'buyer' ? 'w-[100%]' : 'w-[50%] max-sm:w-full'} bg-whiteColor rounded-3xl p-5`}>
+    <div className={`${role === 'buyer' ? 'w-[100%]' : 'w-[50%] max-sm:w-full'} bg-whiteColor dark:bg-background rounded-3xl p-5`}>
       <div className="flex max-md:flex-col gap-4 justify-between items-center">
         <div>
-          <h3 className="text-dark font-bold text-[20px]">
+          <h3 className="text-dark dark:text-whiteColor font-bold text-[20px]">
             نمودار تکمیل پروفایل
           </h3>
           <h4 className="text-gray text-[16px] pt-2">
@@ -21,7 +21,7 @@ const ProfileCompletionChart: FC<IProps> = ({ additionalPercentage, role }) => {
         </div>
         <Link
           href={"/dashboard/profile"}
-          className="border border-borderColor h-[42px] px-4 rounded-[40px] flex justify-center items-center cursor-pointer hover:bg-primary hover:text-whiteColor hover:border-primary transition-all duration-200"
+          className="border border-borderColor dark:border-primary dark:text-primary h-[42px] px-4 rounded-[40px] flex justify-center items-center cursor-pointer hover:bg-primary hover:text-whiteColor hover:border-primary transition-all duration-200"
         >
           ویرایش پروفایل
         </Link>

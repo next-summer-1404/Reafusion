@@ -15,13 +15,13 @@ const DashboardLayout: FC<IProps> = async ({ children }) => {
     const decodToken = JSON.parse(Buffer.from(tokenValue.split(".")[1], 'base64url').toString('utf-8'));
     
     return (
-        <ScrollReveal className='p-8 max-lg:p-4 bg-whiteColor text-dark flex gap-8 h-screen max-h-screen'>
+        <ScrollReveal className='p-8 max-lg:p-4 bg-whiteColor dark:bg-primary text-dark flex gap-8 h-screen max-h-screen'>
             <DashboardMenu className='max-lg:hidden' role={decodToken.role}/>
 
             {/* main layout */}
             <div className='flex flex-col gap-8 xl:w-[80%] lg:w-[75%] max-lg:w-full'>
                 <DashboardHeader role={decodToken.role}/>
-                <div className='h-full overflow-scroll p-6 bg-lightGray border border-borderColor rounded-[40px]'>
+                <div className='h-full overflow-scroll p-6 bg-lightGray dark:bg-dark dark:border-thidary border border-borderColor rounded-[40px]'>
                     {children}
                 </div>
             </div>

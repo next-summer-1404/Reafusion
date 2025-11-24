@@ -35,7 +35,7 @@ const DeleteConfirmModal: FC<IProps> = ({ open, onClose, houseId, tokenValue }) 
       <Box
         className="
           absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-          w-[500px] h-[270px] bg-white rounded-3xl p-6 shadow-2xl
+          w-[500px] h-[270px] bg-white dark:bg-dark rounded-3xl p-6 shadow-2xl
           flex flex-col items-center text-center gap-4
         "
         dir="rtl"
@@ -48,10 +48,10 @@ const DeleteConfirmModal: FC<IProps> = ({ open, onClose, houseId, tokenValue }) 
           <X size={30} className="text-gray" />
         </button>
         <div className="w-full pt-[13%] space-y-6">
-          <h3 className="text-[24px] font-bold text-dark">
+          <h3 className="text-[24px] font-bold text-dark dark:text-whiteColor">
             آیا از حذف مطمئن هستید؟
           </h3>
-          <p className="text-[16px] text-gray">
+          <p className="text-[16px] text-gray dark:text-lightGray">
             امکان برگشت پس از حذف وجود ندارد!
           </p>
           <div className="flex gap-3 w-full">

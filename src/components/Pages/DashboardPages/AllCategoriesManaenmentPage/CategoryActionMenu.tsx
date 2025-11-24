@@ -81,7 +81,7 @@ const CategoryActionMenu: FC<IProps> = ({ token, id, currentName = "" }) => {
         onClick={handleClick}
         className="p-2 hover:bg-whiteColor rounded-full transition-all duration-200 group cursor-pointer"
       >
-        <EllipsisVertical size={20} className="text-primary" />
+        <EllipsisVertical size={20} className="text-primary dark:!text-thidary" />
       </button>
 
       {/* منوی اصلی */}
@@ -127,16 +127,16 @@ const CategoryActionMenu: FC<IProps> = ({ token, id, currentName = "" }) => {
           },
         }}
       >
-        <div className="flex items-center justify-between pl-3">
-          <DialogTitle className="text-[20px] font-bold text-primary">
+        <div className="flex items-center justify-between pl-3 dark:bg-dark">
+          <DialogTitle className="text-[20px] font-bold text-primary dark:text-thidary">
             ویرایش دسته‌بندی
           </DialogTitle>
           <IconButton onClick={() => setOpenEditModal(false)}>
-            <X size={24} />
+            <X size={24} className="dark:!text-whiteColor"/>
           </IconButton>
         </div>
 
-        <DialogContent className="p-6">
+        <DialogContent className="p-6 dark:bg-dark">
           <form action={formAction} className="space-y-6">
             <Input
               name="name"

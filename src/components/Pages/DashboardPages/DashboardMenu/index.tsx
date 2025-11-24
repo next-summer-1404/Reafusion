@@ -49,13 +49,13 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
     // link list with icon end
 
     return (
-        <div className={`flex flex-col gap-8 py-8 bg-lightGray
-         border border-borderColor rounded-[40px] max-lg:rounded-none lg:w-[25%] xl:w-[20%]
+        <div className={`flex flex-col gap-8 py-8 bg-lightGray dark:bg-dark
+         border border-borderColor dark:border-thidary rounded-[40px] max-lg:rounded-none lg:w-[25%] xl:w-[20%]
 
           ${className}
           `}>
             {/* logo */}
-            <div className="flex gap-4 items-center px-8">
+            <div className="flex gap-4 items-center px-8 dark:text-whiteColor">
                 <Image className="rounded-full size-11" alt="" src={logo} width={32} height={32} />
                 <span className="text-[32px] font-bold">ریفیوژن</span>
             </div>
@@ -65,7 +65,7 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
             <div className="flex flex-col px-8 max-xl:px-4 gap-8 overflow-y-auto">
                 {/* menu group */}
                 <div className="flex flex-col gap-4">
-                    <span className="text-sm text-primary">منو</span>
+                    <span className="text-sm text-primary dark:text-thidary">منو</span>
                     {/* navigation */}
                     <ul className="flex flex-col gap-6">
                         {menuItems.slice(0, 3).map((item, index) => (
@@ -73,11 +73,11 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
                                 <Link
                                     href={item.href}
                                     className={`flex gap-4 items-center ${pathname === item.href
-                                        ? 'font-bold text-primary'
-                                        : 'text-dark'
+                                        ? 'font-bold text-primary  dark:text-thidary'
+                                        : 'text-dark dark:text-whiteColor'
                                         }`}
                                 >
-                                    <span className={pathname === item.href ? 'text-primary' : 'text-dark'}>{item.icon}</span>
+                                    <span className={pathname === item.href ? 'text-primary  dark:text-thidary' : 'text-dark dark:text-whiteColor'}>{item.icon}</span>
                                     <span>{item.label}</span>
                                 </Link>
                             </li>
@@ -89,7 +89,7 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
 
                 {/* group */}
                 <div className="flex flex-col gap-4">
-                    <span className="text-sm text-primary">مدیریت</span>
+                    <span className="text-sm text-primary dark:text-thidary">مدیریت</span>
                     {/* navigation */}
                     <ul className="flex flex-col gap-6">
                         {menuItems.slice(3, 9).map((item, index) => (
@@ -97,12 +97,12 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
                                 <Link
                                     href={item.href}
                                     className={`flex gap-4 items-center ${pathname === item.href
-                                        ? 'font-bold text-primary'
-                                        : 'text-dark'
+                                        ? 'font-bold text-primary dark:text-thidary'
+                                        : 'text-dark dark:text-whiteColor'
                                         }`}
                                 >
-                                    <span className={pathname === item.href ? 'text-primary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark'}>{item.icon}</span>
-                                    <span className={pathname === item.href ? 'text-primary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark'}>{item.label}</span>
+                                    <span className={pathname === item.href ? 'text-primary dark:text-thidary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark dark:text-whiteColor'}>{item.icon}</span>
+                                    <span className={pathname === item.href ? 'text-primary dark:text-thidary' : item.label === 'خروج از حساب' ? 'text-red' : 'text-dark dark:text-whiteColor'}>{item.label}</span>
                                 </Link>
                             </li>
                         ))}
@@ -112,7 +112,7 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
                 {/* menu group end */}
                 {/* group */}
                 <div className="flex flex-col gap-4">
-                    <span className="text-sm text-primary">مدیریت سایت ( ادمین ) </span>
+                    <span className="text-sm text-primary dark:text-thidary">مدیریت سایت ( ادمین ) </span>
                     {/* navigation */}
                     <ul className="flex flex-col gap-6">
                         {menuItems.slice(9).map((item, index) => (
@@ -120,11 +120,11 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
                                 <Link
                                     href={item.href}
                                     className={`flex gap-4 items-center ${pathname === item.href
-                                        ? 'font-bold text-primary'
-                                        : 'text-dark'
+                                        ? 'font-bold text-primary dark:text-thidary'
+                                        : 'text-dark dark:text-whiteColor'
                                         }`}
                                 >
-                                    <span className={pathname === item.href ? 'text-primary' : 'text-dark'}>{item.icon}</span>
+                                    <span className={pathname === item.href ? 'text-primary dark:text-thidary' : 'text-dark dark:text-whiteColor'}>{item.icon}</span>
                                     <span>{item.label}</span>
                                 </Link>
                             </li>

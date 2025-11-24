@@ -23,7 +23,7 @@ const CommentsManagementPage: FC<ICommentsManagement> = async ({ searchParams })
   return (
     <div className="space-y-5">
       <div className="flex justify-between">
-        <h3 className="text-dark font-bold text-[20px]">
+        <h3 className="text-dark font-bold dark:text-whiteColor text-[20px]">
           مدیریت نظرات کاربران ( {totalCount} )
         </h3>
         <CommentFilterBox />

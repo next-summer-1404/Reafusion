@@ -105,7 +105,7 @@ const PaymentActionMenu: FC<IProps> = ({
         onClick={handleClick}
         className="p-2 hover:bg-whiteColor rounded-full transition-all duration-200 group cursor-pointer"
       >
-        <EllipsisVertical size={20} className="text-primary" />
+        <EllipsisVertical size={20} className="text-primary dark:text-thidary" />
       </button>
 
       {/* منوی اصلی */}
@@ -158,15 +158,15 @@ const PaymentActionMenu: FC<IProps> = ({
           },
         }}
       >
-        <div className="flex items-center justify-between py-2">
-          <DialogTitle className="text-[22px] font-bold text-primary">
+        <div className="flex items-center justify-between py-2 dark:bg-dark">
+          <DialogTitle className="text-[22px] font-bold text-primary dark:text-thidary">
             ویرایش پرداخت
           </DialogTitle>
-          <IconButton className="!ml-3" onClick={() => setOpenEditModal(false)}>
+          <IconButton className="!ml-3 dark:!text-whiteColor" onClick={() => setOpenEditModal(false)}>
             <X size={24} />
           </IconButton>
         </div>
-        <DialogContent className="p-6">
+        <DialogContent className="p-6 dark:bg-dark">
           <form action={formAction} className="space-y-6">
             <Input
               value={amount}
@@ -183,9 +183,9 @@ const PaymentActionMenu: FC<IProps> = ({
               name="description"
             />
             <div className="space-y-2">
-              <h3 className="font-bold text-dark text-[16px]">وضعیت پرداخت</h3>
+              <h3 className="font-bold dark:text-whiteColor text-dark text-[16px]">وضعیت پرداخت</h3>
               <select
-                className="bg-lightGray w-full p-3 text-primary rounded-[40px]"
+                className="bg-lightGray dark:bg-gray dark:text-whiteColor w-full p-3 text-primary rounded-[40px]"
                 name="status"
                 value={status}
                 onChange={(event) => setStatus(event.target.value)}

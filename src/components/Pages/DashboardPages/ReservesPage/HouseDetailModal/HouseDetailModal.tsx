@@ -35,10 +35,10 @@ export default function HouseDetailModal({ houseId, activeSubModal, houseDetail,
     <>
       {/* Main Modal */}
       <div className="fixed inset-0 bg-gray-500/50 z-50 flex justify-center items-center">
-        <Box className="w-[80%] h-[90%] max-h-[90%] bg-white flex flex-col rounded-3xl text-dark py-8 gap-8 overflow-hidden">
+        <Box className="w-[80%] h-[90%] max-h-[90%] bg-white dark:bg-dark flex flex-col rounded-3xl text-dark py-8 gap-8 overflow-hidden">
           {/* Header */}
           <div className='flex justify-between items-center px-8'>
-            <h3 className='font-bold text-2xl text-primary'>جزئیات اقامتگاه</h3>
+            <h3 className='font-bold text-2xl text-primary dark:text-thidary'>جزئیات اقامتگاه</h3>
             <Link
               href="?"
               className='size-12 rounded-full flex justify-center items-center bg-lightGray hover:scale-110 transition-all'
@@ -59,15 +59,15 @@ export default function HouseDetailModal({ houseId, activeSubModal, houseDetail,
                 className='w-[40%] h-[300px] rounded-3xl border border-borderColor object-cover'
               />
               <div className='w-[60%] flex flex-col gap-3'>
-                <h2 className='truncate font-bold text-xl'>{houseDetail.title}</h2>
-                <div className='flex items-center gap-2 text-gray'>
+                <h2 className='truncate font-bold dark:text-lightGray text-xl'>{houseDetail.title}</h2>
+                <div className='flex items-center gap-2 text-gray dark:text-lightGray'>
                   <MapPin size={20} strokeWidth={1.5} />
                   <p className='truncate'>{houseDetail.address}</p>
                 </div>
-                <p className='line-clamp-6 leading-[32px] text-justify'>
+                <p className='line-clamp-6 leading-[32px] text-justify dark:text-lightGray'>
                   {houseDetail.caption}
                 </p>
-                <div className='flex gap-2 items-center justify-end text-primary'>
+                <div className='flex gap-2 items-center justify-end text-primary  dark:text-thidary'>
                   <span className='font-bold text-2xl'>{houseDetail.price.toLocaleString()}</span>
                   <span>تومان</span>
                 </div>

@@ -30,13 +30,14 @@ const PlaceTable: FC<IProps> = async ({ houses, totalPages, currentPage }) => {
     <TableContainer
       elevation={0}
       component={Paper}
-      className="!rounded-3xl pt-3 pb-8"
+      className="!rounded-3xl pt-3 pb-8 dark:!bg-background"
     >
       <Table sx={{ minWidth: 650 }} aria-label="reserves table">
         <TableHead>
           <TableRow>
             <TableCell
               align="right"
+              className="dark:!text-whiteColor"
               sx={{
                 px: 4,
                 py: 3,
@@ -49,6 +50,7 @@ const PlaceTable: FC<IProps> = async ({ houses, totalPages, currentPage }) => {
             </TableCell>
             <TableCell
               align="right"
+              className="dark:!text-whiteColor"
               sx={{
                 py: 3,
                 px: 0,
@@ -61,6 +63,7 @@ const PlaceTable: FC<IProps> = async ({ houses, totalPages, currentPage }) => {
             </TableCell>
             <TableCell
               align="right"
+              className="dark:!text-whiteColor"
               sx={{
                 py: 3,
                 px: 0,
@@ -72,12 +75,14 @@ const PlaceTable: FC<IProps> = async ({ houses, totalPages, currentPage }) => {
               قیمت
             </TableCell>
             <TableCell
+              className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, px: 2, fontWeight: "bold", fontSize: 16 }}
             >
                نوع خانه
             </TableCell>
             <TableCell
+              className="dark:!text-whiteColor"
               align="right"
               sx={{ py: 3, fontWeight: "bold", fontSize: 16 }}
             >
@@ -104,7 +109,7 @@ const PlaceTable: FC<IProps> = async ({ houses, totalPages, currentPage }) => {
             houses.map((house) => (
               <TableRow
                 key={house.id}
-                className="hover:!bg-lightPrimary transition-colors"
+                className="hover:!bg-lightPrimary dark:hover:!bg-dark transition-colors"
               >
                 <TableCell
                   component="th"
@@ -113,7 +118,7 @@ const PlaceTable: FC<IProps> = async ({ houses, totalPages, currentPage }) => {
                   align="right"
                   sx={{ px: 4, py: 2 }}
                 >
-                  <div className="flex gap-3 items-center text-primary">
+                  <div className="flex gap-3 items-center text-primary dark:!text-thidary">
                     <Image
                       src={house.photos?.[0] || EmptyImage}
                       alt="houseImage"
@@ -124,15 +129,15 @@ const PlaceTable: FC<IProps> = async ({ houses, totalPages, currentPage }) => {
                     <h3>{house.title}</h3>
                   </div>
                 </TableCell>
-                <TableCell align="right" sx={{ px: 0, py: 2 }}>
+                <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                   {house.address}
                 </TableCell>
-                <TableCell align="right" sx={{ px: 0, py: 2 }}>
+                <TableCell className="dark:!text-whiteColor" align="right" sx={{ px: 0, py: 2 }}>
                   {house.price.toLocaleString()} تومان
                 </TableCell>
                 <TableCell
                   align="right"
-                  className="!px-8"
+                  className="!px-8 dark:!text-whiteColor"
                   sx={{ px: 0, py: 2 }}
                 >
                   {house.transaction_type === 'rental' ? 'اجاره' : house.transaction_type === 'mortgage' ? 'رهن' : 'رزرو' }
