@@ -1,5 +1,6 @@
 import CommentFilterBox from "@/components/Pages/DashboardPages/CommentsManagementPage/CommentFilterBox";
 import CommentsTable from "@/components/Pages/DashboardPages/CommentsManagementPage/CommentsTable";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { GetAllCommentsList } from "@/core/Apis/Dashboard/GetAllCommentsList";
 import { IAllCommentsList } from "@/core/types/IAllCommentsList";
 import { AxiosResponse } from "axios";
@@ -21,7 +22,7 @@ const CommentsManagementPage: FC<ICommentsManagement> = async ({ searchParams })
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (
-    <div className="space-y-5">
+    <ScrollReveal className="space-y-5">
       <div className="flex justify-between">
         <h3 className="text-dark font-bold dark:text-whiteColor text-[20px]">
           مدیریت نظرات کاربران ( {totalCount} )
@@ -29,7 +30,7 @@ const CommentsManagementPage: FC<ICommentsManagement> = async ({ searchParams })
         <CommentFilterBox />
       </div>
       <CommentsTable data={data} totalPages={totalPages} currentPage={currentPage}/>
-    </div>
+    </ScrollReveal>
   );
 };
 

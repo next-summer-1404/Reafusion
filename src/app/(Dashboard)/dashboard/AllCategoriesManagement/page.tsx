@@ -1,6 +1,7 @@
 import AddCategoryModal from '@/components/Pages/DashboardPages/AllCategoriesManaenmentPage/AddCategoryModal';
 import CategoryTable from '@/components/Pages/DashboardPages/AllCategoriesManaenmentPage/CategoryTable';
 import AllPaymentManagementFilterBox from '@/components/Pages/DashboardPages/AllPaymentManagementPage/FilterBox/AllPaymentManagementsFilter';
+import ScrollReveal from '@/components/Ui/Animations/ScrollReveal';
 import FillButton from '@/components/Ui/Buttons/FillButton';
 import { GetAllCategorys } from '@/core/Apis/Dashboard/GetAllCategorys';
 import { ICategoryResponse } from '@/core/types/ICategoriesResponse';
@@ -33,7 +34,7 @@ const AllCategoriesManagementPage: FC<IAllCategoriesManagement> = async ({ searc
   const addCategoryUrl = `?${params.toString()}`;
 
   return (
-    <div className='space-y-5'>
+    <ScrollReveal className='space-y-5'>
       <div className="flex justify-between flex-wrap gap-3">
         <h3 className="text-dark dark:text-whiteColor font-bold text-[20px]">
           مدیریت تمامی دسته بندی ها ( {totalCount} )
@@ -48,7 +49,7 @@ const AllCategoriesManagementPage: FC<IAllCategoriesManagement> = async ({ searc
       <CategoryTable data={data} totalPages={totalPages} currentPage={currentPage}/>
 
       <AddCategoryModal open={isAddModalOpen} searchParams={searchParams} />
-    </div>
+    </ScrollReveal>
   )
 }
 

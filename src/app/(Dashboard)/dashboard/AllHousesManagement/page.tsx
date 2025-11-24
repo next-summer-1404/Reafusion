@@ -1,5 +1,6 @@
 import AllHousesTable from '@/components/Pages/DashboardPages/AllHouseManagement/AllHousesTable'
 import AllPaymentManagementFilterBox from '@/components/Pages/DashboardPages/AllPaymentManagementPage/FilterBox/AllPaymentManagementsFilter'
+import ScrollReveal from '@/components/Ui/Animations/ScrollReveal'
 import { GetAllHousesAdmin } from '@/core/Apis/Dashboard/GetAllHouses'
 import { IHouse } from '@/core/types/IHouse'
 import { AxiosResponse } from 'axios'
@@ -26,7 +27,7 @@ const AllHousesManagementPage: FC<IAllHousesManaegment> = async ({ searchParams 
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (
-    <div className='space-y-5'>
+    <ScrollReveal className='space-y-5'>
       <div className="flex justify-between">
         <h3 className="text-dark dark:text-whiteColor font-bold text-[20px]">
           مدیریت تمامی ملک ها ( {totalCount} )
@@ -34,7 +35,7 @@ const AllHousesManagementPage: FC<IAllHousesManaegment> = async ({ searchParams 
         <AllPaymentManagementFilterBox />
       </div>
       <AllHousesTable data={data} totalPages={totalPages} currentPage={currentPage}/>
-    </div>
+    </ScrollReveal>
   )
 }
 

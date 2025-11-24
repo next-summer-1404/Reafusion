@@ -1,5 +1,6 @@
 import DocumentsTable from "@/components/Pages/DashboardPages/AllDocumentManagement/DocumentsTable";
 import AllPaymentManagementFilterBox from "@/components/Pages/DashboardPages/AllPaymentManagementPage/FilterBox/AllPaymentManagementsFilter";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { GetAllDocuments } from "@/core/Apis/Dashboard/GetAllDocuments";
 import { IDocumentResponse } from "@/core/types/IDocumentsResponse";
 import { AxiosResponse } from "axios";
@@ -21,7 +22,7 @@ const AllDocumentsManagementPage: FC<IAllDocumentsManaegment> = async ({ searchP
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (
-    <div className="space-y-6">
+    <ScrollReveal className="space-y-6">
       <div className="flex justify-between">
         <h3 className="text-dark dark:text-whiteColor font-bold text-[20px]">
           مدیریت تمامی سند ها ( {totalCount} )
@@ -29,7 +30,7 @@ const AllDocumentsManagementPage: FC<IAllDocumentsManaegment> = async ({ searchP
         <AllPaymentManagementFilterBox />
       </div>
       <DocumentsTable documents={documents} totalPages={totalPages} currentPage={currentPage}/>
-    </div>
+    </ScrollReveal>
   );
 };
 

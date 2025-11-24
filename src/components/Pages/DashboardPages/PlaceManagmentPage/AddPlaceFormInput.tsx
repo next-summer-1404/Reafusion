@@ -18,7 +18,7 @@ const AddPlaceFormInput: FC<IProps> = ({ label, placeHolder, type, className, va
         value={value}
         onChange={(event) => setState && setState(event.target.value)}
         placeholder={placeHolder}
-        className={`bg-whiteColor rounded-[16px] outline-0 text-primary placeholder:text-gray border border-borderColor p-3 indent-2 w-full ${className}`}
+        className={`bg-whiteColor dark:bg-background dark:text-thidary rounded-[16px] outline-0 text-primary placeholder:text-gray border border-borderColor p-3 indent-2 w-full ${className}`}
       />
     </div>
   );

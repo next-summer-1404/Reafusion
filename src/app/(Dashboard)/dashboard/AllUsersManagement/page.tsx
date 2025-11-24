@@ -1,5 +1,6 @@
 import AllUsersManagementTable from "@/components/Pages/DashboardPages/AllUsersManagment/AllUsersManagmentTable";
 import UsersManagmentFilters from "@/components/Pages/DashboardPages/AllUsersManagment/UsersManagmentFilters";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { ManageAllUsers } from "@/core/Apis/Dashboard/ManageAllUsers";
 import { IAllUsersResponse } from "@/core/types/IAllUsersResponse";
 import { AxiosResponse } from "axios";
@@ -27,7 +28,7 @@ const AllUsersManagementPage: FC<IAllUserManagement> = async ({ searchParams }) 
   // the call api for get the all user list end
 
   return (
-    <div className="space-y-6">
+    <ScrollReveal className="space-y-6">
       <div className="flex justify-between max-sm:flex-col max-sm:gap-4">
         <h3 className="text-dark font-bold text-[20px] dark:text-whiteColor">
           مدیریت تمامی کاربران ( {totalCount} )
@@ -35,7 +36,7 @@ const AllUsersManagementPage: FC<IAllUserManagement> = async ({ searchParams }) 
         <UsersManagmentFilters />
       </div>
       <AllUsersManagementTable data={data} totalPages={totalPages} currentPage={currentPage}/>
-    </div>
+    </ScrollReveal>
   );
 };
 

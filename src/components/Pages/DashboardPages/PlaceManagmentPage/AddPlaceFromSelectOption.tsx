@@ -17,8 +17,8 @@ interface DynamicSelectOptionProps {
 const AddPlaceFromSelectOption: FC<DynamicSelectOptionProps> = ({ label, options, value, setState }) => {
   return (
     <div className="flex flex-col gap-4 w-[48.5%] 2xl:w-[48.2%] max-2xl:w-[48.2%] max-xl:w-[47.5%] max-lg:w-[47.7%] max-md:w-[47.1%] max-sm:w-full">
-      <h3>{label}</h3>
-      <select value={value} onChange={(event) => setState && setState(event.target.value)} className="bg-whiteColor rounded-[16px] outline-0 text-primary placeholder:text-gray border border-borderColor p-3 w-full">
+      <h3 className="dark:text-whiteColor">{label}</h3>
+      <select value={value} onChange={(event) => setState && setState(event.target.value)} className="bg-whiteColor dark:bg-background dark:text-thidary rounded-[16px] outline-0 text-primary placeholder:text-gray border border-borderColor p-3 w-full">
         {options.map((items, index) => (
           <option key={index} value={items.value}>
             {items.label}

@@ -119,10 +119,10 @@ const AddHouseForm = () => {
     <ScrollReveal>
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-2xl font-bold text-dark">مدیریت املاک</h2>
+        <h2 className="text-2xl font-bold text-dark dark:text-whiteColor">مدیریت املاک</h2>
         <button
           onClick={handleClose}
-          className="text-primary flex gap-3 cursor-pointer"
+          className="text-primary dark:text-thidary flex gap-3 cursor-pointer"
         >
           رفتن به لیست املاک
           <ChevronLeft size={24} />
@@ -138,14 +138,14 @@ const AddHouseForm = () => {
           >
             <div
               className={`min-w-[124px] min-h-[48px] max-sm:w-full rounded-[16px] flex justify-center items-center ${currentStep >= step.id
-                ? "text-primary border-2 border-primary"
-                : "text-gray border border-gray"
+                ? "text-primary dark:text-thidary border-2 border-primary dark:border-thidary"
+                : "text-gray dark:text-lightGray border border-gray dark:border-lightGray"
                 }`}
             >
               {step.title}
             </div>
             {index < steps.length - 1 && (
-              <div className="w-full h-0.5 bg-gray mx-2 max-sm:hidden"></div>
+              <div className="w-full h-0.5 bg-gray dark:bg-lightGray mx-2 max-sm:hidden"></div>
             )}
           </div>
         ))}
@@ -205,7 +205,7 @@ const AddHouseForm = () => {
             <textarea
               value={caption}
               onChange={(event) => setCaption(event.target.value)}
-              className="bg-whiteColor rounded-[16px] outline-0 text-primary placeholder:text-gray border border-borderColor p-3 w-full min-h-[150px]"
+              className="bg-whiteColor dark:bg-background dark:text-thidary rounded-[16px] outline-0 text-primary placeholder:text-gray border border-borderColor p-3 w-full min-h-[150px]"
               placeholder="توضیحات خانه خود را بنویسید..."
             />
           </div>
@@ -279,13 +279,13 @@ const AddHouseForm = () => {
         {currentStep === 4 &&
           <div className="space-y-4">
             <div className="space-y-3">
-              <h3 className="text-dark font-bold text-[20px]">{title || '---'}</h3>
-              <h3 className="flex gap-1 text-gray text-[16px]"><LocationEditIcon size={19} /> {address}</h3>
-              <p className="text-dark text-[16px] text-justify">{caption}</p>
-              <h3 className="text-dark text-[24px]  font-bold">{price} <span className="font-normal text-[16px]">تومان</span></h3>
+              <h3 className="text-dark dark:text-whiteColor font-bold text-[20px]">{title || '---'}</h3>
+              <h3 className="flex gap-1 text-gray dark:text-lightGray text-[16px]"><LocationEditIcon size={19} /> {address}</h3>
+              <p className="text-dark dark:text-whiteColor text-[16px] text-justify">{caption}</p>
+              <h3 className="text-dark dark:text-whiteColor text-[24px]  font-bold">{price} <span className="font-normal text-[16px]">تومان</span></h3>
             </div>
             <div className="space-y-5">
-              <h3 className="text-[16px] text-dark font-bold">برچسب ها :</h3>
+              <h3 className="text-[16px] text-dark dark:text-whiteColor font-bold">برچسب ها :</h3>
               {tags.map((items, index) => (
                 <span key={index} className="bg-secondary px-4 py-2 mx-1 rounded-[8px] text-whiteColor">
                   {items}
@@ -293,7 +293,7 @@ const AddHouseForm = () => {
               ))}
             </div>
             <div className="space-y-5 my-8">
-              <h3 className="text-[16px] text-dark font-bold">سایر مشخصات ها :</h3>
+              <h3 className="text-[16px] text-dark dark:text-whiteColor font-bold">سایر مشخصات ها :</h3>
               <div className="flex flex-wrap justify-start gap-3">
                 <div className="flex gap-1 bg-secondary px-4 py-2 rounded-[8px] text-whiteColor">
                   <Bed />
@@ -331,11 +331,11 @@ const AddHouseForm = () => {
           <div className="space-y-8">
             <form action={ImageAction} className="grid grid-cols-3 gap-6">
               <label className="cursor-pointer block">
-                <div className="relative w-full h-96 border-3 border-dashed rounded-3xl flex flex-col items-center justify-center gap-4">
-                  <div className="border-2 border-dark p-4 rounded-full">
-                    <Plus size={36} className="text-dark" />
+                <div className="relative w-full h-96 border-3 dark:border-whiteColor border-dashed rounded-3xl flex flex-col items-center justify-center gap-4">
+                  <div className="border-2 border-dark dark:border-whiteColor p-4 rounded-full">
+                    <Plus size={36} className="text-dark dark:text-whiteColor" />
                   </div>
-                  <span className="text-dark text-[20px] font-semibold">
+                  <span className="text-dark dark:text-whiteColor text-[20px] font-semibold">
                     افزدون عکس
                   </span>
                 </div>
@@ -386,7 +386,7 @@ const AddHouseForm = () => {
               {Array.from({ length: 2 - uploadedFiles.length }).map((_, i) => (
                 <div
                   key={`empty-${i}`}
-                  className="w-full h-96 border-3 border-dashed border-borderColor rounded-3xl bg-lightGray flex items-center justify-center"
+                  className="w-full h-96 border-3 border-dashed border-borderColor rounded-3xl bg-lightGray dark:bg-background flex items-center justify-center"
                 >
                   <div className="text-borderColor">
                     <Upload size={48} />
@@ -426,7 +426,7 @@ const AddHouseForm = () => {
           </button>
         ) : currentStep === 4 ? (
           <div className="flex max-sm:flex-col gap-3">
-            <button onClick={handleNext} className="p-4 !rounded-[14px] border border-primary text-primary font-semibold cursor-pointer">
+            <button onClick={handleNext} className="p-4 !rounded-[14px] border border-primary dark:border-thidary dark:text-thidary text-primary font-semibold cursor-pointer">
               ایجاد عکس پس از ساخت خانه
             </button>
             <form action={formAction}>

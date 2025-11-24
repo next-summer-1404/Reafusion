@@ -1,5 +1,6 @@
 import AllPaymentTable from "@/components/Pages/DashboardPages/AllPaymentManagementPage/AllPaymentTable";
 import AllPaymentManagementFilterBox from "@/components/Pages/DashboardPages/AllPaymentManagementPage/FilterBox/AllPaymentManagementsFilter";
+import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { GetAllPaymentsList } from "@/core/Apis/Dashboard/GetAllPaymentsList";
 import { IAllPaymentsResponse } from "@/core/types/IAllPaymnetsResponse";
 import { AxiosResponse } from "axios";
@@ -21,7 +22,7 @@ const AllPaymentsManagmentsPage: FC<IAllPaymentsPage> = async ({ searchParams })
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (
-    <div className="space-y-5">
+    <ScrollReveal className="space-y-5">
       <div className="flex justify-between">
         <h3 className="text-dark dark:text-whiteColor font-bold text-[20px]">
           مدیریت تمامی پرداخت ها ( {totalCount} )
@@ -29,7 +30,7 @@ const AllPaymentsManagmentsPage: FC<IAllPaymentsPage> = async ({ searchParams })
         <AllPaymentManagementFilterBox />
       </div>
       <AllPaymentTable data={data} currentPage={currentPage} totalPages={totalPages}/>
-    </div>
+    </ScrollReveal>
   );
 };
 
