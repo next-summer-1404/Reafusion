@@ -22,7 +22,7 @@ const HeaderMenu = ({ role }: { role?: string }) => {
             className="fixed inset-0 bg-black/50"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed inset-y-0 right-0 w-[70%] sm:w-[40%] md:w-[30%] bg-white shadow-2xl overflow-y-auto">
+          <div className="fixed inset-y-0 right-0 w-[70%] sm:w-[40%] md:w-[30%] bg-white shadow-2xl overflow-y-auto !transition-all !duration-500">
             <DashboardMenu className="!w-full !block" role={role as string} />
           </div>
         </div>

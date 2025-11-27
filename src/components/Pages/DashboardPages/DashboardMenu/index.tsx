@@ -15,6 +15,7 @@ import {
   LayoutDashboard,
   ListChecks,
   LogOut,
+  MapPinned,
   MessageCircle,
   MessageCircleMore,
   ScrollText,
@@ -125,10 +126,15 @@ const DashboardMenu: FC<IProps> = ({ role, className }) => {
             icon: <ChartColumnStacked size={24} strokeWidth={1.5} />,
           },
           {
+            href: "/dashboard/AllLocationsManagements",
+            label: "مدیریت مقاصد",
+            icon: <MapPinned size={24} strokeWidth={1.5} />,
+          },
+          {
             href: "/dashboard/AllDocumentsManagement",
             label: "مدیریت سند ها",
             icon: <ScrollText size={24} strokeWidth={1.5} />,
-          },
+          },        
         ]
       : []),
   ];

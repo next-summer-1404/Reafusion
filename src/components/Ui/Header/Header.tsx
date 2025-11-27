@@ -117,7 +117,6 @@ const Header: FC<IProps> = ({ userToken, UserName = 'کاربر بدون نام'
             onClick={() => setIsDropdownOpen((prev) => !prev)}
             className="min-w-[110px] flex items-center gap-3 cursor-pointer select-none"
           >
-            <h3 className="text-lg font-medium">{UserName || "کاربر بدون نام"}</h3>
             <Image
               src={UserImage || UnKnownPersonImage}
               alt="userImage"
@@ -125,6 +124,7 @@ const Header: FC<IProps> = ({ userToken, UserName = 'کاربر بدون نام'
               height={35}
               className="rounded-full size-[45px] object-cover"
             />
+            <h3 className="text-lg font-medium">{UserName || "کاربر بدون نام"}</h3>
           </div>
 
           {/* منوی کشویی */}
