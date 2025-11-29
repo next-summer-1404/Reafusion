@@ -1,8 +1,14 @@
 import React from "react";
 import heroSectionImg from "../../../../../assets/images/HeroSectionImg/HeroSectionImg.jpg";
 import SearchForm from "./SearchForm";
+import { GetSpecialVilas } from "@/core/Apis/GetSpecialVilas";
+import { AxiosResponse } from "axios";
+import { IApiResponse } from "@/core/types/IApiResForGetHouses";
 
-const HeroSection = () => {
+const HeroSection = async () => {
+  const response = await GetSpecialVilas() as AxiosResponse<IApiResponse>;
+  const { houses } = response.data;
+
   return (
     <div
       className="min-h-[705px] rounded-[48px] bg-center bg-cover px-16 py-6 flex justify-between max-xl:block max-xl:px-6"
@@ -32,7 +38,7 @@ const HeroSection = () => {
             خرید و فروش
           </button>
         </div>
-        <SearchForm />
+        <SearchForm houses={houses}/>
       </div>
       {/* landing Search end */}
       {/* heroSection Content */}
