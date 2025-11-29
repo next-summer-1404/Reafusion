@@ -19,9 +19,9 @@ const CategoryCard: FC<IProps> = ({ CategoryName }) => {
         className="h-[250px] rounded-[24px] bg-center bg-cover flex justify-between"
         style={{
           background: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${
-            CategoryName === "ویلا"
+            CategoryName === "لوکس"
               ? vilaImg.src
-              : CategoryName === "مسکونی"
+              : CategoryName === "آپارتمانی"
               ? apartmentImg.src
               : CategoryName === "جنگلی" 
               ? melkKolbeImg.src 

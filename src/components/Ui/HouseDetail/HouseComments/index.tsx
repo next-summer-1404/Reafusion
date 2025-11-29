@@ -29,11 +29,11 @@ const HouseComments: FC<IProps> = ({ CommnetList, CommentCount, userName, userPr
         <div className="space-y-4">
           {CommnetList.map((comment, index) => (
             <CommentCard
-              key={comment.dataValues.id || index}
+              key={comment.id || index}
               userName={userName}
               userProfile={userProfile}
-              commentTitle={comment.dataValues.title}
-              commentCaption={comment.dataValues.caption}
+              commentTitle={comment.title}
+              commentCaption={comment.caption}
             />
           ))}
         </div>

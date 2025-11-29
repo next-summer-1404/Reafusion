@@ -19,14 +19,14 @@ const CommentCard: FC<IProps> = ({ commentTitle, commentCaption, userName, userP
       <div className="flex gap-4">
         <div className="size-[55px] rounded-full overflow-hidden">
           <Image
-            src={userProfile ? userProfile : UnKnownUser}
+            src={UnKnownUser}
             alt="personImage"
             width={55}
             height={55}
           />
         </div>
         <div className="text-[#1E1E1E] dark:text-thidary text-[16px] font-bold space-y-2">
-            <h3>{userName}</h3>
+            <h3>کاربر ریفیوژن</h3>
             <h4 className="text-[#777777] text-[14px] dark:text-borderColor font-normal">14 خرداد 1404</h4>
         </div>
       </div>

@@ -1,5 +1,4 @@
 export interface IComment {
-  dataValues: {
     id: string;
     house_id: string;
     user_id: string;
@@ -8,5 +7,4 @@ export interface IComment {
     rating: string;
     created_at: object; // ✅ Object نه String
     parent_comment_id: string;
-  };
 }
