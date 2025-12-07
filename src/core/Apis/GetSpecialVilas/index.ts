@@ -1,6 +1,7 @@
-import Api from "@/lib/Interceptor"
+import { IApiResponse } from "@/core/types/IApiResForGetHouses";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
-export const GetSpecialVilas = async () => {
-    const Response = await Api.get(`/api/houses?page=1&limit=50`);
-    return Response
-}
+export const GetSpecialVilas = async (): Promise<IApiResponse> => {
+  const Response = await fetchApi<IApiResponse>(`/api/houses?page=1&limit=50`);
+  return Response;
+};

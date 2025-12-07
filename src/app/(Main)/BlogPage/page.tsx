@@ -4,25 +4,7 @@ import Breadcrumb from '@/components/Ui/Breadcrumb'
 import Container from '@/components/Ui/Container/Container'
 import CustomPagination from '@/components/Ui/CustomPagination'
 import { GetBlogList } from '@/core/Apis/GetBlogList'
-import { AxiosResponse } from 'axios'
 import React, { FC } from 'react'
-
-interface IBlogDataValues {
-  id: string;
-  title: string;
-  caption: string;
-  estimated_reading_time: {
-    seconds: number;
-  };
-  author_id: string;
-  created_at: string; 
-  category_id: string;
-}
-
-interface IBlogResponse {
-  data: IBlogDataValues[];
-  totalCount: number;
-}
 
 interface IBlogProps {
   searchParams: {
@@ -36,8 +18,8 @@ const BlogPage: FC<IBlogProps> = async ({ searchParams }) => {
   const limit = 8;
   const currentPage = parseInt(searchParams.page || "1", 10);
   const title = searchParams.title as string;
-  const response = await GetBlogList(limit, currentPage, title) as AxiosResponse<IBlogResponse>; 
-  const { data, totalCount } = response.data;
+  const response = await GetBlogList(limit, currentPage, title); 
+  const { data, totalCount } = response;
   // call api and connect params to that end
    // calculated total pages
   const totalPages = Math.ceil((totalCount as number) / limit);

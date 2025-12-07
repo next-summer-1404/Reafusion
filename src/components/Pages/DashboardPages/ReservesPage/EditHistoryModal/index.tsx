@@ -11,19 +11,13 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useSearchParams } from "next/navigation";
-import { IBookingData } from "@/core/types/IBookingDatas";
+import { IBookingResponse } from "@/core/types/IBookingDatas";
 
 interface IProps {
   open: boolean;
   houseId: number;
-  BookingList?: IBookingData[];
+  BookingList?: IBookingResponse;
 }
-
-const mockHistory = [
-  { id: 1, date: "12 مرداد 1401 - 12:33", editType: "تاریخ رزرو" },
-  { id: 2, date: "12 مرداد 1401 - 12:33", editType: "اسامی مسافران" },
-  { id: 3, date: "15 شهریور 1401 - 14:20", editType: "تاریخ رزرو" },
-];
 
 const EditHistoryModal: FC<IProps> = ({ BookingList }) => {
   const searchParams = useSearchParams();
@@ -84,7 +78,7 @@ const EditHistoryModal: FC<IProps> = ({ BookingList }) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {BookingList?.flatMap((booking) => [
+                {BookingList?.data.flatMap((booking) => [
                   // ردیف اول: ایجاد رزرو
                   {
                     id: `${booking.id}-created`,

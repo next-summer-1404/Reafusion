@@ -8,10 +8,7 @@ import DetailCoverAndPhotos from '@/components/Ui/HouseDetail/DetailCoverAndPhot
 import { GetHouseDetail } from '@/core/Apis/GetHouseDetail';
 import { GetHousesComments } from '@/core/Apis/GetHousesComment';
 import { GetSpecialVilas } from '@/core/Apis/GetSpecialVilas';
-import { IApiResponse } from '@/core/types/IApiResForGetHouses';
 import { IComment } from '@/core/types/ICommentResponse';
-import { IHouseDetailData } from '@/core/types/IHouseDetailData';
-import { AxiosResponse } from 'axios';
 import { cookies } from 'next/headers';
 import React, { FC } from 'react'
 
@@ -28,26 +25,26 @@ export interface ICommentResponse {
 const MortageAndRentDetail: FC<IProps> = async ({ params }) => {
   // call Api and send data and get the value from that
   const id = params.id;
-  const response = (await GetHouseDetail(id)) as AxiosResponse<IHouseDetailData>;
-  const Housedata = await GetSpecialVilas() as AxiosResponse<IApiResponse>;
-  const { houses } = Housedata.data;
-  const CommentResponse = await GetHousesComments(id) as AxiosResponse<ICommentResponse>;
-  const { data, totalCount } = CommentResponse.data;
-  const houseName = response.data.title;
-  const houseImages = response.data.photos;
-  const houseAddress = response.data.address;
-  const houseCaption = response.data.caption;
-  const houseType = response.data.categories.name;
-  const houseCapacity = response.data.capacity;
-  const BathroomsLength = response.data.bathrooms;
-  const parkingLength = response.data.parking;
-  const roomLength = response.data.rooms;
-  const yardType = response.data.yard_type;
-  const sellerName = response.data.sellerName;
-  const price = response.data.price;
-  const discounted_price = response.data.discounted_price;
-  const lat = response.data.location.lat;
-  const lng = response.data.location.lng;
+  const response = (await GetHouseDetail(id));
+  const Housedata = await GetSpecialVilas();
+  const { houses } = Housedata;
+  const CommentResponse = await GetHousesComments(id);
+  const { data, totalCount } = CommentResponse;
+  const houseName = response.title;
+  const houseImages = response.photos;
+  const houseAddress = response.address;
+  const houseCaption = response.caption;
+  const houseType = response.categories.name;
+  const houseCapacity = response.capacity;
+  const BathroomsLength = response.bathrooms;
+  const parkingLength = response.parking;
+  const roomLength = response.rooms;
+  const yardType = response.yard_type;
+  const sellerName = response.sellerName;
+  const price = response.price;
+  const discounted_price = response.discounted_price;
+  const lat = response.location.lat;
+  const lng = response.location.lng;
   const similarHouses = houses.slice(0, 4);
   // call Api and send data and get the value from that end
   // get the token value and decode that

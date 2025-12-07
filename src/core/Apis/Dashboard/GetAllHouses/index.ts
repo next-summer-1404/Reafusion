@@ -1,14 +1,13 @@
-import Api from "@/lib/Interceptor"
-import { cookies } from "next/headers";
+import { IHouse } from "@/core/types/IHouse";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
-export const GetAllHousesAdmin = async (limit: number, currentPage: number, order: string) => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token");
-  const tokenValue = token?.value as string;
-  const response = await Api.get(`/api/admin/houses?page=${currentPage}&limit=${limit}&order=${order}`, {
-    headers: {
-      Authorization: `Bearer ${tokenValue}`,
-    },
-  });
+interface IAllHousesAdmin {
+  data: IHouse[];
+  totalCount: number;
+}
+
+
+export const GetAllHousesAdmin = async (limit: number, currentPage: number, order: string): Promise<IAllHousesAdmin> => {
+  const response = await fetchApi<IAllHousesAdmin>(`/api/admin/houses?page=${currentPage}&limit=${limit}&order=${order}`);
   return response
 }

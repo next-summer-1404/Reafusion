@@ -1,5 +1,4 @@
-import Api from "@/lib/Interceptor"
-import { cookies } from "next/headers";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface IEditPaymentDatas {
   amount: string;
@@ -9,12 +8,9 @@ interface IEditPaymentDatas {
 }
 
 export const EditPayments = async (EditPaymentDatas: IEditPaymentDatas , id: string) => {
-  const cookiesStore = await cookies();
-  const token = cookiesStore.get('token')?.value as string;
-  const response = await Api.put(`/api/admin/payments/${id}`, EditPaymentDatas, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
+  const response = await fetchApi(`/api/admin/payments/${id}`, {
+      method: 'PUT',
+      body: EditPaymentDatas
   });
-  return response.data;  
+  return response;  
 }

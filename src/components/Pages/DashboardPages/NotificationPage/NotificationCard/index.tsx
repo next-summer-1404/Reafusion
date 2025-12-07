@@ -1,6 +1,7 @@
 'use client'
 import { MarkAsReadNotificationAction } from "@/app/(Dashboard)/dashboard/notifications";
 import { CircleCheck } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React, { FC, useActionState, useEffect } from "react";
 import { toast } from "react-toastify";
 
@@ -13,15 +14,16 @@ interface IProps {
 
 const NotificationCard: FC<IProps> = ({ title, message, isRead, id }) => {
   const [state, formAction] = useActionState(MarkAsReadNotificationAction, { message: '' })
-  console.log(state)
+  const router = useRouter();
 
   useEffect(() => { 
-    if (state.message === 'اعلان با موفقیت علامت گزاری شد') {
+    if (state?.message === 'اعلان با موفقیت علامت گزاری شد') {
       toast.success('اعلان با موفقیت علامت گزاری شد');
-    } else if (state.message && state.message !== 'اعلان با موفقیت علامت گزاری شد') {
+      router.refresh()
+    } else if (state?.message && state.message !== 'اعلان با موفقیت علامت گزاری شد') {
       toast.error(state.message)
     }
-  }, [state])
+  }, [state, router])
 
   return (
     <div className="flex max-sm:flex-col max-sm:gap-4 justify-between items-center text-[16px] text-dark border border-primary dark:border-thidary p-2 rounded-[16px]">

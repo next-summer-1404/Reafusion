@@ -3,8 +3,6 @@ import UserSecurityInfo from "@/components/Pages/DashboardPages/ProfilePage/User
 import UserTab from "@/components/Pages/DashboardPages/ProfilePage/UserTab";
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { GetUserInformation } from "@/core/Apis/Dashboard/UserInformation";
-import { IUserInformation } from "@/core/types/IUserInformation";
-import { AxiosResponse } from "axios";
 import { FC } from "react";
 
 interface IProps {
@@ -14,8 +12,8 @@ interface IProps {
 const Profile: FC<IProps> = async ({ searchParams }) => {
   const tab = searchParams.tab === "امنیتی" ? "اطلاعات امنیتی" : "اطلاعات شخصی";
   const userInformations =
-    (await GetUserInformation()) as AxiosResponse<IUserInformation>;
-  const { user } = userInformations.data;
+    (await GetUserInformation());
+  const { user } = userInformations;
 
   return (
     <ScrollReveal className="flex flex-col gap-8">
@@ -25,7 +23,7 @@ const Profile: FC<IProps> = async ({ searchParams }) => {
         <UserTab href="/dashboard/profile?tab=امنیتی" TabName="اطلاعات امنیتی" active={tab === "اطلاعات امنیتی"} />
       </div>
       {tab === "اطلاعات شخصی" && (
-        <UserPersonalInfo  ProfileImage={user.profilePicture}/> 
+        <UserPersonalInfo ProfileImage={user.profilePicture}/> 
       )}
       {tab === "اطلاعات امنیتی" && <UserSecurityInfo />}
     </ScrollReveal>

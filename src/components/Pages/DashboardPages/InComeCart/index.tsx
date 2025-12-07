@@ -1,17 +1,8 @@
 import { GetDashboardFinance } from "@/core/Apis/Dashboard/GetDashboardFinance";
-import { AxiosResponse } from "axios";
-
-interface IFinancialData {
-  totalAmount: number;
-  totalBookings: number;
-  totalPayments: number;
-  totalPerviousMonthAmount: number;
-  totalCurrentMonthAmount: number;
-}
 
 const IncomeChart = async () => {
-  const response = (await GetDashboardFinance()) as AxiosResponse<IFinancialData>;
-  const data = response.data;
+  const response = (await GetDashboardFinance());
+  const data = response;
 
   const total = data.totalAmount || 1;
   const current = data.totalCurrentMonthAmount || 0;

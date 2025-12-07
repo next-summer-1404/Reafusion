@@ -9,14 +9,13 @@ import {
   TableRow,
 } from "@mui/material";
 import { GetBookingList } from "@/core/Apis/Dashboard/GetBookingList";
-import { IBookingData } from "@/core/types/IBookingDatas";
 import CustomBadge from "@/components/Ui/CustomBadge";
 
 const LastReserveHousesTable = async () => {
   const limit = 3;
   const currentPage = 1;
   const response = await GetBookingList(limit, currentPage);
-  const bookings: IBookingData[] = response.data.data;
+  const bookings = response.data;
 
   return (
     <div className="pt-6" dir="rtl">

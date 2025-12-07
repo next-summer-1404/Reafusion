@@ -2,13 +2,10 @@ import EmptyButton from "@/components/Ui/Buttons/EmptyButton";
 import React from "react";
 import Slider from "./Slider";
 import { GetSpecialVilas } from "@/core/Apis/GetSpecialVilas";
-import { AxiosResponse } from "axios";
-import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
-
 
 const BestHouses = async () => {
-  const response = await GetSpecialVilas() as AxiosResponse<IApiResponse>;
-  const { houses } = response.data
+  const response = await GetSpecialVilas();
+  const { houses } = response
 
   const filterData = houses.filter((items) => items.discounted_price === null);
 

@@ -1,8 +1,6 @@
 import AllLocationTable from "@/components/Pages/DashboardPages/AllLocationManaegemtn/AllLocationTable";
 import AllPaymentManagementFilterBox from "@/components/Pages/DashboardPages/AllPaymentManagementPage/FilterBox/AllPaymentManagementsFilter";
 import { GetAllLocations } from "@/core/Apis/Dashboard/GetAllLocations";
-import { IAllLocationsResponse } from "@/core/types/IAllLocationsResponse";
-import { AxiosResponse } from "axios";
 import AddLocationModal from "@/components/Pages/DashboardPages/AllLocationManaegemtn/AddLocationModal"; // فقط اضافه شد
 import AddLocationButton from "@/components/Pages/DashboardPages/AllLocationManaegemtn/AddLocationButton";
 
@@ -18,8 +16,8 @@ const AllLocationsManagementsPage = async ({ searchParams }: IAllLocationsManage
   const limit = 5;
   const currentPage = parseInt(searchParams.page || "1", 10);
   const order = searchParams.order || "DESC";
-  const response = await GetAllLocations(limit, currentPage, order) as AxiosResponse<IAllLocationsResponse>;
-  const { data, totalCount } = response.data;
+  const response = await GetAllLocations(limit, currentPage, order);
+  const { data, totalCount } = response;
   const totalPages = Math.ceil(totalCount / limit);
 
   return (

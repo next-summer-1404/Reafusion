@@ -4,7 +4,7 @@ import React, { ComponentType, FC } from 'react'
 interface IProps {
   Icon: ComponentType;
   label: string;
-  value: number;
+  value: string | number;
   moneyName?: string;
 };
 

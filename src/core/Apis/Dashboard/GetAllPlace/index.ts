@@ -1,5 +1,5 @@
-import Api from "@/lib/Interceptor";
-import { cookies } from "next/headers";
+import { IApiResponse } from "@/core/types/IApiResForGetHouses";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 export const GetAllPlace = async (
   limit: number,
@@ -9,10 +9,7 @@ export const GetAllPlace = async (
   order?: string,
   minPrice?: number,
   maxPrice?: number
-) => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token");
-  const tokenValue = token?.value as string;
+): Promise<IApiResponse> => {
   const params = new URLSearchParams();
   params.append('page', currentPage.toString());
   params.append('limit', limit.toString());
@@ -23,10 +20,6 @@ export const GetAllPlace = async (
   if (minPrice !== undefined) params.append('minPrice', minPrice.toString());
   if (maxPrice !== undefined) params.append('maxPrice', maxPrice.toString());
 
-  const response = await Api.get(`/api/houses/seller/user?${params.toString()}`, {
-      headers: {
-        Authorization: `Bearer ${tokenValue}`,
-      },
-  });
+  const response = await fetchApi<IApiResponse>(`/api/houses/seller/user?${params.toString()}`);
   return response;
 };

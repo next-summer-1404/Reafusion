@@ -1,4 +1,4 @@
-import Api from "@/lib/Interceptor"
+import fetchApi from "@/lib/Interceptor/serverApi";
 import { cookies } from "next/headers";
 
 interface INotificationId {
@@ -10,10 +10,9 @@ export const MarkAsReadNotification = async (Notificationid: INotificationId) =>
   const token = cookieStore.get("token");
   const tokenValue = token?.value as string;
   console.log(tokenValue)
-  const response = await Api.put(`/api/notifications/${Notificationid.id}/read`,{ }, {
-    headers: {
-        Authorization: `Bearer ${tokenValue}`,
-    },
+  const response = await fetchApi(`/api/notifications/${Notificationid.id}/read`, {
+     method: 'PUT',
+     body: Notificationid,
   });  
-  return response.data;
+  return response;
 }

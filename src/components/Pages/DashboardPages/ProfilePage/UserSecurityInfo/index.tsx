@@ -11,9 +11,9 @@ const UserSecurityInfo = () => {
   // the useActionsState hook for manage serverAction end
   // manage response and show that to user
   useEffect(() => {
-    if (state.message === 'رمز عبور شما با موفقیت ثبت شد') {
+    if (state?.message === 'رمز عبور شما با موفقیت ثبت شد') {
       toast.success('رمز عبور شما با موفقیت ثبت شد')
-    } else if (state.message && state.message !== 'رمز عبور شما با موفقیت ثبت شد') {
+    } else if (state?.message && state.message !== 'رمز عبور شما با موفقیت ثبت شد') {
       toast.error(state.error || 'خطا در ثبت رمزعبور جدید')
     }
   }, [state])

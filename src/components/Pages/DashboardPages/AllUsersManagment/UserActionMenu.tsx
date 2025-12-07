@@ -211,7 +211,7 @@ const UserActionMenu: React.FC<IProps> = ({
               <select
                 name="role"
                 defaultValue={userRole}
-                className="w-full px-4 py-3 border border-borderColor outline-0 rounded-xl dark:text-whiteColor"
+                className="w-full px-4 py-3 border border-borderColor outline-0 rounded-xl dark:bg-dark dark:text-whiteColor"
               >
                 <option value="buyer">خریدار</option>
                 <option value="seller">فروشنده</option>

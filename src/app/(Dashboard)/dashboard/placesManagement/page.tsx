@@ -1,8 +1,6 @@
 import PlaceManagementFilterBox from "@/components/Pages/DashboardPages/PlaceManagmentPage/PlaceManagementFilterBox";
 import PlaceTable from "@/components/Pages/DashboardPages/PlaceManagmentPage/PlaceTable";
 import { GetAllPlace } from "@/core/Apis/Dashboard/GetAllPlace";
-import { IApiResponse } from "@/core/types/IApiResForGetHouses";
-import { AxiosResponse } from "axios";
 import AddHouseForm from "./AddHouseForm";
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
@@ -43,8 +41,8 @@ const PlacesManagement = async ({ searchParams }: IPlaceMangement) => {
     order,
     minPrice,
     maxPrice
-  )) as AxiosResponse<IApiResponse>;
-  const { houses, totalCount } = response.data;
+  ));
+  const { houses, totalCount } = response;
   // call seler houses Api end
   // calcude the pages for pagenation
   const totalPages = Math.ceil(totalCount as number / limit);

@@ -2,12 +2,10 @@ import React from "react";
 import heroSectionImg from "../../../../../assets/images/HeroSectionImg/HeroSectionImg.jpg";
 import SearchForm from "./SearchForm";
 import { GetSpecialVilas } from "@/core/Apis/GetSpecialVilas";
-import { AxiosResponse } from "axios";
-import { IApiResponse } from "@/core/types/IApiResForGetHouses";
 
 const HeroSection = async () => {
-  const response = await GetSpecialVilas() as AxiosResponse<IApiResponse>;
-  const { houses } = response.data;
+  const response = await GetSpecialVilas();
+  const { houses } = response;
 
   return (
     <div

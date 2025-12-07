@@ -44,4 +44,5 @@ export interface IBookingData {
 
 export interface IBookingResponse {
   data: IBookingData[];  
+  totalCount: number;
 }

@@ -1,5 +1,4 @@
-import Api from "@/lib/Interceptor";
-import { cookies } from "next/headers";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface IReservationData {
   houseId: string;
@@ -17,12 +16,9 @@ interface IReservationData {
 }
 
 export const EditBookingAdmin = async (reservationData: IReservationData, id: number) => {
-  const cookiesStore = await cookies();
-  const token = cookiesStore.get("token")?.value as string;
-  const response = await Api.put(`/api/admin/bookings/${id}`, reservationData, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+  const response = await fetchApi(`/api/admin/bookings/${id}`, {
+    method: 'PUT',
+    body: reservationData
   });
-  return response.data;
+  return response;
 };

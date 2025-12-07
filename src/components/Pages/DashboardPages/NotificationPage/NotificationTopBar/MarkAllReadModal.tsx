@@ -3,6 +3,7 @@ import { MarkAsAllReadAction } from "@/app/(Dashboard)/dashboard/notifications/M
 import FillButton from "@/components/Ui/Buttons/FillButton";
 import { Dialog } from "@mui/material";
 import { X } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React, { FC, FormEvent } from "react";
 import { toast } from "react-toastify";
 
@@ -12,6 +13,7 @@ interface IProps {
 }
 
 const MarkAllReadModal: FC<IProps> = ({ open, handleClose }) => {
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
      e.preventDefault();
@@ -20,6 +22,7 @@ const MarkAllReadModal: FC<IProps> = ({ open, handleClose }) => {
       if (result.success) {
         toast.success("همه اعلان‌ها به عنوان خوانده شده علامت‌گذاری شدند.");
         handleClose();
+        router.refresh();
       } else {
         toast.error(result.error || "خطایی رخ داد.");
       }

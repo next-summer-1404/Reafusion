@@ -1,5 +1,4 @@
-import Api from "@/lib/Interceptor";
-import { cookies } from "next/headers";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface IAddLocationDatas {
   area_name: string;
@@ -7,13 +6,10 @@ interface IAddLocationDatas {
   lng: string | number;
 }
 
-export const AddLocationAdmin = async (AddLocationDatas: IAddLocationDatas,) => {
-  const cookiesStore = await cookies();
-  const token = cookiesStore.get("token")?.value as string;
-  const response = await Api.post(`/api/locations`, AddLocationDatas, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+export const AddLocationAdmin = async (AddLocationDatas: IAddLocationDatas) => {
+  const response = await fetchApi(`/api/locations`, {
+    method: 'POST',
+    body: AddLocationDatas
   });
-  return response.data;
+  return response;
 };

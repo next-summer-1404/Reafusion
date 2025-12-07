@@ -1,4 +1,4 @@
-import Api from "@/lib/Interceptor";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface IRegisterStep3Data {
   userId: string;
@@ -7,6 +7,9 @@ interface IRegisterStep3Data {
 }
 
 export const RegisterStep3 = async (registerStep3Data: IRegisterStep3Data) => {
-  const Response = await Api.post(`/api/auth/complete-registration`, registerStep3Data);
-  return Response.data;
+  const Response = await fetchApi(`/api/auth/complete-registration`, {
+    method: "POST",
+    body: registerStep3Data,
+  });
+  return Response;
 };

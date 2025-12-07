@@ -1,14 +1,9 @@
-import Api from "@/lib/Interceptor"
-import { cookies } from "next/headers";
+import { IAllPaymentsResponse } from "@/core/types/IAllPaymnetsResponse";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
-export const GetAllPaymentsList = async (limit: number, currentPage: number, order: string) => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token");
-  const tokenValue = token?.value as string;
-  const response = await Api.get(`/api/admin/payments?page=${currentPage}&limit=${limit}&order=${order}`, {
-      headers: {
-        Authorization: `Bearer ${tokenValue}`,
-      },
-  });
+export const GetAllPaymentsList = async (limit: number, currentPage: number, order: string): Promise<IAllPaymentsResponse> => {
+  const response = await fetchApi<IAllPaymentsResponse>(
+    `/api/admin/payments?page=${currentPage}&limit=${limit}&order=${order}`
+  );
   return response;
 }

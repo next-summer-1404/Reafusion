@@ -11,12 +11,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useSearchParams } from 'next/navigation';
-import { IBookingData } from '@/core/types/IBookingDatas';
+import { IBookingResponse } from '@/core/types/IBookingDatas';
 
 interface IProps {
   open: boolean;
   houseId: number;
-  BookingList?: IBookingData[];
+  BookingList?: IBookingResponse;
 }
 
 const PassengersModal: FC<IProps> = ({ BookingList }) => {
@@ -64,7 +64,7 @@ const PassengersModal: FC<IProps> = ({ BookingList }) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {BookingList?.flatMap((booking) =>
+                {BookingList?.data.flatMap((booking) =>
                   booking.traveler_details.map((traveler, index) => ({
                     id: `${booking.id}-${index}`, 
                     name: `${traveler.firstName} ${traveler.lastName}`,

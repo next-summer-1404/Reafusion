@@ -81,7 +81,7 @@ const AddHouseForm = () => {
   useEffect(() => {
     if (state.message === 'خانه شما با موفقیت شاخته شد') {
       toast.success('خانه شما با موفقیت شاخته شد');
-      sessionStorage.setItem('newHouseId', state.newHouseId)
+      sessionStorage.setItem('newHouseId', state.newHouseId as string)
     } else if (state.message && state.message !== 'خانه شما با موفقیت شاخته شد') {
       toast.error(state.error)
     }

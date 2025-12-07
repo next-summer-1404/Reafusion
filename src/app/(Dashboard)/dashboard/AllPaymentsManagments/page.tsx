@@ -2,8 +2,6 @@ import AllPaymentTable from "@/components/Pages/DashboardPages/AllPaymentManagem
 import AllPaymentManagementFilterBox from "@/components/Pages/DashboardPages/AllPaymentManagementPage/FilterBox/AllPaymentManagementsFilter";
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { GetAllPaymentsList } from "@/core/Apis/Dashboard/GetAllPaymentsList";
-import { IAllPaymentsResponse } from "@/core/types/IAllPaymnetsResponse";
-import { AxiosResponse } from "axios";
 import React, { FC } from "react";
 
 interface IAllPaymentsPage {
@@ -17,8 +15,8 @@ const AllPaymentsManagmentsPage: FC<IAllPaymentsPage> = async ({ searchParams })
   const limit = 15;
   const currentPage = parseInt(searchParams.page || "1", 15);
   const order = searchParams.order || 'DESC';
-  const response = await GetAllPaymentsList(limit, currentPage, order) as AxiosResponse<IAllPaymentsResponse>;
-  const { data, totalCount } = response.data;
+  const response = await GetAllPaymentsList(limit, currentPage, order);
+  const { data, totalCount } = response;
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (

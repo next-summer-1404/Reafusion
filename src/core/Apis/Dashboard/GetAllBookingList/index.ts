@@ -1,14 +1,14 @@
-import Api from "@/lib/Interceptor";
-import { cookies } from "next/headers";
+import { IBookingData } from "@/core/types/IBookingDatas";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
-export const GetAllBookingList = async (limit: number, currentPage: number, order: string) => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token");
-  const tokenValue = token?.value as string;
-  const response = await Api.get(`/api/admin/bookings?page=${currentPage}&limit=${limit}&order=${order}`, {
-      headers: {
-        Authorization: `Bearer ${tokenValue}`,
-      },
-    });
+interface IAllBookingResponse {
+  data: IBookingData[];
+  totalCount: number;
+}
+
+export const GetAllBookingList = async (limit: number, currentPage: number, order: string): Promise<IAllBookingResponse> => {
+  const response = await fetchApi<IAllBookingResponse>(
+    `/api/admin/bookings?page=${currentPage}&limit=${limit}&order=${order}`
+  );
   return response;
 };

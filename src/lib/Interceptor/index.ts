@@ -1,4 +1,3 @@
-// import { RefreshToken } from "@/core/Apis/RefreshToken";
 import axios from "axios";
 
 const Api = axios.create({
@@ -10,11 +9,6 @@ const Api = axios.create({
 // for manage all Request
 Api.interceptors.request.use(
   (config) => {
-    // in the future this place fill by save token and use that
-    // const token = localStorage.getItem("accessToken");
-    // if (token) {
-    //   config.headers.Authorization = `Bearer ${token}`;
-    // }
 
     return config;
   },
@@ -32,10 +26,7 @@ Api.interceptors.response.use(
     if (error.response?.status === 401) {
       console.log("Unauthorize !, you must login egain");
     }
-    // if (error.response?.status === 403) {
-    //   RefreshToken()
-    // }
-    // more thing in future pouya add here for beter managing
+
     return Promise.reject(error);
   }
 );

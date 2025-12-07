@@ -1,13 +1,14 @@
-import Api from "@/lib/Interceptor";
-import { cookies } from "next/headers";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
-export const GetDashboardFinance = async () => {
-  const cookiesStore = await cookies();
-  const token = cookiesStore.get("token")?.value as string;
-  const response = await Api.get(`/api/seller/finance/dashboard`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+interface IFinancialData {
+  totalAmount: number;
+  totalBookings: number;
+  totalPayments: number;
+  totalPerviousMonthAmount: number;
+  totalCurrentMonthAmount: number;
+}
+
+export const GetDashboardFinance = async (): Promise<IFinancialData> => {
+  const response = await fetchApi<IFinancialData>(`/api/seller/finance/dashboard`);
   return response;
 };

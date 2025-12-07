@@ -2,7 +2,7 @@
 import { BookingPaymentAction } from "@/app/(Dashboard)/dashboard/reservesManagment";
 import FillButton from "@/components/Ui/Buttons/FillButton";
 import Input from "@/components/Ui/Input";
-import { IBookingData } from "@/core/types/IBookingDatas";
+import { IBookingResponse } from "@/core/types/IBookingDatas";
 import { Box, Modal } from "@mui/material";
 import { X } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -10,7 +10,7 @@ import { FC, FormEvent, useActionState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 interface IProps {
-  booking: IBookingData[];
+  booking: IBookingResponse;
 }
 
 const BookingPaymentModal: FC<IProps> = ({ booking }) => {
@@ -31,7 +31,7 @@ const BookingPaymentModal: FC<IProps> = ({ booking }) => {
   const paymentId = searchParams.get("payment");
   const id = paymentId ? parseInt(paymentId, 10) : null;
 
-  const bookingPrice = booking.find(b => b.id === id);
+  const bookingPrice = booking.data.find(b => b.id === id);
   const housePrice = bookingPrice?.house.price || '0';
 
   const closeModal = (e: FormEvent) => {

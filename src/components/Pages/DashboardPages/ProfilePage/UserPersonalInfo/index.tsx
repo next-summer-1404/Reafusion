@@ -23,9 +23,9 @@ const UserPersonalInfo: FC<IProps> = ({ ProfileImage }) => {
   // the useActionsState hook for manage serverAction end
   // manage response and show that to user
   useEffect(() => {
-    if (state.message === "اطلاعات شما با موفقیت ثبت شد") {
+    if (state?.message === "اطلاعات شما با موفقیت ثبت شد") {
       toast.success("اطلاعات شما با موفقیت ثبت شد");
-    } else if (state.message && state.message !== "اطلاعات شما با موفقیت ثبت شد") {
+    } else if (state?.message && state.message !== "اطلاعات شما با موفقیت ثبت شد") {
       toast.error(state.error || 'خطا در ثبت اطلاعات')
     }
   }, [state])

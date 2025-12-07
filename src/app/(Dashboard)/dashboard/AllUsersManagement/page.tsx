@@ -2,8 +2,6 @@ import AllUsersManagementTable from "@/components/Pages/DashboardPages/AllUsersM
 import UsersManagmentFilters from "@/components/Pages/DashboardPages/AllUsersManagment/UsersManagmentFilters";
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { ManageAllUsers } from "@/core/Apis/Dashboard/ManageAllUsers";
-import { IAllUsersResponse } from "@/core/types/IAllUsersResponse";
-import { AxiosResponse } from "axios";
 import React, { FC } from "react";
 
 interface IAllUserManagement {
@@ -22,8 +20,8 @@ const AllUsersManagementPage: FC<IAllUserManagement> = async ({ searchParams }) 
   const order = searchParams.order || "ASC";
   // the data which send to api end
   // the call api for get the all user list
-  const response = (await ManageAllUsers(currentPage, limit, role, order)) as AxiosResponse<IAllUsersResponse>;
-  const { data, totalCount } = response.data;
+  const response = (await ManageAllUsers(currentPage, limit, role, order));
+  const { data, totalCount } = response;
   const totalPages = Math.ceil((totalCount as number) / limit);
   // the call api for get the all user list end
 

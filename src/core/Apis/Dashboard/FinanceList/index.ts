@@ -1,15 +1,8 @@
-import Api from "@/lib/Interceptor"
-import { cookies } from "next/headers";
+import { IFinanceResponse } from "@/core/types/IFinanceResponse";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
-const GetFinanceList = async (limit: number, currentPage: number, paymentStatus?: string) => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token");
-  const tokenValue = token?.value as string;
-  const response = await Api.get(`/api/seller/finance?page=${currentPage}&limit=${limit}&paymentStatus=${paymentStatus}`, {
-    headers: {
-        Authorization: `Bearer ${tokenValue}`,
-    },
-  });
+const GetFinanceList = async (limit: number, currentPage: number, paymentStatus?: string): Promise<IFinanceResponse> => {
+  const response = await fetchApi<IFinanceResponse>(`/api/seller/finance?page=${currentPage}&limit=${limit}&paymentStatus=${paymentStatus}`);
   return response
 }
 

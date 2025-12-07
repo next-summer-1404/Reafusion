@@ -4,8 +4,6 @@ import AllPaymentManagementFilterBox from '@/components/Pages/DashboardPages/All
 import ScrollReveal from '@/components/Ui/Animations/ScrollReveal';
 import FillButton from '@/components/Ui/Buttons/FillButton';
 import { GetAllCategorys } from '@/core/Apis/Dashboard/GetAllCategorys';
-import { ICategoryResponse } from '@/core/types/ICategoriesResponse';
-import { AxiosResponse } from 'axios';
 import Link from 'next/link';
 import React, { FC } from 'react'
 
@@ -21,8 +19,8 @@ const AllCategoriesManagementPage: FC<IAllCategoriesManagement> = async ({ searc
   const limit = 6;
   const currentPage = parseInt(searchParams.page || "1", 6);
   const order = searchParams.order
-  const response = await GetAllCategorys(limit, currentPage, order) as AxiosResponse<ICategoryResponse>;
-  const { data, totalCount} = response.data;
+  const response = await GetAllCategorys(limit, currentPage, order);
+  const { data, totalCount} = response;
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   const isAddModalOpen = searchParams.modal === "add";

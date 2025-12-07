@@ -4,8 +4,6 @@ import ProfileCompletionChart from "@/components/Pages/DashboardPages/ProfileCom
 import StatusCard from "@/components/Ui/StatusCard";
 import { GetSummaryStatus } from "@/core/Apis/Dashboard/SummaryStatus";
 import {GetUserInformation} from "@/core/Apis/Dashboard/UserInformation";
-import { IUserInformation } from "@/core/types/IUserInformation";
-import { AxiosResponse } from "axios";
 import Link from "next/link";
 import LastReserveHousesTable from "../../../components/Pages/DashboardPages/LastReserveHouseTable";
 import { cookies } from "next/headers";
@@ -13,8 +11,8 @@ import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 const Dashboard = async () => {
   const response = await GetSummaryStatus();
-  const userInformations = await GetUserInformation() as AxiosResponse<IUserInformation>
-  const { user, additionalPercentage } = userInformations.data;
+  const userInformations = await GetUserInformation()
+  const { user, additionalPercentage } = userInformations;
   console.log(user, additionalPercentage)
   
   const cookieStore = await cookies();

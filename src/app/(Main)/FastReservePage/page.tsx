@@ -4,9 +4,7 @@ import Breadcrumb from "@/components/Ui/Breadcrumb";
 import Container from "@/components/Ui/Container/Container";
 import CustomPagination from "@/components/Ui/CustomPagination";
 import { GetAllHouses } from "@/core/Apis/GetAllHouses";
-import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
 import { IFastReservePage } from "@/core/Types/IFastReservePage";
-import { AxiosResponse } from "axios";
 import { FC } from "react";
 
 const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
@@ -26,8 +24,8 @@ const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
     transactionType,
     minPrice,
     maxPrice
-  )) as AxiosResponse<IApiResponse>;
-  const { houses, totalCount } = response.data;
+  ));
+  const { houses, totalCount } = response;
   // call api and send the data to that end
   // get all location list for showing in the map
   const locations = houses.map((house) => house.location);

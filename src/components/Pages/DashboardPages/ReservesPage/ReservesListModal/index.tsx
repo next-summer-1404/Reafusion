@@ -11,13 +11,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import PassengersInfoModal from './PassengersInfoModal/index';
-import { IBookingData } from '@/core/types/IBookingDatas';
+import { IBookingResponse } from '@/core/types/IBookingDatas';
 import { useSearchParams, useRouter } from 'next/navigation';
 
 interface IProps {
   open: boolean;
   houseId: number;
-  BookingList?: IBookingData[];
+  BookingList?: IBookingResponse;
 }
 
 const ReservesListModal: FC<IProps> = ({ open, BookingList }) => {
@@ -67,7 +67,7 @@ const ReservesListModal: FC<IProps> = ({ open, BookingList }) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {BookingList?.flatMap((booking) =>
+                  {BookingList?.data.flatMap((booking) =>
                     booking.reservedDates.map((traveler, index) => ({
                       id: `${booking.id}-${index}`,
                       date: `${traveler.value.slice(0,10)} - ${traveler.value.slice(11,16)}`,

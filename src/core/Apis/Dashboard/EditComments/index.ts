@@ -1,5 +1,4 @@
-import Api from "@/lib/Interceptor"
-import { cookies } from "next/headers";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface IEditCommentDatas {
   title: string;
@@ -8,12 +7,9 @@ interface IEditCommentDatas {
 }
 
 export const EditComments = async (id: string, EditCommentDatas: IEditCommentDatas) => {
-  const cookiesStore = await cookies();
-  const token = cookiesStore.get('token')?.value as string;
-  const response = await Api.put(`/api/admin/comments/${id}`, EditCommentDatas, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+  const response = await fetchApi(`/api/admin/comments/${id}`, {
+     method: 'PUT',
+     body: EditCommentDatas
   });
-  return response.data;
+  return response;
 }

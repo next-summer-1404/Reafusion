@@ -1,19 +1,10 @@
 import CategoryCard from "@/components/Ui/CategoryCard";
 import { GetHouseCategorys } from "@/core/Apis/GetHouseCategorys";
-import { AxiosResponse } from "axios";
 import React from "react";
 
-interface ICategoryResponse {
-  data: Array<{
-    id: string;
-    name: string;
-  }>;
-  totalCount?: number;
-}
-
 const Categorys = async () => {
-  const response = await GetHouseCategorys() as AxiosResponse<ICategoryResponse>;
-  const { data } = response.data;
+  const response = await GetHouseCategorys();
+  const { data } = response;
   console.log(data);
 
   return (

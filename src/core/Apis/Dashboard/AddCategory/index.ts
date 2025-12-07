@@ -1,13 +1,9 @@
-import Api from "@/lib/Interceptor"
-import { cookies } from "next/headers";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 export const AddCategory = async (name: string) => {
-  const cookiesStore = await cookies();
-  const token = cookiesStore.get('token')?.value as string;
-  const response = await Api.post(`/api/categories`, {name}, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+  const response = await fetchApi(`/api/categories`, {
+     method: 'POST',
+     body: {name}
   });
-   return response.data
+   return response
 }

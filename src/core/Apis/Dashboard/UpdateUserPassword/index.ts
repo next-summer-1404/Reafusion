@@ -1,15 +1,14 @@
-import Api from "@/lib/Interceptor"
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface IsecurityDatas {
   currentPassword: string;
   newPassword: string;
 }
 
-export const UpdateUserPassword = async (securityDatas: IsecurityDatas, token: string) => {
-  const response = await Api.put(`/api/users/change-password`, securityDatas, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
+export const UpdateUserPassword = async (securityDatas: IsecurityDatas) => {
+  const response = await fetchApi(`/api/users/change-password`, {
+    method: "PUT",
+    body: securityDatas,
   });
-  return response.data
+  return response;
 }

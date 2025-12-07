@@ -2,8 +2,6 @@ import DocumentsTable from "@/components/Pages/DashboardPages/AllDocumentManagem
 import AllPaymentManagementFilterBox from "@/components/Pages/DashboardPages/AllPaymentManagementPage/FilterBox/AllPaymentManagementsFilter";
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import { GetAllDocuments } from "@/core/Apis/Dashboard/GetAllDocuments";
-import { IDocumentResponse } from "@/core/types/IDocumentsResponse";
-import { AxiosResponse } from "axios";
 import React, { FC } from "react";
 
 interface IAllDocumentsManaegment {
@@ -17,8 +15,8 @@ const AllDocumentsManagementPage: FC<IAllDocumentsManaegment> = async ({ searchP
   const limit = 8;
   const currentPage = parseInt(searchParams.page || "1", 8);
   const order = searchParams.order || 'DESC';
-  const response = (await GetAllDocuments(limit, currentPage, order)) as AxiosResponse<IDocumentResponse>;
-  const { documents, totalCount } = response.data;
+  const response = (await GetAllDocuments(limit, currentPage, order));
+  const { documents, totalCount } = response;
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (

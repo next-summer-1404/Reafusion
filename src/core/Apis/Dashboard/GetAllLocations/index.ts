@@ -1,6 +1,9 @@
-import Api from "@/lib/Interceptor"
+import { IAllLocationsResponse } from "@/core/types/IAllLocationsResponse";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
-export const GetAllLocations = async (limit: number, currentPage: number, order: string) => {
-  const response = await Api.get(`/api/locations?page=${currentPage}&limit=${limit}&order=${order}`);
+export const GetAllLocations = async (limit: number, currentPage: number, order: string): Promise<IAllLocationsResponse> => {
+  const response = await fetchApi<IAllLocationsResponse>(
+    `/api/locations?page=${currentPage}&limit=${limit}&order=${order}`
+  );
   return response
 }

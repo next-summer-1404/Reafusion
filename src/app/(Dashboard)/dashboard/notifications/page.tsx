@@ -3,14 +3,7 @@ import NotificationTopBar from "@/components/Pages/DashboardPages/NotificationPa
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import CustomPagination2 from "@/components/Ui/CustomPagination2";
 import { GetUserNotifications } from "@/core/Apis/Dashboard/GetUserNotifications";
-import { INotificationData } from "@/core/types/INotificationData";
-import { AxiosResponse } from "axios";
 import React, { FC } from "react";
-
-interface INotificationResponse {
-  data: INotificationData[];
-  totalCount: number;
-}
 
 interface INotificationList {
   searchParams: {
@@ -22,14 +15,14 @@ const Notifications: FC<INotificationList> = async ({ searchParams }) => {
   const limit = 5;
   const currentPage = parseInt(searchParams.page || "1", 5);
   // list of the unReadNotification
-  const response = (await GetUserNotifications(false, limit, currentPage)) as AxiosResponse<INotificationResponse>;
-  const unreadNotifications = response.data.data;
+  const response = (await GetUserNotifications(false, limit, currentPage))
+  const unreadNotifications = response.data;
   console.log(unreadNotifications)
   // list of the unReadNotification end
   // list of the ReadNotification
-  const response2 = (await GetUserNotifications(true, limit, currentPage)) as AxiosResponse<INotificationResponse>;
-  const readNotifications = response2.data.data;
-  const { totalCount } = response2.data;
+  const response2 = (await GetUserNotifications(true, limit, currentPage));
+  const readNotifications = response2.data;
+  const { totalCount } = response2;
   // list of the ReadNotification end
   // calculet the page count for pagination
   const totalPages = Math.ceil((totalCount as number) / limit);

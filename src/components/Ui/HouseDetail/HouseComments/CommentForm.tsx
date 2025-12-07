@@ -3,6 +3,7 @@ import { CommentAction } from "@/app/(Main)/FastReservePage";
 import React, { FC, useActionState, useEffect } from "react";
 import FillButton from "../../Buttons/FillButton";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface IProps {
   userId: string;
@@ -11,15 +12,17 @@ interface IProps {
 
 const CommentForm: FC<IProps> = ({ userId, houseId }) => {
   const [state, formAction] = useActionState(CommentAction, { message: "" });
+  const router = useRouter();
   console.log(state)
 
   useEffect(() => {
-    if (state.message === "نظر شما با موفقیت ثبت شد") {
+    if (state?.message === "نظر شما با موفقیت ثبت شد") {
       toast.success('نظر شما با موفقیت ثبت شد');
-    } else if (state.message && state.message !== "نظر شما با موفقیت ثبت شد") {
+      router.refresh()
+    } else if (state?.message && state.message !== "نظر شما با موفقیت ثبت شد") {
       toast.error(state.error || 'خطا در انجام عملیات الطا دوباره امتحان کنید')
     }
-  }, [state])
+  }, [state, router])
 
   return (
     <form action={formAction} className="space-y-5 pt-7">

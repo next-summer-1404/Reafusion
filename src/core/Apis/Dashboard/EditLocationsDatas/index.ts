@@ -1,5 +1,4 @@
-import Api from "@/lib/Interceptor";
-import { cookies } from "next/headers";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface IUpdateLocationDatas {
   area_name: string;
@@ -8,12 +7,9 @@ interface IUpdateLocationDatas {
 }
 
 export const EditLocationsDatas = async (UpdateLocationDatas: IUpdateLocationDatas, id: string) => {
-  const cookiesStore = await cookies();
-  const token = cookiesStore.get("token")?.value as string;
-  const response = await Api.put(`/api/locations/${id}`, UpdateLocationDatas, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+  const response = await fetchApi(`/api/locations/${id}`, {
+    method: 'PUT',
+    body: UpdateLocationDatas,
   });
-  return response.data;
+  return response;
 };

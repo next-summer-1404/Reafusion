@@ -1,4 +1,4 @@
-import Api from "@/lib/Interceptor"
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface IForgetPassData02 {
   resetCode: string;
@@ -6,6 +6,9 @@ interface IForgetPassData02 {
 }
 
 export const forgetPassStep02 = async (ForgotPass02Data: IForgetPassData02) => {
-   const Response = await Api.post(`/api/auth/forgot-password/verify`, ForgotPass02Data)
-   return Response.data
+   const Response = await fetchApi(`/api/auth/forgot-password/verify`, {
+      method: "POST",
+      body: ForgotPass02Data,
+   })
+   return Response
 }

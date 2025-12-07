@@ -1,13 +1,11 @@
 import Breadcrumb from "@/components/Ui/Breadcrumb";
 import Container from "@/components/Ui/Container/Container";
 import { GetAllHouses } from "@/core/Apis/GetAllHouses";
-import { AxiosResponse } from "axios";
 import HouseCard from "@/components/Ui/HouseCard";
 import { FC } from "react";
 import CustomPagination from "@/components/Ui/CustomPagination";
 import FilterBox from "@/components/Pages/MortageAndRent/FilterBox";
 import { IMortageAndRent } from "@/core/Types/IMortageAndRent";
-import { IApiResponse } from "@/core/Types/IApiResForGetHouses";
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 
 const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
@@ -32,8 +30,8 @@ const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
     currentPage, limit, Search, transactionType, minPrice,
     maxPrice, minMortgage, maxMortgage, minRent, maxRent, // minArea, // maxArea,
     location, sort
-  )) as AxiosResponse<IApiResponse>;
-  const { houses, totalCount } = response.data;
+  ));
+  const { houses, totalCount } = response;
   // call Api and send Params to that end
   // calculate count of the totalPage
   const totalPages = Math.ceil((totalCount as number) / limit);

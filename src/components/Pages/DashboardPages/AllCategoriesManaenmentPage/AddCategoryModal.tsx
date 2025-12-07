@@ -54,16 +54,16 @@ const AddCategoryModal: React.FC<Props> = ({ open, searchParams }) => {
         },
       }}
     >
-      <div className="flex items-center justify-between pl-3">
-        <DialogTitle className="text-[20px] font-bold text-primary">
+      <div className="flex items-center justify-between pl-3 dark:bg-dark">
+        <DialogTitle className="text-[20px] font-bold text-primary dark:text-thidary">
           افزودن دسته‌بندی جدید
         </DialogTitle>
         <IconButton onClick={handleClose}>
-          <X size={24} />
+          <X size={24} className="dark:text-whiteColor"/>
         </IconButton>
       </div>
 
-      <DialogContent className="p-6">
+      <DialogContent className="p-6 dark:bg-dark">
         <form action={formAction} className="space-y-6">
           <Input
             name="name"

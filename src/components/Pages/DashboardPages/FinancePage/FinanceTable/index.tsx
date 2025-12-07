@@ -8,9 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import FinanceFilterBox from "../FinanceFilterBox";
 import GetFinanceList from "@/core/Apis/Dashboard/FinanceList";
-import { AxiosResponse } from "axios";
 import FinanceActionMenu from "./FinanceActionMenu";
-import { IFinanceResponse } from "@/core/types/IFinanceResponse";
 import CustomPagination2 from "@/components/Ui/CustomPagination2";
 
 interface IProps {
@@ -25,8 +23,8 @@ const FinanceTable: FC<IProps> = async ({ searchParams, token }) => {
   const limit = 5;
   const currentPage = parseInt(searchParams.page || "1", 5);
   const paymentStatus = searchParams.paymentStatus || ""
-  const response = (await GetFinanceList(limit, currentPage, paymentStatus)) as AxiosResponse<IFinanceResponse>;
-  const { data, totalCount } = response.data;
+  const response = (await GetFinanceList(limit, currentPage, paymentStatus));
+  const { data, totalCount } = response;
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (

@@ -1,14 +1,9 @@
-import Api from "@/lib/Interceptor"
-import { cookies } from "next/headers";
+import { IAllCommentsList } from "@/core/types/IAllCommentsList";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
-export const GetAllCommentsList = async (limit: number, currentPage: number, order: string) => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token");
-  const tokenValue = token?.value as string;
-  const response = await Api.get(`/api/admin/comments?page=${currentPage}&limit=${limit}&order=${order}`, {
-      headers: {
-        Authorization: `Bearer ${tokenValue}`,
-      },
-  });
+export const GetAllCommentsList = async (limit: number, currentPage: number, order: string): Promise<IAllCommentsList> => {
+  const response = await fetchApi<IAllCommentsList>(
+    `/api/admin/comments?page=${currentPage}&limit=${limit}&order=${order}`
+  );
   return response
 }

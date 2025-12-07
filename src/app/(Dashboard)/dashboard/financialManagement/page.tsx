@@ -2,19 +2,9 @@ import FinanceTable from "@/components/Pages/DashboardPages/FinancePage/FinanceT
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
 import StatusCard from "@/components/Ui/StatusCard";
 import { GetDashboardFinance } from "@/core/Apis/Dashboard/GetDashboardFinance";
-import { AxiosResponse } from "axios";
 import { Eye, Hourglass, House, ListChecks } from "lucide-react";
 import { cookies } from "next/headers";
 import React, { FC } from "react";
-
-interface IFinancialData {
-  totalAmount: number;
-  totalBookings: number;
-  totalPayments: number;
-  totalPerviousMonthAmount: number;
-  totalCurrentMonthAmount: number;
-}
-
 interface IFinancePage {
   searchParams: {
     page?: string;
@@ -23,8 +13,8 @@ interface IFinancePage {
 }
 
 const FinancialManagement: FC<IFinancePage> = async ({ searchParams }) => {
-  const response = (await GetDashboardFinance()) as AxiosResponse<IFinancialData>;
-  const data = response.data
+  const response = (await GetDashboardFinance());
+  const data = response
 
   const StatusDatas = [
     { Icon: House, label: "درآمد ماه جاری", value: data.totalCurrentMonthAmount },

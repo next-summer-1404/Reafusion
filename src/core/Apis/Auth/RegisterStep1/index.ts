@@ -1,13 +1,12 @@
-import Api from "@/lib/Interceptor/index";
+import fetchApi from "@/lib/Interceptor/serverApi";
 interface IRegisterStep1 {
   email: string;
 }
-// interface IRegisterStep1Response {
-//   message: string;
-//   tempUserId: string;
-// }
 
 export const postRegisterStep1 = async (registerData: IRegisterStep1) => {
-  const res = await Api.post("/api/auth/register", registerData);
-  return res.data;
+  const res = await fetchApi<{ tempUserId: string }>("/api/auth/register", {
+    method: 'POST',
+    body: registerData,
+  });
+  return res;
 };

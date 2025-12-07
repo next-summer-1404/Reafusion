@@ -3,8 +3,6 @@ import Image from 'next/image';
 import userImage from '@/assets/images/UnKnownUserImg/UnKnownUser.jpg';
 import Link from 'next/link';
 import { GetUserInformation } from '@/core/Apis/Dashboard/UserInformation';
-import { AxiosResponse } from 'axios';
-import { IUserInformation } from '@/core/types/IUserInformation';
 import { Bell, House } from 'lucide-react';
 import HeaderMenu from './HeaderMenu';
 import DarkModeBtn from './DarkModeBtn';
@@ -14,9 +12,8 @@ interface IProps {
 }
 
 const DashboardHeader: FC<IProps> = async ({ role }) => {
-    const response = await GetUserInformation() as AxiosResponse<IUserInformation>
-    const { user } = response.data;
-    console.log(user)
+    const response = await GetUserInformation()
+    const { user } = response;
 
     return (
         <div className='flex justify-between items-center px-4 py-2 bg-lightGray dark:bg-dark border border-borderColor dark:border-thidary rounded-3xl'>

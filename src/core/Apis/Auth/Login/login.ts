@@ -1,8 +1,11 @@
-import { ILoginResponse } from "@/core/Types/Auth/ILoginResponse";
-import { IUserLogin } from "@/core/Types/Auth/IUserLogin";
-import Api from "@/lib/Interceptor";
+import { ILoginResponse } from "@/core/types/Auth/ILoginResponse";
+import { IUserLogin } from "@/core/types/Auth/IUserLogin";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 export const postLogin = async (loginData: IUserLogin): Promise<ILoginResponse> => {
-  const res = await Api.post("/api/auth/login", loginData);
-  return res.data;
+  const res = await fetchApi<ILoginResponse>("/api/auth/login", {
+    method: "POST",
+    body: loginData
+  });
+  return res;
 };

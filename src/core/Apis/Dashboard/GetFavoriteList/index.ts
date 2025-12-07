@@ -1,13 +1,9 @@
-import Api from "@/lib/Interceptor"
-import { cookies } from "next/headers";
+import { IFavoriteResponse } from "@/core/types/IFavoriteResponse";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
-export const GetFavoriteList = async (limit: number, currentPage: number, order: string) => {
-  const cookiesStore = await cookies();
-  const token = cookiesStore.get("token")?.value as string;
-  const response = await Api.get(`/api/favorites/user?page=${currentPage}&limit=${limit}&order=${order}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+export const GetFavoriteList = async (limit: number, currentPage: number, order: string): Promise<IFavoriteResponse> => {
+  const response = await fetchApi<IFavoriteResponse>(
+    `/api/favorites/user?page=${currentPage}&limit=${limit}&order=${order}`
+  );
   return response;
 }

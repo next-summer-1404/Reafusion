@@ -1,4 +1,4 @@
-import Api from "@/lib/Interceptor";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface ICommentData {
   house_id: string;
@@ -9,12 +9,11 @@ interface ICommentData {
   parent_comment_id: string;
 }
 
-export const CreateHouseComment = async (CommentData: ICommentData, token:string) => {
-  const Response = await Api.post(`/api/comments`, CommentData, {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
+export const CreateHouseComment = async (CommentData: ICommentData) => {
+  const Response = await fetchApi<{ message?: string }>(`/api/comments`, {
+    method: "POST",
+    body: CommentData,
   });
 
-  return Response.data;
+  return Response;
 };

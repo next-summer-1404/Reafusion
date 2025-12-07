@@ -8,7 +8,7 @@ import ReservesListModal from '../ReservesListModal';
 import PassengersModal from '../PassengersModal';
 import PaymentsModal from '../PaymentsModal';
 import EditHistoryModal from '../EditHistoryModal';
-import { IBookingData } from '@/core/types/IBookingDatas';
+import { IBookingResponse } from '@/core/types/IBookingDatas';
 
 const icons = [
   { name: 'bed', icon: <BedDouble size={22} strokeWidth={1.5} /> },
@@ -23,7 +23,7 @@ interface IProps {
   houseId?: string;
   activeSubModal?: string;
   houseDetail?: IHouseDetailData;
-  BookingList?: IBookingData[];
+  BookingList?: IBookingResponse;
 }
 
 export default function HouseDetailModal({ houseId, activeSubModal, houseDetail, BookingList }: IProps) {

@@ -12,14 +12,14 @@ import ActionMenuButton from "../ActionMenuButton";
 import HouseDetailModal from "../HouseDetailModal/HouseDetailModal";
 import CustomPagination2 from "@/components/Ui/CustomPagination2";
 import { FC } from "react";
-import { IBookingData } from "@/core/types/IBookingDatas";
+import { IBookingResponse } from "@/core/types/IBookingDatas";
 import { GetHouseDetail } from "@/core/Apis/GetHouseDetail";
 import { IHouseDetailData } from "@/core/types/IHouseDetailData";
 import { cookies } from "next/headers";
 import BookingPaymentModal from "../BookingPaymentModal";
 
 interface IProps {
-  data: IBookingData[];
+  data: IBookingResponse;
   totalPages: number;
   currentPage: number;
   selectedHouseId?: number;
@@ -31,7 +31,7 @@ const ReservesTable: FC<IProps> = async ({ data, totalPages, currentPage, select
   if (selectedHouseId && !isNaN(selectedHouseId)) {
     try {
       const response = await GetHouseDetail(selectedHouseId.toString());
-      houseDetail = response.data;
+      houseDetail = response;
       console.log(houseDetail)
     } catch (error) {
       console.error("خطا در دریافت جزئیات:", error);
@@ -60,7 +60,7 @@ const ReservesTable: FC<IProps> = async ({ data, totalPages, currentPage, select
           </TableHead>
 
           <TableBody>
-            {data.map((item) => (
+            {data.data.map((item) => (
               <TableRow key={item.id} className="hover:!bg-lightPrimary dark:hover:!bg-dark transition-colors">
                 <TableCell component="th" scope="row" align="right" sx={{ py: 2 }}>
                   <Link href="#" className="text-primary dark:text-thidary hover:underline">

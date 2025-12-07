@@ -1,5 +1,4 @@
-import Api from "@/lib/Interceptor"
-import { cookies } from "next/headers";
+import fetchApi from "@/lib/Interceptor/serverApi";
 
 interface IHouseData {
     title: string;
@@ -24,13 +23,9 @@ interface IHouseData {
 }
 
 export const AddHouse = async (houseData: IHouseData) => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token");
-  const tokenValue = token?.value as string;
-  const response = await Api.post(`/api/houses`, houseData, {
-    headers: {
-        Authorization: `Bearer ${tokenValue}`,
-    },
+  const response = await fetchApi<{ id: string }>(`/api/houses`, {
+    method: 'POST',
+    body: houseData
   })
-  return response.data 
+  return response 
 }

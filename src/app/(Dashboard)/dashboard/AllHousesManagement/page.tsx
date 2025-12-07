@@ -2,14 +2,7 @@ import AllHousesTable from '@/components/Pages/DashboardPages/AllHouseManagement
 import AllPaymentManagementFilterBox from '@/components/Pages/DashboardPages/AllPaymentManagementPage/FilterBox/AllPaymentManagementsFilter'
 import ScrollReveal from '@/components/Ui/Animations/ScrollReveal'
 import { GetAllHousesAdmin } from '@/core/Apis/Dashboard/GetAllHouses'
-import { IHouse } from '@/core/types/IHouse'
-import { AxiosResponse } from 'axios'
 import React, { FC } from 'react'
-
-interface IAllHousesAdmin {
-  data: IHouse[];
-  totalCount: number;
-}
 
 interface IAllHousesManaegment {
   searchParams: {
@@ -22,8 +15,8 @@ const AllHousesManagementPage: FC<IAllHousesManaegment> = async ({ searchParams 
   const limit = 10;
   const currentPage = parseInt(searchParams.page || "1", 8);
   const order = searchParams.order || 'DESC';
-  const response = await GetAllHousesAdmin(limit, currentPage, order) as AxiosResponse<IAllHousesAdmin>
-  const { data, totalCount } = response.data;
+  const response = await GetAllHousesAdmin(limit, currentPage, order)
+  const { data, totalCount } = response;
   const totalPages = Math.ceil((totalCount as number) / limit);
 
   return (

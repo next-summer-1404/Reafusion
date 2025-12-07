@@ -1,4 +1,4 @@
-import Api from "@/lib/Interceptor";
+import fetchApi from "@/lib/Interceptor/serverApi";
 import { cookies } from "next/headers";
 
 interface IpersonalDatas {
@@ -17,10 +17,9 @@ export const UpdateUserInformation = async (personalDatas: IpersonalDatas) => {
   const decodToken = JSON.parse(Buffer.from(tokenValue.split(".")[1], 'base64url').toString('utf-8'));
   // get userId for api with token end
   
-  const response = await Api.put(`/api/users/${decodToken.id}`, personalDatas, {
-    headers: {
-        Authorization: `Bearer ${tokenValue}`,
-    },
+  const response = await fetchApi(`/api/users/${decodToken.id}`, {
+    method: 'PUT',
+    body: personalDatas
   });
-  return response.data;
+  return response;
 };
