@@ -10,15 +10,11 @@ const Shabnam = localFont({
       weight: "400",
       style: "normal",
     },
-    // اگر بولد هم داری، اضافه کن:
-    // {
-    //   path: "../assets/fonts/Shabnam-Bold-FD.ttf",
-    //   weight: "700",
-    //   style: "normal",
-    // },
   ],
   variable: "--font-shabnam",
   display: "swap",
+  preload: true,            
+  fallback: ["system-ui", "arial"],
 });
 
 export const metadata: Metadata = {
