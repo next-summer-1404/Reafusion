@@ -10,25 +10,20 @@ const HeroSection = async () => {
 
   return (
     <div className="relative min-h-[705px] rounded-[48px] overflow-hidden px-16 py-6 flex justify-between max-xl:block max-xl:px-6">
-      
-      {/* تصویر پس‌زمینه با next/image — بهینه‌شده، priority، WebP/AVIF، blur */}
+      {/* the performance of the landing page with image is 82 and without that is 93/92 */}
       <Image
-        src={heroSectionImg}
-        alt="خانه رویایی یا هتل دلخواه"
+        src={heroSectionImg.src}
+        alt="heroSectionImg"
         fill
-        priority
+        priority          
         quality={85}
-        placeholder="blur"
-        blurDataURL={heroSectionImg.blurDataURL}
+        placeholder="blur"  
+        blurDataURL={heroSectionImg.blurDataURL} 
         className="object-cover"
         sizes="100vw"
       />
-
-      {/* لایه تیره (همون gradient قبلی) */}
       <div className="absolute inset-0 bg-black/50" />
-
-      {/* محتوای اصلی — دقیقاً همون قبلی */}
-      <div className="relative z-10 w-[503px] rounded-[24px] bg-white dark:bg-dark py-6 px-7 text-center space-y-5 max-xl:w-full">
+      <div className="relative z-10 w-[503px] rounded-[24px] bg-whiteColor dark:bg-dark py-6 px-7 text-center space-y-5 max-xl:w-full">
         <h2 className="text-[20px] text-primary dark:text-whiteColor font-bold">
           همین حالا رزرو کنید !
         </h2>
@@ -45,8 +40,6 @@ const HeroSection = async () => {
         </div>
         <SearchForm houses={houses} />
       </div>
-
-      {/* متن سمت راست */}
       <div className="relative z-10 text-whiteColor w-[53%] space-y-6 py-[15.5%] max-xl:py-[7.5%] max-xl:w-full max-xl:mt-6">
         <h1 className="font-bold text-[36px] max-xl:text-[30px]">
           خانه رویایی یا هتل دلخواهت رو اینجا پیدا کن
