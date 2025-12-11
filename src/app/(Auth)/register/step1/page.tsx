@@ -1,4 +1,3 @@
-"use client"
 import AccountLink from '@/components/Pages/AuthPages/AccountLink';
 import AuthForm from '@/components/Pages/AuthPages/AuthForm';
 import BackBtn from '@/components/Pages/AuthPages/BackBtn';

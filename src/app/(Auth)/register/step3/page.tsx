@@ -6,15 +6,6 @@ import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import React, { useEffect, useState } from 'react'
 import { register03Action } from '../../../../app/(Auth)/register/step3/index'
-import { Metadata } from 'next';
-
-export const generateMetadata = async (): Promise<Metadata> => {
-  return {
-    title: 'صفحه ثبت نام مرحله آخر',
-    description: 'در این صفحه کاربر میتواند در سایت ریفیوژن اطلاعات تکمیلی خود را وارد میکند',
-    keywords: ['صفحه اطلاعات تکمیلی برای ثبت نام', 'ثبت نام در ریفیوژن', 'مرحله اخر ثبت نام در ریفیوژن']
-  }
-}
 
 const RegisterPageStep3 = () => {
   // get userId value from sessionStorage

@@ -6,15 +6,7 @@ import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import React, { useEffect, useState } from 'react';
 import { ForgotPass03Action } from './index';
-import { Metadata } from 'next';
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  return {
-    title: 'فراموشی رمز ریفیوژن مرحله آخر',
-    description: 'در این صفحه کاربر میتواند در سایت ریفیوژن اگر کد ورودش را فراموش کرد تغییرش دهد',
-    keywords: ['صفحه فراموشی رمز مرحه آخر', 'فراموشی رمز در ریفیوژن', 'مرحله آخر فراموشی رمز در ریفیوژن']
-  }
-}
 
 const ForgetPassPageStep3 = () => {
   // get data of user witch save in sesionStorage

@@ -1,4 +1,3 @@
-'use client';
 import AuthForm from '@/components/Pages/AuthPages/AuthForm';
 import BackBtn from '@/components/Pages/AuthPages/BackBtn';
 import FormTitle from '@/components/Pages/AuthPages/FormTitle';
