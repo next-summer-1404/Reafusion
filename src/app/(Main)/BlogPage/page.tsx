@@ -4,6 +4,7 @@ import Breadcrumb from '@/components/Ui/Breadcrumb'
 import Container from '@/components/Ui/Container/Container'
 import CustomPagination from '@/components/Ui/CustomPagination'
 import { GetBlogList } from '@/core/Apis/GetBlogList'
+import { Metadata } from 'next'
 import React, { FC } from 'react'
 
 interface IBlogProps {
@@ -11,6 +12,14 @@ interface IBlogProps {
     page?: string;
     title?: string;
   };
+}
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: 'اخبار و مقالات املاک',
+    description: 'در این صفحه شما جدید ترین اخبار و مقالات را درباره املاک دریافت خواهید کرد و از وضعیت املاک به بروزترین حالت ممکن باخبر خواهید شد',
+    keywords: ['اخبار املاک', 'مقالات املاک', 'اخبار و مقالات املاک', 'وضعیت املاک'],
+  }
 }
 
 const BlogPage: FC<IBlogProps> = async ({ searchParams }) => {

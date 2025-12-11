@@ -9,6 +9,7 @@ import { GetHouseDetail } from '@/core/Apis/GetHouseDetail';
 import { GetHousesComments } from '@/core/Apis/GetHousesComment';
 import { GetSpecialVilas } from '@/core/Apis/GetSpecialVilas';
 import { IComment } from '@/core/types/ICommentResponse';
+import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import React, { FC } from 'react'
 
@@ -20,6 +21,16 @@ interface IProps {
 export interface ICommentResponse {
   data: IComment[];
   totalCount: number;
+}
+
+export const generateMetadata = async ({ params }: IProps): Promise<Metadata> => {
+  const id = params.id
+  const response = (await GetHouseDetail(id));
+  return {
+    title: `${response.title}` || 'جزعیات خانه',
+    description: `${response.caption}` || 'این صفحه جزعیات خانه را مشاهده می کنید و اطلاعات تکمیلی خانه را برسی میکنید',
+    keywords: [`${response.tags}`, `${response.title}`,],
+  }
 }
 
 const MortageAndRentDetail: FC<IProps> = async ({ params }) => {

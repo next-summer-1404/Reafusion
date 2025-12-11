@@ -10,9 +10,20 @@ import Slider from "@/components/Pages/Landing/Sections/BestHouses/Slider";
 import { GetHousesComments } from "@/core/Apis/GetHousesComment";
 import { cookies } from "next/headers";
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
+import { Metadata } from "next";
 
 interface IProps {
   params: { id: string };
+}
+
+export const generateMetadata = async ({ params }: IProps): Promise<Metadata> => {
+  const id = params.id
+  const response = (await GetHouseDetail(id));
+  return {
+    title: `${response.title}` || 'جزعیات خانه',
+    description: `${response.caption}` || 'این صفحه جزعیات خانه را مشاهده می کنید و اطلاعات تکمیلی خانه را برسی میکنید',
+    keywords: [`${response.tags}`, `${response.title}`,],
+  }
 }
 
 

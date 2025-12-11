@@ -7,7 +7,15 @@ import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import React from 'react'
 import { register01Action } from '../../../../app/(Auth)/register/step1/index';
+import { Metadata } from 'next';
 
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: 'صفحه ثبت نام مرحله یکم',
+    description: 'در این صفحه کاربر میتواند در سایت ریفیوژن ثبت نام کند',
+    keywords: ['صفحه ثبت نام', 'ثبت نام در ریفیوژن', 'مرحله یکم ثبت نام در ریفیوژن']
+  }
+}
 
 const RegisterPageStep1 = () => {
 

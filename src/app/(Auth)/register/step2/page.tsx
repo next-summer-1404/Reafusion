@@ -7,6 +7,15 @@ import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import TimerCounter from '@/components/Pages/AuthPages/TimerCounter';
 import React, { useEffect, useState } from 'react'
 import { register02Action } from '.';
+import { Metadata } from 'next';
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: 'صفحه ثبت نام مرحله دوم',
+    description: 'در این صفحه کاربر میتواند در سایت ریفیوژن کد ارسال شده را وارد میکند',
+    keywords: ['صفحه ارسال کد ثبت نام', 'ثبت نام در ریفیوژن', 'مرحله دوم ثبت نام در ریفیوژن']
+  }
+}
 
 const RegisterPageStep2 = () => {
 

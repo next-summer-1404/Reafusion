@@ -7,6 +7,15 @@ import CustomPagination from "@/components/Ui/CustomPagination";
 import FilterBox from "@/components/Pages/MortageAndRent/FilterBox";
 import { IMortageAndRent } from "@/core/Types/IMortageAndRent";
 import ScrollReveal from "@/components/Ui/Animations/ScrollReveal";
+import { Metadata } from "next";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: 'رهن و اجاره املاک ',
+    description: 'در این صفحه شما میتوانید خانه ها را رهن یا اجاره کنید به بهترین شکل ممکن و همچنین میتوانید خانه ها را برسی و تحلیل هم کنید',
+    keywords: ['رهن خانه', 'اجاره خانه', 'رهن و اجاره خانه', 'رهن املاک', 'اجاره املاک',]
+  }
+}
 
 const MortageAndRentPage: FC<IMortageAndRent> = async ({ searchParams }) => {
   // the data of searchParams witch send that to Api

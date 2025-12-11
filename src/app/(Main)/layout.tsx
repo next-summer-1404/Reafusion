@@ -15,8 +15,8 @@ const MainLayout: FC<IProps> = async ({ children }) => {
   const token = cookieStore.get('token')?.value;
   let user = null;
   if (token) {
-    const userInformations = (await GetUserInformation()) as AxiosResponse<IUserInformation>;
-    user = userInformations?.data?.user || null;
+    const userInformations = (await GetUserInformation());
+    user = userInformations?.user || null;
   }
   
 

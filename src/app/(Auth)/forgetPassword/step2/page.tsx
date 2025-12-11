@@ -7,6 +7,15 @@ import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import TimerCounter from '@/components/Pages/AuthPages/TimerCounter';
 import React, { useEffect, useState } from 'react'
 import { ForgotPass02Action } from './index';
+import { Metadata } from 'next';
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: 'فراموشی رمز ریفیوژن مرحله دوم',
+    description: 'در این صفحه کاربر میتواند در سایت ریفیوژن اگر کد ورودش را فراموش کرد تغییرش دهد',
+    keywords: ['صفحه فراموشی رمز مرحه دوم', 'فراموشی رمز در ریفیوژن', 'مرحله دوم فراموشی رمز در ریفیوژن']
+  }
+}
 
 const ForgetPassPageStep2 = () => {
     // get user Data from sesionStorage 

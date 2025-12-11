@@ -5,6 +5,15 @@ import BackBtn from "@/components/Pages/AuthPages/BackBtn";
 import FormInput from "@/components/Pages/AuthPages/Input";
 import AccountLink from "@/components/Pages/AuthPages/AccountLink";
 import { loginAction } from '../../../app/(Auth)/login/index';
+import { Metadata } from "next";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: 'صفحه ورود کاربر',
+    description: 'در این صفحه کاربر میتواند در سایت ریفیوژن ورود پیدا کند اگر ثبت نام کرده باشد',
+    keywords: ['صفحه ورود', 'ورود به ریفیوژن']
+  }
+}
 
 const LoginPage = () => {
   return (

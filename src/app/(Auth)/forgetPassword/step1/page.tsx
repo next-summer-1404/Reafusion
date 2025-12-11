@@ -6,6 +6,15 @@ import FormInput from '@/components/Pages/AuthPages/Input';
 import SubmitBtn from '@/components/Pages/AuthPages/SubmitBtn';
 import React from 'react'
 import { forgetPassAction } from './index';
+import { Metadata } from 'next';
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: 'فراموشی رمز ریفیوژن مرحله یکم',
+    description: 'در این صفحه کاربر میتواند در سایت ریفیوژن اگر کد ورودش را فراموش کرد تغییرش دهد',
+    keywords: ['صفحه فراموشی رمز مرحه یکم', 'فراموشی رمز در ریفیوژن', 'مرحله یکم فراموشی رمز در ریفیوژن']
+  }
+}
 
 const ForgetPassPageStep1 = () => {
     return (

@@ -5,7 +5,16 @@ import Container from "@/components/Ui/Container/Container";
 import CustomPagination from "@/components/Ui/CustomPagination";
 import { GetAllHouses } from "@/core/Apis/GetAllHouses";
 import { IFastReservePage } from "@/core/Types/IFastReservePage";
+import { Metadata } from "next";
 import { FC } from "react";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: 'رزرو سریع املاک',
+    description: 'در این صفحه شما میتوانید املاک را به سریع ترین شکل ممکن برای خودتون رزرو کنید و املاک را برسی و تحلیل کنید به ',
+    keywords: ['رزرو سریع املاک', 'رزرو املاک', 'رزرو خانه', 'لیست خانه ها', 'رزرو ملک', 'برسی املاک'],
+  }
+}
 
 const FastReservePage: FC<IFastReservePage> = async ({ searchParams }) => {
   // the data for filtering or pagination

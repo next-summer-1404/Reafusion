@@ -1,11 +1,18 @@
 import DashboardHeader from '@/components/Pages/DashboardPages/DashboardHeader';
 import DashboardMenu from '@/components/Pages/DashboardPages/DashboardMenu';
 import ScrollReveal from '@/components/Ui/Animations/ScrollReveal';
+import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import React, { FC, ReactNode } from 'react'
 
 interface IProps {
     children: ReactNode;
+}
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: 'داشبورد کاربر'
+  }
 }
 
 const DashboardLayout: FC<IProps> = async ({ children }) => {
